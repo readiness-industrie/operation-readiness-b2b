@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://readiness-industrie.github.io/operation-readiness-b2b/sitemap.xml
