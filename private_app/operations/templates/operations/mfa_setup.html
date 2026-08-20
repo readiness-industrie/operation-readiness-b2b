@@ -1,0 +1,12 @@
+{% extends 'operations/base.html' %}
+{% block title %}Configurer le MFA{% endblock %}
+{% block page_class %}auth-page{% endblock %}
+{% block content %}
+<section class="auth-card wide">
+  <p class="eyebrow">Sécurité obligatoire</p><h1>Configurer le second facteur</h1>
+  <ol><li>Ouvrez une application TOTP (Aegis, 2FAS, Google Authenticator…).</li><li>Scannez ce QR code ou saisissez la clé.</li><li>Entrez le code à 6 chiffres.</li></ol>
+  <img class="qr" src="data:image/png;base64,{{ qr_data }}" alt="QR code de configuration MFA">
+  <p class="secret"><strong>Clé manuelle :</strong> {{ secret }}</p>
+  <form method="post" class="stack-form">{% csrf_token %}{{ form.as_div }}<button class="button primary" type="submit">Activer le MFA</button></form>
+</section>
+{% endblock %}

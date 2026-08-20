@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>{% block title %}Readiness Console{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'operations/app.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  {% if request.user.is_authenticated %}
+  <header class="topbar">
+    <a class="brand" href="{% if request.user.role == 'CLIENT_VIEWER' %}{% url 'portal_home' %}{% else %}{% url 'dashboard' %}{% endif %}"><span>RI</span><strong>Readiness Console</strong></a>
+    <nav aria-label="Navigation principale">
+      {% if request.user.role == 'OWNER' %}
+      <a href="{% url 'dashboard' %}">File du jour</a>
+      <a href="{% url 'mission_list' %}">Missions</a>
+      <a href="{% url 'organization_list' %}">Clients</a>
+      <a href="{% url 'config' %}">Paramètres</a>
+      <a href="{% url 'incident_list' %}">Incidents</a>
+      {% else %}
+      <a href="{% url 'portal_home' %}">Mes dossiers</a>
+      {% endif %}
+    </nav>
+    <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="link-button" type="submit">Déconnexion</button></form>
+  </header>
+  {% endif %}
+  <main id="content" class="page {% block page_class %}{% endblock %}">
+    {% if messages %}<div class="messages" role="status">{% for message in messages %}<p class="message {{ message.tags }}">{{ message }}</p>{% endfor %}</div>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer"><p>Nous poursuivons et documentons. Vous décidez.</p></footer>
+</body>
+</html>

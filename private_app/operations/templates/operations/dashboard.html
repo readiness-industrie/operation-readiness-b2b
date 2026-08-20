@@ -1,0 +1,22 @@
+{% extends 'operations/base.html' %}
+{% block title %}File du jour — Readiness Console{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">Vue opérateur</p><h1>Ce qu’il faut faire maintenant</h1></div><a class="button primary" href="{% url 'mission_create' %}">Nouvelle qualification</a></div>
+<section class="metric-grid">
+  <article class="metric danger"><span>{{ queue.p0|length }}</span><p>P0 immédiats</p></article>
+  <article class="metric warning"><span>{{ queue.p1|length }}</span><p>P1 aujourd’hui</p></article>
+  <article class="metric"><span>{{ queue.client_decisions|length }}</span><p>Décisions client</p></article>
+  <article class="metric"><span>{{ queue.followups_due|length }}</span><p>Relances échues</p></article>
+</section>
+{% include 'operations/queue_section.html' with title='Nouvelles informations' items=queue.new_information %}
+{% include 'operations/queue_section.html' with title='P0 — agir maintenant' items=queue.p0 urgent=True %}
+{% include 'operations/queue_section.html' with title='Décisions client attendues' items=queue.client_decisions %}
+{% include 'operations/queue_section.html' with title='P1 — aujourd’hui' items=queue.p1 %}
+{% include 'operations/queue_section.html' with title='Relances arrivées à échéance' items=queue.followups_due %}
+{% include 'operations/queue_section.html' with title='Réponses à contrôler' items=queue.responses_to_review %}
+{% include 'operations/queue_section.html' with title='Informations manquantes' items=queue.missing_information %}
+{% include 'operations/queue_section.html' with title='P2 planifiés' items=queue.p2 %}
+{% include 'operations/queue_section.html' with title='P3 sous surveillance' items=queue.p3 %}
+<section class="card"><div class="section-title"><h2>Missions en cours</h2><a href="{% url 'mission_list' %}">Tout voir</a></div><div class="table-wrap"><table><thead><tr><th>Mission</th><th>Client</th><th>État</th><th>Date à protéger</th></tr></thead><tbody>{% for mission in missions %}<tr><td><a href="{% url 'mission_detail' mission.id %}">{{ mission.code }} — {{ mission.project_name }}</a></td><td>{{ mission.tenant.name }}</td><td><span class="pill">{{ mission.get_state_display }}</span></td><td>{{ mission.protected_at|date:'d/m/Y H:i'|default:'Inconnue' }}</td></tr>{% empty %}<tr><td colspan="4">Aucune mission ouverte.</td></tr>{% endfor %}</tbody></table></div></section>
+<form method="post" action="{% url 'revoke_other_sessions' %}" class="security-action">{% csrf_token %}<button class="button secondary" type="submit">Révoquer mes autres sessions</button></form>
+{% endblock %}

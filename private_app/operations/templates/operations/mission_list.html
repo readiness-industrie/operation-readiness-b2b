@@ -1,0 +1,6 @@
+{% extends 'operations/base.html' %}
+{% block title %}Missions — Readiness Console{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">Tous les dossiers</p><h1>Missions</h1></div><a class="button primary" href="{% url 'mission_create' %}">Nouvelle qualification</a></div>
+<section class="card"><div class="table-wrap"><table><thead><tr><th>Code / projet</th><th>Client</th><th>État</th><th>Activation réelle</th><th>Date protégée</th></tr></thead><tbody>{% for mission in missions %}<tr><td><a href="{% url 'mission_detail' mission.id %}"><strong>{{ mission.code }}</strong><br>{{ mission.project_name }}</a></td><td>{{ mission.tenant.name }}</td><td>{{ mission.get_state_display }}</td><td>{{ mission.activated_at|date:'d/m/Y H:i'|default:'—' }}</td><td>{{ mission.protected_at|date:'d/m/Y H:i'|default:'Inconnue' }}</td></tr>{% empty %}<tr><td colspan="5">Aucune mission.</td></tr>{% endfor %}</tbody></table></div></section>
+{% endblock %}
