@@ -1,6 +1,6 @@
 Django~=5.2.0
 argon2-cffi>=25.1,<26
-cryptography>=46.0,<47
+cryptography>=50.0,<51
 dj-database-url>=3.0,<4
 django-storages[s3]>=1.14,<2
 filetype>=1.2,<2
