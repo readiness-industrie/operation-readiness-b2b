@@ -4,11 +4,11 @@
   --paper: #f6f4ee;
   --paper-2: #ebe8df;
   --white: #fff;
-  --muted: #637079;
+  --muted: #53616a;
   --line: #d5d8d4;
   --line-dark: rgba(255, 255, 255, 0.14);
   --accent: #e66f3c;
-  --accent-dark: #b94f26;
+  --accent-dark: #963d1c;
   --green: #2e6b54;
   --amber: #9b681e;
   --red: #934034;
@@ -864,7 +864,7 @@ h3 {
   display: inline-block;
   margin: 8px auto 0;
   padding: 8px 12px;
-  color: #68757c !important;
+  color: #59666d !important;
   background: rgba(255,255,255,0.58);
   border: 1px solid #ced2ce;
   border-radius: 8px;
