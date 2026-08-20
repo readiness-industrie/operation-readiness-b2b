@@ -12,6 +12,8 @@ La page présente un **service humain opéré**, pas un logiciel SaaS à adminis
 ├── styles.css              # Design, responsive, états et animations
 ├── simulation-data.js      # Données fictives de la simulation J-14 → J-0
 ├── app.js                  # Rendu, interactions, calculateur et formulaire local
+├── robots.txt              # Consignes d'exploration et adresse du sitemap
+├── sitemap.xml             # URL canonique à soumettre aux moteurs de recherche
 ├── assets/
 │   ├── favicon.svg
 │   ├── og-readiness.svg
@@ -52,7 +54,9 @@ La documentation GitHub Pages indique l'état de la première publication dans l
 
 - Textes, sections, titres et formulaire : `index.html`
 - Ton visuel, couleurs, espacements et responsive : `styles.css`
-- Meta title et meta description : section `<head>` de `index.html`
+- Meta title, meta description, canonical, partage social et données structurées : section `<head>` de `index.html`
+- URL indexable et date de mise à jour : `sitemap.xml`
+- Adresse du sitemap : `robots.txt`
 
 L'ordre des sections suit le débrief du premier entretien terrain : service opéré, répartition des rôles, complexité J-30 → J-0, preuves et fermeture, simulation, coût, méthode, mandat, traçabilité, escalade, responsabilités, qualification, pilote et CTA final.
 
