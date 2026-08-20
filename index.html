@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Service de poursuite active des prérequis avant installation, SAT ou mise en service industrielle. Vous pilotez le projet, nous poursuivons ce qui manque."
+    />
+    <meta name="theme-color" content="#10202b" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Poursuite des prérequis avant intervention industrielle" />
+    <meta
+      property="og:description"
+      content="Vous définissez ce qui doit être prêt. Nous poursuivons ce qui manque jusqu'à obtention, blocage identifié ou escalade."
+    />
+    <meta property="og:url" content="https://readiness-industrie.github.io/operation-readiness-b2b/" />
+    <meta property="og:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <title>Poursuite des prérequis | Préparation d'intervention industrielle</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="simulation-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="identity" href="#top" aria-label="Retour en haut de page">
+          <span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>
+            <strong>Hervé Mengue</strong>
+            <small>Poursuite des prérequis</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+          <span class="sr-only">Ouvrir le menu</span>
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+          <a href="#simulation">Simulation</a>
+          <a href="#methode">Méthode</a>
+          <a href="#limites">Responsabilités</a>
+          <a class="button button-small button-dark" href="#pilote">Évaluer un pilote</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 1. Hero -->
+      <section class="hero section-dark" id="top">
+        <div class="hero-grid container">
+          <div class="hero-copy reveal">
+            <p class="eyebrow eyebrow-light">Préparation d'intervention industrielle</p>
+            <h1>Vos équipes pilotent les projets. <span>Qui poursuit ce qui manque avant l'intervention&nbsp;?</span></h1>
+            <p class="hero-lead">
+              À l'approche d'une installation, d'un SAT ou d'une mise en service, des confirmations,
+              documents, accès, travaux préparatoires ou disponibilités peuvent encore rester ouverts.
+            </p>
+            <p class="hero-promise">
+              Nous poursuivons les prérequis qui nous sont confiés jusqu'à
+              <strong>obtention, blocage identifié ou escalade.</strong>
+            </p>
+            <p class="hero-short">Vous gardez les décisions. Nous prenons en charge une partie de la poursuite.</p>
+            <div class="button-row">
+              <a class="button button-primary" href="#simulation">Voir une opération simulée</a>
+              <a class="button button-ghost" href="#pilote">Évaluer une opération pilote</a>
+            </div>
+          </div>
+
+          <div class="hero-panel reveal" aria-label="Principe de la poursuite des prérequis">
+            <div class="panel-topline">
+              <span>Opération simulée</span>
+              <span class="live-indicator"><i></i> Suivi actif</span>
+            </div>
+            <div class="hero-panel-body">
+              <p class="panel-kicker">Principe de fonctionnement</p>
+              <div class="next-action-rule">
+                <span class="rule-number">01</span>
+                <p>Un point ouvert ne doit jamais rester <strong>sans prochaine action.</strong></p>
+              </div>
+              <div class="outcome-stack" aria-label="Trois résultats possibles">
+                <div><span class="status-dot status-closed"></span><strong>Élément obtenu</strong><small>Critère client satisfait</small></div>
+                <div><span class="status-dot status-blocked"></span><strong>Blocage identifié</strong><small>Rendu visible avant l'échéance</small></div>
+                <div><span class="status-dot status-decision"></span><strong>Décision escaladée</strong><small>Le client reprend la main</small></div>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <span>Poursuivre</span><i aria-hidden="true"></i><span>Tracer</span><i aria-hidden="true"></i><span>Escalader</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-ruler" aria-hidden="true"></div>
+      </section>
+
+      <!-- 2. Scène J-2 -->
+      <section class="section j2-scene" id="scene-j2">
+        <div class="container">
+          <div class="section-heading split-heading reveal">
+            <div>
+              <p class="eyebrow">Le moment critique</p>
+              <h2>Intervention dans 2 jours.</h2>
+            </div>
+            <p>
+              L'équipe est planifiée. Le déplacement est organisé. Le matériel est réservé. Le créneau
+              d'intervention est prévu. Pourtant, trois formulations restent trop fragiles pour mobiliser sereinement.
+            </p>
+          </div>
+
+          <div class="open-point-grid">
+            <article class="open-point-card reveal">
+              <div class="card-index">01</div>
+              <div>
+                <p class="card-label">Raccordement électrique</p>
+                <h3>«&nbsp;Prévu pour cette semaine&nbsp;»</h3>
+                <p>Dernière information disponible, sans preuve renouvelée.</p>
+              </div>
+              <span class="status-pill status-followup">À reconfirmer</span>
+            </article>
+            <article class="open-point-card reveal">
+              <div class="card-index">02</div>
+              <div>
+                <p class="card-label">Moyen de déchargement</p>
+                <h3>«&nbsp;Normalement disponible&nbsp;»</h3>
+                <p>Aucune confirmation ferme à l'approche de la livraison.</p>
+              </div>
+              <span class="status-pill status-followup">À reconfirmer</span>
+            </article>
+            <article class="open-point-card reveal">
+              <div class="card-index">03</div>
+              <div>
+                <p class="card-label">Sous-traitant</p>
+                <h3>Date transmise il y a 15 jours</h3>
+                <p>Aucune reconfirmation depuis l'annonce initiale.</p>
+              </div>
+              <span class="status-pill status-followup">À reconfirmer</span>
+            </article>
+          </div>
+
+          <blockquote class="question-block reveal">
+            <p>Qui vérifie aujourd'hui que ce qui était vrai il y a quinze jours l'est encore maintenant&nbsp;?</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- 3. Simulation J-14 à J-0 -->
+      <section class="section section-soft simulation-section" id="simulation">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">Démonstration interactive</p>
+            <h2>Une opération, suivie de J-14 à J-0.</h2>
+            <p>
+              Installation simulée d'une ligne de conditionnement : 12 prérequis initiaux, 6 parties prenantes
+              et plusieurs incidents volontaires.
+            </p>
+            <p class="simulation-disclaimer">
+              Scénario industriel simulé destiné à illustrer notre méthode. Il ne représente pas un projet client réel.
+            </p>
+          </div>
+
+          <div class="simulation-shell reveal" data-simulation>
+            <div class="simulation-toolbar">
+              <div>
+                <span class="toolbar-label">Chronologie</span>
+                <strong id="current-day-label">J-14 — Cadrage initial</strong>
+              </div>
+              <div class="simulation-controls">
+                <button class="icon-button" id="sim-prev" type="button" aria-label="Jour précédent">←</button>
+                <button class="button button-dark button-small" id="sim-play" type="button" aria-pressed="false">
+                  <span data-play-label>Lancer la simulation</span>
+                </button>
+                <button class="icon-button" id="sim-next" type="button" aria-label="Jour suivant">→</button>
+              </div>
+            </div>
+
+            <div class="timeline-wrap" aria-label="Choisir un jour de la simulation">
+              <div class="timeline" id="simulation-timeline"></div>
+            </div>
+
+            <div class="simulation-summary" aria-live="polite">
+              <div class="summary-item"><span>Points suivis</span><strong id="metric-total">12</strong></div>
+              <div class="summary-item"><span>Fermés selon critère</span><strong id="metric-closed">0</strong></div>
+              <div class="summary-item"><span>Actions de poursuite</span><strong id="metric-actions">0</strong></div>
+              <div class="summary-item attention-summary">
+                <span>Votre attention</span><strong id="metric-attention">0 action</strong>
+              </div>
+            </div>
+
+            <div class="simulation-layout">
+              <div class="prerequisite-panel">
+                <div class="panel-heading-row">
+                  <div>
+                    <span class="toolbar-label">Prérequis</span>
+                    <h3>Chaque point a une prochaine action</h3>
+                  </div>
+                  <label class="filter-label">
+                    <span class="sr-only">Filtrer les prérequis</span>
+                    <select id="status-filter">
+                      <option value="all">Tous les statuts</option>
+                      <option value="attention">Attention / décision</option>
+                      <option value="open">Points ouverts</option>
+                      <option value="closed">Points fermés</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="prerequisite-list" id="prerequisite-list"></div>
+              </div>
+
+              <aside class="activity-panel" aria-labelledby="activity-title">
+                <div class="activity-header">
+                  <span class="toolbar-label">Couche de poursuite</span>
+                  <h3 id="activity-title">Activité en coulisses</h3>
+                  <p>Les demandes et relances restent ici. Seules les exceptions nécessaires remontent.</p>
+                </div>
+                <ol class="activity-feed" id="activity-feed"></ol>
+                <div class="attention-box" id="attention-box">
+                  <span class="attention-icon" aria-hidden="true">!</span>
+                  <div>
+                    <strong>Votre attention</strong>
+                    <p id="attention-copy">Aucune décision nécessaire à ce stade.</p>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="simulation-conclusion reveal">
+            <p>Le projet n'est pas devenu parfait.</p>
+            <strong>Les problèmes importants sont simplement devenus visibles plus tôt.</strong>
+          </div>
+        </div>
+
+        <dialog class="prerequisite-dialog" id="prerequisite-dialog" aria-labelledby="dialog-title">
+          <div class="dialog-header">
+            <div>
+              <span class="toolbar-label" id="dialog-id">Prérequis</span>
+              <h2 id="dialog-title">Détail du point</h2>
+            </div>
+            <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
+          </div>
+          <div class="dialog-body" id="dialog-body"></div>
+        </dialog>
+      </section>
+
+      <!-- 4. Coût d'une découverte tardive -->
+      <section class="section cost-section" id="cout">
+        <div class="container cost-grid">
+          <div class="cost-copy reveal">
+            <p class="eyebrow">Lecture économique</p>
+            <h2>Un point découvert trop tard n'est pas seulement une ligne rouge.</h2>
+            <p>
+              Techniciens mobilisés, transport, hébergement, location de matériel, créneau de production ou
+              replanification : plus un blocage est découvert tard, moins il reste d'options pour éviter certains coûts.
+            </p>
+            <div class="cost-stack" aria-label="Coûts potentiellement exposés">
+              <span>Équipe terrain</span><span>Transport</span><span>Hébergement</span>
+              <span>Matériel</span><span>Production</span><span>Replanification</span>
+            </div>
+          </div>
+
+          <form class="calculator reveal" id="exposure-calculator">
+            <div class="calculator-heading">
+              <span class="toolbar-label">Calcul local</span>
+              <h3>Estimez votre exposition</h3>
+              <p>Les valeurs restent dans votre navigateur.</p>
+            </div>
+            <div class="calculator-fields">
+              <label>
+                <span>Nombre de personnes</span>
+                <input type="number" name="people" min="0" step="1" inputmode="numeric" placeholder="0" />
+              </label>
+              <label>
+                <span>Coût estimé / personne / jour</span>
+                <span class="input-unit"><input type="number" name="dailyCost" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+              <label>
+                <span>Jours potentiellement affectés</span>
+                <input type="number" name="days" min="0" step="0.5" inputmode="decimal" placeholder="0" />
+              </label>
+              <label>
+                <span>Location de matériel</span>
+                <span class="input-unit"><input type="number" name="equipment" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+              <label>
+                <span>Transport / hébergement</span>
+                <span class="input-unit"><input type="number" name="travel" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+              <label>
+                <span>Autres coûts</span>
+                <span class="input-unit"><input type="number" name="other" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+            </div>
+            <div class="calculator-result" aria-live="polite">
+              <span>Exposition financière estimée dans votre scénario</span>
+              <strong id="exposure-result">0&nbsp;€</strong>
+            </div>
+            <p class="fine-print">
+              Estimation indicative calculée à partir des informations saisies. Elle ne constitue pas une économie garantie.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <!-- 5. Deux regards -->
+      <section class="section section-ink two-views" id="valeur">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow eyebrow-light">Une même opération</p>
+            <h2>Un même problème. Deux conséquences.</h2>
+          </div>
+          <div class="views-grid">
+            <article class="view-card reveal">
+              <span class="view-number">01</span>
+              <p class="card-label">Chef de projet / responsable opérationnel</p>
+              <h3>Moins de bruit. Plus de temps de pilotage.</h3>
+              <ul class="check-list">
+                <li>Moins de relances à garder en tête</li>
+                <li>Moins de points à surveiller personnellement</li>
+                <li>Moins de recherches dans les mails</li>
+                <li>Plus de temps pour la technique et les arbitrages</li>
+              </ul>
+            </article>
+            <article class="view-card reveal">
+              <span class="view-number">02</span>
+              <p class="card-label">Direction / opérations</p>
+              <h3>Plus de visibilité avant la mobilisation.</h3>
+              <ul class="check-list">
+                <li>Blocages importants visibles plus tôt</li>
+                <li>Temps projet moins absorbé par la poursuite</li>
+                <li>Traçabilité des demandes et des réponses</li>
+                <li>Coûts potentiellement exposés rendus visibles</li>
+              </ul>
+            </article>
+          </div>
+          <p class="views-conclusion reveal">
+            Même opération. <strong>Moins de bruit pour celui qui la pilote.</strong>
+            Plus de visibilité pour celui qui en porte le résultat.
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. Comment le service fonctionne -->
+      <section class="section method-section" id="methode">
+        <div class="container">
+          <div class="section-heading split-heading reveal">
+            <div>
+              <p class="eyebrow">La méthode</p>
+              <h2>Vous définissez ce qui doit être prêt. Nous poursuivons ce qui manque.</h2>
+            </div>
+            <p>
+              Le périmètre, les critères et les règles restent définis par votre équipe. La poursuite commence seulement
+              lorsque le rôle de chacun est clair.
+            </p>
+          </div>
+
+          <ol class="method-steps">
+            <li class="method-step reveal"><span>01</span><div><h3>Vous nous mandatez</h3><p>Vous définissez le périmètre et informez les interlocuteurs concernés.</p></div></li>
+            <li class="method-step reveal"><span>02</span><div><h3>Vous définissez</h3><p>Prérequis, responsables, échéances, preuves attendues et règles d'escalade.</p></div></li>
+            <li class="method-step reveal"><span>03</span><div><h3>Nous poursuivons</h3><p>Demandes, relances, confirmations, documents et compléments.</p></div></li>
+            <li class="method-step reveal"><span>04</span><div><h3>Nous traçons</h3><p>Chaque action, réponse, source et prochaine action reste visible.</p></div></li>
+            <li class="method-step reveal"><span>05</span><div><h3>Nous détectons les exceptions</h3><p>Retard, absence de réponse, information contradictoire ou élément incomplet.</p></div></li>
+            <li class="method-step reveal"><span>06</span><div><h3>Vous reprenez la main</h3><p>Lorsqu'une décision technique, sécurité, budget, contrat, planning ou mobilisation est nécessaire.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 7. Mandat et relation avec les tiers -->
+      <section class="section section-soft mandate-section" id="mandat">
+        <div class="container mandate-grid">
+          <div class="mandate-copy reveal">
+            <p class="eyebrow">Mandat obligatoire</p>
+            <h2>Un interlocuteur clair pour chaque partie prenante.</h2>
+            <p>
+              Vous présentez notre rôle aux fournisseurs, sous-traitants, transporteurs et autres interlocuteurs
+              concernés. Nous prenons ensuite en charge la poursuite des éléments définis avec vous.
+            </p>
+            <p>
+              Les demandes restent claires et régulières. Les absences et blocages sont identifiés. Lorsque votre
+              autorité ou votre décision devient nécessaire, nous vous rendons la main.
+            </p>
+            <div class="mandate-rule"><strong>Pas d'introduction officielle</strong><span>Pas de poursuite</span></div>
+          </div>
+
+          <div class="mandate-diagram reveal" aria-label="Schéma du mandat et des échanges">
+            <div class="diagram-client"><small>Autorité et décisions</small><strong>Chef de projet</strong></div>
+            <div class="mandate-arrow"><span>Mandat</span><i aria-hidden="true">↓</i><span class="arrow-return">Exception / décision ↑</span></div>
+            <div class="diagram-service"><small>Point de contact</small><strong>Service de poursuite</strong></div>
+            <div class="stakeholder-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="stakeholder-grid">
+              <span>Fournisseur</span><span>Transporteur</span><span>Sous-traitant</span>
+              <span>Sécurité / accès</span><span>Client / site</span><span>Intégrateur</span>
+            </div>
+          </div>
+        </div>
+        <div class="container introduction-example reveal">
+          <div class="example-label">Exemple d'introduction officielle</div>
+          <blockquote>
+            <p>
+              Pour l'opération [X] prévue le [date], Hervé Mengue intervient pour notre compte sur le suivi des
+              prérequis définis avec nous. Il sera votre point de contact pour les confirmations, documents et
+              éléments de préparation entrant dans ce périmètre.
+            </p>
+            <footer>
+              Les décisions techniques, sécurité, contractuelles, budgétaires et de mobilisation restent de notre responsabilité.
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- 8. Traçabilité -->
+      <section class="section trace-section" id="tracabilite">
+        <div class="container trace-grid">
+          <div class="trace-copy reveal">
+            <p class="eyebrow">Traçabilité</p>
+            <h2>Vous n'avez pas à nous surveiller pour vérifier que nous surveillons les autres.</h2>
+            <p>
+              Chaque point conserve sa source, sa date, l'action réalisée, la réponse obtenue et sa prochaine action.
+              Le suivi reste lisible sans rechercher l'information dans plusieurs fils d'échanges.
+            </p>
+            <button class="button button-outline" id="toggle-history" type="button" aria-expanded="false" aria-controls="history-example">
+              Afficher un historique complet
+            </button>
+          </div>
+          <div class="history-card reveal" id="history-example">
+            <div class="history-card-head">
+              <span>PR-04</span>
+              <div><small>Zone d'installation</small><strong>Photos de libération de zone</strong></div>
+              <span class="status-pill status-closed">Fermé selon critère</span>
+            </div>
+            <ol class="history-list" data-collapsed="true">
+              <li><time>Lundi 09:12</time><span>Demande envoyée</span></li>
+              <li><time>Mercredi 14:05</time><span>Aucune réponse, relance</span></li>
+              <li><time>Jeudi 10:18</time><span>Réponse reçue</span></li>
+              <li><time>Jeudi 10:22</time><span>Élément incomplet</span></li>
+              <li><time>Jeudi 10:31</time><span>Complément demandé</span></li>
+              <li><time>Vendredi 08:47</time><span>Complément reçu</span></li>
+              <li><time>Vendredi 09:02</time><span>Critère client satisfait — point fermé</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Avant / après -->
+      <section class="section workflow-section" id="avant-apres">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">Répartition des flux</p>
+            <h2>Nous absorbons la poursuite. Vous gardez le pilotage.</h2>
+            <p>Observez ce qui change lorsque la couche de poursuite intervient entre les flux opérationnels et le chef de projet.</p>
+          </div>
+
+          <div class="workflow-demo reveal" data-workflow-state="before">
+            <div class="workflow-toolbar">
+              <div class="segmented-control" role="group" aria-label="Étape de l'animation">
+                <button type="button" class="active" data-workflow-step="before">Avant</button>
+                <button type="button" data-workflow-step="transition">Poursuite</button>
+                <button type="button" data-workflow-step="after">Avec le service</button>
+              </div>
+              <button class="button button-small button-dark" id="workflow-play" type="button">Voir la transformation</button>
+            </div>
+
+            <div class="workflow-canvas" aria-live="polite">
+              <div class="workflow-stakeholders">
+                <span data-flow="mail">Fournisseur <i>Mail</i></span>
+                <span data-flow="call">Sous-traitant <i>Appel</i></span>
+                <span data-flow="document">Transporteur <i>Document</i></span>
+                <span data-flow="question">Sécurité / accès <i>Question</i></span>
+                <span data-flow="confirm">Client / site <i>Confirmation</i></span>
+                <span data-flow="followup">Intégrateur <i>Relance</i></span>
+              </div>
+              <div class="flow-lanes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="pursuit-layer">
+                <small>Couche opérationnelle</small>
+                <strong>Poursuite des prérequis</strong>
+                <div><span>Demander</span><span>Relancer</span><span>Tracer</span></div>
+              </div>
+              <div class="decision-flow" aria-hidden="true"><span>Information importante</span><span>Décision nécessaire</span></div>
+              <div class="project-manager">
+                <span class="manager-icon" aria-hidden="true">CP</span>
+                <div><small>Pilotage</small><strong>Chef de projet</strong></div>
+              </div>
+            </div>
+            <p class="workflow-caption" id="workflow-caption">Avant : demandes, appels, documents et relances arrivent directement vers le chef de projet.</p>
+          </div>
+
+          <p class="workflow-conclusion reveal">
+            Nous ne prenons pas votre projet. <strong>Nous prenons une partie de ce qui vous empêche de le piloter.</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- 10. Limites de responsabilité -->
+      <section class="section section-dark boundaries-section" id="limites">
+        <div class="container boundaries-grid">
+          <div class="boundaries-title reveal">
+            <p class="eyebrow eyebrow-light">Responsabilités explicites</p>
+            <h2>Vous restez responsable du projet.</h2>
+            <p>
+              Le service garantit un processus de poursuite et de traçabilité. Il ne garantit ni la réponse ni
+              l'exécution des obligations par les tiers.
+            </p>
+          </div>
+          <div class="boundary-card boundary-no reveal">
+            <span>Nous ne décidons pas</span>
+            <ul>
+              <li>Conformité technique</li><li>Sécurité</li><li>Budget</li>
+              <li>Mobilisation</li><li>Changement contractuel</li>
+            </ul>
+          </div>
+          <div class="boundary-card boundary-yes reveal">
+            <span>Nous prenons en charge</span>
+            <ul>
+              <li>Poursuivre</li><li>Documenter</li><li>Comparer aux critères définis</li>
+              <li>Signaler les éléments manquants</li><li>Escalader les exceptions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Pilote -->
+      <section class="section pilot-section" id="pilote">
+        <div class="container pilot-grid">
+          <div class="pilot-copy reveal">
+            <p class="eyebrow">Première étape</p>
+            <h2>Une opération approche&nbsp;?</h2>
+            <p>
+              Évaluons les prérequis que votre équipe doit encore poursuivre et déterminons si nous pouvons en
+              prendre une partie en charge.
+            </p>
+            <a class="button button-primary" href="#contact">Évaluer une opération pilote</a>
+          </div>
+          <div class="pilot-conditions reveal">
+            <h3>Un pilote cadré avant démarrage</h3>
+            <ul class="check-list">
+              <li>Une opération réelle et limitée</li>
+              <li>Un périmètre défini avant démarrage</li>
+              <li>Un prix connu avant engagement</li>
+              <li>Des règles d'escalade validées</li>
+              <li>Un mandat client obligatoire</li>
+              <li>Aucune donnée industrielle sensible dans le formulaire public</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. Tarification -->
+      <section class="section pricing-section" id="tarification">
+        <div class="container pricing-card reveal">
+          <div>
+            <p class="eyebrow">Dimensionnement</p>
+            <h2>Chaque opération est dimensionnée selon sa charge réelle de poursuite.</h2>
+            <p>Le périmètre et le prix sont connus avant tout engagement.</p>
+          </div>
+          <ul class="pricing-factors" aria-label="Facteurs de dimensionnement">
+            <li>Points ouverts</li><li>Parties prenantes</li><li>Durée</li><li>Intensité des relances</li>
+            <li>Criticité</li><li>Complexité documentaire</li><li>Langue / disponibilité</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 13. CTA final -->
+      <section class="section contact-section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow eyebrow-light">Évaluer sans exposer le projet</p>
+            <h2>Parlons du périmètre, pas de vos données sensibles.</h2>
+            <p>
+              Décrivez seulement le type d'opération, son horizon et la nature générale des points encore ouverts.
+              Les informations détaillées nécessaires à l'évaluation d'un projet réel seront échangées dans un cadre adapté.
+            </p>
+            <div class="privacy-list">
+              <span>Pas de plans industriels</span><span>Pas de pièce jointe technique</span>
+              <span>Pas d'accès ERP / CRM</span><span>Pas de secret industriel</span>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="form-row">
+              <label><span>Nom *</span><input type="text" name="name" autocomplete="name" required /></label>
+              <label><span>Entreprise *</span><input type="text" name="company" autocomplete="organization" required /></label>
+            </div>
+            <div class="form-row">
+              <label><span>Fonction *</span><input type="text" name="role" autocomplete="organization-title" required /></label>
+              <label><span>Email professionnel *</span><input type="email" name="email" autocomplete="email" required /></label>
+            </div>
+            <label><span>Téléphone <small>(facultatif)</small></span><input type="tel" name="phone" autocomplete="tel" /></label>
+            <label>
+              <span>Message court et non sensible *</span>
+              <textarea name="message" rows="4" maxlength="600" required placeholder="Type d'opération, horizon, nombre approximatif de points ouverts…"></textarea>
+            </label>
+            <div class="form-submit-row">
+              <button class="button button-primary" type="submit">Préparer ma demande d'évaluation</button>
+              <span class="form-status" id="form-status" role="status" aria-live="polite"></span>
+            </div>
+            <p class="fine-print">Aucune donnée de ce formulaire n'est envoyée à un serveur dans cette V1.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- 14. Simulation + confidentialité -->
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div>
+          <a class="identity identity-footer" href="#top">
+            <span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span><strong>Hervé Mengue</strong><small>Poursuite des prérequis</small></span>
+          </a>
+          <p>Le client pilote. Nous poursuivons les prérequis ouverts et remontons ce qui nécessite réellement son attention.</p>
+        </div>
+        <nav aria-label="Navigation de pied de page">
+          <a href="#simulation">Simulation</a><a href="#methode">Méthode</a>
+          <a href="#mandat">Mandat</a><a href="#limites">Responsabilités</a>
+        </nav>
+      </div>
+      <div class="container footer-legal">
+        <p>La démonstration présentée est entièrement simulée et ne représente aucun projet client réel.</p>
+        <p>Aucune donnée industrielle sensible n'est demandée sur ce site.</p>
+        <p>© <span id="current-year"></span> Hervé Mengue.</p>
+      </div>
+    </footer>
+  </body>
+</html>
