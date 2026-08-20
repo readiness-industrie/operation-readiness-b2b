@@ -23,15 +23,16 @@ window.SIMULATION_DATA = {
     { day: 0, label: "Intervention planifiée" }
   ],
   statusMeta: {
-    launch: { label: "À lancer", className: "status-launch" },
-    progress: { label: "En cours", className: "status-progress" },
-    followup: { label: "À relancer", className: "status-followup" },
-    received: { label: "Reçu à contrôler", className: "status-received" },
-    incomplete: { label: "Reçu incomplet", className: "status-incomplete" },
-    contradictory: { label: "Information contradictoire", className: "status-contradictory" },
-    blocked: { label: "Bloqué", className: "status-blocked" },
-    decision: { label: "Décision nécessaire", className: "status-decision" },
-    closed: { label: "Fermé selon critère client", className: "status-closed" }
+    launch: { label: "À obtenir", className: "status-launch" },
+    progress: { label: "À obtenir", className: "status-progress" },
+    followup: { label: "À obtenir", className: "status-followup" },
+    received: { label: "Reçu", className: "status-received" },
+    incomplete: { label: "Non conforme", className: "status-incomplete" },
+    contradictory: { label: "Non conforme", className: "status-contradictory" },
+    validate: { label: "À valider", className: "status-validate" },
+    blocked: { label: "Bloquant", className: "status-blocked" },
+    decision: { label: "Bloquant", className: "status-decision" },
+    closed: { label: "Fermé", className: "status-closed" }
   },
   prerequisites: [
     {
@@ -96,7 +97,7 @@ window.SIMULATION_DATA = {
         { day: -4, status: "received", info: "Dossier reçu, contrôle de complétude en cours.", source: "Coordinateur HSE simulé", action: "Réception tracée", nextAction: "Comparer à la liste client", nextDate: "J-3" },
         { day: -3, status: "incomplete", info: "Une pièce demandée dans la liste client est absente.", source: "Contrôle documentaire simulé", action: "Complément ciblé demandé", nextAction: "Recevoir la pièce manquante", nextDate: "J-2" },
         { day: -2, status: "received", info: "Pièce manquante reçue dans le délai.", source: "Coordinateur HSE simulé", action: "Complément réceptionné", nextAction: "Contrôle final selon la liste", nextDate: "J-1" },
-        { day: -1, status: "closed", info: "Toutes les pièces listées par le client sont présentes.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -1, status: "validate", info: "Présence, références, dates et signatures contrôlées selon la grille. La validation HSE reste à effectuer par la personne désignée.", source: "Contrôle documentaire simulé", action: "Contrôle documentaire terminé", nextAction: "Validation HSE par le client", nextDate: "J-0", attention: true }
       ]
     },
     {
@@ -334,7 +335,7 @@ window.SIMULATION_DATA = {
     { day: -3, title: "Réservation alternative reçue", detail: "La référence et le créneau sont contrôlés." },
     { day: -2, title: "Majorité des points fermés", detail: "Les derniers éléments restent dans leur délai ; aucune surprise critique inconnue." },
     { day: -2, title: "Nouveau prérequis fermé", detail: "La zone et le responsable d'évacuation sont confirmés." },
-    { day: -1, title: "Derniers contrôles terminés", detail: "Les critères documentaires restants sont satisfaits." },
+    { day: -1, title: "Contrôle documentaire terminé", detail: "Le dossier sécurité est complet ; sa validation HSE reste chez la personne compétente désignée." },
     { day: 0, title: "Intervention planifiée", detail: "Le service n'autorise pas la mobilisation ; la décision reste au client." }
   ]
 };

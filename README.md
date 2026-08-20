@@ -1,8 +1,8 @@
-# Operation Readiness B2B — Landing page V1
+# Readiness Industry — Landing page terrain
 
 Landing page commerciale statique et démonstrateur simulé pour un service de poursuite active des prérequis avant une installation, un SAT ou une mise en service industrielle.
 
-La page présente un **service opéré**, pas un logiciel SaaS. Toutes les données de la démonstration sont fictives.
+La page présente un **service humain opéré**, pas un logiciel SaaS à administrer. Le client cadre le mandat et garde les décisions ; le service poursuit les interlocuteurs autorisés, collecte les preuves, applique les contrôles documentaires convenus, trace les échanges et escalade les blocages. Toutes les données de la démonstration sont fictives.
 
 ## Structure
 
@@ -54,7 +54,7 @@ La documentation GitHub Pages indique l'état de la première publication dans l
 - Ton visuel, couleurs, espacements et responsive : `styles.css`
 - Meta title et meta description : section `<head>` de `index.html`
 
-L'ordre des sections suit le brief V1 : Hero, scène J-2, simulation, coût, deux regards, méthode, mandat, traçabilité, avant/après, responsabilités, pilote, tarification, CTA final, mentions.
+L'ordre des sections suit le débrief du premier entretien terrain : service opéré, répartition des rôles, complexité J-30 → J-0, preuves et fermeture, simulation, coût, méthode, mandat, traçabilité, escalade, responsabilités, qualification, pilote et CTA final.
 
 ## Modifier la simulation
 
@@ -86,13 +86,13 @@ Aucune valeur n'est envoyée ou stockée.
 
 Le formulaire valide les champs localement et n'envoie aucune donnée dans cette V1.
 
-Tant qu'aucune adresse professionnelle publique n'est validée, la demande structurée est copiée dans le presse-papiers. Pour activer l'ouverture d'un e-mail prérempli, renseigner la constante suivante au début de `app.js` :
+Le formulaire ouvre un e-mail prérempli vers l'adresse professionnelle configurée au début de `app.js` :
 
 ```js
-const CONTACT_EMAIL = "adresse-professionnelle-validee@example.com";
+const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
 ```
 
-Ne pas remplacer cette valeur par une adresse non validée pour une diffusion publique. Pour un vrai envoi serveur, choisir plus tard un service de formulaire adapté et ajouter une information de confidentialité correspondante.
+Pour un vrai envoi serveur, choisir plus tard un service de formulaire adapté et ajouter une information de confidentialité correspondante.
 
 ## Domaine personnalisé
 

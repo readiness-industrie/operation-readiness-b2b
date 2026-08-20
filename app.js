@@ -9,8 +9,7 @@
     maximumFractionDigits: 0
   });
 
-  // À renseigner uniquement après validation d'une adresse de contact publique.
-  const CONTACT_EMAIL = "";
+  const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
 
   function qs(selector, root = document) {
     return root.querySelector(selector);
@@ -137,8 +136,10 @@
     function matchesFilter(item) {
       const status = item.snapshot.status;
       if (currentFilter === "closed") return status === "closed";
-      if (currentFilter === "open") return status !== "closed";
-      if (currentFilter === "attention") return ["blocked", "decision", "contradictory", "incomplete"].includes(status);
+      if (currentFilter === "obtain") return ["launch", "progress", "followup"].includes(status);
+      if (currentFilter === "received") return status === "received";
+      if (currentFilter === "nonconform") return ["incomplete", "contradictory"].includes(status);
+      if (currentFilter === "attention") return ["validate", "blocked", "decision"].includes(status);
       return true;
     }
 
@@ -209,6 +210,8 @@
           <div><dt>Contacts</dt><dd>${escapeHtml(prerequisite.primary)}<br>Backup : ${escapeHtml(prerequisite.backup)}</dd></div>
           <div><dt>Preuve attendue</dt><dd>${escapeHtml(prerequisite.proof)}</dd></div>
           <div><dt>Canal</dt><dd>${escapeHtml(prerequisite.channel)}</dd></div>
+          <div><dt>Contrôle documentaire</dt><dd>Présence, référence, version, date, signature, validité et complétude selon la grille convenue.</dd></div>
+          <div><dt>Validation technique</dt><dd>Reste chez la personne compétente désignée par le client lorsqu'elle est nécessaire.</dd></div>
           <div><dt>Dernière information</dt><dd>${escapeHtml(snapshot.info)}</dd></div>
           <div><dt>Source</dt><dd>${escapeHtml(snapshot.source)}</dd></div>
           <div><dt>Prochaine action</dt><dd>${escapeHtml(snapshot.nextAction)} — ${escapeHtml(snapshot.nextDate)}</dd></div>
@@ -246,7 +249,8 @@
       const filteredItems = activeItems.filter(matchesFilter);
       const closedItems = activeItems.filter((item) => item.snapshot.status === "closed");
       const attentionItems = activeItems.filter(
-        (item) => item.snapshot.attention && ["decision", "blocked"].includes(item.snapshot.status)
+        (item) => item.snapshot.status === "validate" ||
+          (item.snapshot.attention && ["decision", "blocked"].includes(item.snapshot.status))
       );
       const actionsCount = data.activities.filter((activity) => activity.day <= currentDay.day).length;
 
@@ -255,13 +259,13 @@
       metricClosed.textContent = String(closedItems.length);
       metricActions.textContent = String(actionsCount);
       metricAttention.textContent = attentionItems.length
-        ? `${attentionItems.length} décision${attentionItems.length > 1 ? "s" : ""}`
+        ? `${attentionItems.length} action${attentionItems.length > 1 ? "s" : ""}`
         : "0 action";
       attentionSummary.classList.toggle("has-attention", attentionItems.length > 0);
       attentionBox.classList.toggle("has-attention", attentionItems.length > 0);
       attentionCopy.textContent = attentionItems.length
         ? attentionItems.map((item) => item.prerequisite.title).join(" · ")
-        : "Aucune décision nécessaire à ce stade.";
+        : "Aucune validation ou décision nécessaire à ce stade.";
 
       list.innerHTML = "";
       if (!filteredItems.length) {

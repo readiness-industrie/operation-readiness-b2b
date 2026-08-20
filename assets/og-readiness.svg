@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Poursuite des prérequis avant intervention industrielle</title>
-  <desc id="desc">Vous définissez ce qui doit être prêt. Nous poursuivons ce qui manque.</desc>
+  <title id="title">Readiness Industry — service de poursuite des prérequis</title>
+  <desc id="desc">Vous gardez les décisions. Nous prenons les relances, les preuves et la traçabilité.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#10202b"/>
@@ -17,17 +17,17 @@
     <text x="60" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="700">Readiness Industry</text>
   </g>
   <text x="80" y="210" fill="#ef8b60" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="3">PRÉPARATION D'INTERVENTION INDUSTRIELLE</text>
-  <text x="80" y="290" fill="#fff" font-family="Arial, sans-serif" font-size="50" font-weight="700">Vous définissez ce qui doit être prêt.</text>
-  <text x="80" y="360" fill="#b9c7cc" font-family="Arial, sans-serif" font-size="50" font-weight="700">Nous poursuivons ce qui manque.</text>
+  <text x="80" y="290" fill="#fff" font-family="Arial, sans-serif" font-size="50" font-weight="700">Vous gardez les décisions.</text>
+  <text x="80" y="360" fill="#b9c7cc" font-family="Arial, sans-serif" font-size="45" font-weight="700">Nous prenons les relances et les preuves.</text>
   <g transform="translate(80 455)">
     <rect width="310" height="82" rx="12" fill="#f6f4ee"/>
     <circle cx="42" cy="41" r="9" fill="#2e6b54"/>
-    <text x="68" y="48" fill="#10202b" font-family="Arial, sans-serif" font-size="22" font-weight="700">Élément obtenu</text>
+    <text x="68" y="48" fill="#10202b" font-family="Arial, sans-serif" font-size="22" font-weight="700">Preuve obtenue</text>
     <rect x="330" width="310" height="82" rx="12" fill="#f6f4ee"/>
-    <circle cx="372" cy="41" r="9" fill="#934034"/>
-    <text x="398" y="48" fill="#10202b" font-family="Arial, sans-serif" font-size="22" font-weight="700">Blocage identifié</text>
+    <circle cx="372" cy="41" r="9" fill="#675779"/>
+    <text x="398" y="48" fill="#10202b" font-family="Arial, sans-serif" font-size="22" font-weight="700">À valider</text>
     <rect x="660" width="370" height="82" rx="12" fill="#f6f4ee"/>
     <circle cx="702" cy="41" r="9" fill="#9b681e"/>
-    <text x="728" y="48" fill="#10202b" font-family="Arial, sans-serif" font-size="22" font-weight="700">Décision escaladée</text>
+    <text x="728" y="48" fill="#10202b" font-family="Arial, sans-serif" font-size="22" font-weight="700">Blocage escaladé</text>
   </g>
 </svg>
