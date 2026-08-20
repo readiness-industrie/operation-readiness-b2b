@@ -3,27 +3,82 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta
       name="description"
-      content="Service de poursuite active des prérequis avant installation, SAT ou mise en service industrielle. Vous pilotez le projet, nous poursuivons ce qui manque."
+      content="Préparation d'installations industrielles : suivi actif des prérequis, relances, preuves et remontée des blocages avant SAT ou mise en service."
     />
     <meta name="theme-color" content="#10202b" />
+    <link rel="canonical" href="https://readiness-industrie.github.io/operation-readiness-b2b/" />
+    <link rel="alternate" hreflang="fr-FR" href="https://readiness-industrie.github.io/operation-readiness-b2b/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:title" content="Readiness Industry | Service de poursuite des prérequis" />
+    <meta property="og:site_name" content="Readiness Industry" />
+    <meta property="og:title" content="Préparation d'installations industrielles | Readiness Industry" />
     <meta
       property="og:description"
-      content="Ce n'est pas un logiciel à alimenter : notre service poursuit les interlocuteurs autorisés, collecte les preuves et remonte les blocages."
+      content="Un service humain qui suit les prérequis, relance les interlocuteurs autorisés, collecte les preuves et remonte les blocages avant intervention."
     />
     <meta property="og:url" content="https://readiness-industrie.github.io/operation-readiness-b2b/" />
     <meta property="og:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
+    <meta property="og:image:alt" content="Readiness Industry — suivi des prérequis avant installation industrielle" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <title>Readiness Industry | Service de poursuite des prérequis</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Préparation d'installations industrielles | Readiness Industry" />
+    <meta
+      name="twitter:description"
+      content="Suivi actif des prérequis, relances, preuves et remontée des blocages avant SAT ou mise en service industrielle."
+    />
+    <meta name="twitter:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
+    <title>Préparation d'installations industrielles | Readiness Industry</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
+    <script>document.documentElement.classList.add("js");</script>
     <script src="simulation-data.js" defer></script>
     <script src="app.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#organization",
+            "name": "Readiness Industry",
+            "url": "https://readiness-industrie.github.io/operation-readiness-b2b/",
+            "email": "hervemengue.pro@gmail.com"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#website",
+            "url": "https://readiness-industrie.github.io/operation-readiness-b2b/",
+            "name": "Readiness Industry",
+            "inLanguage": "fr-FR",
+            "publisher": {
+              "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#organization"
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#service",
+            "name": "Préparation active des installations industrielles",
+            "serviceType": "Suivi des prérequis avant installation, SAT et mise en service industrielle",
+            "description": "Service humain de relance, collecte de preuves, traçabilité et remontée des blocages avant une intervention industrielle.",
+            "areaServed": {
+              "@type": "Country",
+              "name": "France"
+            },
+            "provider": {
+              "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#organization"
+            },
+            "audience": {
+              "@type": "BusinessAudience",
+              "audienceType": "Intégrateurs industriels, chefs de projet, responsables installation et coordinateurs travaux"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Aller au contenu</a>
@@ -58,10 +113,10 @@
       <section class="hero section-dark" id="top">
         <div class="hero-grid container">
           <div class="hero-copy reveal">
-            <p class="eyebrow eyebrow-light">Service humain opéré · préparation J-30 → J-0</p>
-            <h1>Vous gardez les décisions. <span>Nous prenons les relances, les preuves et la traçabilité.</span></h1>
+            <p class="eyebrow eyebrow-light">Service humain opéré · préparation d'installation J-30 → J-0</p>
+            <h1>Avant vos installations industrielles, vous gardez les décisions. <span>Nous prenons les relances, les preuves et la traçabilité.</span></h1>
             <p class="hero-lead">
-              Avant une installation, un SAT ou une mise en service, notre service contacte les interlocuteurs
+              Avant une installation, un SAT ou une mise en service industrielle, notre service contacte les interlocuteurs
               autorisés, poursuit les prérequis ouverts et récupère les éléments définis avec votre équipe.
             </p>
             <p class="hero-promise">
@@ -105,7 +160,7 @@
         <div class="container">
           <div class="service-objection reveal">
             <p class="eyebrow">Encore un outil à remplir&nbsp;?</p>
-            <h2>Non. L'interface montre le travail réalisé par le service.</h2>
+            <h2>Un service de préparation d'installation, pas un logiciel à remplir.</h2>
             <p>
               Votre chef de projet n'a pas à devenir l'opérateur d'une nouvelle application. Il consulte les statuts,
               les preuves, les échéances, les relances et les blocages pendant que nous effectuons la poursuite.
@@ -669,8 +724,9 @@
             <p class="eyebrow">Première étape</p>
             <h2>Une opération approche&nbsp;?</h2>
             <p>
-              Évaluons les prérequis que votre équipe doit encore poursuivre et déterminons si nous pouvons en
-              prendre une partie en charge.
+              Intégrateur industriel, chef de projet, responsable installation ou coordinateur travaux&nbsp;: évaluons
+              les prérequis que votre équipe doit encore poursuivre avant la préparation du site, l'installation ou
+              la mise en service, puis déterminons si nous pouvons en prendre une partie en charge.
             </p>
             <a class="button button-primary" href="#contact">Échanger 15 minutes sur vos prérequis</a>
           </div>
@@ -695,8 +751,8 @@
             <p class="eyebrow">Est-ce pertinent pour votre projet&nbsp;?</p>
             <h2>Le besoin apparaît quand la poursuite devient une charge en elle-même.</h2>
             <p>
-              Excel, les mails, le téléphone et l'expérience restent de bons outils. Nous intervenons lorsque la fragmentation
-              rend difficile de savoir qui a relancé qui, quelle preuve manque et ce qui peut réellement être fermé.
+              Excel, les mails, le téléphone et l'expérience restent de bons outils de coordination de chantier. Nous intervenons
+              lorsque la fragmentation rend difficile de savoir qui a relancé qui, quelle preuve manque et ce qui peut réellement être fermé.
             </p>
           </div>
           <ul class="pricing-factors" aria-label="Facteurs de dimensionnement">
