@@ -14,6 +14,9 @@ La page présente un **service humain opéré**, pas un logiciel SaaS à adminis
 ├── app.js                  # Rendu, interactions, calculateur et formulaire local
 ├── robots.txt              # Consignes d'exploration et adresse du sitemap
 ├── sitemap.xml             # URL canonique à soumettre aux moteurs de recherche
+├── mentions-legales.html   # Identification de l'éditeur, hébergeur et données personnelles
+├── docs/
+│   └── pilot-metrics.md    # Référentiel de mesure honnête des futurs pilotes
 ├── assets/
 │   ├── favicon.svg
 │   ├── og-readiness.svg
@@ -88,7 +91,7 @@ Aucune valeur n'est envoyée ou stockée.
 
 ## Formulaire de contact
 
-Le formulaire valide les champs localement et n'envoie aucune donnée dans cette V1.
+Le formulaire valide les champs localement et ne stocke aucune donnée sur le site dans cette V1.
 
 Le formulaire ouvre un e-mail prérempli vers l'adresse professionnelle configurée au début de `app.js` :
 
@@ -97,6 +100,20 @@ const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
 ```
 
 Pour un vrai envoi serveur, choisir plus tard un service de formulaire adapté et ajouter une information de confidentialité correspondante.
+
+## Informations légales à compléter
+
+La page `mentions-legales.html` ne contient que les informations confirmées. Avant la prospection commerciale, ajouter les trois données obligatoires encore absentes du dépôt :
+
+- adresse professionnelle de l'entrepreneur individuel ;
+- numéro de téléphone professionnel ;
+- numéro SIREN et, le cas échéant, la mention d'immatriculation correspondante.
+
+Ne pas ajouter de mention de RC Pro tant que le contrat d'assurance n'a pas été vérifié.
+
+## Mesure des pilotes
+
+Le référentiel `docs/pilot-metrics.md` définit les événements et calculs nécessaires pour mesurer les premiers pilotes sans confondre action effectuée, réponse obtenue et prérequis confirmé.
 
 ## Domaine personnalisé
 

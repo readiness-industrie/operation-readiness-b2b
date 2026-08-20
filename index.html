@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
     <title>Préparation d'installations industrielles | Readiness Industry</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260820-2" />
+    <link rel="stylesheet" href="styles.css?v=20260821-1" />
     <script>document.documentElement.classList.add("js");</script>
     <script src="simulation-data.js" defer></script>
     <script src="app.js" defer></script>
@@ -113,7 +113,7 @@
       <section class="hero section-dark" id="top">
         <div class="hero-grid container">
           <div class="hero-copy reveal">
-            <p class="eyebrow eyebrow-light">Service humain opéré · préparation d'installation J-30 → J-0</p>
+            <p class="eyebrow eyebrow-light">Service humain opéré de poursuite des prérequis · avant installation, SAT ou mise en service</p>
             <h1>Vous gardez les décisions. <span>Nous prenons les relances, les preuves et la traçabilité.</span></h1>
             <p class="hero-lead">
               Avant une installation, un SAT ou une mise en service industrielle, notre service contacte les interlocuteurs
@@ -128,6 +128,7 @@
               <a class="button button-primary" href="#service-opere">Comprendre qui fait quoi</a>
               <a class="button button-ghost" href="#pilote">Évaluer un projet pilote</a>
             </div>
+            <p class="hero-pilot-note">Pilote possible sur 1 projet ou 1 installation à venir, avec un périmètre défini ensemble.</p>
           </div>
 
           <div class="hero-panel reveal" aria-label="Principe de la poursuite des prérequis">
@@ -547,17 +548,18 @@
       <section class="section section-soft mandate-section" id="mandat">
         <div class="container mandate-grid">
           <div class="mandate-copy reveal">
-            <p class="eyebrow">Mandat obligatoire</p>
-            <h2>Un périmètre clair avant le premier contact.</h2>
+            <p class="eyebrow">Mise en route légère</p>
+            <h2>Quatre étapes, puis nous prenons le relais.</h2>
             <p>
-              Vous présentez notre rôle aux fournisseurs, sous-traitants, transporteurs et autres interlocuteurs
-              concernés. Nous prenons ensuite en charge la poursuite des éléments définis avec vous.
+              Vous définissez le terrain de jeu une fois. Nous exécutons ensuite la poursuite dans les limites convenues,
+              sans ajouter une procédure lourde à votre projet.
             </p>
-            <p>
-              Le mandat fixe les personnes joignables, les informations demandables, les documents collectables,
-              la fréquence des relances, la confidentialité, les niveaux d'escalade et les validateurs finaux.
-            </p>
-            <div class="mandate-rule"><strong>Pas d'introduction officielle</strong><span>Pas de poursuite</span></div>
+            <ol class="mandate-steps">
+              <li><span>1</span><p><strong>Vous définissez le périmètre</strong> et les interlocuteurs concernés.</p></li>
+              <li><span>2</span><p><strong>Une introduction ou autorisation de contact</strong> est envoyée.</p></li>
+              <li><span>3</span><p><strong>Nous prenons en charge les relances et le suivi</strong> selon les règles convenues.</p></li>
+              <li><span>4</span><p><strong>Vous gardez les décisions</strong> techniques, HSE, budgétaires et de mobilisation.</p></li>
+            </ol>
           </div>
 
           <div class="mandate-diagram reveal" aria-label="Schéma du mandat et des échanges">
@@ -583,6 +585,19 @@
               Les décisions techniques, sécurité, contractuelles, budgétaires et de mobilisation restent de notre responsabilité.
             </footer>
           </blockquote>
+        </div>
+        <div class="container confidentiality-panel reveal" id="confidentialite">
+          <div>
+            <p class="eyebrow">Confidentialité proportionnée</p>
+            <h3>Le minimum nécessaire, dans un cadre défini avant l'accès aux informations sensibles.</h3>
+          </div>
+          <ul class="confidentiality-list">
+            <li>Les informations projet sont utilisées uniquement pour exécuter le mandat confié.</li>
+            <li>Seules les informations nécessaires aux actions de poursuite convenues sont demandées.</li>
+            <li>Un accord de confidentialité ou NDA peut être signé avant tout accès à des informations sensibles.</li>
+            <li>Les contacts externes commencent uniquement après mandat et introduction ou autorisation du client.</li>
+          </ul>
+          <p class="trust-accuracy">Aucune certification de cybersécurité ou de conformité non obtenue n'est revendiquée.</p>
         </div>
       </section>
 
@@ -693,8 +708,9 @@
             <p class="eyebrow eyebrow-light">Responsabilités explicites</p>
             <h2>Vous restez responsable du projet.</h2>
             <p>
-              Le service organise la poursuite et la traçabilité. Il ne garantit ni la réponse, ni l'exécution des
-              obligations par les tiers, ni l'absence totale de retard.
+              Nous exécutons rigoureusement les actions de poursuite convenues, traçons ce qui a été fait, conservons
+              les preuves obtenues et escaladons les blocages selon vos règles. Nous ne garantissons ni la réponse ou
+              l'exécution des tiers, ni l'absence totale de retard.
             </p>
           </div>
           <div class="boundary-card boundary-no reveal">
@@ -729,6 +745,7 @@
               la mise en service, puis déterminons si nous pouvons en prendre une partie en charge.
             </p>
             <a class="button button-primary" href="#contact">Échanger 15 minutes sur vos prérequis</a>
+            <p class="pilot-note"><strong>Premier engagement limité :</strong> 1 projet ou 1 installation à venir, avec un périmètre de prérequis défini ensemble.</p>
           </div>
           <div class="pilot-conditions reveal">
             <h3>Un pilote cadré avant démarrage</h3>
@@ -737,7 +754,7 @@
               <li>Un périmètre défini avant démarrage</li>
               <li>Un prix connu avant engagement</li>
               <li>Des règles d'escalade validées</li>
-              <li>Un mandat client obligatoire</li>
+              <li>Une introduction ou autorisation de contact</li>
               <li>Aucune donnée industrielle sensible dans le formulaire public</li>
             </ul>
           </div>
@@ -801,7 +818,10 @@
               <button class="button button-primary" type="submit">Évaluer un projet pilote</button>
               <span class="form-status" id="form-status" role="status" aria-live="polite"></span>
             </div>
-            <p class="fine-print">Aucune donnée de ce formulaire n'est envoyée à un serveur dans cette V1.</p>
+            <p class="fine-print">
+              Le formulaire prépare un e-mail dans votre messagerie. Aucune donnée n'est enregistrée par ce site.
+              <a href="mentions-legales.html#donnees-personnelles">Voir l'information sur les données personnelles.</a>
+            </p>
           </form>
         </div>
       </section>
@@ -819,7 +839,8 @@
         </div>
         <nav aria-label="Navigation de pied de page">
           <a href="#simulation">Simulation</a><a href="#methode">Méthode</a>
-          <a href="#mandat">Mandat</a><a href="#limites">Responsabilités</a>
+          <a href="#mandat">Mandat</a><a href="#confidentialite">Confidentialité</a>
+          <a href="#limites">Responsabilités</a><a href="mentions-legales.html">Mentions légales</a>
         </nav>
       </div>
       <div class="container footer-legal">
