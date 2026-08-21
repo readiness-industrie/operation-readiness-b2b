@@ -231,12 +231,27 @@ def logout_view(request):
     return redirect("login")
 
 
+TODAY_QUEUE_KEYS = (
+    "new_information",
+    "p0",
+    "client_decisions",
+    "p1",
+    "followups_due",
+    "responses_to_review",
+    "missing_information",
+)
+
+
 @owner_required
 def dashboard(request):
     queue = build_work_queue()
-    missions = Mission.objects.select_related("tenant").exclude(state__in=[MissionState.COMPLETED, MissionState.REFUSED]).order_by("protected_at")
     future_count = len(queue["p2"]) + len(queue["p3"])
-    return render(request, "operations/dashboard.html", {"queue": queue, "missions": missions, "future_count": future_count})
+    today_count = sum(len(queue[key]) for key in TODAY_QUEUE_KEYS)
+    return render(
+        request,
+        "operations/dashboard.html",
+        {"queue": queue, "future_count": future_count, "today_count": today_count},
+    )
 
 
 @owner_required

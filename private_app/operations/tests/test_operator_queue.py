@@ -43,7 +43,10 @@ class DailyQueueExceptionTests(TestCase):
         self.assertNotIn("P3 sous surveillance", body)
         self.assertIn("Actions futures", body)
         self.assertNotIn("PR-FUTUR", body)
-        self.assertContains(response, "QUEUE-001")
+        self.assertNotIn("Missions en cours", body)
+        self.assertNotIn("QUEUE-001", body)
+        self.assertIn("Rien à faire aujourd'hui", body)
+        self.assertContains(self.http.get(reverse("mission_list")), "QUEUE-001")
         self.assertContains(self.http.get(reverse("mission_detail", args=[self.project.id])), "PR-FUTUR")
 
     def test_uploaded_proof_enters_queue_then_leaves_after_review(self):
@@ -137,5 +140,6 @@ class OperatorDayLoadTests(TestCase):
         self.assertTrue(any(code in body for code in due_codes))
         self.assertFalse(any(code in body for code, _mission in planned_codes))
         self.assertNotIn("P2 planifiés", body)
+        self.assertNotIn("Missions en cours", body)
         planned_code, planned_mission = planned_codes[0]
         self.assertContains(http.get(reverse("mission_detail", args=[planned_mission.id])), planned_code)

@@ -17,6 +17,13 @@
 {% include 'operations/queue_section.html' with title='Relances arrivées à échéance' items=queue.followups_due %}
 {% include 'operations/queue_section.html' with title='Réponses à contrôler' items=queue.responses_to_review %}
 {% include 'operations/queue_section.html' with title='Informations manquantes' items=queue.missing_information %}
-<section class="card"><div class="section-title"><h2>Missions en cours</h2><a href="{% url 'mission_list' %}">Tout voir</a></div><div class="table-wrap"><table><thead><tr><th>Mission</th><th>Client</th><th>État</th><th>Date à protéger</th></tr></thead><tbody>{% for mission in missions %}<tr><td data-label="Mission"><a href="{% url 'mission_detail' mission.id %}">{{ mission.code }} — {{ mission.project_name }}</a></td><td data-label="Client">{{ mission.tenant.name }}</td><td data-label="État"><span class="pill">{{ mission.get_state_display }}</span></td><td data-label="Date à protéger">{{ mission.protected_at|date:'d/m/Y H:i'|default:'Inconnue' }}</td></tr>{% empty %}<tr><td colspan="4">Aucune mission ouverte.</td></tr>{% endfor %}</tbody></table></div></section>
+{% if today_count == 0 %}
+<section class="card empty-day" aria-live="polite">
+  <p class="eyebrow">Journée opérateur</p>
+  <h2>Rien à faire aujourd'hui. {{ future_count }} actions futures restent silencieuses.</h2>
+  <p>Vous pouvez fermer. Les missions restent dans l'onglet Missions, uniquement si un motif précis l'exige.</p>
+  <p><a href="{% url 'mission_list' %}">Ouvrir les missions</a></p>
+</section>
+{% endif %}
 <form method="post" action="{% url 'revoke_other_sessions' %}" class="security-action">{% csrf_token %}<button class="button secondary" type="submit">Révoquer mes autres sessions</button></form>
 {% endblock %}
