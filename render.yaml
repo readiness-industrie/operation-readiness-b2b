@@ -1,0 +1,103 @@
+services:
+  - type: web
+    name: readiness-industry-private
+    runtime: docker
+    region: frankfurt
+    rootDir: private_app
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health/
+    autoDeployTrigger: off
+    preDeployCommand: python manage.py migrate --noinput
+    envVars:
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: readiness-industry-db
+          property: connectionString
+      - key: SECRET_KEY
+        sync: false
+      - key: FIELD_ENCRYPTION_KEY
+        sync: false
+      - key: BACKUP_ENCRYPTION_KEY
+        sync: false
+      - key: OBJECT_STORAGE_BUCKET
+        sync: false
+      - key: OBJECT_STORAGE_ENDPOINT_URL
+        value: https://s3.fr-par.scw.cloud
+      - key: OBJECT_STORAGE_REGION
+        value: fr-par
+      - key: OBJECT_STORAGE_ACCESS_KEY
+        sync: false
+      - key: OBJECT_STORAGE_SECRET_KEY
+        sync: false
+      - key: REQUIRE_MALWARE_SCAN
+        value: "true"
+  - type: cron
+    name: readiness-industry-upload-scan
+    runtime: docker
+    region: frankfurt
+    rootDir: private_app
+    dockerfilePath: ./Dockerfile
+    schedule: "*/15 * * * *"
+    dockerCommand: ./scripts/scan_uploads.sh
+    envVars:
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: readiness-industry-db
+          property: connectionString
+      - key: SECRET_KEY
+        sync: false
+      - key: FIELD_ENCRYPTION_KEY
+        sync: false
+      - key: BACKUP_ENCRYPTION_KEY
+        sync: false
+      - key: OBJECT_STORAGE_BUCKET
+        sync: false
+      - key: OBJECT_STORAGE_ENDPOINT_URL
+        value: https://s3.fr-par.scw.cloud
+      - key: OBJECT_STORAGE_REGION
+        value: fr-par
+      - key: OBJECT_STORAGE_ACCESS_KEY
+        sync: false
+      - key: OBJECT_STORAGE_SECRET_KEY
+        sync: false
+  - type: cron
+    name: readiness-industry-backup
+    runtime: docker
+    region: frankfurt
+    rootDir: private_app
+    dockerfilePath: ./Dockerfile
+    schedule: "0 2 * * *"
+    dockerCommand: ./scripts/backup_daily.sh
+    envVars:
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: readiness-industry-db
+          property: connectionString
+      - key: SECRET_KEY
+        sync: false
+      - key: FIELD_ENCRYPTION_KEY
+        sync: false
+      - key: BACKUP_ENCRYPTION_KEY
+        sync: false
+      - key: OBJECT_STORAGE_BUCKET
+        sync: false
+      - key: OBJECT_STORAGE_ENDPOINT_URL
+        value: https://s3.fr-par.scw.cloud
+      - key: OBJECT_STORAGE_REGION
+        value: fr-par
+      - key: OBJECT_STORAGE_ACCESS_KEY
+        sync: false
+      - key: OBJECT_STORAGE_SECRET_KEY
+        sync: false
+
+databases:
+  - name: readiness-industry-db
+    region: frankfurt
+    databaseName: readiness
+    user: readiness_app

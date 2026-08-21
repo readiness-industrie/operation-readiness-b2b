@@ -1,0 +1,6 @@
+{% extends 'operations/base.html' %}
+{% block title %}Vérifier le MFA{% endblock %}
+{% block page_class %}auth-page{% endblock %}
+{% block content %}
+<section class="auth-card"><p class="eyebrow">Deuxième étape</p><h1>Code d’authentification</h1><form method="post" class="stack-form">{% csrf_token %}{{ form.as_div }}<button class="button primary" type="submit">Se connecter</button></form></section>
+{% endblock %}

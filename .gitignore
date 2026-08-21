@@ -1,0 +1,11 @@
+private_app/.env
+private_app/db.sqlite3
+private_app/private_media/
+private_app/private_backups/
+private_app/staticfiles/
+**/__pycache__/
+**/*.pyc
+.ruff_cache/
+**/.ruff_cache/
+.coverage
+htmlcov/
