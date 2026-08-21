@@ -42,6 +42,19 @@ class SecurityAndFileTests(TestCase):
         self.assertRedirects(response, reverse("dashboard"), fetch_redirect_response=False)
         self.assertTrue(AuditLog.objects.filter(operation="LOGIN", result="SUCCESS", actor=self.owner).exists())
 
+    def test_first_login_mfa_setup_renders_qr_code(self):
+        client = Client()
+        response = client.post(
+            reverse("login"),
+            {"identifier": self.owner.email, "password": "Very-Strong-Test-Password!"},
+        )
+        self.assertRedirects(response, reverse("mfa_setup"), fetch_redirect_response=False)
+
+        response = client.get(reverse("mfa_setup"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "data:image/png;base64,")
+
     def test_owner_has_no_client_tenant(self):
         self.owner.tenant = self.tenant
         with self.assertRaises(ValidationError):

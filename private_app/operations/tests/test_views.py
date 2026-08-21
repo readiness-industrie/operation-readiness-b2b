@@ -1,3 +1,6 @@
+from unittest.mock import patch
+
+from django.core.exceptions import ValidationError
 from django.test import Client, TestCase
 from django.urls import reverse
 
@@ -42,3 +45,25 @@ class OperatorInterfaceSmokeTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Résumé publié")
         self.assertNotContains(response, self.item.priority_explanation)
+
+    def test_business_validation_is_shown_instead_of_returning_500(self):
+        with patch(
+            "operations.views.update_instance",
+            side_effect=ValidationError({"acceptance_note": ["Correction requise avant enregistrement."]}),
+        ):
+            response = self.client.post(
+                reverse("mission_acceptance", args=[self.mission.id]),
+                {
+                    "acceptance_know": "YES",
+                    "acceptance_scope": "YES",
+                    "acceptance_authority": "YES",
+                    "acceptance_responsibility": "YES",
+                    "acceptance_result": "ACCEPTABLE",
+                    "acceptance_note": "Contrôle",
+                    "change_reason": "Essai de validation",
+                    "change_category": "MISSION_EVOLUTION",
+                },
+            )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Correction requise avant enregistrement.")

@@ -89,6 +89,17 @@ def _hash(value):
     return hashlib.sha256((value or "").encode()).hexdigest()
 
 
+def _add_form_validation_error(form, error):
+    """Renvoyer une validation métier dans le formulaire au lieu d'une erreur 500."""
+    if hasattr(error, "message_dict"):
+        for field, field_messages in error.message_dict.items():
+            target = field if field in form.fields else None
+            for message in field_messages:
+                form.add_error(target, message)
+        return
+    form.add_error(None, error)
+
+
 def _client_ip(request):
     return request.META.get("HTTP_X_FORWARDED_FOR", "").split(",")[0].strip() or request.META.get("REMOTE_ADDR", "")
 
@@ -277,15 +288,19 @@ def _model_form_update(request, mission, form_class, title):
     form = form_class(request.POST or None, instance=mission)
     if request.method == "POST" and form.is_valid():
         data = {field: form.cleaned_data[field] for field in form._meta.fields}
-        update_instance(
-            instance=mission,
-            data=data,
-            actor=request.user,
-            reason=form.cleaned_data["change_reason"],
-            category=form.cleaned_data["change_category"],
-        )
-        messages.success(request, "Mission mise à jour et changement historisé.")
-        return redirect("mission_detail", mission_id=mission.id)
+        try:
+            update_instance(
+                instance=mission,
+                data=data,
+                actor=request.user,
+                reason=form.cleaned_data["change_reason"],
+                category=form.cleaned_data["change_category"],
+            )
+        except ValidationError as error:
+            _add_form_validation_error(form, error)
+        else:
+            messages.success(request, "Mission mise à jour et changement historisé.")
+            return redirect("mission_detail", mission_id=mission.id)
     return render(request, "operations/form_page.html", {"form": form, "title": title, "mission": mission, "submit_label": "Enregistrer"})
 
 
@@ -376,9 +391,18 @@ def prerequisite_create(request, mission_id):
     form = PrerequisiteForm(request.POST or None, mission=mission)
     if request.method == "POST" and form.is_valid():
         data = {field: form.cleaned_data[field] for field in form._meta.fields}
-        prerequisite = create_prerequisite(mission=mission, actor=request.user, data=data, reason=form.cleaned_data["change_reason"])
-        messages.success(request, "Prérequis créé, scoré sans inventer les données manquantes et historisé.")
-        return redirect("prerequisite_detail", prerequisite_id=prerequisite.id)
+        try:
+            prerequisite = create_prerequisite(
+                mission=mission,
+                actor=request.user,
+                data=data,
+                reason=form.cleaned_data["change_reason"],
+            )
+        except ValidationError as error:
+            _add_form_validation_error(form, error)
+        else:
+            messages.success(request, "Prérequis créé, scoré sans inventer les données manquantes et historisé.")
+            return redirect("prerequisite_detail", prerequisite_id=prerequisite.id)
     return render(request, "operations/form_page.html", {"form": form, "title": "Nouveau prérequis", "mission": mission, "submit_label": "Créer"})
 
 

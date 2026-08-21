@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from operations.enums import PriorityLevel
 from operations.models import BusinessConfig
-from operations.priorities import calculate_priority, time_component
+from operations.priorities import calculate_priority, indicative_price, time_component
 
 from .factories import mission, owner, prerequisite, tenant
 
@@ -60,3 +60,19 @@ class PriorityEngineTests(TestCase):
         item.override_reason = ""
         with self.assertRaises(ValidationError):
             item.full_clean()
+
+    def test_indicative_prices_are_valid_currency_amounts_for_every_urgency(self):
+        now = timezone.now()
+        cases = [
+            (2, Decimal("3000.00")),
+            (5, Decimal("2250.00")),
+            (10, Decimal("1875.00")),
+            (20, Decimal("1500.00")),
+        ]
+        for days, expected in cases:
+            with self.subTest(days=days):
+                self.mission.protected_at = now + timedelta(days=days)
+                amount, size, _ = indicative_price(self.mission, self.config, now=now)
+                self.assertEqual(amount, expected)
+                self.assertEqual(amount.as_tuple().exponent, -2)
+                self.assertEqual(size, "S")

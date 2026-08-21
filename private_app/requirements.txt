@@ -5,6 +5,7 @@ dj-database-url>=3.0,<4
 django-storages[s3]>=1.14,<2
 filetype>=1.2,<2
 gunicorn>=23.0,<24
+pillow>=11,<13
 psycopg[binary]>=3.2,<4
 pyotp>=2.9,<3
 qrcode>=8.2,<9

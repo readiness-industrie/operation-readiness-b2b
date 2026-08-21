@@ -122,7 +122,12 @@ def indicative_price(mission, config, now=None):
         coefficient = config.urgency_15_days
     else:
         coefficient = Decimal(1)
-    return base * coefficient, size, f"Base {size} × coefficient indicatif {coefficient} — à confirmer manuellement"
+    # Les valeurs par défaut d'un modèle Django qui vient juste d'être créé
+    # peuvent encore être des ``int``/``float`` avant une relecture en base.
+    # Normaliser les deux opérandes garantit un montant monétaire exact dans
+    # ce premier parcours comme dans les suivants.
+    amount = (Decimal(str(base)) * Decimal(str(coefficient))).quantize(Decimal("0.01"))
+    return amount, size, f"Base {size} × coefficient indicatif {coefficient} — à confirmer manuellement"
 
 
 def feasibility_recommendation(mission):

@@ -235,6 +235,15 @@ class PrerequisiteForm(ReasonForm, forms.ModelForm):
         if not self.instance.pk:
             self.fields["taken_over_at"].initial = timezone.now()
 
+    def _post_clean(self):
+        # Mission et tenant ne sont pas des champs éditables du formulaire.
+        # Ils doivent néanmoins être présents avant la validation ModelForm,
+        # sinon un contact valide de la mission est rejeté comme cross-client.
+        if self.mission:
+            self.instance.mission = self.mission
+            self.instance.tenant = self.mission.tenant
+        super()._post_clean()
+
 
 class ActionForm(forms.Form):
     event_type = forms.ChoiceField(label="Nature de l’événement", choices=ActionEventType.choices)
