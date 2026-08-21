@@ -10,6 +10,8 @@
   });
 
   const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
+  const ANALYTICS_MEASUREMENT_ID = "G-CXBR9QTFXS";
+  const ANALYTICS_CONSENT_KEY = "readiness_analytics_consent_v1";
 
   function qs(selector, root = document) {
     return root.querySelector(selector);
@@ -17,6 +19,88 @@
 
   function qsa(selector, root = document) {
     return Array.from(root.querySelectorAll(selector));
+  }
+
+
+  function readAnalyticsConsent() {
+    try {
+      return window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function saveAnalyticsConsent(value) {
+    try {
+      window.localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
+    } catch (_error) {
+      // Le choix reste valable pour la page courante si le stockage est indisponible.
+    }
+  }
+
+  function loadAnalytics() {
+    if (!ANALYTICS_MEASUREMENT_ID || window.__readinessAnalyticsLoaded) return;
+
+    window.__readinessAnalyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag("js", new Date());
+    window.gtag("config", ANALYTICS_MEASUREMENT_ID, {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(ANALYTICS_MEASUREMENT_ID);
+    script.dataset.readinessAnalytics = "true";
+    document.head.appendChild(script);
+  }
+
+  function disableAnalytics() {
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: "denied" });
+    }
+
+    document.cookie.split(";").forEach((item) => {
+      const name = item.split("=")[0].trim();
+      if (name === "_ga" || name.startsWith("_ga_")) {
+        document.cookie = name + "=; Max-Age=0; path=/; SameSite=Lax";
+      }
+    });
+  }
+
+  function initAnalyticsConsent() {
+    const banner = qs("[data-analytics-consent]");
+    if (!banner) return;
+
+    const openBanner = () => {
+      banner.hidden = false;
+    };
+    const closeBanner = () => {
+      banner.hidden = true;
+    };
+
+    qsa("[data-manage-analytics]").forEach((button) => button.addEventListener("click", openBanner));
+
+    qs("[data-analytics-accept]", banner).addEventListener("click", () => {
+      saveAnalyticsConsent("granted");
+      closeBanner();
+      loadAnalytics();
+    });
+
+    qs("[data-analytics-refuse]", banner).addEventListener("click", () => {
+      saveAnalyticsConsent("denied");
+      disableAnalytics();
+      closeBanner();
+    });
+
+    const consent = readAnalyticsConsent();
+    if (consent === "granted") loadAnalytics();
+    else if (consent !== "denied") openBanner();
   }
 
   function dayCode(day) {
@@ -466,6 +550,11 @@
       ].join("\n");
 
       if (CONTACT_EMAIL) {
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", {
+            method: "contact_form"
+          });
+        }
         window.location.href = `mailto:${encodeURIComponent(CONTACT_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         status.classList.add("success");
         status.textContent = "Votre messagerie va s'ouvrir avec la demande préremplie.";
@@ -489,6 +578,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initAnalyticsConsent();
     initHeader();
     initReveal();
     initSimulation();
