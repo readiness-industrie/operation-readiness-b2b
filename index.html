@@ -36,10 +36,10 @@
     <meta name="twitter:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
     <title>Préparation d'installations industrielles | Readiness Industry</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260821-1" />
+    <link rel="stylesheet" href="styles.css?v=20260821-analytics" />
     <script>document.documentElement.classList.add("js");</script>
     <script src="simulation-data.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20260821-analytics" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -868,6 +868,7 @@
           <a href="#simulation">Simulation</a><a href="#methode">Méthode</a>
           <a href="#mandat">Mandat</a><a href="#confidentialite">Confidentialité</a>
           <a href="#limites">Responsabilités</a><a href="mentions-legales.html">Mentions légales</a>
+          <button class="footer-cookie-button" type="button" data-manage-analytics>Gérer les cookies</button>
         </nav>
       </div>
       <div class="container footer-legal">
@@ -876,5 +877,20 @@
         <p>© <span id="current-year"></span> Readiness Industry.</p>
       </div>
     </footer>
+
+    <aside class="analytics-consent" data-analytics-consent hidden role="dialog" aria-labelledby="analytics-consent-title">
+      <div>
+        <strong id="analytics-consent-title">Mesure d'audience</strong>
+        <p>
+          Avec votre accord, Google Analytics nous aide à comprendre la fréquentation du site.
+          Aucun contenu saisi dans le formulaire n'est transmis à Analytics.
+          <a href="mentions-legales.html#mesure-audience">En savoir plus</a>.
+        </p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button class="button button-small analytics-refuse" type="button" data-analytics-refuse>Refuser</button>
+        <button class="button button-small button-primary" type="button" data-analytics-accept>Accepter</button>
+      </div>
+    </aside>
   </body>
 </html>
