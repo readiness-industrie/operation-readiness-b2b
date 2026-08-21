@@ -1,6 +1,7 @@
 import hashlib
 import io
 import json
+import os
 import tempfile
 import zipfile
 from pathlib import Path
@@ -43,11 +44,15 @@ class Command(BaseCommand):
             raise CommandError("Clé de sauvegarde incorrecte ou sauvegarde altérée.") from error
         with zipfile.ZipFile(io.BytesIO(raw_archive)) as archive:
             manifest = json.loads(archive.read("manifest.json"))
-            with tempfile.NamedTemporaryFile(suffix=".json") as fixture:
-                fixture.write(archive.read("data.json"))
-                fixture.flush()
+            handle, fixture_name = tempfile.mkstemp(suffix=".json")
+            os.close(handle)
+            fixture_path = Path(fixture_name)
+            try:
+                fixture_path.write_bytes(archive.read("data.json"))
                 with rls_context(owner=True):
-                    call_command("loaddata", fixture.name)
+                    call_command("loaddata", str(fixture_path))
+            finally:
+                fixture_path.unlink(missing_ok=True)
             for document_id, metadata in manifest["files"].items():
                 content = archive.read(f"documents/{document_id}")
                 if hashlib.sha256(content).hexdigest() != metadata["sha256"]:

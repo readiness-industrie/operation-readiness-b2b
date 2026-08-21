@@ -235,7 +235,8 @@ def logout_view(request):
 def dashboard(request):
     queue = build_work_queue()
     missions = Mission.objects.select_related("tenant").exclude(state__in=[MissionState.COMPLETED, MissionState.REFUSED]).order_by("protected_at")
-    return render(request, "operations/dashboard.html", {"queue": queue, "missions": missions})
+    future_count = len(queue["p2"]) + len(queue["p3"])
+    return render(request, "operations/dashboard.html", {"queue": queue, "missions": missions, "future_count": future_count})
 
 
 @owner_required

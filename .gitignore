@@ -1,4 +1,5 @@
 private_app/.env
+private_app/.venv/
 private_app/db.sqlite3
 private_app/private_media/
 private_app/private_backups/

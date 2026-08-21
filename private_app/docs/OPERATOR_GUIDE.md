@@ -22,7 +22,7 @@
 
 ## 3. Exécution quotidienne
 
-1. Commencer par `File du jour` : nouvelles informations, P0, décisions client, P1, relances, réponses à contrôler, informations manquantes, P2, P3.
+1. Commencer par `File du jour` : nouvelles informations, P0, décisions client, P1, relances, réponses/preuves à contrôler, informations manquantes. Les P2/P3 restent dans la mission, pas dans la file.
 2. Ouvrir un prérequis et utiliser `Journal rapide` après chaque action.
 3. Choisir explicitement `Action effectuée`, `Réponse obtenue` ou `Prérequis confirmé`.
 4. Une réponse vague ne peut pas devenir une confirmation. Pour confirmer, cocher que le critère client est explicitement satisfait.

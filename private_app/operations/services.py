@@ -274,6 +274,8 @@ def record_action(
         prerequisite.last_response_at = occurred_at
         prerequisite.last_response_summary = factual_result
         prerequisite.new_information_at = occurred_at
+    if event_type in {ActionEventType.ACTION, ActionEventType.CONFIRMATION}:
+        prerequisite.last_reviewed_at = occurred_at
     prerequisite.next_action = next_action
     prerequisite.next_action_at = next_action_at
     prerequisite.expected_event = expected_event

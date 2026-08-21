@@ -85,6 +85,24 @@ def create_document(*, uploaded, mission, prerequisite, actor):
     )
     document.full_clean()
     document.save()
+    if prerequisite is not None and prerequisite.state not in prerequisite.CLOSED_STATES:
+        from .enums import PrerequisiteState
+
+        now = timezone.now()
+        prerequisite.new_information_at = now
+        reviewable = {
+            PrerequisiteState.TO_QUALIFY,
+            PrerequisiteState.READY_TO_PURSUE,
+            PrerequisiteState.ACTION_PLANNED,
+            PrerequisiteState.AWAITING_RESPONSE,
+            PrerequisiteState.TO_FOLLOW_UP,
+            PrerequisiteState.PARTIALLY_CONFIRMED,
+        }
+        update_fields = ["new_information_at", "updated_at"]
+        if prerequisite.state in reviewable:
+            prerequisite.state = PrerequisiteState.RESPONSE_TO_REVIEW
+            update_fields.append("state")
+        prerequisite.save(update_fields=update_fields)
     return document
 
 
