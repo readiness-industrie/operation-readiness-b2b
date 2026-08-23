@@ -36,7 +36,7 @@
     <meta name="twitter:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
     <title>Préparation d'installations industrielles | Readiness Industry</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260821-analytics" />
+    <link rel="stylesheet" href="styles.css?v=20260823-tarifs" />
     <script>document.documentElement.classList.add("js");</script>
     <script src="simulation-data.js" defer></script>
     <script src="app.js?v=20260821-analytics" defer></script>
@@ -95,7 +95,7 @@
             "description": "Préparation d'installations industrielles : suivi actif des prérequis, relances, preuves et remontée des blocages avant SAT ou mise en service.",
             "inLanguage": "fr-FR",
             "datePublished": "2026-08-20",
-            "dateModified": "2026-08-21",
+            "dateModified": "2026-08-23",
             "isPartOf": {
               "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#website"
             },
@@ -130,6 +130,7 @@
           <a href="#simulation">Simulation</a>
           <a href="#methode">Méthode</a>
           <a href="#limites">Responsabilités</a>
+          <a href="#tarifs">Tarifs</a>
           <a class="button button-small button-dark" href="#pilote">Évaluer un projet</a>
         </nav>
       </div>
@@ -156,6 +157,9 @@
               <a class="button button-ghost" href="#pilote">Évaluer un projet pilote</a>
             </div>
             <p class="hero-pilot-note">Pilote possible sur 1 projet ou 1 installation à venir, avec un périmètre défini ensemble.</p>
+            <p class="hero-pricing-hint">
+              <a href="#tarifs">Forfaits à partir de 900&nbsp;€&nbsp;HT. Voir les tarifs</a>
+            </p>
           </div>
 
           <div class="hero-panel reveal" aria-label="Principe de la poursuite des prérequis">
@@ -760,6 +764,75 @@
         </div>
       </section>
 
+      <!-- Tarifs -->
+      <section class="section tarifs-section" id="tarifs">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Tarifs</p>
+            <h2>Des forfaits clairs, calculés sur votre charge de poursuite</h2>
+            <p>Le tarif dépend du nombre d'intervenants externes concernés et du nombre de points à poursuivre.</p>
+          </div>
+
+          <div class="tarif-table-wrap reveal">
+            <table class="tarif-table">
+              <caption class="sr-only">Grille tarifaire Readiness Industry</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Intervenants externes</th>
+                  <th scope="col">Jusqu'à 10 points</th>
+                  <th scope="col">11 à 20 points</th>
+                  <th scope="col">21 à 30 points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><span class="tarif-row-kicker">Intervenants externes</span>1 à 2</th>
+                  <td data-label="Jusqu'à 10 points">900&nbsp;€&nbsp;HT</td>
+                  <td data-label="11 à 20 points">1&nbsp;300&nbsp;€&nbsp;HT</td>
+                  <td data-label="21 à 30 points">1&nbsp;700&nbsp;€&nbsp;HT</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="tarif-row-kicker">Intervenants externes</span>3 à 5</th>
+                  <td data-label="Jusqu'à 10 points">1&nbsp;200&nbsp;€&nbsp;HT</td>
+                  <td data-label="11 à 20 points">1&nbsp;800&nbsp;€&nbsp;HT</td>
+                  <td data-label="21 à 30 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="tarif-row-kicker">Intervenants externes</span>6 à 8</th>
+                  <td data-label="Jusqu'à 10 points">1&nbsp;600&nbsp;€&nbsp;HT</td>
+                  <td data-label="11 à 20 points">2&nbsp;400&nbsp;€&nbsp;HT</td>
+                  <td data-label="21 à 30 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tarif-notes reveal">
+            <p>Forfaits couvrant jusqu'à 15 jours ouvrés de poursuite à distance, en intensité standard.</p>
+            <p>Ces 15 jours ouvrés correspondent à une période de prise en charge. Ils ne correspondent pas à 15 journées de travail à temps plein dédiées exclusivement au client.</p>
+            <p>Plus de 8 intervenants externes, plus de 30 points ou charge particulière : chiffrage spécifique avant démarrage.</p>
+          </div>
+
+          <div class="tarif-defs reveal">
+            <p>Un intervenant externe peut être un fournisseur, sous-traitant, partenaire ou autre interlocuteur extérieur concerné par les actions à poursuivre.</p>
+            <p>Un point correspond à un élément précis à obtenir, confirmer ou clôturer : document, date, confirmation, preuve, réponse, engagement, etc.</p>
+            <p>Le périmètre exact est confirmé lors du cadrage.</p>
+          </div>
+
+          <aside class="tarif-example reveal">
+            <p class="eyebrow">Exemple</p>
+            <p class="tarif-example-calc">
+              <span>4 fournisseurs</span>
+              <span aria-hidden="true">+</span>
+              <span>18 points ouverts</span>
+              <span aria-hidden="true">=</span>
+              <strong>1&nbsp;800&nbsp;€&nbsp;HT</strong>
+            </p>
+            <p>jusqu'à 15 jours ouvrés de poursuite à distance.</p>
+          </aside>
+        </div>
+      </section>
+
       <!-- 11. Pilote -->
       <section class="section pilot-section" id="pilote">
         <div class="container pilot-grid">
@@ -825,6 +898,10 @@
               <span>Pas de plans industriels</span><span>Pas de pièce jointe technique</span>
               <span>Pas d'accès ERP / CRM</span><span>Pas de secret industriel</span>
             </div>
+            <p class="contact-pricing-hint">
+              Forfaits à partir de 900&nbsp;€&nbsp;HT.
+              <a href="#tarifs">Voir la grille tarifaire complète.</a>
+            </p>
           </div>
 
           <form class="contact-form reveal" id="contact-form" novalidate>
@@ -867,7 +944,8 @@
         <nav aria-label="Navigation de pied de page">
           <a href="#simulation">Simulation</a><a href="#methode">Méthode</a>
           <a href="#mandat">Mandat</a><a href="#confidentialite">Confidentialité</a>
-          <a href="#limites">Responsabilités</a><a href="mentions-legales.html">Mentions légales</a>
+          <a href="#limites">Responsabilités</a><a href="#tarifs">Tarifs</a>
+          <a href="mentions-legales.html">Mentions légales</a>
           <button class="footer-cookie-button" type="button" data-manage-analytics>Gérer les cookies</button>
         </nav>
       </div>

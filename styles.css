@@ -459,6 +459,22 @@ h3 {
   font-size: 0.78rem;
 }
 
+.hero-pricing-hint {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+}
+
+.hero-pricing-hint a {
+  color: #d5dee2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.hero-pricing-hint a:hover {
+  color: var(--white);
+}
+
 .hero-panel {
   overflow: hidden;
   color: var(--ink);
@@ -2569,6 +2585,145 @@ h3 {
   color: #526068;
 }
 
+.tarifs-section {
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+.tarifs-section .section-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.tarif-table-wrap {
+  max-width: 100%;
+}
+
+.tarif-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tarif-table th,
+.tarif-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.92rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tarif-table thead th {
+  color: var(--white);
+  background: #294754;
+  border-bottom-color: #294754;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.tarif-table thead th:first-child {
+  text-align: left;
+}
+
+.tarif-table tbody th {
+  text-align: left;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.tarif-table tbody td {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tarif-row-kicker {
+  display: none;
+}
+
+.tarif-table tbody tr:last-child th,
+.tarif-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tarif-notes,
+.tarif-defs {
+  max-width: 760px;
+  margin-top: 22px;
+}
+
+.tarif-notes p,
+.tarif-defs p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.tarif-notes p:last-child,
+.tarif-defs p:last-child {
+  margin-bottom: 0;
+}
+
+.tarif-example {
+  max-width: 520px;
+  margin-top: 28px;
+  padding: 22px 24px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.tarif-example .eyebrow {
+  margin-bottom: 10px;
+}
+
+.tarif-example-calc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.tarif-example-calc span[aria-hidden="true"] {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.tarif-example-calc strong {
+  font-size: 1.15rem;
+}
+
+.tarif-example > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.contact-pricing-hint {
+  margin: 22px 0 0;
+  color: #d5dee2;
+  font-size: 0.95rem;
+}
+
+.contact-pricing-hint a {
+  color: #f1a17e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-pricing-hint a:hover {
+  color: var(--white);
+}
+
 .pricing-section {
   padding-top: 0;
   background: #f8f6f1;
@@ -2885,6 +3040,16 @@ h3 {
 }
 
 /* Responsive */
+@media (max-width: 1180px) and (min-width: 1021px) {
+  .main-nav {
+    gap: 16px;
+  }
+
+  .main-nav > a:not(.button) {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 1020px) {
   .hero-grid,
   .cost-grid,
@@ -3083,6 +3248,100 @@ h3 {
 
   .workflow-demo[data-workflow-state="after"] .decision-flow {
     transform: translate(50%, 0);
+  }
+}
+
+@media (max-width: 860px) {
+  .tarif-table {
+    display: block;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .tarif-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .tarif-table tbody {
+    display: block;
+  }
+
+  .tarif-table tbody tr {
+    display: block;
+    margin-bottom: 12px;
+    padding: 16px 18px 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  .tarif-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .tarif-table th,
+  .tarif-table td {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .tarif-table tbody th {
+    display: block;
+    padding-bottom: 12px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.05rem;
+  }
+
+  .tarif-row-kicker {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .tarif-table tbody td {
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+
+  .tarif-table tbody td::before {
+    content: attr(data-label);
+    flex: 1 1 auto;
+    color: var(--muted);
+    font-weight: 650;
+  }
+
+  .tarif-table tbody tr:last-child th,
+  .tarif-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .tarif-example-calc {
+    display: grid;
+    justify-items: start;
+    gap: 4px;
   }
 }
 
