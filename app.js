@@ -196,7 +196,7 @@
       button.type = "button";
       button.className = `timeline-day${eventDays.has(item.day) ? " has-event" : ""}`;
       button.dataset.index = String(index);
-      button.setAttribute("aria-label", `${dayCode(item.day)} — ${item.label}`);
+      button.setAttribute("aria-label", `${dayCode(item.day)} : ${item.label}`);
       button.innerHTML = `<i aria-hidden="true"></i><span>${dayCode(item.day)}</span>`;
       button.addEventListener("click", () => {
         stopPlayback();
@@ -298,7 +298,7 @@
           <div><dt>Validation technique</dt><dd>Reste chez la personne compétente désignée par le client lorsqu'elle est nécessaire.</dd></div>
           <div><dt>Dernière information</dt><dd>${escapeHtml(snapshot.info)}</dd></div>
           <div><dt>Source</dt><dd>${escapeHtml(snapshot.source)}</dd></div>
-          <div><dt>Prochaine action</dt><dd>${escapeHtml(snapshot.nextAction)} — ${escapeHtml(snapshot.nextDate)}</dd></div>
+          <div><dt>Prochaine action</dt><dd>${escapeHtml(snapshot.nextAction)} · ${escapeHtml(snapshot.nextDate)}</dd></div>
           <div><dt>Règle d'escalade</dt><dd>${escapeHtml(prerequisite.escalation)}</dd></div>
           <div><dt>Impact potentiel</dt><dd>${escapeHtml(prerequisite.impact)}</dd></div>
         </dl>
@@ -338,7 +338,7 @@
       );
       const actionsCount = data.activities.filter((activity) => activity.day <= currentDay.day).length;
 
-      dayLabel.textContent = `${dayCode(currentDay.day)} — ${currentDay.label}`;
+      dayLabel.textContent = `${dayCode(currentDay.day)} : ${currentDay.label}`;
       metricTotal.textContent = String(activeItems.length);
       metricClosed.textContent = String(closedItems.length);
       metricActions.textContent = String(actionsCount);
@@ -537,7 +537,7 @@
       }
 
       const values = Object.fromEntries(new FormData(form).entries());
-      const subject = `Évaluation d'une opération pilote — ${values.company}`;
+      const subject = `Vérifier un projet Readiness Industry : ${values.company}`;
       const body = [
         `Nom : ${values.name}`,
         `Entreprise : ${values.company}`,
