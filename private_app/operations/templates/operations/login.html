@@ -1,0 +1,11 @@
+{% extends 'operations/base.html' %}
+{% block title %}Connexion — Readiness Console{% endblock %}
+{% block page_class %}auth-page{% endblock %}
+{% block content %}
+<section class="auth-card">
+  <p class="eyebrow">Application privée</p>
+  <h1>Connexion sécurisée</h1>
+  <p>Le mot de passe est suivi d’un second facteur obligatoire.</p>
+  <form method="post" class="stack-form">{% csrf_token %}{{ form.as_div }}<button class="button primary" type="submit">Continuer</button></form>
+</section>
+{% endblock %}

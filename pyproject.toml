@@ -1,0 +1,3 @@
+[tool.ruff.lint]
+# Django declares fields, Meta options and migrations as class-level data by design.
+ignore = ["RUF012"]

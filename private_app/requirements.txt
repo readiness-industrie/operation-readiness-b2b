@@ -1,0 +1,12 @@
+Django~=5.2.0
+argon2-cffi>=25.1,<26
+cryptography>=50.0,<51
+dj-database-url>=3.0,<4
+django-storages[s3]>=1.14,<2
+filetype>=1.2,<2
+gunicorn>=23.0,<24
+pillow>=11,<13
+psycopg[binary]>=3.2,<4
+pyotp>=2.9,<3
+qrcode>=8.2,<9
+whitenoise[brotli]>=6.9,<7

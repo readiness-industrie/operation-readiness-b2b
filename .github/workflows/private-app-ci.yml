@@ -1,0 +1,72 @@
+name: Readiness V1 — métier, sécurité et non-régression
+
+on:
+  push:
+    branches: [main, "codex/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_PASSWORD: postgres-ci-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: private_app/requirements.lock
+      - name: Dépendances
+        run: pip install -r private_app/requirements.lock pip-audit
+      - name: Audit des vulnérabilités Python
+        run: pip-audit -r private_app/requirements.lock
+      - name: Non-régression du site public
+        run: ./scripts/test_public_regression.sh
+      - name: Tests applicatifs SQLite
+        working-directory: private_app
+        run: python manage.py test operations.tests -v 1
+      - name: Test réel sauvegarde puis restauration
+        working-directory: private_app
+        run: ./scripts/test_backup_restore.sh
+      - name: Créer un rôle PostgreSQL non-superuser
+        env:
+          PGPASSWORD: postgres-ci-only
+        run: |
+          psql -h 127.0.0.1 -U postgres -c "CREATE ROLE readiness_ci LOGIN PASSWORD 'readiness-ci-only' CREATEDB NOSUPERUSER NOBYPASSRLS;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE readiness_ci OWNER readiness_ci;"
+      - name: Tests PostgreSQL et RLS Alpha/Beta
+        working-directory: private_app
+        env:
+          DATABASE_URL: postgresql://readiness_ci:readiness-ci-only@127.0.0.1:5432/readiness_ci
+          DEBUG: "true"
+        run: python manage.py test operations.tests.test_postgres_rls -v 2
+      - name: Contrôle de déploiement sécurisé
+        working-directory: private_app
+        env:
+          DATABASE_URL: postgresql://readiness_ci:readiness-ci-only@127.0.0.1:5432/readiness_ci
+          DEBUG: "false"
+          ALLOWED_HOSTS: example.invalid
+          CSRF_TRUSTED_ORIGINS: https://example.invalid
+        run: |
+          export SECRET_KEY="$(python -c 'import secrets; print(secrets.token_urlsafe(48))')"
+          export FIELD_ENCRYPTION_KEY="$(python -c 'from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())')"
+          export BACKUP_ENCRYPTION_KEY="$(python -c 'from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())')"
+          python manage.py check --deploy
+      - name: Construction de l’image de production
+        run: docker build -t readiness-v1-ci private_app

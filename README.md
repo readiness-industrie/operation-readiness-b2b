@@ -137,3 +137,14 @@ Le dépôt reste l'infrastructure technique ; le domaine professionnel devient 
 - calculateur purement local ;
 - aucune pièce jointe ni upload ;
 - aucune donnée client, aucun témoignage, aucun prix et aucun ROI inventés.
+
+## Application opérationnelle privée
+
+La V1 interne demandée dans l’issue #3 vit dans [`private_app/`](private_app/README.md). Elle est volontairement séparée du site public statique :
+
+- la racine du dépôt reste la landing page GitHub Pages actuelle ;
+- `private_app/` contient une application Django/PostgreSQL déployable comme service web privé ;
+- aucune donnée, clé, pièce jointe ou sauvegarde de production ne doit entrer dans ce dépôt public ;
+- `./scripts/test_public_regression.sh` vérifie par empreinte que le site public, son SEO et ses fichiers n’ont pas changé.
+
+L’application est responsive : la même URL HTTPS fonctionne sur téléphone, tablette et PC. Voir la [procédure de déploiement](private_app/docs/DEPLOYMENT.md) et le [guide opérateur](private_app/docs/OPERATOR_GUIDE.md).
