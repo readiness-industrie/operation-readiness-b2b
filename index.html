@@ -10,7 +10,7 @@
       name="description"
       content="Arrivez à l'intervention en sachant ce qui est réellement prêt. Relances, confirmations et preuves avant installation, SAT ou mise en service industrielle."
     />
-    <meta name="theme-color" content="#10202b" />
+    <meta name="theme-color" content="#f6f4ee" />
     <link rel="canonical" href="https://readiness-industrie.github.io/operation-readiness-b2b/" />
     <link rel="sitemap" type="application/xml" href="https://readiness-industrie.github.io/operation-readiness-b2b/sitemap.xml" />
     <link rel="alternate" hreflang="fr-FR" href="https://readiness-industrie.github.io/operation-readiness-b2b/" />
@@ -36,10 +36,10 @@
     <meta name="twitter:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png" />
     <title>Préparation d'installations industrielles | Readiness Industry</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260825-conversion" />
+    <link rel="stylesheet" href="styles.css?v=20260825-humain" />
     <script>document.documentElement.classList.add("js");</script>
     <script src="simulation-data.js" defer></script>
-    <script src="app.js?v=20260825-conversion" defer></script>
+    <script src="app.js?v=20260825-humain" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -102,6 +102,36 @@
             "about": {
               "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#service"
             }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://readiness-industrie.github.io/operation-readiness-b2b/#faqpage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Vous prenez les décisions à notre place ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Non. Vous gardez la technique, le HSE, le budget, la mobilisation et l'arbitrage. Nous demandons, relançons, collectons, traçons et escaladons dans le périmètre que vous définissez."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "C'est encore un logiciel à remplir ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Non. Un humain fait les relances et tient le suivi. Votre équipe consulte uniquement ce qui demande une décision ou une validation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Vous garantissez que l'installation aura lieu à l'heure ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Non. Nous ne garantissons ni la réponse des tiers, ni l'absence de retard. Nous réduisons le risque d'arriver le jour J avec un prérequis critique encore incertain."
+                }
+              }
+            ]
           }
         ]
       }
@@ -126,23 +156,25 @@
         </button>
 
         <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
-          <a href="#situations">Situations</a>
-          <a href="#service-opere">Le service</a>
+          <a href="#situations">Le problème</a>
+          <a href="#service-opere">La résolution</a>
           <a href="#tarifs">Tarifs</a>
+          <a href="#faq">Questions</a>
           <a class="button button-small button-dark" href="#contact">Vérifier un projet</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <!-- 1. Hero : ce que vous gagnez -->
-      <section class="hero section-dark" id="top">
+      <!-- 1. Hero : clair, reconnaissable, promesse -->
+      <section class="hero" id="top">
         <div class="hero-grid container">
           <div class="hero-copy reveal">
+            <p class="eyebrow">Installation, SAT ou mise en service dans les prochaines semaines&nbsp;?</p>
             <h1>Arrivez à l'intervention en sachant ce qui est réellement prêt.</h1>
             <p class="hero-lead">
-              Avant une installation, un SAT ou une mise en service, Readiness Industry relance les interlocuteurs autorisés,
-              collecte les confirmations et preuves encore ouvertes et remonte les blocages qui demandent vraiment votre décision.
+              Un humain relance vos interlocuteurs autorisés, récupère les confirmations et les preuves encore ouvertes,
+              et vous remonte uniquement ce qui demande vraiment une décision.
             </p>
             <p class="hero-control">Vous gardez les décisions. Nous prenons la poursuite.</p>
             <div class="button-row">
@@ -151,109 +183,86 @@
             <p class="hero-cta-note">15 minutes. Aucun engagement. Aucune donnée industrielle sensible.</p>
           </div>
 
-          <div class="hero-panel reveal" aria-label="Ce que le suivi rend visible">
-            <div class="panel-topline">
-              <span>Ce que vous obtenez</span>
-              <span class="live-indicator"><i></i> Poursuite active</span>
-            </div>
-            <div class="hero-panel-body">
-              <p class="panel-kicker">Trois issues possibles, point par point</p>
-              <div class="next-action-rule">
-                <span class="rule-number">01</span>
-                <p>Nous demandons, relançons et documentons. <strong>Vous arbitrez lorsque votre autorité est nécessaire.</strong></p>
-              </div>
-              <div class="outcome-stack" aria-label="Trois résultats possibles">
-                <div><span class="status-dot status-closed"></span><strong>Preuve obtenue</strong><small>Selon la règle définie au cadrage</small></div>
-                <div><span class="status-dot status-blocked"></span><strong>Écart documenté</strong><small>Historique, responsable et échéance visibles</small></div>
-                <div><span class="status-dot status-decision"></span><strong>Décision escaladée</strong><small>Le chef de projet reste maître du projet</small></div>
-              </div>
-            </div>
-            <div class="panel-footer">
-              <span>Demander</span><i aria-hidden="true"></i><span>Relancer</span><i aria-hidden="true"></i><span>Escalader</span>
-            </div>
-          </div>
+          <figure class="hero-visual reveal">
+            <img
+              src="assets/readiness-hero-install.jpg"
+              alt="Techniciens sur un site industriel, le matin d'une installation, en lumière naturelle."
+              width="1280"
+              height="720"
+            />
+            <figcaption>Le jour J, ce n'est plus le planning qui compte. C'est ce qui est réellement prêt sur le terrain.</figcaption>
+          </figure>
         </div>
-        <div class="hero-ruler" aria-hidden="true"></div>
       </section>
 
-      <!-- 2. Situations : est-ce mon cas ? -->
+      <!-- 2. Le problème : se reconnaître, puis la plaie -->
       <section class="section j2-scene" id="situations">
         <div class="container">
-          <div class="section-heading split-heading reveal">
+          <div class="problem-layout">
+            <figure class="problem-visual reveal">
+              <img
+                src="assets/readiness-probleme-relance.jpg"
+                alt="Chef de projet au téléphone près d'un quai, en train de relancer un interlocuteur."
+                width="1024"
+                height="768"
+              />
+            </figure>
             <div>
-              <p class="eyebrow">Identification</p>
-              <h2>Vous reconnaissez cette situation&nbsp;?</h2>
+              <div class="section-heading reveal">
+                <p class="eyebrow">Vous vous reconnaissez</p>
+                <h2>Tout le monde a «&nbsp;confirmé&nbsp;». Personne n'a revérifié.</h2>
+                <p>
+                  Ces phrases tournent encore dans les dernières semaines. Elles rassurent. Elles ne prouvent rien.
+                </p>
+              </div>
+              <div class="wound-list">
+                <article class="reveal">
+                  <p class="wound-quote">«&nbsp;Le raccordement doit être terminé cette semaine.&nbsp;»</p>
+                  <p>Le jour J, votre équipe est sur site. Le raccordement, lui, ne l'est pas. Cinq personnes attendent un point qui n'a jamais été reconfirmé.</p>
+                </article>
+                <article class="reveal">
+                  <p class="wound-quote">«&nbsp;Le fournisseur avait confirmé il y a quinze jours.&nbsp;»</p>
+                  <p>Quinze jours, c'est une éternité. La date a pu bouger. La personne a pu changer. Vous le saurez trop tard, au moment où il n'y a plus de plan B.</p>
+                </article>
+                <article class="reveal">
+                  <p class="wound-quote">«&nbsp;Normalement, le moyen de déchargement sera disponible.&nbsp;»</p>
+                  <p>«&nbsp;Normalement&nbsp;» n'est pas une preuve. Un quai occupé, un engin absent, un document manquant : l'installation recule, et les coûts restent exposés.</p>
+                </article>
+              </div>
             </div>
-            <p>
-              Ces phrases circulent encore dans beaucoup de projets, à quelques jours d'une installation, d'un SAT
-              ou d'une mise en service.
-            </p>
-          </div>
-
-          <div class="situation-quotes">
-            <article class="reveal"><p>«&nbsp;Le raccordement doit être terminé cette semaine.&nbsp;»</p></article>
-            <article class="reveal"><p>«&nbsp;Le fournisseur avait confirmé il y a quinze jours.&nbsp;»</p></article>
-            <article class="reveal"><p>«&nbsp;Le moyen de déchargement devrait être disponible.&nbsp;»</p></article>
-            <article class="reveal"><p>«&nbsp;Normalement, le site sera prêt.&nbsp;»</p></article>
-            <article class="reveal"><p>«&nbsp;On attend encore le document.&nbsp;»</p></article>
-          </div>
-
-          <blockquote class="question-block reveal">
-            <p>À quelques jours de l'intervention, qui reconfirme réellement que tout cela est toujours vrai&nbsp;?</p>
-          </blockquote>
-        </div>
-      </section>
-
-      <!-- 3. Pourquoi maintenant : découverte tardive -->
-      <section class="section cost-section" id="cout">
-        <div class="container">
-          <div class="section-heading split-heading reveal">
-            <div>
-              <p class="eyebrow">Le moment de pression</p>
-              <h2>Le problème n'est pas seulement qu'un prérequis manque. C'est de le découvrir trop tard.</h2>
-            </div>
-            <p>
-              À J-30, il reste du temps pour obtenir une réponse, replanifier, escalader, demander une preuve ou changer
-              une organisation. À J-2, les options diminuent brutalement.
-            </p>
           </div>
 
           <div class="j-contrast">
             <article class="j-card reveal">
               <p class="card-label">J-30</p>
               <h3>Il reste encore des leviers.</h3>
-              <ul class="check-list compact-list">
-                <li>Obtenir une réponse</li>
-                <li>Trouver une solution</li>
-                <li>Replanifier</li>
-                <li>Escalader</li>
-                <li>Demander une preuve</li>
-                <li>Changer une organisation</li>
-              </ul>
+              <p>Obtenir une réponse, demander une preuve, escalader, replanifier, changer une organisation.</p>
             </article>
             <article class="j-card j-card-late reveal">
               <p class="card-label">J-2</p>
               <h3>Les options tombent.</h3>
-              <p>
-                Techniciens mobilisés, transport, hébergement, location de matériel, créneau de production :
-                plus un blocage est découvert tard, moins il reste d'options pour éviter certains coûts.
-              </p>
+              <p>L'équipe est déjà mobilisée. Le créneau est déjà pris. Découvrir le trou maintenant, c'est payer le retard en plus du prérequis.</p>
             </article>
           </div>
+        </div>
+      </section>
 
-          <div class="cost-grid">
-            <div class="cost-copy reveal">
-              <p class="eyebrow">Lecture économique</p>
-              <h2>Un point découvert trop tard n'est pas seulement une ligne rouge.</h2>
-              <p>
-                Nous ne promettons pas une économie. Nous rendons visibles plus tôt les écarts qui peuvent encore
-                être traités avant la mobilisation.
-              </p>
-              <div class="cost-stack" aria-label="Coûts potentiellement exposés">
-                <span>Équipe terrain</span><span>Transport</span><span>Hébergement</span>
-                <span>Matériel</span><span>Production</span><span>Replanification</span>
-              </div>
+
+      <!-- 3. Lecture économique, sans promesse d'économie -->
+      <section class="section cost-section" id="cout">
+        <div class="container cost-grid">
+          <div class="cost-copy reveal">
+            <p class="eyebrow">Si vous voulez les chiffres</p>
+            <h2>Un point découvert trop tard n'est pas seulement une ligne rouge.</h2>
+            <p>
+              Techniciens, transport, hébergement, matériel, créneau de production : plus c'est tard, moins il reste
+              d'options. Nous ne promettons pas une économie. Nous rendons l'écart visible plus tôt.
+            </p>
+            <div class="cost-stack" aria-label="Coûts potentiellement exposés">
+              <span>Équipe terrain</span><span>Transport</span><span>Hébergement</span>
+              <span>Matériel</span><span>Production</span><span>Replanification</span>
             </div>
+          </div>
 
             <form class="calculator reveal" id="exposure-calculator">
               <div class="calculator-heading">
@@ -299,15 +308,29 @@
         </div>
       </section>
 
-      <!-- 4. Ce que Readiness prend en charge -->
+      <!-- 4. Résolution -->
       <section class="section operated-service" id="service-opere">
         <div class="container">
-          <div class="service-objection reveal">
-            <p class="eyebrow">Alors, que prenons-nous en charge&nbsp;?</p>
-            <h2>Readiness prend en charge la poursuite.</h2>
-            <p>
-              Nous ne prenons pas votre projet. Nous prenons une partie de ce qui vous empêche de le piloter.
-            </p>
+          <div class="resolution-intro">
+            <figure class="resolution-visual reveal">
+              <img
+                src="assets/readiness-resolution-humaine.jpg"
+                alt="Échange de suivi autour d'un dossier, sans écran d'application à remplir."
+                width="1024"
+                height="768"
+              />
+            </figure>
+            <div class="service-objection reveal">
+              <p class="eyebrow">La résolution</p>
+              <h2>Nous allons chercher ce qui manque. Vous gardez le projet.</h2>
+              <p>
+                Readiness Industry n'est pas un logiciel à alimenter. Un humain demande, relance, collecte, trace
+                et escalade dans le périmètre que vous autorisez.
+              </p>
+              <p>
+                Nous ne prenons pas votre projet. Nous prenons une partie de ce qui vous empêche de le piloter.
+              </p>
+            </div>
           </div>
 
           <div class="verb-chain" aria-label="Cinq actions du service">
@@ -316,15 +339,6 @@
             <article class="reveal"><span>03</span><strong>Collecter</strong></article>
             <article class="reveal"><span>04</span><strong>Tracer</strong></article>
             <article class="reveal"><span>05</span><strong>Escalader</strong></article>
-          </div>
-
-          <div class="service-objection reveal" id="pas-un-outil">
-            <p class="eyebrow">Encore un outil à remplir&nbsp;?</p>
-            <h2>Ce n'est pas un logiciel supplémentaire à alimenter.</h2>
-            <p>
-              Le service effectue les relances, collecte les éléments et tient le suivi à jour. Votre équipe consulte
-              uniquement ce qui nécessite son attention.
-            </p>
           </div>
 
           <div class="role-grid">
@@ -368,6 +382,18 @@
             <p>Le logiciel montre qu'une information manque. Le service va la chercher.</p>
           </div>
 
+          <aside class="operator-card reveal">
+            <div class="operator-mark" aria-hidden="true">HM</div>
+            <div>
+              <p class="card-label">Qui fait le travail</p>
+              <h3>Hervé Mengue</h3>
+              <p>
+                Technicien de maintenance industrielle. Huit ans chez Safran. J'opère les relances, je collecte les
+                preuves et je remonte les blocages. Pas un centre d'appels. Pas un logiciel que votre chef de projet doit remplir.
+              </p>
+            </div>
+          </aside>
+
           <div class="fit-signal reveal">
             <div>
               <p class="card-label">Le vrai déclencheur</p>
@@ -382,10 +408,10 @@
       </section>
 
       <!-- 5. Ce que votre équipe y gagne -->
-      <section class="section section-ink two-views" id="valeur">
+      <section class="section two-views two-views-light" id="valeur">
         <div class="container">
           <div class="section-heading centered reveal">
-            <p class="eyebrow eyebrow-light">Ce que cela change pour vous</p>
+            <p class="eyebrow">Ce que cela change pour vous</p>
             <h2>Moins de relances à porter. Plus de visibilité pour décider.</h2>
           </div>
           <div class="views-grid">
@@ -904,6 +930,52 @@
         </div>
       </section>
 
+      </section>
+
+      <!-- FAQ -->
+      <section class="section faq-section" id="faq">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Questions claires</p>
+            <h2>Ce qu'un chef de projet demande avant de nous laisser relancer.</h2>
+          </div>
+          <div class="faq-list">
+            <details class="reveal">
+              <summary>Vous prenez les décisions à notre place&nbsp;?</summary>
+              <p>Non. Vous gardez la technique, le HSE, le budget, la mobilisation et l'arbitrage. Nous demandons, relançons, collectons, traçons et escaladons dans le périmètre que vous définissez.</p>
+            </details>
+            <details class="reveal">
+              <summary>C'est encore un logiciel à remplir&nbsp;?</summary>
+              <p>Non. Un humain fait les relances et tient le suivi. Votre équipe consulte uniquement ce qui demande une décision ou une validation.</p>
+            </details>
+            <details class="reveal">
+              <summary>Comment contactez-vous nos fournisseurs&nbsp;?</summary>
+              <p>Seulement après mandat, et seulement les interlocuteurs que vous autorisez. Une introduction officielle part avant le premier contact.</p>
+            </details>
+            <details class="reveal">
+              <summary>Vous garantissez que l'installation aura lieu à l'heure&nbsp;?</summary>
+              <p>Non. Nous ne garantissons ni la réponse des tiers, ni l'absence de retard. Nous réduisons le risque d'arriver le jour J avec un prérequis critique encore incertain.</p>
+            </details>
+            <details class="reveal">
+              <summary>Combien ça coûte&nbsp;?</summary>
+              <p>Des forfaits de 900&nbsp;€&nbsp;HT à 3&nbsp;200&nbsp;€&nbsp;HT, selon le nombre d'intervenants externes et de points à poursuivre, pour une période de 15 jours ouvrés. La grille est affichée plus haut. Au-delà, chiffrage spécifique.</p>
+            </details>
+            <details class="reveal">
+              <summary>Quelles informations faut-il donner maintenant&nbsp;?</summary>
+              <p>Le type d'opération, l'horizon, et la nature générale des points encore ouverts. Pas de plans, pas de pièce jointe technique, pas de secret industriel dans le formulaire public.</p>
+            </details>
+            <details class="reveal">
+              <summary>Pour qui c'est vraiment utile&nbsp;?</summary>
+              <p>Quand plusieurs fournisseurs, preuves et relances commencent à prendre le temps du chef de projet. Si vous arrivez encore à tout suivre sans que cela absorbe le pilotage, le service n'est pas nécessaire.</p>
+            </details>
+            <details class="reveal">
+              <summary>Qui fait concrètement le travail&nbsp;?</summary>
+              <p>Hervé Mengue. Technicien de maintenance industrielle, huit ans chez Safran. Service humain opéré, pas un centre d'appels anonyme.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <!-- 13. CTA final -->
       <section class="section contact-section" id="contact">
         <div class="container contact-grid">
@@ -962,9 +1034,9 @@
           <p>Le client pilote. Nous poursuivons les prérequis ouverts et remontons ce qui nécessite réellement son attention.</p>
         </div>
         <nav aria-label="Navigation de pied de page">
-          <a href="#situations">Situations</a><a href="#service-opere">Le service</a>
-          <a href="#mandat">Mandat</a><a href="#confidentialite">Confidentialité</a>
-          <a href="#limites">Responsabilités</a><a href="#tarifs">Tarifs</a>
+          <a href="#situations">Le problème</a><a href="#service-opere">La résolution</a>
+          <a href="#tarifs">Tarifs</a><a href="#faq">Questions</a>
+          <a href="#limites">Responsabilités</a>
           <a href="mentions-legales.html">Mentions légales</a>
           <button class="footer-cookie-button" type="button" data-manage-analytics>Gérer les cookies</button>
         </nav>
