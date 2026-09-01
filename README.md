@@ -137,3 +137,12 @@ Le dépôt reste l'infrastructure technique ; le domaine professionnel devient 
 - calculateur purement local ;
 - aucune pièce jointe ni upload ;
 - aucune donnée client, aucun témoignage, aucun prix et aucun ROI inventés.
+
+## Démonstration de lecture (page autonome)
+
+Page séparée, sans changer l'accueil : `demo-lecture.html`.
+
+Guide pour modifier le dossier fictif **sans Cursor** : [`DEMO_LECTURE.md`](DEMO_LECTURE.md)
+
+Les 12 prérequis se trouvent dans `demo-lecture-data.js`.
+

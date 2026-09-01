@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Démonstration fictive : lire l'état d'un dossier opérationnel. Où en est-on, ce qui manque, la prochaine action."
+    />
+    <meta name="theme-color" content="#f6f4ee" />
+    <title>Démonstration de lecture | Readiness Industry</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="demo-lecture.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="demo-lecture-data.js" defer></script>
+    <script src="demo-lecture.js" defer></script>
+  </head>
+  <body class="demo-lecture-page">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header demo-lecture-header">
+      <div class="container header-inner">
+        <span class="identity">
+          <span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>
+            <strong>Readiness Industry</strong>
+            <small>Démonstration de lecture</small>
+          </span>
+        </span>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section section-soft simulation-section" id="simulation">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">Dossier fictif</p>
+            <h1>Préparation opérationnelle, trois jours avant le lancement prévu.</h1>
+            <p>
+              12 prérequis. Données statiques, inventées pour la démonstration.
+              Aucun client réel. Cette page sert à tester une lecture d'état, pas à vendre un logiciel.
+            </p>
+          </div>
+
+          <div class="reading-questions reveal" aria-label="Les trois questions du dossier">
+            <div>
+              <span>1</span>
+              <p>Où en est-on ?</p>
+            </div>
+            <div>
+              <span>2</span>
+              <p>Qu'est-ce qui manque ?</p>
+            </div>
+            <div>
+              <span>3</span>
+              <p>Quelle est la prochaine action ?</p>
+            </div>
+          </div>
+
+          <div class="simulation-shell reveal" data-simulation>
+            <div class="simulation-toolbar">
+              <div>
+                <span class="toolbar-label">État affiché</span>
+                <strong id="current-day-label">J-3 : État actuel du dossier</strong>
+              </div>
+            </div>
+
+            <div class="simulation-summary" aria-live="polite">
+              <div class="summary-item"><span>Points suivis</span><strong id="metric-total">12</strong></div>
+              <div class="summary-item"><span>Points fermés</span><strong id="metric-closed">4</strong></div>
+              <div class="summary-item"><span>Encore ouverts</span><strong id="metric-actions">8</strong></div>
+              <div class="summary-item attention-summary has-attention">
+                <span>Votre attention</span><strong id="metric-attention">4 actions</strong>
+              </div>
+            </div>
+
+            <div class="attention-box attention-banner" id="attention-box">
+              <span class="attention-icon" aria-hidden="true">!</span>
+              <div>
+                <strong>Votre attention</strong>
+                <p id="attention-copy">
+                  Les points ci-dessous demandent une action maintenant. Le reste du dossier n'a pas besoin d'être relu ligne à ligne.
+                </p>
+                <ul class="attention-list" id="attention-list"></ul>
+              </div>
+            </div>
+
+            <div class="simulation-layout demo-lecture-layout">
+              <div class="prerequisite-panel">
+                <div class="panel-heading-row">
+                  <div>
+                    <span class="toolbar-label">Dossier</span>
+                    <h2>État de chaque prérequis</h2>
+                  </div>
+                  <label class="filter-label">
+                    <span class="sr-only">Filtrer les prérequis</span>
+                    <select id="status-filter">
+                      <option value="all">Tous les points</option>
+                      <option value="attention">Votre attention</option>
+                      <option value="open">Encore ouverts</option>
+                      <option value="obtain">À obtenir</option>
+                      <option value="received">Reçu</option>
+                      <option value="nonconform">Incomplet</option>
+                      <option value="closed">Points fermés</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="prerequisite-list" id="prerequisite-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <p class="demo-lecture-close reveal">
+            Cette mécanique est une couche de lecture opérationnelle. Elle ne remplace pas MS Project, Primavera, Excel
+            ni un outil de gestion de projet. Les données présentées ici sont fictives et statiques. Aucun mécanisme
+            d'alimentation automatique n'est présenté dans cette démonstration.
+          </p>
+        </div>
+
+        <dialog class="prerequisite-dialog" id="prerequisite-dialog" aria-labelledby="dialog-title">
+          <div class="dialog-header">
+            <div>
+              <span class="toolbar-label" id="dialog-id">Prérequis</span>
+              <h2 id="dialog-title">Détail du point</h2>
+            </div>
+            <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
+          </div>
+          <div class="dialog-body" id="dialog-body"></div>
+        </dialog>
+      </section>
+    </main>
+  </body>
+</html>
