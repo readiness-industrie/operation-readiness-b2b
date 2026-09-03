@@ -1,136 +1,133 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta
-      name="description"
-      content="Démonstration fictive : lire l'état d'un dossier opérationnel. Où en est-on, ce qui manque, la prochaine action."
-    />
-    <meta name="theme-color" content="#f6f4ee" />
-    <title>Démonstration de lecture | Readiness Industry</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="demo-lecture.css" />
-    <script>
-      document.documentElement.classList.add("js");
-    </script>
-    <script src="demo-lecture-data.js" defer></script>
-    <script src="demo-lecture.js" defer></script>
-  </head>
-  <body class="demo-lecture-page">
-    <a class="skip-link" href="#main">Aller au contenu</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Simulation fictive d'une mission Readiness Industry : situation initiale, méthode, actions et lecture finale." />
+  <meta name="theme-color" content="#f6f4ee" />
+  <title>Simulation de mission | Readiness Industry</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="demo-lecture.css" />
+  <link rel="stylesheet" href="simulation-method.css" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="demo-lecture-data.js" defer></script>
+  <script src="demo-lecture.js" defer></script>
+</head>
+<body class="demo-lecture-page">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header demo-lecture-header">
+    <div class="container header-inner">
+      <span class="identity">
+        <span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span><strong>Readiness Industry</strong><small>Simulation de mission</small></span>
+      </span>
+    </div>
+  </header>
 
-    <header class="site-header demo-lecture-header">
-      <div class="container header-inner">
-        <span class="identity">
-          <span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span>
-            <strong>Readiness Industry</strong>
-            <small>Démonstration de lecture</small>
-          </span>
-        </span>
-      </div>
-    </header>
-
-    <main id="main">
-      <section class="section section-soft simulation-section" id="simulation">
-        <div class="container">
-          <div class="section-heading centered reveal">
-            <p class="eyebrow">Dossier fictif</p>
-            <h1>Préparation opérationnelle, trois jours avant le lancement prévu.</h1>
-            <p>
-              12 prérequis. Données statiques, inventées pour la démonstration.
-              Aucun client réel. Cette page sert à tester une lecture d'état, pas à vendre un logiciel.
-            </p>
-          </div>
-
-          <div class="reading-questions reveal" aria-label="Les trois questions du dossier">
-            <div>
-              <span>1</span>
-              <p>Où en est-on ?</p>
-            </div>
-            <div>
-              <span>2</span>
-              <p>Qu'est-ce qui manque ?</p>
-            </div>
-            <div>
-              <span>3</span>
-              <p>Quelle est la prochaine action ?</p>
-            </div>
-          </div>
-
-          <div class="simulation-shell reveal" data-simulation>
-            <div class="simulation-toolbar">
-              <div>
-                <span class="toolbar-label">État affiché</span>
-                <strong id="current-day-label">J-3 : État actuel du dossier</strong>
-              </div>
-            </div>
-
-            <div class="simulation-summary" aria-live="polite">
-              <div class="summary-item"><span>Points suivis</span><strong id="metric-total">12</strong></div>
-              <div class="summary-item"><span>Points fermés</span><strong id="metric-closed">4</strong></div>
-              <div class="summary-item"><span>Encore ouverts</span><strong id="metric-actions">8</strong></div>
-              <div class="summary-item attention-summary has-attention">
-                <span>Votre attention</span><strong id="metric-attention">4 actions</strong>
-              </div>
-            </div>
-
-            <div class="attention-box attention-banner" id="attention-box">
-              <span class="attention-icon" aria-hidden="true">!</span>
-              <div>
-                <strong>Votre attention</strong>
-                <p id="attention-copy">
-                  Les points ci-dessous demandent une action maintenant. Le reste du dossier n'a pas besoin d'être relu ligne à ligne.
-                </p>
-                <ul class="attention-list" id="attention-list"></ul>
-              </div>
-            </div>
-
-            <div class="simulation-layout demo-lecture-layout">
-              <div class="prerequisite-panel">
-                <div class="panel-heading-row">
-                  <div>
-                    <span class="toolbar-label">Dossier</span>
-                    <h2>État de chaque prérequis</h2>
-                  </div>
-                  <label class="filter-label">
-                    <span class="sr-only">Filtrer les prérequis</span>
-                    <select id="status-filter">
-                      <option value="all">Tous les points</option>
-                      <option value="attention">Votre attention</option>
-                      <option value="open">Encore ouverts</option>
-                      <option value="obtain">À obtenir</option>
-                      <option value="received">Reçu</option>
-                      <option value="nonconform">Incomplet</option>
-                      <option value="closed">Points fermés</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="prerequisite-list" id="prerequisite-list"></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="demo-lecture-close reveal">
-            Cette mécanique est une couche de lecture opérationnelle. Elle ne remplace pas MS Project, Primavera, Excel
-            ni un outil de gestion de projet. Les données présentées ici sont fictives et statiques. Aucun mécanisme
-            d'alimentation automatique n'est présenté dans cette démonstration.
-          </p>
+  <main id="main">
+    <section class="section section-soft simulation-section" id="simulation">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Cas fictif · intégrateur industriel</p>
+          <h1>De « normalement prêt » à une situation vérifiée et exploitable.</h1>
+          <p>Installation d'une ligne automatisée prévue dans 5 jours chez un client final fictif. Le chef de projet confie 12 prérequis à Readiness Industry. Voici ce qui se passe entre le dossier reçu et la lecture finale.</p>
         </div>
 
-        <dialog class="prerequisite-dialog" id="prerequisite-dialog" aria-labelledby="dialog-title">
-          <div class="dialog-header">
-            <div>
-              <span class="toolbar-label" id="dialog-id">Prérequis</span>
-              <h2 id="dialog-title">Détail du point</h2>
-            </div>
-            <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
+        <div class="case-strip reveal">
+          <div><span>Projet</span><strong>Ligne automatisée de conditionnement</strong></div>
+          <div><span>Échéance</span><strong>Intervention prévue J-0</strong></div>
+          <div><span>Périmètre</span><strong>12 prérequis confiés</strong></div>
+          <div><span>Interlocuteurs</span><strong>Projet, site, travaux, maintenance, prestataires</strong></div>
+        </div>
+
+        <div class="journey reveal" aria-label="Parcours de la mission">
+          <article class="journey-card before-card">
+            <span class="journey-step">01 · Dossier reçu</span>
+            <h2>Avant</h2>
+            <p>Les informations existent, mais elles sont dispersées entre mails, appels, Excel et confirmations orales.</p>
+            <ul>
+              <li>« Travaux électriques normalement terminés »</li>
+              <li>« La zone devrait être libérée »</li>
+              <li>« Tout le matériel doit être sur place »</li>
+              <li>« Le PV existe normalement »</li>
+            </ul>
+            <strong class="journey-conclusion">Le chef de projet ne sait pas encore ce qui est réellement sécurisé.</strong>
+          </article>
+
+          <article class="journey-card method-card">
+            <span class="journey-step">02 · Prise en charge</span>
+            <h2>Méthode Readiness</h2>
+            <ol>
+              <li><b>Structurer</b> chaque prérequis et son critère de confirmation.</li>
+              <li><b>Identifier</b> l'interlocuteur qui détient l'information.</li>
+              <li><b>Vérifier</b> ce qui est annoncé, reçu ou encore manquant.</li>
+              <li><b>Relancer</b> dans le cadre défini avec le client.</li>
+              <li><b>Faire remonter</b> les blocages qui nécessitent une décision.</li>
+              <li><b>Restituer</b> une lecture courte : état, manque, prochaine action.</li>
+            </ol>
+          </article>
+
+          <article class="journey-card action-card">
+            <span class="journey-step">03 · Travail réalisé</span>
+            <h2>Ce qui change</h2>
+            <div class="action-example"><span>Électricité</span><p>« Travaux terminés » → vérification auprès du responsable travaux → contrôle final encore prévu → confirmation écrite obtenue.</p><strong>Confirmé</strong></div>
+            <div class="action-example"><span>Matériel</span><p>« Tout livré » → contrôle auprès du site → 11 colis sur 12 → coffret manquant identifié et suivi.</p><strong>Écart détecté</strong></div>
+            <div class="action-example"><span>Accès zone</span><p>« Zone disponible » → vérification → matériel de production encore présent → évacuation prévue J-1.</p><strong>Attention projet</strong></div>
+          </article>
+
+          <article class="journey-card after-card">
+            <span class="journey-step">04 · Lecture exploitable</span>
+            <h2>Après</h2>
+            <p>Le chef de projet n'a plus à relire tout le dossier pour savoir où agir.</p>
+            <div class="after-metrics"><div><strong>4</strong><span>fermés</span></div><div><strong>8</strong><span>ouverts</span></div><div><strong>4</strong><span>à son attention</span></div></div>
+            <strong class="journey-conclusion">Pour chaque point : ce qui est confirmé, ce qui manque et la prochaine action.</strong>
+          </article>
+        </div>
+
+        <div class="transformation-line reveal"><span>AVANT</span><i></i><strong>Readiness Industry transforme une information supposée en situation vérifiée, suivie et lisible.</strong><i></i><span>APRÈS</span></div>
+
+        <div class="reading-questions reveal" aria-label="Les trois questions du dossier">
+          <div><span>1</span><p>Où en est-on ?</p></div>
+          <div><span>2</span><p>Qu'est-ce qui manque ?</p></div>
+          <div><span>3</span><p>Quelle est la prochaine action ?</p></div>
+        </div>
+
+        <div class="simulation-shell reveal" data-simulation>
+          <div class="simulation-toolbar"><div><span class="toolbar-label">Lecture à J-3</span><strong id="current-day-label">J-3 : État actuel du dossier</strong></div></div>
+          <div class="simulation-summary" aria-live="polite">
+            <div class="summary-item"><span>Points suivis</span><strong id="metric-total">12</strong></div>
+            <div class="summary-item"><span>Points fermés</span><strong id="metric-closed">4</strong></div>
+            <div class="summary-item"><span>Encore ouverts</span><strong id="metric-actions">8</strong></div>
+            <div class="summary-item attention-summary has-attention"><span>Votre attention</span><strong id="metric-attention">4 actions</strong></div>
           </div>
-          <div class="dialog-body" id="dialog-body"></div>
-        </dialog>
-      </section>
-    </main>
-  </body>
+          <div class="attention-box attention-banner" id="attention-box">
+            <span class="attention-icon" aria-hidden="true">!</span>
+            <div><strong>Votre attention</strong><p id="attention-copy">Ces points demandent une action ou une décision maintenant. Le reste du dossier n'a pas besoin d'être relu ligne à ligne.</p><ul class="attention-list" id="attention-list"></ul></div>
+          </div>
+          <div class="simulation-layout demo-lecture-layout">
+            <div class="prerequisite-panel">
+              <div class="panel-heading-row">
+                <div><span class="toolbar-label">Dossier fictif</span><h2>État des 12 prérequis</h2></div>
+                <label class="filter-label"><span class="sr-only">Filtrer les prérequis</span><select id="status-filter"><option value="all">Tous les points</option><option value="attention">Votre attention</option><option value="open">Encore ouverts</option><option value="obtain">À obtenir</option><option value="received">Reçu</option><option value="nonconform">Incomplet</option><option value="closed">Points fermés</option></select></label>
+              </div>
+              <div class="prerequisite-list" id="prerequisite-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="role-boundary reveal">
+          <strong>Ce que Readiness Industry fait</strong><p>Obtenir, structurer, suivre et faire remonter l'information nécessaire aux prérequis confiés.</p>
+          <strong>Ce que Readiness Industry ne fait pas</strong><p>Décider techniquement, remplacer le chef de projet ou décider du démarrage / report de l'intervention.</p>
+        </div>
+        <p class="demo-lecture-close reveal">Simulation entièrement fictive. Cette démonstration montre une méthode de travail et une lecture opérationnelle. Elle ne remplace pas MS Project, Primavera, Excel ni les outils de gestion de projet du client.</p>
+      </div>
+
+      <dialog class="prerequisite-dialog" id="prerequisite-dialog" aria-labelledby="dialog-title">
+        <div class="dialog-header"><div><span class="toolbar-label" id="dialog-id">Prérequis</span><h2 id="dialog-title">Détail du point</h2></div><button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button></div>
+        <div class="dialog-body" id="dialog-body"></div>
+      </dialog>
+    </section>
+  </main>
+</body>
 </html>
