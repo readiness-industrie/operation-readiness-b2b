@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://readiness-industrie.github.io/operation-readiness-b2b/</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-  <url>
-    <loc>https://readiness-industrie.github.io/operation-readiness-b2b/prerequis-mise-en-service-industrielle.html</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-  <url>
-    <loc>https://readiness-industrie.github.io/operation-readiness-b2b/preparation-sat-industriel.html</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-  <url>
-    <loc>https://readiness-industrie.github.io/operation-readiness-b2b/checklist-preparation-installation-industrielle.html</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/prerequis-mise-en-service-industrielle.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/preparation-sat-industriel.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/checklist-preparation-installation-industrielle.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/prerequis-avant-installation-machine-industrielle.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/preparation-site-avant-installation-industrielle.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/coordination-fournisseurs-avant-installation.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/suivi-prerequis-avant-mise-en-service.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/points-bloquants-avant-installation-machine.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://readiness-industrie.github.io/operation-readiness-b2b/checklist-avant-intervention-industrielle.html</loc><lastmod>2026-09-17</lastmod></url>
 </urlset>
