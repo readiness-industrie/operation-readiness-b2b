@@ -93,7 +93,7 @@ Le formulaire valide les champs localement et n'envoie aucune donnée dans cette
 Le formulaire ouvre un e-mail prérempli vers l'adresse professionnelle configurée au début de `app.js` :
 
 ```js
-const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
+const CONTACT_EMAIL = "hmreadinessindustry@gmail.com";
 ```
 
 Pour un vrai envoi serveur, choisir plus tard un service de formulaire adapté et ajouter une information de confidentialité correspondante.

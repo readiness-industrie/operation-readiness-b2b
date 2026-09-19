@@ -9,7 +9,7 @@
     maximumFractionDigits: 0
   });
 
-  const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
+  const CONTACT_EMAIL = "hmreadinessindustry@gmail.com";
 
   function qs(selector, root = document) {
     return root.querySelector(selector);
