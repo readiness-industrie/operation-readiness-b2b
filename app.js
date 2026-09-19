@@ -9,7 +9,7 @@
     maximumFractionDigits: 0
   });
 
-  const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
+  const CONTACT_EMAIL = "hmreadinessindustry@gmail.com";
   const ANALYTICS_MEASUREMENT_ID = "G-CXBR9QTFXS";
   const ANALYTICS_CONSENT_KEY = "readiness_analytics_consent_v1";
 
