@@ -555,9 +555,12 @@
             method: "contact_form"
           });
         }
-        window.location.href = `mailto:${encodeURIComponent(CONTACT_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         status.classList.add("success");
-        status.textContent = "Votre messagerie va s'ouvrir avec la demande préremplie.";
+        status.textContent =
+          "Votre demande est prête. Votre messagerie va s'ouvrir pour envoyer le message à Readiness Industry. Aucun e-mail n'est envoyé tant que vous n'avez pas validé l'envoi dans votre application de messagerie.";
+        window.setTimeout(() => {
+          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }, 400);
         return;
       }
 

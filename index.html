@@ -149,7 +149,7 @@
     <header class="site-header" data-header><div class="container header-inner">
       <a class="identity" href="#top" aria-label="Readiness Industry"><span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span><span><strong>Readiness Industry</strong><small>Capacité opérationnelle industrielle</small></span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Ouvrir le menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
-      <nav class="main-nav" id="main-nav" aria-label="Navigation principale"><a href="#interventions">Interventions</a><a href="#fonctionnement">Fonctionnement</a><a href="#tarifs">Tarifs</a><a class="button button-small button-dark" href="#contact">Parler d'un projet</a></nav>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale"><a href="#interventions">Interventions</a><a href="#fonctionnement">Fonctionnement</a><a href="#simulation">Démonstration</a><a href="#tarifs">Tarifs</a><a class="button button-small button-dark" href="#contact">Parler d'un projet</a></nav>
     </div></header>
     <main id="main">
       <section class="hero" id="top"><div class="hero-grid container">
@@ -179,12 +179,222 @@
           <div class="boundary-card boundary-yes reveal"><span>Readiness Industry</span><ul><li>Demander et relancer</li><li>Collecter les éléments</li><li>Tracer les échanges</li><li>Contrôler selon votre grille</li><li>Identifier les points bloquants</li><li>Escalader ce qui nécessite une décision</li></ul></div>
           <div class="boundary-card boundary-no reveal"><span>Votre équipe</span><ul><li>Définir les règles et critères</li><li>Prendre les décisions techniques</li><li>Arbitrer le HSE et le budget</li><li>Décider de la mobilisation</li><li>Valider les changements</li><li>Rester responsable du projet</li></ul></div>
         </div>
-        <p class="workflow-conclusion reveal">Nous ne prenons pas votre projet. <strong>Nous prenons une partie de ce qui vous empêche de le piloter.</strong></p>
       </div></section>
 
-      <section class="section cost-section"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Pourquoi intervenir ?</p><h2>Parce qu'un point non traité peut coûter bien plus que sa relance.</h2><p>Une intervention mobilise des équipes, des fournisseurs, des déplacements, du matériel et des créneaux. Plus une incertitude est découverte tard, moins il reste de leviers pour agir.</p></div>
-        <div class="cost-stack reveal" aria-label="Éléments potentiellement exposés"><span>Équipe terrain</span><span>Transport</span><span>Hébergement</span><span>Matériel</span><span>Planning</span><span>Production</span><span>Replanification</span><span>Marge</span></div>
-      </div></section>
+      <!-- Démonstration interactive (HTML restauré depuis 5e56b53 — logique app.js inchangée) -->
+      <section class="section section-soft simulation-section" id="simulation">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">Visibilité fournie par le service</p>
+            <h2>Une opération simulée, suivie de J-14 à J-0.</h2>
+            <p>
+              Installation simulée d'une ligne de conditionnement : 12 prérequis initiaux, 6 parties prenantes
+              et plusieurs incidents volontaires.
+            </p>
+            <p class="simulation-disclaimer">
+              Scénario industriel simulé destiné à illustrer notre méthode. Il ne représente pas un projet client réel.
+            </p>
+          </div>
+
+          <div class="interface-notice reveal">
+            <div>
+              <span class="notice-icon" aria-hidden="true">≠</span>
+              <p><strong>Cette interface n'est pas le produit principal.</strong> Elle illustre la visibilité fournie dans le cadre du service.</p>
+            </div>
+            <div>
+              <span class="notice-icon" aria-hidden="true">✓</span>
+              <p><strong>Le service alimente le suivi.</strong> Il contacte, relance, collecte, contrôle selon la grille et trace les échanges.</p>
+            </div>
+          </div>
+
+          <div class="simulation-shell reveal" data-simulation>
+            <div class="simulation-toolbar">
+              <div>
+                <span class="toolbar-label">Chronologie</span>
+                <strong id="current-day-label">J-14 : cadrage initial</strong>
+              </div>
+              <div class="simulation-controls">
+                <button class="icon-button" id="sim-prev" type="button" aria-label="Jour précédent">←</button>
+                <button class="button button-dark button-small" id="sim-play" type="button" aria-pressed="false">
+                  <span data-play-label>Lancer la simulation</span>
+                </button>
+                <button class="icon-button" id="sim-next" type="button" aria-label="Jour suivant">→</button>
+              </div>
+            </div>
+
+            <div class="timeline-wrap" aria-label="Choisir un jour de la simulation">
+              <div class="timeline" id="simulation-timeline"></div>
+            </div>
+
+            <div class="simulation-summary" aria-live="polite">
+              <div class="summary-item"><span>Points suivis</span><strong id="metric-total">12</strong></div>
+              <div class="summary-item"><span>Points fermés</span><strong id="metric-closed">0</strong></div>
+              <div class="summary-item"><span>Actions de poursuite</span><strong id="metric-actions">0</strong></div>
+              <div class="summary-item attention-summary">
+                <span>Votre attention</span><strong id="metric-attention">0 action</strong>
+              </div>
+            </div>
+
+            <div class="simulation-layout">
+              <div class="prerequisite-panel">
+                <div class="panel-heading-row">
+                  <div>
+                    <span class="toolbar-label">Prérequis</span>
+                    <h3>Chaque point a une prochaine action</h3>
+                  </div>
+                  <label class="filter-label">
+                    <span class="sr-only">Filtrer les prérequis</span>
+                    <select id="status-filter">
+                      <option value="all">Tous les statuts</option>
+                      <option value="attention">À valider / bloquant</option>
+                      <option value="obtain">À obtenir</option>
+                      <option value="received">Reçu</option>
+                      <option value="nonconform">Non conforme</option>
+                      <option value="closed">Points fermés</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="prerequisite-list" id="prerequisite-list"></div>
+              </div>
+
+              <aside class="activity-panel" aria-labelledby="activity-title">
+                <div class="activity-header">
+                  <span class="toolbar-label">Couche de poursuite</span>
+                  <h3 id="activity-title">Activité en coulisses</h3>
+                  <p>Le service effectue ici les demandes, relances, collectes et contrôles prévus au mandat.</p>
+                </div>
+                <ol class="activity-feed" id="activity-feed"></ol>
+                <div class="attention-box" id="attention-box">
+                  <span class="attention-icon" aria-hidden="true">!</span>
+                  <div>
+                    <strong>Votre attention</strong>
+                    <p id="attention-copy">Aucune validation ou décision nécessaire à ce stade.</p>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="simulation-conclusion reveal">
+            <p>Le service ne promet pas un projet sans retard.</p>
+            <strong>Il rend les écarts visibles plus tôt et conserve la preuve de ce qui a été demandé, promis, reçu ou non reçu.</strong>
+          </div>
+        </div>
+
+        <dialog class="prerequisite-dialog" id="prerequisite-dialog" aria-labelledby="dialog-title">
+          <div class="dialog-header">
+            <div>
+              <span class="toolbar-label" id="dialog-id">Prérequis</span>
+              <h2 id="dialog-title">Détail du point</h2>
+            </div>
+            <button class="dialog-close" type="button" data-dialog-close aria-label="Fermer">×</button>
+          </div>
+          <div class="dialog-body" id="dialog-body"></div>
+        </dialog>
+      </section>
+
+      <section class="section workflow-section" id="avant-apres">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">Répartition des flux</p>
+            <h2>Nous absorbons la poursuite. Vous gardez le pilotage.</h2>
+            <p>Observez ce qui change lorsque la couche de poursuite intervient entre les flux opérationnels et le chef de projet.</p>
+          </div>
+
+          <div class="workflow-demo reveal" data-workflow-state="before">
+            <div class="workflow-toolbar">
+              <div class="segmented-control" role="group" aria-label="Étape de l'animation">
+                <button type="button" class="active" data-workflow-step="before">Avant</button>
+                <button type="button" data-workflow-step="transition">Poursuite</button>
+                <button type="button" data-workflow-step="after">Avec le service</button>
+              </div>
+              <button class="button button-small button-dark" id="workflow-play" type="button">Voir la transformation</button>
+            </div>
+
+            <div class="workflow-canvas" aria-live="polite">
+              <div class="workflow-stakeholders">
+                <span data-flow="mail">Fournisseur <i>Mail</i></span>
+                <span data-flow="call">Sous-traitant <i>Appel</i></span>
+                <span data-flow="document">Transporteur <i>Document</i></span>
+                <span data-flow="question">Sécurité / accès <i>Question</i></span>
+                <span data-flow="confirm">Client / site <i>Confirmation</i></span>
+                <span data-flow="followup">Intégrateur <i>Relance</i></span>
+              </div>
+              <div class="flow-lanes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="pursuit-layer">
+                <small>Couche opérationnelle</small>
+                <strong>Poursuite des prérequis</strong>
+                <div><span>Demander</span><span>Relancer</span><span>Tracer</span></div>
+              </div>
+              <div class="decision-flow" aria-hidden="true"><span>Information importante</span><span>Décision nécessaire</span></div>
+              <div class="project-manager">
+                <span class="manager-icon" aria-hidden="true">CP</span>
+                <div><small>Pilotage</small><strong>Chef de projet</strong></div>
+              </div>
+            </div>
+            <p class="workflow-caption" id="workflow-caption">Avant : demandes, appels, documents et relances arrivent directement vers le chef de projet.</p>
+          </div>
+
+          <p class="workflow-conclusion reveal">
+            Nous ne prenons pas votre projet. <strong>Nous prenons une partie de ce qui vous empêche de le piloter.</strong>
+          </p>
+        </div>
+      </section>
+
+      <section class="section cost-section" id="cout">
+        <div class="container cost-grid">
+          <div class="cost-copy reveal">
+            <p class="eyebrow">Pourquoi intervenir ?</p>
+            <h2>Parce qu'un point non traité peut coûter bien plus que sa relance.</h2>
+            <p>Une intervention mobilise des équipes, des fournisseurs, des déplacements, du matériel et des créneaux. Plus une incertitude est découverte tard, moins il reste de leviers pour agir.</p>
+            <div class="cost-stack" aria-label="Éléments potentiellement exposés">
+              <span>Équipe terrain</span><span>Transport</span><span>Hébergement</span>
+              <span>Matériel</span><span>Planning</span><span>Production</span><span>Replanification</span><span>Marge</span>
+            </div>
+          </div>
+
+          <form class="calculator reveal" id="exposure-calculator">
+            <div class="calculator-heading">
+              <span class="toolbar-label">Calcul local</span>
+              <h3>Estimez votre exposition</h3>
+              <p>Les valeurs restent dans votre navigateur.</p>
+            </div>
+            <div class="calculator-fields">
+              <label>
+                <span>Nombre de personnes</span>
+                <input type="number" name="people" min="0" step="1" inputmode="numeric" placeholder="0" />
+              </label>
+              <label>
+                <span>Coût estimé / personne / jour</span>
+                <span class="input-unit"><input type="number" name="dailyCost" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+              <label>
+                <span>Jours potentiellement affectés</span>
+                <input type="number" name="days" min="0" step="0.5" inputmode="decimal" placeholder="0" />
+              </label>
+              <label>
+                <span>Location de matériel</span>
+                <span class="input-unit"><input type="number" name="equipment" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+              <label>
+                <span>Transport / hébergement</span>
+                <span class="input-unit"><input type="number" name="travel" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+              <label>
+                <span>Autres coûts</span>
+                <span class="input-unit"><input type="number" name="other" min="0" step="1" inputmode="decimal" placeholder="0" /><i>€</i></span>
+              </label>
+            </div>
+            <div class="calculator-result" aria-live="polite">
+              <span>Exposition financière estimée dans votre scénario</span>
+              <strong id="exposure-result">0&nbsp;€</strong>
+            </div>
+            <p class="fine-print">
+              Estimation indicative calculée à partir des informations saisies. Elle ne constitue pas une économie garantie.
+            </p>
+          </form>
+        </div>
+      </section>
 
       <section class="section tarifs-section" id="tarifs"><div class="container">
         <div class="section-heading reveal"><p class="eyebrow">Tarifs</p><h2>Des forfaits clairs selon la charge de poursuite.</h2><p>Le tarif dépend du nombre d'intervenants externes concernés et du nombre de points à poursuivre.</p></div>
@@ -196,6 +406,56 @@
         <div class="tarif-notes reveal"><p>Forfaits couvrant jusqu'à 15 jours ouvrés de poursuite à distance, en intensité standard.</p><p>Les 15 jours ouvrés correspondent à une période de prise en charge, pas à 15 journées de travail à temps plein dédiées exclusivement au client.</p><p>Plus de 8 intervenants, plus de 30 points ou charge particulière : chiffrage spécifique.</p></div>
         <aside class="tarif-example reveal"><p class="eyebrow">Exemple</p><p class="tarif-example-calc"><span>4 intervenants</span><span>+</span><span>18 points</span><span>=</span><strong>1&nbsp;800&nbsp;€&nbsp;HT</strong></p></aside>
       </div></section>
+
+      <section class="section trace-section" id="tracabilite">
+        <div class="container trace-grid">
+          <div class="trace-copy reveal">
+            <p class="eyebrow">Traçabilité</p>
+            <h2>Vous n'avez pas à nous surveiller pour vérifier que nous surveillons les autres.</h2>
+            <p>
+              Chaque point conserve sa source, sa date, l'action réalisée, la réponse obtenue et sa prochaine action.
+              Le suivi reste lisible sans rechercher l'information dans plusieurs fils d'échanges.
+            </p>
+            <button class="button button-outline" id="toggle-history" type="button" aria-expanded="false" aria-controls="history-example">
+              Afficher un historique complet
+            </button>
+          </div>
+          <div class="history-card reveal" id="history-example">
+            <div class="history-card-head">
+              <span>PR-04</span>
+              <div><small>Zone d'installation</small><strong>Photos de libération de zone</strong></div>
+              <span class="status-pill status-closed">Fermé</span>
+            </div>
+            <ol class="history-list" data-collapsed="true">
+              <li><time>Lundi 09:12</time><span>Demande envoyée</span></li>
+              <li><time>Mercredi 14:05</time><span>Aucune réponse, relance</span></li>
+              <li><time>Jeudi 10:18</time><span>Réponse reçue</span></li>
+              <li><time>Jeudi 10:22</time><span>Élément incomplet</span></li>
+              <li><time>Jeudi 10:31</time><span>Complément demandé</span></li>
+              <li><time>Vendredi 08:47</time><span>Complément reçu</span></li>
+              <li><time>Vendredi 09:02</time><span>Critère client satisfait — point fermé</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="container escalation-example reveal">
+          <div class="escalation-intro">
+            <p class="eyebrow">Escalade exploitable</p>
+            <h3>Nous ne décidons pas à votre place. Nous remontons ce qui permet de décider.</h3>
+          </div>
+          <dl class="escalation-data">
+            <div><dt>Responsable</dt><dd>Fournisseur X</dd></div>
+            <div><dt>Échéance</dt><dd>20/08</dd></div>
+            <div><dt>Confirmation</dt><dd>Non reçue</dd></div>
+            <div><dt>Preuve</dt><dd>Non reçue</dd></div>
+            <div><dt>Relances</dt><dd>3, historisées</dd></div>
+            <div><dt>Risque</dt><dd>Intervention du 22/08</dd></div>
+          </dl>
+          <div class="escalation-action">
+            <span>Action nécessaire</span>
+            <strong>Décision ou intervention du chef de projet</strong>
+          </div>
+        </div>
+      </section>
 
       <section class="section pilot-section"><div class="container pilot-grid">
         <div class="pilot-copy reveal"><p class="eyebrow">Première étape</p><h2>Vous avez un dossier en préparation ?</h2><p>Nous regardons ensemble le type d'opération, son horizon, les intervenants concernés et les points encore ouverts. En 15 minutes, nous pouvons déterminer si le périmètre correspond au service.</p><a class="button button-primary" href="#contact">Vérifier mon projet</a></div>

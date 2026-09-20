@@ -9,7 +9,7 @@
     maximumFractionDigits: 0
   });
 
-  const CONTACT_EMAIL = "hervemengue.pro@gmail.com";
+  const CONTACT_EMAIL = "hmreadinessindustry@gmail.com";
   const ANALYTICS_MEASUREMENT_ID = "G-CXBR9QTFXS";
   const ANALYTICS_CONSENT_KEY = "readiness_analytics_consent_v1";
 
@@ -616,9 +616,12 @@
             method: "contact_form"
           });
         }
-        window.location.href = `mailto:${encodeURIComponent(CONTACT_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         status.classList.add("success");
-        status.textContent = "Votre messagerie va s'ouvrir avec la demande préremplie.";
+        status.textContent =
+          "Votre demande est prête. Votre messagerie va s'ouvrir pour envoyer le message à Readiness Industry. Aucun e-mail n'est envoyé tant que vous n'avez pas validé l'envoi dans votre application de messagerie.";
+        window.setTimeout(() => {
+          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }, 400);
         return;
       }
 
