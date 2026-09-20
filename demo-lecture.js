@@ -573,6 +573,17 @@
     });
   }
 
+  function gmailComposeUrl(to, subject, body) {
+    const query = new URLSearchParams({
+      view: "cm",
+      fs: "1",
+      to,
+      su: subject,
+      body
+    });
+    return `https://mail.google.com/mail/?${query.toString()}`;
+  }
+
   function initContactForm() {
     const form = qs("#contact-form");
     const status = qs("#form-status");
@@ -616,11 +627,13 @@
             method: "contact_form"
           });
         }
+        const composeUrl = gmailComposeUrl(CONTACT_EMAIL, subject, body);
         status.classList.add("success");
         status.textContent =
-          "Votre demande est prête. Votre messagerie va s'ouvrir pour envoyer le message à Readiness Industry. Aucun e-mail n'est envoyé tant que vous n'avez pas validé l'envoi dans votre application de messagerie.";
+          "Votre demande est prête. Gmail va s'ouvrir avec le message prérempli vers Readiness Industry. Rien n'est envoyé tant que vous n'avez pas cliqué sur Envoyer dans Gmail.";
         window.setTimeout(() => {
-          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          const tab = window.open(composeUrl, "_blank", "noopener,noreferrer");
+          if (!tab) window.location.assign(composeUrl);
         }, 400);
         return;
       }
