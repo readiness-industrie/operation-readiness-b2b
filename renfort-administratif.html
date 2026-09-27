@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="styles.css?v=20260920-photo-circle">
   <style>
     .adv-hero { padding-top: calc(var(--header-height) + 76px); padding-bottom: 90px; background: #f6f4ee; }
-    .adv-hero-copy { max-width: 850px; }
+    .adv-hero-copy { max-width: 850px; } .adv-hero-grid{display:grid;grid-template-columns:1fr .8fr;gap:45px;align-items:center}.adv-live{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,.08);animation:advFloat 5s ease-in-out infinite}.adv-live-head{display:flex;justify-content:space-between;font-weight:800;margin-bottom:15px}.adv-live-dot{color:#26756c;font-size:.7rem}.adv-live-dot:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#26756c;margin-right:6px;animation:advPulse 1.4s infinite}.adv-file{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:13px 0;border-top:1px solid var(--line);animation:advIn .55s both}.adv-file:nth-child(2){animation-delay:.3s}.adv-file:nth-child(3){animation-delay:.6s}.adv-file:nth-child(4){animation-delay:.9s}.adv-file:nth-child(5){animation-delay:1.2s}.adv-file b{font-size:.88rem}.adv-file small{display:block;color:var(--muted)}.adv-state{font-size:.62rem;padding:5px 7px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}.adv-state.ok{color:#26756c;border-color:#9dcfc7}.adv-state.wait{color:#9a6a20;border-color:#d7bd88}.adv-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}.adv-mini div{padding:10px;background:#f5f3ed;border-radius:8px;text-align:center}.adv-mini b{display:block;font-size:1.2rem}.adv-mini small{color:var(--muted)}.adv-animated-step{position:relative;overflow:hidden}.adv-animated-step:after{content:"";position:absolute;left:-40%;right:auto;bottom:0;width:35%;height:2px;background:var(--accent);animation:advScan 2.8s infinite}.adv-step:nth-child(2):after{animation-delay:.3s}.adv-step:nth-child(3):after{animation-delay:.6s}.adv-step:nth-child(4):after{animation-delay:.9s}.adv-step:nth-child(5):after{animation-delay:1.2s}.adv-step:nth-child(6):after{animation-delay:1.5s}@keyframes advFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@keyframes advPulse{50%{opacity:.3}}@keyframes advIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}@keyframes advScan{0%{left:-40%}55%,100%{left:105%}}
     .adv-hero h1 { max-width: 850px; }
     .adv-hero-lead { max-width: 760px; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.65; }
     .adv-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
@@ -48,7 +48,7 @@
     .adv-boundary ul { display:grid; gap:8px; padding-left:20px; margin:0; color:var(--muted); }
     .adv-confidential { padding:18px 22px; margin-top:22px; background:#eeece5; border-left:3px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; color:var(--muted); }
     .adv-final { padding-bottom:100px; }
-    @media (max-width:850px) {
+    @media (max-width:850px) {.adv-hero-grid{grid-template-columns:1fr;}
       .adv-grid,.adv-process,.adv-test-grid,.adv-boundaries { grid-template-columns:1fr; }
       .adv-hero { padding-top:calc(var(--header-height) + 58px); }
     }
@@ -112,14 +112,14 @@
 
 <main id="main">
   <section class="adv-hero">
-    <div class="container adv-hero-copy">
+    <div class="container adv-hero-grid"><div class="adv-hero-copy">
       <p class="eyebrow">Renfort administratif · ADV · À distance</p>
       <h1>Renfort administratif &amp; ADV</h1>
       <p class="adv-hero-lead"><strong>Une capacité supplémentaire quand votre équipe n'arrive plus à absorber le flux.</strong></p>
       <p class="adv-hero-lead">Remplacement en cours, recrutement en attente, surcharge ponctuelle ou retard accumulé : Readiness Industry prend en charge à distance un périmètre défini de vos tâches administratives et ADV.</p>
       <p class="hero-control">Vous définissez le périmètre. Nous prenons en charge le traitement.</p>
       <div class="button-row"><a class="button button-primary" href="index.html#contact">Parler de votre besoin</a></div>
-    </div>
+    </div><div class="adv-live" aria-label="Exemple de traitement ADV"><div class="adv-live-head"><span>Stock ADV</span><span class="adv-live-dot">TRAITEMENT ACTIF</span></div><div class="adv-file"><span>01</span><div><b>Commande client</b><small>pièce contrôlée</small></div><span class="adv-state ok">TRAITÉ</span></div><div class="adv-file"><span>02</span><div><b>Dossier incomplet</b><small>pièce demandée</small></div><span class="adv-state wait">RELANCE</span></div><div class="adv-file"><span>03</span><div><b>Facturation</b><small>éléments vérifiés</small></div><span class="adv-state ok">CONTRÔLÉ</span></div><div class="adv-file"><span>04</span><div><b>Client à relancer</b><small>réponse attendue</small></div><span class="adv-state wait">EN COURS</span></div><div class="adv-mini"><div><b>20</b><small>dossiers</small></div><div><b>14</b><small>traités</small></div><div><b>6</b><small>en cours</small></div></div></div></div>
   </section>
 
   <section class="section">
@@ -182,8 +182,8 @@
         <h2>Un fonctionnement simple</h2>
       </div>
       <div class="adv-process">
-        <div class="adv-step"><strong>01 · Cadrage</strong><p>Définition des tâches, règles de traitement, outils et éléments à remonter.</p></div>
-        <div class="adv-step"><strong>02 · Transmission</strong><p>Transmission du périmètre ou du flux à traiter selon le mode défini.</p></div>
+        <div class="adv-step adv-animated-step"><strong>01 · Cadrage</strong><p>Définition des tâches, règles de traitement, outils et éléments à remonter.</p></div>
+        <div class="adv-step adv-animated-step"><strong>02 · Transmission</strong><p>Transmission du périmètre ou du flux à traiter selon le mode défini.</p></div>
         <div class="adv-step"><strong>03 · Traitement</strong><p>Traitement à distance selon les règles établies.</p></div>
         <div class="adv-step"><strong>04 · Contrôle</strong><p>Contrôle des éléments traités avant restitution.</p></div>
         <div class="adv-step"><strong>05 · Restitution</strong><p>Retour des dossiers traités, anomalies et points nécessitant validation.</p></div>
