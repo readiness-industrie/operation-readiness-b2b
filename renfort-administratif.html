@@ -74,7 +74,15 @@
     .adv-more-menu a:hover{background:#eeece5;color:#1c2a2e}
     .adv-more-menu b{display:block;color:#1c2a2e}
     @media(max-width:800px){.adv-photo-strip{grid-template-columns:1fr}.adv-photo{height:240px}.adv-visual-board{grid-template-columns:1fr 1fr}.adv-side-nav{right:8px}.adv-more-menu{right:42px;width:185px}}
-.advDesktopNav{display:flex;align-items:center;gap:20px}.advDesktopNav a{font-size:.78rem;color:var(--muted);font-weight:800}.advDesktopNav a:hover{color:#1c2a2e}.advDesktopNav .advNavCta{background:#26756c;color:#fff;padding:10px 13px;border-radius:8px}.advMobileMenu{display:none}@media(max-width:800px){.advDesktopNav{display:none}.advMobileMenu{display:block;background:transparent;color:#1c2a2e;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:1rem}.advMobileLinks{display:none;position:absolute;right:13px;top:58px;width:215px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.15)}.advMobileLinks.open{display:block}.advMobileLinks a{display:block;padding:11px;color:var(--muted);font-weight:800;font-size:.8rem}}</style>
+.advDesktopNav{display:flex;align-items:center;gap:20px}.advDesktopNav a{font-size:.78rem;color:var(--muted);font-weight:800}.advDesktopNav a:hover{color:#1c2a2e}.advDesktopNav .advNavCta{background:#26756c;color:#fff;padding:10px 13px;border-radius:8px}.advMobileMenu{display:none}@media(max-width:800px){.advDesktopNav{display:none}.advMobileMenu{display:block;background:transparent;color:#1c2a2e;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:1rem}.advMobileLinks{display:none;position:absolute;right:13px;top:58px;width:215px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.15)}.advMobileLinks.open{display:block}.advMobileLinks a{display:block;padding:11px;color:var(--muted);font-weight:800;font-size:.8rem}}.adv-visual-caption{padding:7px 10px;margin-bottom:8px;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:.62rem;font-weight:900;letter-spacing:.08em}
+.lead-form{margin-top:28px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lead-form label{display:grid;gap:6px;font-size:.76rem;font-weight:850;color:var(--muted)}
+.lead-form label span{font-weight:600;color:var(--muted)}
+.lead-form input,.lead-form select,.lead-form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
+.lead-form textarea{resize:vertical}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+</style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -124,7 +132,7 @@
       <p class="adv-hero-lead">Remplacement en cours, recrutement en attente, surcharge ponctuelle ou retard accumulé : Readiness Industry prend en charge à distance un périmètre défini de vos tâches administratives et ADV.</p>
       <p class="hero-control">Vous définissez le périmètre. Nous prenons en charge le traitement.</p>
       <div class="button-row"><a class="button button-primary" href="#contact-adv">Résorber mon stock</a></div>
-    </div><div class="adv-live" aria-label="Exemple de traitement ADV"><div class="adv-live-head"><span>Stock ADV</span><span class="adv-live-dot">TRAITEMENT ACTIF</span></div><div class="adv-file"><span>01</span><div><b>Commande client</b><small>pièce contrôlée</small></div><span class="adv-state ok">TRAITÉ</span></div><div class="adv-file"><span>02</span><div><b>Dossier incomplet</b><small>pièce demandée</small></div><span class="adv-state wait">RELANCE</span></div><div class="adv-file"><span>03</span><div><b>Facturation</b><small>éléments vérifiés</small></div><span class="adv-state ok">CONTRÔLÉ</span></div><div class="adv-file"><span>04</span><div><b>Client à relancer</b><small>réponse attendue</small></div><span class="adv-state wait">EN COURS</span></div><div class="adv-mini"><div><b>20</b><small>dossiers</small></div><div><b>14</b><small>traités</small></div><div><b>6</b><small>en cours</small></div></div></div></div>
+    </div><div class="adv-live" aria-label="Illustration d’un traitement ADV"><div class="adv-visual-caption">SCÉNARIO ILLUSTRATIF · FLUX ADMINISTRATIF</div><div class="adv-live-head"><span>Stock ADV</span><span class="adv-live-dot">TRAITEMENT ACTIF</span></div><div class="adv-file"><span>01</span><div><b>Commande client</b><small>pièce contrôlée</small></div><span class="adv-state ok">TRAITÉ</span></div><div class="adv-file"><span>02</span><div><b>Dossier incomplet</b><small>pièce demandée</small></div><span class="adv-state wait">RELANCE</span></div><div class="adv-file"><span>03</span><div><b>Facturation</b><small>éléments vérifiés</small></div><span class="adv-state ok">CONTRÔLÉ</span></div><div class="adv-file"><span>04</span><div><b>Client à relancer</b><small>réponse attendue</small></div><span class="adv-state wait">EN COURS</span></div><div class="adv-mini"><div><b>20</b><small>dossiers</small></div><div><b>14</b><small>traités</small></div><div><b>6</b><small>en cours</small></div></div></div></div>
   </section>
 
   <section class="section section-soft">
@@ -145,8 +153,8 @@
         </div>
       </div>
       <div class="adv-visual-board">
-        <div class="adv-board-card"><small>Stock reçu</small><div class="adv-board-number">20 dossiers</div><div class="adv-board-line"><i></i></div></div>
-        <div class="adv-board-card"><small>État du traitement</small><div class="adv-board-number">14 traités</div><div class="adv-board-line"><i></i></div></div>
+        <div class="adv-board-card"><small>Scénario illustratif · stock reçu</small><div class="adv-board-number">20 dossiers</div><div class="adv-board-line"><i></i></div></div>
+        <div class="adv-board-card"><small>Scénario illustratif · état du traitement</small><div class="adv-board-number">14 traités</div><div class="adv-board-line"><i></i></div></div>
       </div>
     </div>
   </section>
@@ -294,7 +302,19 @@
         <p>Nous regarderons avec vous quelle partie du flux peut être prise en charge à distance.</p>
       </div>
       <div class="button-row">
-        <a class="button button-primary" href="mailto:hmreadinessindustry@gmail.com?subject=Demande%20de%20renfort%20administratif%20et%20ADV">Résorber mon stock</a>
+        <form class="lead-form adv-lead-form" id="adv-form">
+<div class="form-grid">
+<label>Nom<input name="nom" required></label>
+<label>Entreprise<input name="entreprise" required></label>
+<label>E-mail<input type="email" name="email" required></label>
+<label>Téléphone <span>(optionnel)</span><input name="telephone"></label>
+<label>Situation<select name="situation"><option>Remplacement temporaire</option><option>Recrutement en cours</option><option>Surcharge ponctuelle</option><option>Retard accumulé</option><option>Autre</option></select></label>
+<label>Type de tâches<select name="taches"><option>Dossiers clients</option><option>Commandes / suivi administratif</option><option>Facturation</option><option>Relances</option><option>Tableaux / données</option><option>Documents</option><option>Plusieurs</option></select></label>
+</div>
+<label>Contexte / besoin<textarea name="contexte" rows="5" required></textarea></label>
+<button class="button button-primary" type="submit">Envoyer ma demande</button>
+<p class="fine-print">Votre demande ouvre votre messagerie avec les informations renseignées. Rien n'est envoyé automatiquement depuis le site.</p>
+</form>
         <a class="button button-outline" href="index.html#expertises">Voir les deux expertises</a>
       </div>
     </div>
@@ -349,5 +369,22 @@
 
 const am=document.querySelector(".advMobileMenu"),al=document.querySelector(".advMobileLinks");if(am&&al){am.addEventListener("click",()=>{const o=al.classList.toggle("open");am.setAttribute("aria-expanded",String(o))});al.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>al.classList.remove("open")))}
 </script>
-</body>
+<script>
+document.getElementById("adv-form")?.addEventListener("submit",function(e){
+e.preventDefault();
+const f=new FormData(this);
+const body=[
+"Nom : "+f.get("nom"),
+"Entreprise : "+f.get("entreprise"),
+"E-mail : "+f.get("email"),
+"Téléphone : "+(f.get("telephone")||"Non renseigné"),
+"Situation : "+f.get("situation"),
+"Type de tâches : "+f.get("taches"),
+"",
+"Contexte / besoin :",
+f.get("contexte")
+].join("\n");
+window.location.href="mailto:hmreadinessindustry@gmail.com?subject="+encodeURIComponent("Demande de renfort administratif et ADV")+"&body="+encodeURIComponent(body);
+});
+</script></body>
 </html>
