@@ -19,9 +19,21 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 .flow{margin-top:34px;display:grid;grid-template-columns:repeat(5,1fr);position:relative}.flow:before{content:"";position:absolute;top:29px;left:5%;right:5%;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent)}.node{text-align:center;position:relative}.circle{width:58px;height:58px;border-radius:50%;margin:auto;background:var(--bg);border:1px solid var(--a);display:grid;place-items:center;color:var(--a);font-weight:950;position:relative;z-index:2}.node b{display:block;margin-top:13px}.node small{display:block;color:var(--mut);margin-top:5px;padding:0 7px}
 .tariff{background:linear-gradient(180deg,#0a151d,#071018)}.priceGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:28px}.priceCard{padding:20px 16px;border:1px solid var(--line);border-radius:14px;background:var(--p)}.priceCard h3{margin:0 0 6px;font-size:.8rem;color:var(--a);letter-spacing:.08em}.priceBig{font-size:1.65rem;font-weight:950}.priceSmall{color:var(--mut);font-size:.76rem;line-height:1.45;margin-top:5px}.tariffNote{margin-top:18px;color:var(--mut);font-size:.86rem}.tariffNote strong{color:var(--txt)}
 .offers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}.offer{padding:30px;border:1px solid var(--line);border-radius:18px;background:var(--p)}.offer.ri{border-color:#2f7169}.offer.adv{border-color:#3b5270}.offer .num{font-size:.68rem;color:var(--a);font-weight:900;letter-spacing:.14em}.offer.adv .num{color:#a8c7ff}.offer h3{font-size:1.7rem;margin:9px 0}.offer p,.offer li{color:var(--mut)}.offer ul{padding-left:18px}.offerFlow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:11px;background:#09131a;font-size:.61rem;font-weight:900}.offerFlow span,.offerFlow b{padding:7px 8px;border-radius:7px;border:1px solid var(--line);color:var(--mut)}.offerFlow b{color:var(--a);border-color:#28645c}.advFlow b{color:#a8c7ff;border-color:#3b5270}.offer .btn{margin-top:5px}
+.advMiniVisual{margin:18px 0;padding:14px;border:1px solid #3b5270;border-radius:12px;background:#0a151d;display:grid;gap:8px;font-size:.56rem;font-weight:900;letter-spacing:.04em}
+.advMiniVisual>div{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.advMiniVisual span,.advMiniVisual strong{padding:6px 7px;border:1px solid #3b5270;border-radius:6px;color:#a8c7ff}
+.advMiniVisual b{color:#7188a7}
+.advMiniVisual strong{background:#101d2a}
 .proof{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:30px}.proofBox{border:1px solid var(--line);border-radius:17px;background:var(--p);padding:24px}.proofBox h3{margin:0 0 16px}.proofRows{display:grid;gap:9px}.proofRow{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:9px;background:#0a151d;font-size:.78rem}.proofRow small{color:var(--mut)}.proofTag{font-size:.58rem;color:var(--a);border:1px solid #28645c;padding:4px 6px;border-radius:99px}.photoStrip{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;margin-top:22px}.photoTile{height:245px;border-radius:17px;overflow:hidden;border:1px solid var(--line);position:relative}.photoTile img{width:100%;height:100%;object-fit:cover}.photoTile span{position:absolute;left:14px;bottom:14px;padding:8px 10px;border-radius:8px;background:rgba(7,16,24,.84);font-size:.7rem;font-weight:850}
 .human{display:grid;grid-template-columns:.55fr 1.45fr;gap:30px;align-items:center}.humanPhoto{width:260px;height:260px;border-radius:50%;overflow:hidden;border:1px solid var(--line)}.humanPhoto img{width:100%;height:100%;object-fit:cover}.humanCopy p{color:var(--mut);font-size:1rem;max-width:700px}.conf{margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--p);color:var(--mut);font-size:.86rem}.conf strong{color:var(--txt)}
 .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}.faq details{background:var(--p);border:1px solid var(--line);border-radius:13px;padding:18px 20px}.faq summary{cursor:pointer;font-weight:850}.faq p{color:var(--mut);margin:11px 0 0;font-size:.9rem}
+.lead-form{margin-top:26px;text-align:left;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--p)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lead-form label{display:grid;gap:6px;font-size:.76rem;font-weight:850;color:var(--mut)}
+.lead-form label span{font-weight:600;color:#71848e}
+.lead-form input,.lead-form select,.lead-form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:#09131a;color:var(--txt);font:inherit}
+.lead-form textarea{resize:vertical}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
 .final{text-align:center;padding:100px 0;background:radial-gradient(circle at 50% 0,rgba(87,225,207,.08),transparent 42%)}.final h2{max-width:820px;margin:10px auto 15px}.final p{color:var(--mut);max-width:640px;margin:auto}.final .btn{margin-top:25px}footer{border-top:1px solid var(--line);padding:25px 0;color:#71848e;font-size:.76rem}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media(max-width:1000px){.heroGrid,.result,.proof,.human{grid-template-columns:1fr}.priceGrid{grid-template-columns:repeat(3,1fr)}.humanPhoto{width:220px;height:220px}.offers{grid-template-columns:1fr}}
@@ -63,6 +75,32 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 </div>
 </section>
 
+<section id="expertises">
+<div class="wrap reveal">
+<p class="eyebrow">Deux expertises opérationnelles</p>
+<h2>Deux portes d'entrée. Un même interlocuteur.</h2>
+<p class="sub">Choisissez le besoin qui correspond à votre situation. Les deux offres restent distinctes, avec leur propre périmètre.</p>
+<div class="offers" style="margin-top:28px">
+<div class="offer ri">
+<div class="num">01 · READINESS INDUSTRY</div>
+<h3>Sécuriser les points ouverts avant un jalon industriel.</h3>
+<p>Prérequis · fournisseurs · preuves · réserves · FAT/SAT · mise en service · transfert</p>
+<a class="btn" href="#readiness-offre">Voir Readiness Industry</a>
+</div>
+<div class="offer adv">
+<div class="num">02 · RENFORT ADMINISTRATIF &amp; ADV</div>
+<h3>Résorber un stock de dossiers quand votre équipe manque de capacité.</h3>
+<div class="advMiniVisual" aria-label="Illustration d'un flux administratif">
+<div><span>DOSSIERS</span><b>→</b><span>COMMANDES</span><b>→</b><span>FACTURATION</span></div>
+<div><span>RELANCES</span><b>→</b><span>CONTRÔLE</span><b>→</b><strong>RESTITUTION</strong></div>
+</div>
+<p>Dossiers clients · commandes · facturation · relances · suivi administratif</p>
+<a class="btn" style="background:#a8c7ff" href="renfort-administratif.html#contact-adv">Voir Renfort ADV</a>
+</div>
+</div>
+</div>
+</section>
+
 <section>
 <div class="wrap reveal">
 <p class="eyebrow">Le problème</p>
@@ -89,7 +127,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 
 <section>
 <div class="wrap reveal">
-<p class="eyebrow">Notre intervention</p>
+<p class="eyebrow" id="interventions">Notre intervention</p>
 <h2>Une boucle simple pour faire sortir les points du stock.</h2>
 <div class="flow">
 <div class="node"><div class="circle">01</div><div><b>Récupérer</b><small>points, responsables, échéances</small></div></div>
@@ -194,7 +232,19 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <p class="eyebrow">Un jalon approche ?</p>
 <h2>Des points restent ouverts et vous voulez les faire avancer ?</h2>
 <p>Décrivez simplement le jalon, le nombre d'intervenants concernés et les points encore ouverts. Nous regarderons le périmètre qui peut être pris en charge.</p>
-<a class="btn" href="mailto:hmreadinessindustry@gmail.com?subject=Demande%20Readiness%20Industry">Demander une intervention</a>
+<form class="lead-form" id="ri-form">
+<div class="form-grid">
+<label>Nom<input name="nom" required></label>
+<label>Entreprise<input name="entreprise" required></label>
+<label>E-mail<input type="email" name="email" required></label>
+<label>Téléphone <span>(optionnel)</span><input name="telephone"></label>
+<label>Jalon concerné<select name="jalon"><option>FAT</option><option>SAT</option><option>Mise en service</option><option>Transfert</option><option>Autre</option></select></label>
+<label>Points ouverts approximatifs<select name="points"><option>1 à 10</option><option>11 à 20</option><option>21 à 30</option><option>Plus de 30</option><option>Je ne sais pas</option></select></label>
+</div>
+<label>Contexte / besoin<textarea name="contexte" rows="5" required></textarea></label>
+<button class="btn" type="submit">Envoyer ma demande</button>
+<p class="micro">Votre demande ouvre votre messagerie avec les informations renseignées. Rien n'est envoyé automatiquement depuis le site.</p>
+</form>
 </div>
 </section>
 </main>
@@ -206,5 +256,22 @@ const menu=document.querySelector(".mobileMenu"),links=document.querySelector(".
 if(menu&&links){menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")))}
 document.querySelectorAll(".reveal").forEach(el=>{if("IntersectionObserver"in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");o.unobserve(e.target)}}),{threshold:.08});o.observe(el)}else el.classList.add("visible")});
 </script>
-</body>
+<script>
+document.getElementById("ri-form")?.addEventListener("submit",function(e){
+e.preventDefault();
+const f=new FormData(this);
+const body=[
+"Nom : "+f.get("nom"),
+"Entreprise : "+f.get("entreprise"),
+"E-mail : "+f.get("email"),
+"Téléphone : "+(f.get("telephone")||"Non renseigné"),
+"Jalon : "+f.get("jalon"),
+"Points ouverts : "+f.get("points"),
+"",
+"Contexte / besoin :",
+f.get("contexte")
+].join("\n");
+window.location.href="mailto:hmreadinessindustry@gmail.com?subject="+encodeURIComponent("Demande Readiness Industry")+"&body="+encodeURIComponent(body);
+});
+</script></body>
 </html>
