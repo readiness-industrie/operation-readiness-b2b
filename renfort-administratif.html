@@ -52,7 +52,29 @@
       .adv-grid,.adv-process,.adv-test-grid,.adv-boundaries { grid-template-columns:1fr; }
       .adv-hero { padding-top:calc(var(--header-height) + 58px); }
     }
-  </style>
+  
+    .adv-photo-strip{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:28px}
+    .adv-photo{position:relative;height:300px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.07)}
+    .adv-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+    .adv-photo:hover img{transform:scale(1.03)}
+    .adv-photo-label{position:absolute;left:16px;right:16px;bottom:16px;padding:12px 14px;border-radius:10px;background:rgba(20,30,34,.84);color:#fff;backdrop-filter:blur(10px)}
+    .adv-photo-label strong{display:block}.adv-photo-label span{font-size:.75rem;opacity:.78}
+    .adv-visual-board{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+    .adv-board-card{padding:20px;border:1px solid var(--line);border-radius:15px;background:#fff}
+    .adv-board-card small{color:var(--muted);display:block;margin-bottom:8px}
+    .adv-board-number{font-size:2rem;font-weight:950;letter-spacing:-.05em}
+    .adv-board-line{height:7px;border-radius:99px;background:#e8e4db;overflow:hidden;margin-top:12px}
+    .adv-board-line i{display:block;height:100%;width:72%;background:var(--accent);animation:advBoardFill 2s ease forwards}
+    @keyframes advBoardFill{from{width:0}to{width:72%}}
+    .adv-side-nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:50}
+    .adv-more-btn{width:38px;height:48px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.96);color:#26756c;font-size:1.45rem;cursor:pointer;box-shadow:0 12px 35px rgba(0,0,0,.12)}
+    .adv-more-menu{position:absolute;right:48px;top:50%;transform:translateY(-50%) translateX(8px);width:205px;padding:8px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.98);box-shadow:0 18px 50px rgba(0,0,0,.15);opacity:0;visibility:hidden;pointer-events:none;transition:.18s ease}
+    .adv-side-nav.open .adv-more-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0)}
+    .adv-more-menu a{display:block;padding:10px 12px;border-radius:8px;color:var(--muted);font-size:.78rem}
+    .adv-more-menu a:hover{background:#eeece5;color:#1c2a2e}
+    .adv-more-menu b{display:block;color:#1c2a2e}
+    @media(max-width:800px){.adv-photo-strip{grid-template-columns:1fr}.adv-photo{height:240px}.adv-visual-board{grid-template-columns:1fr 1fr}.adv-side-nav{right:8px}.adv-more-menu{right:42px;width:185px}}
+</style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -97,18 +119,17 @@
       <span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>
       <span><strong>Readiness Industry</strong><small>Deux expertises opérationnelles</small></span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-      <span class="sr-only">Ouvrir le menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-    </button>
-    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
-      <a href="index.html#expertises">Nos expertises</a>
-      <a href="index.html#fonctionnement">Fonctionnement</a>
-      <a href="index.html#simulation">Démonstration</a>
-      <a href="index.html#contact">Contact</a>
-      <a class="button button-small button-dark" href="index.html#contact">Parler de votre besoin</a>
-    </nav>
   </div>
 </header>
+<nav class="adv-side-nav" aria-label="Navigation rapide">
+  <button class="adv-more-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">⋮</button>
+  <div class="adv-more-menu">
+    <a href="index.html"><b>Accueil</b><span>Les deux expertises</span></a>
+    <a href="index.html#readiness-offre"><b>Readiness Industry</b><span>Sécuriser un jalon</span></a>
+    <a href="#tarifs"><b>ADV</b><span>Voir les tarifs</span></a>
+    <a href="index.html#faq"><b>FAQ</b><span>Questions fréquentes</span></a>
+  </div>
+</nav>
 
 <main id="main">
   <section class="adv-hero">
@@ -118,8 +139,32 @@
       <p class="adv-hero-lead"><strong>Une capacité supplémentaire quand votre équipe n'arrive plus à absorber le flux.</strong></p>
       <p class="adv-hero-lead">Remplacement en cours, recrutement en attente, surcharge ponctuelle ou retard accumulé : Readiness Industry prend en charge à distance un périmètre défini de vos tâches administratives et ADV.</p>
       <p class="hero-control">Vous définissez le périmètre. Nous prenons en charge le traitement.</p>
-      <div class="button-row"><a class="button button-primary" href="index.html#contact">Parler de votre besoin</a></div>
+      <div class="button-row"><a class="button button-primary" href="#contact-adv">Résorber mon stock</a></div>
     </div><div class="adv-live" aria-label="Exemple de traitement ADV"><div class="adv-live-head"><span>Stock ADV</span><span class="adv-live-dot">TRAITEMENT ACTIF</span></div><div class="adv-file"><span>01</span><div><b>Commande client</b><small>pièce contrôlée</small></div><span class="adv-state ok">TRAITÉ</span></div><div class="adv-file"><span>02</span><div><b>Dossier incomplet</b><small>pièce demandée</small></div><span class="adv-state wait">RELANCE</span></div><div class="adv-file"><span>03</span><div><b>Facturation</b><small>éléments vérifiés</small></div><span class="adv-state ok">CONTRÔLÉ</span></div><div class="adv-file"><span>04</span><div><b>Client à relancer</b><small>réponse attendue</small></div><span class="adv-state wait">EN COURS</span></div><div class="adv-mini"><div><b>20</b><small>dossiers</small></div><div><b>14</b><small>traités</small></div><div><b>6</b><small>en cours</small></div></div></div></div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Dans le réel</p>
+        <h2>Le flux devient visible en un coup d'œil.</h2>
+        <p>Un renfort ADV ne consiste pas à ajouter une couche de discours : il s'agit de faire sortir les dossiers du stock, de contrôler ce qui a été traité et de faire remonter ce qui bloque.</p>
+      </div>
+      <div class="adv-photo-strip">
+        <div class="adv-photo">
+          <img src="assets/readiness-resolution-humaine.jpg" alt="Intervention humaine et traitement opérationnel">
+          <div class="adv-photo-label"><strong>Traitement suivi</strong><span>Un interlocuteur prend en charge le périmètre défini.</span></div>
+        </div>
+        <div class="adv-photo">
+          <img src="assets/herve-photo.jpg" alt="Hervé MENGUE, intervenant Readiness Industry">
+          <div class="adv-photo-label"><strong>Un humain derrière le service</strong><span>Traitement, contrôle et restitution directement opérés.</span></div>
+        </div>
+      </div>
+      <div class="adv-visual-board">
+        <div class="adv-board-card"><small>Stock reçu</small><div class="adv-board-number">20 dossiers</div><div class="adv-board-line"><i></i></div></div>
+        <div class="adv-board-card"><small>État du traitement</small><div class="adv-board-number">14 traités</div><div class="adv-board-line"><i></i></div></div>
+      </div>
+    </div>
   </section>
 
   <section class="section">
@@ -256,7 +301,7 @@
     </div>
   </section>
 
-  <section class="section adv-final">
+  <section class="section adv-final" id="contact-adv">
     <div class="container">
       <div class="section-heading reveal">
         <p class="eyebrow">Parlons-en</p>
@@ -265,7 +310,7 @@
         <p>Nous regarderons avec vous quelle partie du flux peut être prise en charge à distance.</p>
       </div>
       <div class="button-row">
-        <a class="button button-primary" href="index.html#contact">Parler de votre besoin</a>
+        <a class="button button-primary" href="mailto:hmreadinessindustry@gmail.com?subject=Demande%20de%20renfort%20administratif%20et%20ADV">Résorber mon stock</a>
         <a class="button button-outline" href="index.html#expertises">Voir les deux expertises</a>
       </div>
     </div>
@@ -315,6 +360,25 @@
     toggle.addEventListener("click", () => {
       const open = header.classList.toggle("menu-open");
       toggle.setAttribute("aria-expanded", String(open));
+    });
+  }
+
+  const advSideNav = document.querySelector(".adv-side-nav");
+  const advMoreBtn = document.querySelector(".adv-more-btn");
+  if (advSideNav && advMoreBtn) {
+    advMoreBtn.addEventListener("click", () => {
+      const open = advSideNav.classList.toggle("open");
+      advMoreBtn.setAttribute("aria-expanded", String(open));
+    });
+    advSideNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      advSideNav.classList.remove("open");
+      advMoreBtn.setAttribute("aria-expanded","false");
+    }));
+    document.addEventListener("click", e => {
+      if (!advSideNav.contains(e.target)) {
+        advSideNav.classList.remove("open");
+        advMoreBtn.setAttribute("aria-expanded","false");
+      }
     });
   }
 </script>
