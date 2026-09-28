@@ -110,7 +110,7 @@ async function handle(req,res){
   if(u.pathname==="/health") return send(res,200,{ok:true,service:"assistant-readiness",external_ai:false});
   if(u.pathname.startsWith("/api/")){
     if(!authorized(req)) return send(res,401,{error:"Clé cockpit requise."});
-    if(req.method==="GET" && u.pathname==="/api/dashboard") return send(res,200,{items:await load(),persistent:true,secret_protected:Boolean(SECRET)});
+    if(req.method==="GET" && u.pathname==="/api/dashboard"){ const all=await load(); return send(res,200,{items:all.filter(function(x){return x.type!=="Prospect";}),prospects:all.filter(function(x){return x.type==="Prospect";}),persistent:true,secret_protected:Boolean(SECRET)}); }
     if(req.method==="POST" && u.pathname==="/api/prospect"){
       const b=await body(req), p=qualifyProspect(b.text,{client:b.client});
       const items=await load(); items.unshift(p); await save(items); return send(res,200,{prospect:p});
