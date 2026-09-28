@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const SECRET = process.env.DASHBOARD_SECRET || "";
 const ROOT = new URL(".", import.meta.url).pathname;
 const STORE = process.env.READINESS_STORE || join(ROOT, "data", "projects.json");
+const UPLOAD_DIR = process.env.READINESS_UPLOAD_DIR || join(ROOT, "data", "uploads");
 
 const CATEGORIES = [
   ["Accès / site", /accès|badge|zone|site|circulation|coactivité|accueil/i],
@@ -21,6 +22,7 @@ const CATEGORIES = [
 
 async function ensureStore(){
   await mkdir(dirname(STORE), {recursive:true});
+  await mkdir(UPLOAD_DIR, {recursive:true});
   try { await readFile(STORE,"utf8"); } catch { await writeFile(STORE,"[]","utf8"); }
 }
 async function load(){ await ensureStore(); return JSON.parse(await readFile(STORE,"utf8")); }
@@ -28,6 +30,8 @@ async function save(items){ await ensureStore(); await writeFile(STORE,JSON.stri
 function send(res,status,data,type){ type=type||"application/json"; res.writeHead(status,{"Content-Type":type+"; charset=utf-8","Cache-Control":"no-store"}); res.end(type==="application/json"?JSON.stringify(data):data); }
 function authorized(req){ return !SECRET || req.headers["x-dashboard-secret"]===SECRET; }
 async function body(req){ let raw=""; for await(const chunk of req) raw+=chunk; return raw?JSON.parse(raw):{}; }
+function sourceSummary(text){ const t=normalizeText(text); return {characters:t.length, lines:t?t.split(/\\n/).length:0, words:t?t.split(/\\s+/).length:0}; }
+function prepareFollowups(points){ return points.map(function(p){ return {categorie:p.categorie, destinataire:p.responsable, objet:"Point à confirmer : "+p.categorie, demande:p.action, preuve_attendue:p.preuve_attendue, statut:"Brouillon à valider avec Hervé"}; }); }
 function normalizeText(x){ return String(x||"").replace(/\r/g,"").trim(); }
 function classify(text){ return CATEGORIES.filter(function(x){return x[1].test(text);}).map(function(x){return x[0];}); }
 function findMilestone(text){ const m=text.match(/(?:SAT|mise en service|installation|intervention|réception|jalon)[^\n.!?]{0,100}/i); return m?m[0].trim():"Jalon non précisé"; }
@@ -85,7 +89,7 @@ async function handle(req,res){
     if(!authorized(req)) return send(res,401,{error:"Clé cockpit requise."});
     if(req.method==="GET" && u.pathname==="/api/dashboard") return send(res,200,{items:await load(),persistent:true,secret_protected:Boolean(SECRET)});
     if(req.method==="POST" && u.pathname==="/api/analyze"){
-      const b=await body(req); const a=analyze(b.text,{client:b.client,projet:b.projet}); const dossier=dossierFromAnalysis(a);
+      const b=await body(req); const a=analyze(b.text,{client:b.client,projet:b.projet}); a.source=sourceSummary(b.text); a.relances=prepareFollowups(a.points); const dossier=dossierFromAnalysis(a); dossier.relances=a.relances;
       const items=await load(); items.unshift(dossier); await save(items); return send(res,200,{analysis:a,dossier:dossier});
     }
     const m=u.pathname.match(/^\/api\/dashboard\/([^/]+)$/);
