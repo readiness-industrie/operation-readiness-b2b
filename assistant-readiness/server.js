@@ -74,11 +74,19 @@ function analyze(text,meta){
     validation_humaine_requise:true, confiance:categories.length?"À vérifier":"Insuffisant"
   };
 }
+function normalizePoint(p){
+  return Object.assign({
+    id:randomUUID(), statut:"À vérifier", priorite:"Haute",
+    action:"Action à définir", preuve_attendue:"Preuve à définir",
+    responsable:"À identifier", echeance:"À préciser",
+    motif:""
+  }, p);
+}
 function dossierFromAnalysis(a){
   return {
     id:randomUUID(), client:a.client, projet:a.projet, jalon:a.jalon, date_jalon:a.date_jalon,
-    priorite:"Haute", etat:"À valider", progression:0, points:a.points,
-    prochaine_action:a.prochaine_action, blocage:"Vérifications à effectuer",
+    priorite:"Haute", etat:"À valider", progression:0, points:a.points.map(normalizePoint),
+    prochaine_action:a.prochaine_action, blocage:"Vérifications à effectuer", relances:a.relances||[], preuves_a_controler:a.points.map(function(p){return {point_id:p.id,preuve_attendue:p.preuve_attendue,statut:"À contrôler"};}),
     validation_humaine_requise:true, created_at:new Date().toISOString(), updated_at:new Date().toISOString()
   };
 }
@@ -97,8 +105,29 @@ async function handle(req,res){
       const b=await body(req), items=await load(), i=items.findIndex(function(x){return x.id===m[1];});
       if(i<0) return send(res,404,{error:"Dossier introuvable."});
       if(b.etat==="Terminé" && items[i].validation_humaine_requise) return send(res,409,{error:"Ce dossier reste À valider tant que la validation humaine est requise."});
-      ["etat","priorite","prochaine_action","blocage","progression"].forEach(function(k){if(b[k]!==undefined) items[i][k]=b[k];});
+      if(b.validation_humaine_requise===false && b.confirmation!=="Hervé") return send(res,409,{error:"La validation humaine doit être confirmée par Hervé."});
+      ["etat","priorite","prochaine_action","blocage"].forEach(function(k){if(b[k]!==undefined) items[i][k]=b[k];});
+      if(b.validation_humaine_requise===false && b.confirmation==="Hervé") items[i].validation_humaine_requise=false;
+      if(Array.isArray(items[i].points)) items[i].progression=Math.round(items[i].points.filter(function(p){return p.statut==="Clos";}).length/items[i].points.length*100);
       items[i].updated_at=new Date().toISOString(); await save(items); return send(res,200,{item:items[i]});
+    }
+    const pm=u.pathname.match(/^\/api\/dashboard\/([^/]+)\/points\/([^/]+)$/);
+    if(req.method==="PATCH" && pm){
+      const b=await body(req), items=await load(), i=items.findIndex(function(x){return x.id===pm[1];});
+      if(i<0) return send(res,404,{error:"Dossier introuvable."});
+      const p=items[i].points.find(function(x){return x.id===pm[2];});
+      if(!p) return send(res,404,{error:"Point introuvable."});
+      ["statut","priorite","action","preuve_attendue","responsable","echeance","motif","preuve_recue","preuve_date","preuve_controle","preuve_commentaire"].forEach(function(k){if(b[k]!==undefined)p[k]=b[k];});
+      items[i].progression=Math.round(items[i].points.filter(function(x){return x.statut==="Clos";}).length/items[i].points.length*100);
+      const blocked=items[i].points.filter(function(x){return x.statut==="Bloqué";});
+      items[i].blocage=blocked.length?blocked.map(function(x){return x.categorie+": "+x.motif;}).join(" | "):"";
+      items[i].updated_at=new Date().toISOString(); await save(items); return send(res,200,{item:items[i],point:p});
+    }
+    if(req.method==="GET" && pm){
+      const items=await load(), d=items.find(function(x){return x.id===pm[1];});
+      if(!d) return send(res,404,{error:"Dossier introuvable."});
+      const p=d.points.find(function(x){return x.id===pm[2];});
+      return p?send(res,200,{point:p}):send(res,404,{error:"Point introuvable."});
     }
     if(req.method==="DELETE" && u.pathname==="/api/dashboard"){
       if(u.searchParams.get("confirm")!=="oui") return send(res,400,{error:"Confirmation requise."});
