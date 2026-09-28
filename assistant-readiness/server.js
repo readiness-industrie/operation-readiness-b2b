@@ -115,6 +115,15 @@ async function handle(req,res){
       const b=await body(req), p=qualifyProspect(b.text,{client:b.client});
       const items=await load(); items.unshift(p); await save(items); return send(res,200,{prospect:p});
     }
+    const cv=u.pathname.match(/^\/api\/prospect\/([^/]+)\/convert$/);
+    if(req.method==="POST" && cv){
+      const b=await body(req), items=await load(), i=items.findIndex(function(x){return x.id===cv[1] && x.type==="Prospect";});
+      if(i<0) return send(res,404,{error:"Prospect introuvable."});
+      if(b.confirmation!=="Hervé") return send(res,409,{error:"Conversion à confirmer par Hervé."});
+      const p=items[i];
+      const d={id:randomUUID(),type:"Projet",client:p.client,projet:b.projet||"Projet à préciser",jalon:b.jalon||"Jalon non précisé",date_jalon:b.date_jalon||"",priorite:"Haute",etat:"À valider",progression:0,points:[{id:randomUUID(),categorie:"Qualification",statut:"À valider",priorite:"Haute",action:"Préciser le périmètre Readiness, le jalon et les points ouverts.",preuve_attendue:"périmètre et informations projet confirmés",responsable:"Hervé / client",echeance:"À préciser",motif:"Conversion du prospect en dossier projet."}],prochaine_action:"Cadrer le mandat et récupérer les informations projet nécessaires.",blocage:"Cadrage à réaliser",validation_humaine_requise:true,relances:[],preuves_a_controler:[],created_at:new Date().toISOString(),updated_at:new Date().toISOString()};
+      p.statut="Converti en projet"; p.updated_at=new Date().toISOString(); items.unshift(d); await save(items); return send(res,200,{prospect:p,dossier:d});
+    }
     if(req.method==="POST" && u.pathname==="/api/analyze"){
       const b=await body(req); const a=analyze(b.text,{client:b.client,projet:b.projet}); a.source=sourceSummary(b.text); a.relances=prepareFollowups(a.points); const dossier=dossierFromAnalysis(a); dossier.relances=a.relances;
       const items=await load(); items.unshift(dossier); await save(items); return send(res,200,{analysis:a,dossier:dossier});
