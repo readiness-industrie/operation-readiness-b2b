@@ -1,6 +1,6 @@
 import http from "node:http";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { extname, join, dirname } from "node:path";
+import { readFile, writeFile, mkdir, unlink } from "node:fs/promises";
+import { extname, join, dirname, basename, resolve, sep } from "node:path";
 import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
 import { READINESS_OFFER } from "./knowledge.js";
 
@@ -9,8 +9,10 @@ const SECRET = (process.env.DASHBOARD_SECRET || "").trim();
 const COOKIE_NAME = "readiness_auth";
 const LOCKED_API = {error:"Assistant verrouillé : définissez DASHBOARD_SECRET pour l'ouvrir."};
 const ROOT = new URL(".", import.meta.url).pathname;
+// READINESS_STORE et READINESS_UPLOAD_DIR : sur Render, les pointer sous le même disque persistant (ex. /var/data).
 const STORE = process.env.READINESS_STORE || join(ROOT, "data", "projects.json");
 const UPLOAD_DIR = process.env.READINESS_UPLOAD_DIR || join(ROOT, "data", "uploads");
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
 const CATEGORIES = [
   ["Accès / site", /accès|badge|zone|site|circulation|coactivité|accueil/i],
@@ -151,6 +153,95 @@ function qualifyProspect(text,meta){
     validation_humaine_requise:true, created_at:new Date().toISOString(), updated_at:new Date().toISOString()
   };
 }
+function httpError(status, message){
+  const err = new Error(message);
+  err.status = status;
+  return err;
+}
+async function readBuffer(req, limit){
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of req) {
+    size += chunk.length;
+    if (size > limit) throw httpError(413, "Fichier trop volumineux (10 Mo maximum).");
+    chunks.push(chunk);
+  }
+  return Buffer.concat(chunks);
+}
+function parseMultipartFile(buf, contentType){
+  const match = /boundary=(?:"([^"]+)"|([^;\s]+))/i.exec(contentType || "");
+  if (!match) throw httpError(400, "Envoi de fichier invalide.");
+  const boundary = match[1] || match[2];
+  const sep = Buffer.from("--" + boundary);
+  let cursor = buf.indexOf(sep);
+  if (cursor < 0) throw httpError(400, "Envoi de fichier invalide.");
+  let file = null;
+  while (cursor >= 0 && cursor < buf.length) {
+    let start = cursor + sep.length;
+    if (buf[start] === 45 && buf[start + 1] === 45) break;
+    if (buf[start] === 13 && buf[start + 1] === 10) start += 2;
+    const next = buf.indexOf(sep, start);
+    if (next < 0) break;
+    let end = next;
+    if (end >= 2 && buf[end - 2] === 13 && buf[end - 1] === 10) end -= 2;
+    const part = buf.subarray(start, end);
+    const splitAt = part.indexOf(Buffer.from("\r\n\r\n"));
+    if (splitAt >= 0) {
+      const headerText = part.subarray(0, splitAt).toString("utf8");
+      const data = part.subarray(splitAt + 4);
+      const disp = headerText.split(/\r\n/).find(function(line){ return /^content-disposition:/i.test(line); }) || "";
+      const named = /name="([^"]*)"/.exec(disp);
+      const namedFile = /filename="([^"]*)"/.exec(disp) || /filename\*=UTF-8''([^;\s]+)/i.exec(disp);
+      if (namedFile && (!named || named[1] === "file" || named[1] === "preuve")) {
+        let filename = namedFile[1];
+        try { filename = decodeURIComponent(filename); } catch (e) {}
+        file = {filename: filename, data: data};
+      }
+    }
+    cursor = next;
+  }
+  if (!file || !file.data.length) throw httpError(400, "Aucun fichier reçu.");
+  return file;
+}
+function sniffProof(buf, filename){
+  const ext = extname(String(filename || "")).toLowerCase();
+  const allowed = {".pdf":"application/pdf",".png":"image/png",".jpg":"image/jpeg",".jpeg":"image/jpeg",".webp":"image/webp",".gif":"image/gif"};
+  const mime = allowed[ext];
+  if (!mime) throw httpError(415, "Format non accepté. Déposez un PDF ou une image (PNG, JPEG, WEBP, GIF).");
+  const ok = (mime === "application/pdf" && buf.subarray(0, 5).toString("utf8") === "%PDF-")
+    || (mime === "image/png" && buf.length >= 8 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47)
+    || (mime === "image/jpeg" && buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff)
+    || (mime === "image/gif" && (buf.subarray(0, 6).toString("utf8") === "GIF87a" || buf.subarray(0, 6).toString("utf8") === "GIF89a"))
+    || (mime === "image/webp" && buf.length >= 12 && buf.subarray(0, 4).toString("utf8") === "RIFF" && buf.subarray(8, 12).toString("utf8") === "WEBP");
+  if (!ok) throw httpError(415, "Le fichier ne correspond pas à un PDF ou une image acceptée.");
+  return {ext: ext, mime: mime};
+}
+function safeSegment(id){
+  if (!/^[a-zA-Z0-9-]{8,80}$/.test(String(id || ""))) throw httpError(400, "Identifiant invalide.");
+  return id;
+}
+function safeDownloadName(name){
+  const base = basename(String(name || "preuve").replace(/\\/g, "/")).replace(/[\r\n"]/g, "").slice(0, 180);
+  return base || "preuve";
+}
+function proofAbsolute(rel){
+  const root = resolve(UPLOAD_DIR);
+  const abs = resolve(root, String(rel || ""));
+  if (abs !== root && !abs.startsWith(root + sep)) throw httpError(400, "Chemin de preuve invalide.");
+  return abs;
+}
+function sendBinary(res, buf, mime, filename){
+  const downloadName = safeDownloadName(filename);
+  const ascii = downloadName.replace(/[^\x20-\x7E]/g, "_") || "preuve";
+  res.writeHead(200, {
+    "Content-Type": mime,
+    "Content-Length": buf.length,
+    "Content-Disposition": "inline; filename=\"" + ascii + "\"; filename*=UTF-8''" + encodeURIComponent(downloadName),
+    "Cache-Control": "no-store",
+    "X-Content-Type-Options": "nosniff"
+  });
+  res.end(buf);
+}
 function dossierFromAnalysis(a){
   return {
     id:randomUUID(), client:a.client, projet:a.projet, jalon:a.jalon, date_jalon:a.date_jalon,
@@ -209,6 +300,7 @@ async function handle(req,res){
       if(i<0) return send(res,404,{error:"Prospect introuvable."});
       if(b.confirmation!=="Hervé") return send(res,409,{error:"Conversion à confirmer par Hervé."});
       const p=items[i];
+      if(p.statut==="Converti en projet") return send(res,409,{error:"Ce prospect est déjà converti en projet."});
       const d={id:randomUUID(),type:"Projet",client:p.client,projet:b.projet||"Projet à préciser",jalon:b.jalon||"Jalon non précisé",date_jalon:b.date_jalon||"",priorite:"Haute",etat:"À valider",progression:0,points:[{id:randomUUID(),categorie:"Qualification",statut:"À valider",priorite:"Haute",action:"Préciser le périmètre Readiness, le jalon et les points ouverts.",preuve_attendue:"périmètre et informations projet confirmés",responsable:"Hervé / client",echeance:"À préciser",motif:"Conversion du prospect en dossier projet."}],prochaine_action:"Cadrer le mandat et récupérer les informations projet nécessaires.",blocage:"Cadrage à réaliser",validation_humaine_requise:true,relances:[],preuves_a_controler:[],created_at:new Date().toISOString(),updated_at:new Date().toISOString()};
       p.statut="Converti en projet"; p.updated_at=new Date().toISOString(); items.unshift(d); await save(items); return send(res,200,{prospect:p,dossier:d});
     }
@@ -227,6 +319,50 @@ async function handle(req,res){
       if(b.validation_humaine_requise===false && b.confirmation==="Hervé") items[i].validation_humaine_requise=false;
       if(Array.isArray(items[i].points)) items[i].progression=Math.round(items[i].points.filter(function(p){return p.statut==="Clos";}).length/items[i].points.length*100);
       items[i].updated_at=new Date().toISOString(); await save(items); return send(res,200,{item:items[i]});
+    }
+    const proof=u.pathname.match(/^\/api\/dashboard\/([^/]+)\/points\/([^/]+)\/preuve$/);
+    if((req.method==="POST"||req.method==="GET") && proof){
+      let did, pid;
+      try { did=safeSegment(proof[1]); pid=safeSegment(proof[2]); }
+      catch(e){ return send(res,e.status||400,{error:e.message}); }
+      const items=await load();
+      const dossier=items.find(function(x){return x.id===did && x.type!=="Prospect";});
+      if(!dossier) return send(res,404,{error:"Dossier introuvable."});
+      const point=(dossier.points||[]).find(function(x){return x.id===pid;});
+      if(!point) return send(res,404,{error:"Point introuvable."});
+      if(req.method==="GET"){
+        if(!point.preuve_fichier||!point.preuve_fichier.chemin) return send(res,404,{error:"Aucune preuve déposée."});
+        try{
+          const buf=await readFile(proofAbsolute(point.preuve_fichier.chemin));
+          return sendBinary(res,buf,point.preuve_fichier.mime||"application/octet-stream",point.preuve_fichier.nom||"preuve");
+        }catch(e){
+          if(e.status) return send(res,e.status,{error:e.message});
+          return send(res,404,{error:"Fichier de preuve introuvable."});
+        }
+      }
+      if(Number(req.headers["content-length"]||0) > MAX_UPLOAD_BYTES + 65536){
+        req.resume();
+        return send(res,413,{error:"Fichier trop volumineux (10 Mo maximum)."});
+      }
+      try{
+        const raw=await readBuffer(req, MAX_UPLOAD_BYTES + 65536);
+        const file=parseMultipartFile(raw, req.headers["content-type"]);
+        if(file.data.length>MAX_UPLOAD_BYTES) throw httpError(413,"Fichier trop volumineux (10 Mo maximum).");
+        const kind=sniffProof(file.data, file.filename);
+        const id=randomUUID();
+        const rel=did+"/"+pid+"/"+id+kind.ext;
+        const abs=proofAbsolute(rel);
+        await mkdir(dirname(abs),{recursive:true});
+        await writeFile(abs, file.data);
+        const previous=point.preuve_fichier&&point.preuve_fichier.chemin;
+        point.preuve_fichier={id:id,nom:safeDownloadName(file.filename),chemin:rel,mime:kind.mime,taille:file.data.length,depose_le:new Date().toISOString()};
+        dossier.updated_at=new Date().toISOString();
+        await save(items);
+        if(previous && previous!==rel){ try{ await unlink(proofAbsolute(previous)); }catch(e){} }
+        return send(res,200,{point:point,preuve_fichier:point.preuve_fichier});
+      }catch(e){
+        return send(res,e.status||500,{error:e.status?e.message:"Dépôt de la preuve impossible."});
+      }
     }
     const pm=u.pathname.match(/^\/api\/dashboard\/([^/]+)\/points\/([^/]+)$/);
     if(req.method==="PATCH" && pm){
