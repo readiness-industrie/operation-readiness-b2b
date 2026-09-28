@@ -71,9 +71,10 @@ Le dossier reste distinct de la vitrine. Le cockpit `public/dashboard.html` lit 
 Vues disponibles :
 - Vue d'ensemble et priorités du jour
 - Dossiers
+- Prospects (conversion en dossier, confirmation exacte « Hervé »)
 - Urgences
 - Blocages
-- Preuves à contrôler
+- Preuves à contrôler (texte + fichier déposé)
 - Relances préparées
 
 Le référentiel métier local est dans `knowledge.js`. Il reprend le périmètre de l'offre Readiness Industry : jalons, catégories de prérequis, séquence A→Z et garde-fous.
@@ -81,3 +82,12 @@ Le référentiel métier local est dans `knowledge.js`. Il reprend le périmètr
 Aucune API IA externe n'est nécessaire pour cette V0.2. Le moteur reste local et les données de dossier sont persistées côté serveur. L'accès au cockpit exige `DASHBOARD_SECRET` : voir « Accès interne obligatoire ».
 
 Le cockpit ne remplace pas le planning client et ne prend pas les décisions techniques, HSE, budgétaires ou d'arbitrage à la place d'Hervé.
+
+## Persistance
+
+Les dossiers et les fichiers de preuve restent sur le disque du processus. Sans disque persistant, un redémarrage Render les efface.
+
+- `READINESS_STORE` : fichier JSON des dossiers et prospects (défaut `data/projects.json`, à côté de `server.js`).
+- `READINESS_UPLOAD_DIR` : répertoire des preuves déposées (défaut `data/uploads`).
+
+Sur Render, montez un disque (par exemple `/var/data`) et pointez les deux variables dessus : `READINESS_STORE=/var/data/projects.json` et `READINESS_UPLOAD_DIR=/var/data/uploads`.
