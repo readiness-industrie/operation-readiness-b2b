@@ -106,6 +106,7 @@ async function handle(req,res){
       if(i<0) return send(res,404,{error:"Dossier introuvable."});
       if(b.etat==="Terminé" && items[i].validation_humaine_requise) return send(res,409,{error:"Ce dossier reste À valider tant que la validation humaine est requise."});
       if(b.validation_humaine_requise===false && b.confirmation!=="Hervé") return send(res,409,{error:"La validation humaine doit être confirmée par Hervé."});
+      if(b.validation_humaine_requise===false){ const open=items[i].points.filter(function(p){return p.statut!=="Clos";}); if(open.length) return send(res,409,{error:"Validation impossible : "+open.length+" point(s) ne sont pas Clos."}); }
       ["etat","priorite","prochaine_action","blocage"].forEach(function(k){if(b[k]!==undefined) items[i][k]=b[k];});
       if(b.validation_humaine_requise===false && b.confirmation==="Hervé") items[i].validation_humaine_requise=false;
       if(Array.isArray(items[i].points)) items[i].progression=Math.round(items[i].points.filter(function(p){return p.statut==="Clos";}).length/items[i].points.length*100);
@@ -117,6 +118,7 @@ async function handle(req,res){
       if(i<0) return send(res,404,{error:"Dossier introuvable."});
       const p=items[i].points.find(function(x){return x.id===pm[2];});
       if(!p) return send(res,404,{error:"Point introuvable."});
+      if(b.statut==="Clos" && (!b.preuve_recue || b.preuve_controle!=="Contrôlée")) return send(res,409,{error:"Un point ne peut être Clos qu’avec une preuve reçue et contrôlée."});
       ["statut","priorite","action","preuve_attendue","responsable","echeance","motif","preuve_recue","preuve_date","preuve_controle","preuve_commentaire"].forEach(function(k){if(b[k]!==undefined)p[k]=b[k];});
       items[i].progression=Math.round(items[i].points.filter(function(x){return x.statut==="Clos";}).length/items[i].points.length*100);
       const blocked=items[i].points.filter(function(x){return x.statut==="Bloqué";});
