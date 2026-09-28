@@ -2,6 +2,7 @@ import http from "node:http";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { extname, join, dirname } from "node:path";
 import { randomUUID } from "node:crypto";
+import { READINESS_OFFER } from "./knowledge.js";
 
 const PORT = process.env.PORT || 3000;
 const SECRET = process.env.DASHBOARD_SECRET || "";
@@ -107,10 +108,10 @@ function dossierFromAnalysis(a){
 }
 async function handle(req,res){
   const u=new URL(req.url,"http://localhost");
-  if(u.pathname==="/health") return send(res,200,{ok:true,service:"assistant-readiness",external_ai:false});
+  if(u.pathname==="/health") return send(res,200,{ok:true,service:"assistant-readiness",external_ai:false,knowledge:READINESS_OFFER.name,operation_steps:READINESS_OFFER.operation.length});
   if(u.pathname.startsWith("/api/")){
     if(!authorized(req)) return send(res,401,{error:"Clé cockpit requise."});
-    if(req.method==="GET" && u.pathname==="/api/dashboard"){ const all=await load(); return send(res,200,{items:all.filter(function(x){return x.type!=="Prospect";}),prospects:all.filter(function(x){return x.type==="Prospect";}),persistent:true,secret_protected:Boolean(SECRET)}); }
+    if(req.method==="GET" && u.pathname==="/api/dashboard"){ const all=await load(); return send(res,200,{items:all.filter(function(x){return x.type!=="Prospect";}),prospects:all.filter(function(x){return x.type==="Prospect";}),persistent:true,secret_protected:Boolean(SECRET),knowledge:READINESS_OFFER}); }
     if(req.method==="POST" && u.pathname==="/api/prospect"){
       const b=await body(req), p=qualifyProspect(b.text,{client:b.client});
       const items=await load(); items.unshift(p); await save(items); return send(res,200,{prospect:p});
