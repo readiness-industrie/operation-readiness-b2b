@@ -82,6 +82,21 @@ function normalizePoint(p){
     motif:""
   }, p);
 }
+function qualifyProspect(text,meta){
+  const t=normalizeText(text), signals=[];
+  if(/intégrateur|installation|mise en service|commissioning|SAT|FAT|ligne|robot|convoyage|rétrofit/i.test(t)) signals.push("Contexte industriel / installation détecté");
+  if(/chef de projet|chargé d'affaires|project manager|coordinateur/i.test(t)) signals.push("Fonction de coordination projet détectée");
+  if(/relance|suivi|retard|bloqué|prérequis|préparation|planning|délai|disponibilité/i.test(t)) signals.push("Besoin de coordination ou de suivi détecté");
+  const missing=["Nature exacte du besoin","Jalon concerné et date","Nombre de points/intervenants","Périmètre que le prospect souhaite confier"];
+  return {
+    id:randomUUID(), type:"Prospect", client:meta.client||"Prospect non renseigné", projet:"",
+    statut:"À traiter par Hervé", signaux:signals, faits:[t?"Contenu reçu du prospect.":"Aucun contenu reçu."],
+    informations_manquantes:missing, qualification:signals.length?"À vérifier":"Insuffisant",
+    prochaine_action:"Vérifier le besoin réel et le jalon concerné, puis décider si un échange ou une proposition Readiness est justifié.",
+    reponse_proposee:"Bonjour, merci pour votre message. Pour vérifier rapidement si nous pouvons vous aider, pouvez-vous me préciser le jalon concerné, les points actuellement ouverts et ce qui doit être sécurisé avant ce jalon ?",
+    validation_humaine_requise:true, created_at:new Date().toISOString(), updated_at:new Date().toISOString()
+  };
+}
 function dossierFromAnalysis(a){
   return {
     id:randomUUID(), client:a.client, projet:a.projet, jalon:a.jalon, date_jalon:a.date_jalon,
@@ -96,6 +111,10 @@ async function handle(req,res){
   if(u.pathname.startsWith("/api/")){
     if(!authorized(req)) return send(res,401,{error:"Clé cockpit requise."});
     if(req.method==="GET" && u.pathname==="/api/dashboard") return send(res,200,{items:await load(),persistent:true,secret_protected:Boolean(SECRET)});
+    if(req.method==="POST" && u.pathname==="/api/prospect"){
+      const b=await body(req), p=qualifyProspect(b.text,{client:b.client});
+      const items=await load(); items.unshift(p); await save(items); return send(res,200,{prospect:p});
+    }
     if(req.method==="POST" && u.pathname==="/api/analyze"){
       const b=await body(req); const a=analyze(b.text,{client:b.client,projet:b.projet}); a.source=sourceSummary(b.text); a.relances=prepareFollowups(a.points); const dossier=dossierFromAnalysis(a); dossier.relances=a.relances;
       const items=await load(); items.unshift(dossier); await save(items); return send(res,200,{analysis:a,dossier:dossier});
