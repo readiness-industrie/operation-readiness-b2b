@@ -45,7 +45,42 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 .lead-form label span{font-weight:600;color:#71848e}
 .lead-form input,.lead-form select,.lead-form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:#09131a;color:var(--txt);font:inherit}
 .lead-form textarea{resize:vertical}
-@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.lead-form .full{margin-top:12px}
+.lead-form button.btn{border:0;cursor:pointer;font:inherit}
+.lead-form{position:relative}
+.hp{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.formSuccess,.final .formSuccess{margin:18px auto 0;max-width:680px;padding:12px 14px;border:1px solid #28645c;border-radius:10px;background:rgba(87,225,207,.08);color:var(--txt);font-weight:750}
+.timeLegend{margin-top:22px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--p)}
+.timeLegend p{margin:0 0 10px}
+.timeLegend ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.timeLegend li{color:var(--mut);font-size:.9rem;line-height:1.45}
+.timeLegend strong{color:var(--txt)}
+.numberRule{display:flex;align-items:center}
+.numberRule p{margin:0;color:var(--txt);font-size:.95rem;font-weight:850;line-height:1.35}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.tarifTableWrap{margin-top:26px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tarifTable{width:100%;min-width:720px;border-collapse:separate;border-spacing:0;background:var(--p);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tarifTable th,.tarifTable td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;font-size:.82rem;vertical-align:middle}
+.tarifTable thead th{background:#0a151d;color:var(--a);font-size:.72rem;font-weight:850;letter-spacing:.01em;line-height:1.35}
+.tarifTable thead th:first-child,.tarifTable tbody th{text-align:left}
+.tarifTable tbody th{font-weight:850;white-space:nowrap}
+.tarifTable td{font-weight:800;white-space:nowrap}
+.tarifTable tr:last-child th,.tarifTable tr:last-child td{border-bottom:0}
+.tarifRowKicker{display:none}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.lead-form .btn{width:100%;justify-content:center}}
+@media(max-width:900px){
+.tarifTableWrap{overflow:visible}
+.tarifTable{display:block;min-width:0;position:relative;background:transparent;border:0;border-radius:0}
+.tarifTable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.tarifTable tbody,.tarifTable tr{display:block}
+.tarifTable tr{margin:0 0 12px;padding:14px 14px 6px;background:var(--p);border:1px solid var(--line);border-radius:14px}
+.tarifTable tr:last-child{margin-bottom:0}
+.tarifTable th,.tarifTable td{display:flex;width:100%;box-sizing:border-box;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 0;border:0;text-align:left;white-space:normal}
+.tarifTable tbody th{display:block;padding-bottom:10px;margin-bottom:2px;border-bottom:1px solid var(--line)}
+.tarifTable td{border-top:1px solid var(--line);font-size:.92rem}
+.tarifTable td::before{content:attr(data-label);flex:1 1 auto;color:var(--mut);font-weight:650}
+.tarifRowKicker{display:block;margin-bottom:3px;color:var(--a);font-size:.68rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+}
 .final{text-align:center;padding:100px 0;background:radial-gradient(circle at 50% 0,rgba(87,225,207,.08),transparent 42%)}.final h2{max-width:820px;margin:10px auto 15px}.final p{color:var(--mut);max-width:640px;margin:auto}.final .btn{margin-top:25px}footer{border-top:1px solid var(--line);padding:25px 0;color:#71848e;font-size:.76rem}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media(max-width:1000px){.heroGrid,.result,.proof,.human{grid-template-columns:1fr}.priceGrid{grid-template-columns:repeat(3,1fr)}.humanPhoto{width:220px;height:220px}.offers{grid-template-columns:1fr}.week{grid-template-columns:repeat(4,1fr)}}
@@ -72,7 +107,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <h1>Des points ouverts bloquent votre jalon&nbsp;?<br><span style="color:var(--a)">Nous les faisons avancer.</span></h1>
 <p class="heroLead">Prérequis, fournisseurs, livrables, preuves et réserves&nbsp;: poursuite opérationnelle <strong>à distance</strong>, jusqu'à clôture ou jusqu'à votre arbitrage. Vous gardez les décisions.</p>
 <div class="ctaRow">
-<a class="btn" href="mailto:hmreadinessindustry@gmail.com?subject=D%C3%A9crire%20mon%20jalon%20%2F%20mes%20points%20ouverts&amp;body=Bonjour%20Herv%C3%A9%2C%0A%0AJalon%20concern%C3%A9%20(FAT%2C%20SAT%2C%20mise%20en%20service%2C%20transfert%E2%80%A6)%20%3A%20%0A%C3%89ch%C3%A9ance%20approximative%20%3A%20%0APoints%20encore%20ouverts%20%3A%20%0AIntervenants%20ou%20fournisseurs%20concern%C3%A9s%20%3A%20%0A%0ACe%20qui%20bloque%20aujourd%27hui%20%3A%20%0A">Décrire mon jalon / mes points ouverts</a>
+<a class="btn" href="#contact">Décrire mon jalon / mes points ouverts</a>
 <a class="btn btnAlt" href="tel:+33628717459">+33 6 28 71 74 59</a>
 </div>
 <p class="micro">Hervé MENGUE · <a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a></p>
@@ -118,7 +153,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <h2>Les points qui peuvent bloquer le prochain jalon.</h2>
 <div class="result">
 <div class="resultBox"><h3>Exemples de points suivis</h3><ul style="color:var(--mut);line-height:1.8;padding-left:19px"><li>accès et préparatifs de site</li><li>électricité, air comprimé, réseaux et interfaces</li><li>documents et livrables fournisseurs</li><li>confirmations d'intervenants</li><li>preuves de réalisation</li><li>réserves, actions correctives et points bloquants</li><li>FAT / SAT / mise en service / transfert</li></ul></div>
-<div class="resultBox"><h3>Ce que vous récupérez</h3><div class="numbers"><div class="number"><b>14</b><small>points clôturés</small></div><div class="number"><b>2</b><small>points avec échéance</small></div><div class="number"><b>2</b><small>points à arbitrer</small></div><div class="number"><b>0</b><small>point oublié</small></div></div><p class="micro">Exemple illustratif : les chiffres varient selon le périmètre réel.</p></div>
+<div class="resultBox"><h3>Ce que vous récupérez</h3><div class="numbers"><div class="number"><b>14</b><small>points clôturés</small></div><div class="number"><b>2</b><small>points avec échéance</small></div><div class="number"><b>2</b><small>points à arbitrer</small></div><div class="number numberRule"><p>Chaque point a un statut et une échéance.</p></div></div><p class="micro">Exemple illustratif : les volumes varient selon le périmètre réel.</p></div>
 </div>
 </div>
 </section>
@@ -145,6 +180,14 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <div class="day"><b>J6</b><span>Alerter</span><small>les écarts à trancher</small></div>
 <div class="day"><b>J7</b><span>Restituer</span><small>clos, daté, ou à arbitrer</small></div>
 </div>
+<aside class="timeLegend" aria-label="Trois repères de temps">
+<p><strong>Trois repères de temps.</strong></p>
+<ul>
+<li><strong>J1 à J7</strong> : durée du premier cycle de poursuite (cadrer, relancer, restituer).</li>
+<li><strong>≤ 15 jours ouvrés</strong> : plafond de prise en charge du périmètre, à distance.</li>
+<li><strong>J-10, J-7…</strong> : compte à rebours avant le jalon (mise en service, SAT, transfert). Ce repère suit la date du jalon.</li>
+</ul>
+</aside>
 </div>
 </section>
 
@@ -152,15 +195,67 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <div class="wrap reveal">
 <p class="eyebrow">Tarifs Readiness Industry</p>
 <h2>Un forfait selon la charge à suivre.</h2>
-<p class="sub">Le prix dépend du nombre d'intervenants externes et du nombre de points ouverts à poursuivre. La prise en charge est réalisée à distance sur un périmètre défini.</p>
-<div class="priceGrid">
-<div class="priceCard"><h3>PALIER 01</h3><div class="priceBig">900 € HT</div><div class="priceSmall">1 à 2 intervenants<br>jusqu'à 10 points</div></div>
-<div class="priceCard"><h3>PALIER 02</h3><div class="priceBig">1 400 € HT</div><div class="priceSmall">3 intervenants<br>jusqu'à 15 points</div></div>
-<div class="priceCard"><h3>PALIER 03</h3><div class="priceBig">1 800 € HT</div><div class="priceSmall">4 intervenants<br>jusqu'à 18 points</div></div>
-<div class="priceCard"><h3>PALIER 04</h3><div class="priceBig">2 500 € HT</div><div class="priceSmall">5 à 6 intervenants<br>jusqu'à 25 points</div></div>
-<div class="priceCard"><h3>PALIER 05</h3><div class="priceBig">3 200 € HT</div><div class="priceSmall">7 à 8 intervenants<br>jusqu'à 30 points</div></div>
+<p class="sub">Le prix dépend du nombre d'intervenants externes et du nombre de points ouverts à poursuivre. La case retenue couvre les deux à la fois. Prise en charge à distance, sur un périmètre défini.</p>
+<div class="tarifTableWrap">
+<table class="tarifTable">
+<caption class="sr-only">Grille tarifaire : intervenants externes et points ouverts</caption>
+<thead>
+<tr>
+<th scope="col">Intervenants externes</th>
+<th scope="col">Jusqu'à<br>10 points</th>
+<th scope="col">Jusqu'à<br>15 points</th>
+<th scope="col">Jusqu'à<br>18 points</th>
+<th scope="col">Jusqu'à<br>25 points</th>
+<th scope="col">Jusqu'à<br>30 points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><span class="tarifRowKicker">Intervenants</span>1 à 2</th>
+<td data-label="Jusqu'à 10 points">900&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 15 points">1&nbsp;400&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 18 points">1&nbsp;800&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 25 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 30 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+</tr>
+<tr>
+<th scope="row"><span class="tarifRowKicker">Intervenants</span>3</th>
+<td data-label="Jusqu'à 10 points">1&nbsp;400&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 15 points">1&nbsp;400&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 18 points">1&nbsp;800&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 25 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 30 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+</tr>
+<tr>
+<th scope="row"><span class="tarifRowKicker">Intervenants</span>4</th>
+<td data-label="Jusqu'à 10 points">1&nbsp;800&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 15 points">1&nbsp;800&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 18 points">1&nbsp;800&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 25 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 30 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+</tr>
+<tr>
+<th scope="row"><span class="tarifRowKicker">Intervenants</span>5 à 6</th>
+<td data-label="Jusqu'à 10 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 15 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 18 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 25 points">2&nbsp;500&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 30 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+</tr>
+<tr>
+<th scope="row"><span class="tarifRowKicker">Intervenants</span>7 à 8</th>
+<td data-label="Jusqu'à 10 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 15 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 18 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 25 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+<td data-label="Jusqu'à 30 points">3&nbsp;200&nbsp;€&nbsp;HT</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p class="tariffNote"><strong>Inclus :</strong> collecte d'informations, relances, suivi des échéances, consolidation, contrôle des preuves, alertes et restitution. <strong>La prise en charge du périmètre peut aller jusqu'à 15 jours ouvrés, à distance.</strong> Au-delà de 8 intervenants ou 30 points : périmètre sur mesure.</p>
+<p class="tariffNote"><strong>Lecture.</strong> Chaque case est le forfait qui couvre à la fois la ligne (intervenants) et la colonne (points). Exemple : 4 intervenants et 18 points = <strong>1&nbsp;800&nbsp;€&nbsp;HT</strong>.</p>
+<p class="tariffNote"><strong>Inclus :</strong> collecte d'informations, relances, suivi des échéances, consolidation, contrôle des preuves, alertes et restitution. <strong>Plafond : jusqu'à 15 jours ouvrés, à distance.</strong> Au-delà de 8 intervenants ou 30 points : périmètre sur mesure.</p>
+<p class="tariffNote">Un jalon industriel retardé, ou qui se passe mal, coûte souvent bien plus que 900 à 3&nbsp;200&nbsp;€&nbsp;HT.</p>
 </div>
 </section>
 
@@ -229,25 +324,28 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <div class="wrap">
 <p class="eyebrow">Démarrer</p>
 <h2>Le jalon approche et des points sont encore ouverts&nbsp;?</h2>
-<p>Écrivez ou appelez. Le jalon, le nombre de points, les interlocuteurs&nbsp;: cela suffit pour regarder ce qui peut être pris en charge à distance.</p>
-<div class="ctaRow" style="justify-content:center">
-<a class="btn" href="mailto:hmreadinessindustry@gmail.com?subject=D%C3%A9crire%20mon%20jalon%20%2F%20mes%20points%20ouverts&amp;body=Bonjour%20Herv%C3%A9%2C%0A%0AJalon%20concern%C3%A9%20(FAT%2C%20SAT%2C%20mise%20en%20service%2C%20transfert%E2%80%A6)%20%3A%20%0A%C3%89ch%C3%A9ance%20approximative%20%3A%20%0APoints%20encore%20ouverts%20%3A%20%0AIntervenants%20ou%20fournisseurs%20concern%C3%A9s%20%3A%20%0A%0ACe%20qui%20bloque%20aujourd%27hui%20%3A%20%0A">Décrire mon jalon / mes points ouverts</a>
-<a class="btn btnAlt" href="tel:+33628717459">+33 6 28 71 74 59</a>
-</div>
-<p class="contactLine"><a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a></p>
-<form class="lead-form" id="ri-form">
+<p>Décrivez le jalon, les points encore ouverts et les interlocuteurs. Cela suffit pour voir ce qui peut être pris en charge à distance.</p>
+<p class="formSuccess" id="form-success" hidden role="status">Message envoyé. Hervé vous répond à l'adresse indiquée.</p>
+<form class="lead-form" action="https://formsubmit.co/hmreadinessindustry@gmail.com" method="POST" accept-charset="UTF-8">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="Demande Readiness Industry — points ouverts avant jalon">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://readiness-industrie.github.io/operation-readiness-b2b/?demande=envoyee#contact">
+<p class="hp" aria-hidden="true"><label>Laissez ce champ vide<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
 <div class="form-grid">
-<label>Nom<input name="nom" required></label>
-<label>Entreprise<input name="entreprise" required></label>
-<label>E-mail<input type="email" name="email" required></label>
-<label>Téléphone <span>(optionnel)</span><input name="telephone"></label>
-<label>Jalon concerné<select name="jalon"><option>FAT</option><option>SAT</option><option>Mise en service</option><option>Transfert</option><option>Autre</option></select></label>
-<label>Points ouverts approximatifs<select name="points"><option>1 à 10</option><option>11 à 20</option><option>21 à 30</option><option>Plus de 30</option><option>Je ne sais pas</option></select></label>
+<label>Nom<input name="nom" autocomplete="name" required></label>
+<label>Société<input name="societe" autocomplete="organization" required></label>
+<label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+<label>Téléphone <span>(optionnel)</span><input type="tel" name="telephone" autocomplete="tel"></label>
 </div>
-<label>Contexte / besoin<textarea name="contexte" rows="5" required></textarea></label>
+<label class="full">Message<textarea name="message" rows="5" required placeholder="Jalon (FAT, SAT, mise en service, transfert…), échéance, points encore ouverts, intervenants concernés."></textarea></label>
 <button class="btn" type="submit">Envoyer ma demande</button>
-<p class="micro">Le formulaire ouvre le même e-mail, déjà rempli. Rien n'est envoyé automatiquement depuis le site.</p>
+<p class="micro">Le message part vers Hervé MENGUE. Pas de plans ni de données industrielles sensibles. <a href="mentions-legales.html">Mentions légales</a>.</p>
 </form>
+<div class="ctaRow" style="justify-content:center">
+<a class="btn btnAlt" href="https://calendly.com/hmreadinessindustry" target="_blank" rel="noopener noreferrer">Réserver un créneau</a>
+</div>
+<p class="contactLine">Téléphone&nbsp;: <a href="tel:+33628717459">+33 6 28 71 74 59</a> · <a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a></p>
 </div>
 </section>
 </main>
@@ -258,23 +356,6 @@ document.getElementById("year").textContent=new Date().getFullYear();
 const menu=document.querySelector(".mobileMenu"),links=document.querySelector(".mobileLinks");
 if(menu&&links){menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")))}
 document.querySelectorAll(".reveal").forEach(el=>{if("IntersectionObserver"in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");o.unobserve(e.target)}}),{threshold:.08});o.observe(el)}else el.classList.add("visible")});
-</script>
-<script>
-document.getElementById("ri-form")?.addEventListener("submit",function(e){
-e.preventDefault();
-const f=new FormData(this);
-const body=[
-"Nom : "+f.get("nom"),
-"Entreprise : "+f.get("entreprise"),
-"E-mail : "+f.get("email"),
-"Téléphone : "+(f.get("telephone")||"Non renseigné"),
-"Jalon : "+f.get("jalon"),
-"Points ouverts : "+f.get("points"),
-"",
-"Contexte / besoin :",
-f.get("contexte")
-].join("\n");
-window.location.href="mailto:hmreadinessindustry@gmail.com?subject="+encodeURIComponent("Demande Readiness Industry")+"&body="+encodeURIComponent(body);
-});
+if(new URLSearchParams(location.search).get("demande")==="envoyee"){const note=document.getElementById("form-success");if(note) note.hidden=false}
 </script></body>
 </html>
