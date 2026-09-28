@@ -1,11 +1,13 @@
 import http from "node:http";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { extname, join, dirname } from "node:path";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
 import { READINESS_OFFER } from "./knowledge.js";
 
 const PORT = process.env.PORT || 3000;
-const SECRET = process.env.DASHBOARD_SECRET || "";
+const SECRET = (process.env.DASHBOARD_SECRET || "").trim();
+const COOKIE_NAME = "readiness_auth";
+const LOCKED_API = {error:"Assistant verrouillé : définissez DASHBOARD_SECRET pour l'ouvrir."};
 const ROOT = new URL(".", import.meta.url).pathname;
 const STORE = process.env.READINESS_STORE || join(ROOT, "data", "projects.json");
 const UPLOAD_DIR = process.env.READINESS_UPLOAD_DIR || join(ROOT, "data", "uploads");
@@ -29,7 +31,58 @@ async function ensureStore(){
 async function load(){ await ensureStore(); return JSON.parse(await readFile(STORE,"utf8")); }
 async function save(items){ await ensureStore(); await writeFile(STORE,JSON.stringify(items,null,2),"utf8"); }
 function send(res,status,data,type){ type=type||"application/json"; res.writeHead(status,{"Content-Type":type+"; charset=utf-8","Cache-Control":"no-store"}); res.end(type==="application/json"?JSON.stringify(data):data); }
-function authorized(req){ return !SECRET || req.headers["x-dashboard-secret"]===SECRET; }
+function secretConfigured(){ return SECRET.length>0; }
+function safeEqual(given,expected){
+  if(typeof given!=="string"||typeof expected!=="string") return false;
+  const a=Buffer.from(given), b=Buffer.from(expected);
+  if(a.length!==b.length) return false;
+  return timingSafeEqual(a,b);
+}
+function authToken(){ return createHash("sha256").update("assistant-readiness.v0\0"+SECRET).digest("hex"); }
+function parseCookies(req){
+  const header=req.headers.cookie;
+  if(typeof header!=="string"||!header) return {};
+  const out={};
+  header.split(";").forEach(function(part){
+    const i=part.indexOf("=");
+    if(i<0) return;
+    const key=part.slice(0,i).trim();
+    let value=part.slice(i+1).trim();
+    try{ value=decodeURIComponent(value); }catch(e){}
+    out[key]=value;
+  });
+  return out;
+}
+function authorized(req){
+  if(!secretConfigured()) return false;
+  const header=req.headers["x-dashboard-secret"];
+  if(typeof header==="string"&&header.length>0&&safeEqual(header,SECRET)) return true;
+  const token=parseCookies(req)[COOKIE_NAME];
+  return typeof token==="string"&&safeEqual(token,authToken());
+}
+function cookieSecure(req){
+  const proto=req.headers["x-forwarded-proto"];
+  if(typeof proto==="string"&&proto.split(",")[0].trim()==="https") return true;
+  return Boolean(req.socket&&req.socket.encrypted);
+}
+function safeNext(value){
+  if(typeof value!=="string"||!value.startsWith("/")||value.startsWith("//")||value.includes("\\")||value.includes("\n")||value.includes("\r")) return "/";
+  try{
+    const parsed=new URL(value,"http://local");
+    if(parsed.origin!=="http://local") return "/";
+    if(parsed.pathname.startsWith("/api/")||parsed.pathname==="/login"||parsed.pathname==="/health") return "/";
+    return parsed.pathname+parsed.search;
+  }catch(e){ return "/"; }
+}
+function escHtml(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function gatePage(title,inner){
+  return "<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>"+escHtml(title)+"</title><style>body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f4f6f9;color:#172033}main{max-width:440px;margin:10vh auto;background:#fff;border:1px solid #e0e5ec;border-radius:16px;padding:24px}h1{font-size:22px;margin:0 0 8px}p{color:#687386;line-height:1.45}label{display:block;font-weight:700;margin:14px 0 6px}input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #d4dae3;border-radius:11px;font:inherit}button{margin-top:14px;width:100%;border:0;border-radius:12px;padding:12px;font:700 15px inherit;background:#172033;color:#fff;cursor:pointer}.err{color:#b42318;font-weight:700}</style></head><body><main>"+inner+"</main></body></html>";
+}
+function lockedPage(){ return gatePage("Assistant verrouillé","<h1>Assistant verrouillé</h1><p>Cet outil est interne. Il reste fermé tant que la variable <strong>DASHBOARD_SECRET</strong> n’est pas définie sur le serveur.</p>"); }
+function loginPage(next,failed){
+  const err=failed?"<p class=\"err\">Mot de passe incorrect.</p>":"";
+  return gatePage("Accès interne","<h1>Accès interne</h1><p>Réservé à Readiness Industry. Saisissez le mot de passe du cockpit.</p>"+err+"<form method=\"post\" action=\"/login\"><input type=\"hidden\" name=\"next\" value=\""+escHtml(next)+"\"><label for=\"password\">Mot de passe</label><input id=\"password\" name=\"password\" type=\"password\" autocomplete=\"current-password\" required><button type=\"submit\">Entrer</button></form>");
+}
 async function body(req){ let raw=""; for await(const chunk of req) raw+=chunk; return raw?JSON.parse(raw):{}; }
 function sourceSummary(text){ const t=normalizeText(text); return {characters:t.length, lines:t?t.split(/\\n/).length:0, words:t?t.split(/\\s+/).length:0}; }
 function prepareFollowups(points){ return points.map(function(p){ return {categorie:p.categorie, destinataire:p.responsable, objet:"Point à confirmer : "+p.categorie, demande:p.action, preuve_attendue:p.preuve_attendue, statut:"Brouillon à valider avec Hervé"}; }); }
@@ -108,8 +161,42 @@ function dossierFromAnalysis(a){
 }
 async function handle(req,res){
   const u=new URL(req.url,"http://localhost");
-  if(u.pathname==="/health") return send(res,200,{ok:true,service:"assistant-readiness",external_ai:false,knowledge:READINESS_OFFER.name,operation_steps:READINESS_OFFER.operation.length});
+  if(u.pathname==="/health") return send(res,200,{ok:true,service:"assistant-readiness"});
+  if(u.pathname==="/login"&&(req.method==="GET"||req.method==="POST")){
+    if(!secretConfigured()){
+      if(req.method==="GET") return send(res,200,lockedPage(),"text/html");
+      return send(res,503,LOCKED_API);
+    }
+    if(req.method==="GET"){
+      if(authorized(req)){ res.writeHead(302,{Location:"/","Cache-Control":"no-store"}); return res.end(); }
+      return send(res,200,loginPage(safeNext(u.searchParams.get("next")||"/"),false),"text/html");
+    }
+    let raw="";
+    for await(const chunk of req){ raw+=chunk; if(raw.length>4096) return send(res,413,{error:"Requête trop volumineuse."}); }
+    const type=String(req.headers["content-type"]||"");
+    let password="", next="/";
+    if(type.includes("application/json")){
+      try{
+        const parsed=raw?JSON.parse(raw):{};
+        password=typeof parsed.password==="string"?parsed.password:"";
+        next=safeNext(typeof parsed.next==="string"?parsed.next:"/");
+      }catch(e){ return send(res,400,{error:"Requête invalide."}); }
+    }else{
+      const params=new URLSearchParams(raw);
+      password=params.get("password")||"";
+      next=safeNext(params.get("next")||"/");
+    }
+    if(!safeEqual(password,SECRET)){
+      if(type.includes("application/json")) return send(res,401,{error:"Clé cockpit requise."});
+      return send(res,401,loginPage(next,true),"text/html");
+    }
+    const cookie=[COOKIE_NAME+"="+authToken(),"HttpOnly","SameSite=Lax","Path=/"];
+    if(cookieSecure(req)) cookie.push("Secure");
+    res.writeHead(303,{Location:next,"Set-Cookie":cookie.join("; "),"Cache-Control":"no-store"});
+    return res.end();
+  }
   if(u.pathname.startsWith("/api/")){
+    if(!secretConfigured()) return send(res,503,LOCKED_API);
     if(!authorized(req)) return send(res,401,{error:"Clé cockpit requise."});
     if(req.method==="GET" && u.pathname==="/api/dashboard"){ const all=await load(); return send(res,200,{items:all.filter(function(x){return x.type!=="Prospect";}),prospects:all.filter(function(x){return x.type==="Prospect";}),persistent:true,secret_protected:Boolean(SECRET),knowledge:READINESS_OFFER}); }
     if(req.method==="POST" && u.pathname==="/api/prospect"){
@@ -168,6 +255,10 @@ async function handle(req,res){
   }
   let file=u.pathname==="/"?"/index.html":u.pathname;
   if(file.includes("..")) return send(res,400,{error:"Chemin invalide."});
+  if(file==="/index.html"||file==="/dashboard.html"){
+    if(!secretConfigured()) return send(res,200,lockedPage(),"text/html");
+    if(!authorized(req)) return send(res,200,loginPage(safeNext(u.pathname),false),"text/html");
+  }
   try{
     const data=await readFile(join(ROOT,"public",file));
     const types={".html":"text/html",".js":"text/javascript",".css":"text/css",".json":"application/json"};
