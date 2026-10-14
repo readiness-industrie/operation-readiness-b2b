@@ -369,5 +369,5 @@ const menu=document.querySelector(".mobileMenu"),links=document.querySelector(".
 if(menu&&links){menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")))}
 document.querySelectorAll(".reveal").forEach(el=>{if("IntersectionObserver"in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");o.unobserve(e.target)}}),{threshold:.08});o.observe(el)}else el.classList.add("visible")});
 if(new URLSearchParams(location.search).get("demande")==="envoyee"){const note=document.getElementById("form-success");if(note) note.hidden=false}
-</script></body>
+</script><script src="essai.js" defer></script></body>
 </html>

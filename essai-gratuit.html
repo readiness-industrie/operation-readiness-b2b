@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demander l’essai gratuit | Readiness Industry</title>
+<meta name="description" content="Essai gratuit Renfort ADV (20 dossiers, 3 premières entreprises) ou point de situation Readiness Industry gratuit sous 48 h.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--ink:#14212b;--muted:#5b6770;--line:#e3e0d7;--accent:#26756c;--bg:#f6f4ee}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.top a{color:var(--ink);font-weight:800;text-decoration:none}.top small{display:block;color:var(--muted);font-weight:600}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:0 0 10px}.lead{color:var(--muted);font-size:1.05rem;margin:0 0 22px}
+.offers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}.offer{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.offer b{display:block;margin-bottom:6px}.offer ul{margin:0;padding-left:18px;color:var(--muted);font-size:.93rem}
+form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 20px 50px rgba(0,0,0,.06)}
+label{display:block;font-weight:700;font-size:.92rem;margin:12px 0 5px}input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #cfcac0;border-radius:10px;background:#fff}textarea{min-height:96px}
+.radio{display:grid;gap:8px}.radio label{display:flex;gap:10px;align-items:flex-start;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:10px;margin:0}.radio input{width:auto;margin-top:4px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.88rem;color:var(--muted)}.consent input{width:auto;margin-top:4px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:15px;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer}button[disabled]{opacity:.7}
+.msg{margin-top:14px;padding:12px;border-radius:10px;display:none}.msg.ok{display:block;background:#e7f4f1;color:#1d5c55}.msg.err{display:block;background:#fdf0e6;color:#7a4510}.msg.wait{display:block;background:#f1f1ee;color:var(--muted)}.msg a{color:inherit;font-weight:800}
+.small{color:var(--muted);font-size:.85rem;margin-top:16px}
+@media(max-width:640px){.offers{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="index.html">Readiness Industry<small>Renfort ADV · Prérequis industriels</small></a><a href="renfort-administratif.html" style="font-weight:600;color:var(--muted)">Renfort ADV</a></div>
+  <h1>Demander l’essai gratuit</h1>
+  <p class="lead">Deux façons de tester, sans engagement. Réponse sous 24 h ouvrées.</p>
+  <div class="offers">
+    <div class="offer"><b>Renfort ADV</b><ul><li>Essai gratuit : suivi de 20 dossiers</li><li>Réservé aux 3 premières entreprises</li><li>Sans engagement</li></ul></div>
+    <div class="offer"><b>Readiness Industry (prérequis industriels)</b><ul><li>Point de situation gratuit sous 48 h</li><li>Réservé aux 3 premières entreprises</li><li>Sans engagement</li></ul></div>
+  </div>
+  <form id="essai" novalidate>
+    <label for="name">Nom *</label><input id="name" name="name" autocomplete="name" required>
+    <label for="company">Entreprise *</label><input id="company" name="company" autocomplete="organization" required>
+    <label for="email">E-mail professionnel *</label><input id="email" name="email" type="email" autocomplete="email" required>
+    <label for="phone">Téléphone (optionnel)</label><input id="phone" name="phone" type="tel" autocomplete="tel">
+    <label>Offre *</label>
+    <div class="radio">
+      <label><input type="radio" name="offer" value="adv" required> Renfort ADV : essai gratuit sur 20 dossiers</label>
+      <label><input type="radio" name="offer" value="readiness"> Readiness Industry (prérequis industriels) : point de situation sous 48 h</label>
+    </div>
+    <label for="message">Message court</label><textarea id="message" name="message" maxlength="1500" placeholder="Votre contexte en 2-3 lignes (volume de commandes, projet d’installation…)"></textarea>
+    <div class="hp" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+    <label class="consent"><input type="checkbox" id="consent" name="consent" required> J’accepte que Readiness Industry utilise ces informations pour répondre à ma demande. Aucune revente ; suppression sur simple demande à hmreadinessindustry@gmail.com.</label>
+    <button type="submit" id="send">Envoyer ma demande</button>
+    <div id="msg" class="msg" role="status" aria-live="polite"></div>
+  </form>
+  <p class="small">Vous préférez écrire ? <a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+</div>
+<script>
+(function () {
+  var API = "https://readiness-agents.onrender.com/api/lead";
+  var f = document.getElementById("essai"), msg = document.getElementById("msg"), btn = document.getElementById("send");
+  var q = new URLSearchParams(location.search).get("offre");
+  if (q === "adv" || q === "readiness") { var r = f.querySelector('input[value="' + q + '"]'); if (r) r.checked = true; }
+  function show(cls, html) { msg.className = "msg " + cls; msg.innerHTML = html; }
+  function mailto(d) {
+    var body = "Nom : " + d.name + "\nEntreprise : " + d.company + "\nE-mail : " + d.email + "\nTéléphone : " + (d.phone || "-") +
+      "\nOffre : " + (d.offer === "adv" ? "Renfort ADV (essai 20 dossiers)" : "Readiness Industry (point de situation 48 h)") + "\n\n" + (d.message || "");
+    return "mailto:hmreadinessindustry@gmail.com?subject=" + encodeURIComponent("Demande d’essai gratuit – " + d.company) + "&body=" + encodeURIComponent(body);
+  }
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var off = f.querySelector('input[name="offer"]:checked');
+    var d = { name: f.name.value.trim(), company: f.company.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(),
+      offer: off ? off.value : "", message: f.message.value.trim(), website: f.website.value, consent: f.consent.checked, page: location.pathname };
+    if (!d.name || !d.company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email) || !d.offer || !d.consent) {
+      show("err", "Merci de remplir le nom, l’entreprise, un e-mail valide, l’offre, et de cocher le consentement."); return;
+    }
+    btn.disabled = true; btn.textContent = "Envoi en cours…";
+    show("wait", "Envoi en cours… Le premier envoi peut prendre jusqu’à une minute (serveur en veille). Merci de patienter.");
+    var ctrl = new AbortController(); var timer = setTimeout(function () { ctrl.abort(); }, 90000);
+    fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d), signal: ctrl.signal })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (x) {
+        if (!x.ok) throw new Error(x.j && x.j.error || "Erreur");
+        f.reset(); btn.textContent = "Demande envoyée ✓";
+        show("ok", "Merci ! Votre demande est bien reçue. Hervé Mengue vous répond sous 24 h ouvrées.");
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = "Envoyer ma demande";
+        show("err", "L’envoi automatique n’a pas abouti. <a href=\"" + mailto(d) + "\">Cliquez ici pour envoyer votre demande par e-mail</a> (le message est prérempli).");
+      })
+      .finally(function () { clearTimeout(timer); });
+  });
+})();
+</script>
+</body>
+</html>
