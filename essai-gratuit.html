@@ -23,6 +23,7 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
 .small{color:var(--muted);font-size:.85rem;margin-top:16px}
 @media(max-width:640px){.offers{grid-template-columns:1fr}}
 </style>
+  <script src="analytics.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -78,6 +79,7 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
         if (!x.ok) throw new Error(x.j && x.j.error || "Erreur");
+        if (window.riTrack) window.riTrack("generate_lead", { method: "essai_gratuit", offer: d.offer });
         f.reset(); btn.textContent = "Demande envoyée ✓";
         show("ok", "Merci ! Votre demande est bien reçue. Hervé Mengue vous répond sous 24 h ouvrées.");
       })
