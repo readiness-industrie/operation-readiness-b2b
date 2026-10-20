@@ -142,7 +142,6 @@ async function testFormsNoSubmit(page) {
   await page.locator("#name").fill("Test");
   await page.locator("#company").fill("Test SA");
   await page.locator("#email").fill("test@example.com");
-  await page.locator('input[value="readiness"]').check();
   await page.locator("#consent").check();
   await page.locator("#send").click();
   await page.waitForTimeout(500);
