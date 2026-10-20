@@ -39,33 +39,51 @@
     if (get() === "granted" && typeof window.gtag === "function") window.gtag("event", name, params || {});
   };
   var box;
+  function setBannerOpen(open) {
+    if (open) document.body.classList.add("ri-cc-open");
+    else document.body.classList.remove("ri-cc-open");
+  }
+  function closeBanner() {
+    box.hidden = true;
+    setBannerOpen(false);
+  }
   function build() {
     var css = document.createElement("style");
     css.textContent =
-      ".ri-cc{position:fixed;z-index:1200;left:12px;right:12px;bottom:12px;max-width:560px;margin:0 auto;background:#fff;color:#10202b;border:1px solid #d9dee2;border-radius:16px;box-shadow:0 18px 50px rgba(16,32,43,.28);padding:18px 18px 16px;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;touch-action:manipulation}" +
-      "@media(max-width:900px){.ri-cc{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom,0px));max-height:min(45vh,340px);overflow-y:auto;-webkit-overflow-scrolling:touch}}" +
+      ".ri-cc{position:fixed;z-index:10050;left:12px;right:12px;bottom:12px;max-width:560px;margin:0 auto;background:#fff;color:#10202b;border:1px solid #d9dee2;border-radius:16px;box-shadow:0 18px 50px rgba(16,32,43,.28);padding:18px 18px 16px;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;touch-action:manipulation}" +
+      "@media(max-width:900px){.ri-cc{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom,0px));max-height:min(50vh,380px);overflow-y:auto;-webkit-overflow-scrolling:touch}.ri-cc .ri-cc-a{position:sticky;bottom:0;background:#fff;padding-top:10px;margin-top:4px}}" +
+      "body.ri-cc-open .ri-essai-bar{display:none!important}body.ri-cc-open{padding-bottom:0!important}" +
       ".ri-cc[hidden]{display:none}.ri-cc b{display:block;font-size:16px;margin-bottom:4px}.ri-cc p{margin:0 0 14px;color:#4a5a66}.ri-cc a{color:#0f5f57;font-weight:600}" +
       ".ri-cc-a{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ri-cc button{min-height:46px;border-radius:10px;font:600 15px/1 inherit;font-family:inherit;cursor:pointer;border:2px solid #10202b;background:#fff;color:#10202b}.ri-cc button.ri-ok{background:#10202b;color:#fff}" +
-      ".ri-cc button:focus-visible{outline:3px solid #2a9d8f;outline-offset:2px}.ri-cc-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}";
+      ".ri-cc button:focus-visible{outline:3px solid #2a9d8f;outline-offset:2px}.ri-cc-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}" +
+      ".ri-seo-cookies{margin:28px auto 0;max-width:900px;padding:0 24px 32px;font-size:.85rem;color:#5b6770;text-align:center}";
     document.head.appendChild(css);
     box = document.createElement("div");
     box.className = "ri-cc"; box.hidden = true;
     box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "Mesure d'audience");
-    box.innerHTML = '<b>Nous aidez-vous à améliorer ce site ?</b><p>Avec votre accord, nous mesurons la fréquentation de façon anonyme (Google Analytics). Pas de publicité, pas de revente. Vous pouvez changer d\'avis à tout moment via « Cookies » en bas de page. <a href="mentions-legales.html">En savoir plus</a></p>' +
+    box.innerHTML = '<b>Nous aidez-vous à améliorer ce site ?</b><p>Avec votre accord, nous mesurons la fréquentation du site (Google Analytics). Pas de publicité. Vous pouvez refuser, et changer d\'avis via « Cookies ». <a href="mentions-legales.html">En savoir plus</a></p>' +
       '<div class="ri-cc-a"><button type="button" class="ri-no">Refuser</button><button type="button" class="ri-ok">Accepter</button></div>';
     document.body.appendChild(box);
-    box.querySelector(".ri-ok").addEventListener("click", function () { set("granted"); box.hidden = true; load(); });
-    box.querySelector(".ri-no").addEventListener("click", function () { set("denied"); clearCookies(); box.hidden = true; });
-    var open = function () { box.hidden = false; };
+    box.querySelector(".ri-ok").addEventListener("click", function () { set("granted"); closeBanner(); load(); });
+    box.querySelector(".ri-no").addEventListener("click", function () { set("denied"); clearCookies(); closeBanner(); });
+    var open = function () { box.hidden = false; setBannerOpen(true); };
     Array.prototype.forEach.call(document.querySelectorAll("[data-manage-analytics]"), function (b) { b.addEventListener("click", open); });
     var foot = document.querySelector("footer");
     if (foot && !foot.querySelector("[data-manage-analytics]")) {
       var l = document.createElement("button"); l.type = "button"; l.className = "ri-cc-link"; l.textContent = "Cookies";
       l.setAttribute("data-manage-analytics", ""); l.addEventListener("click", open);
       var p = document.createElement("p"); p.style.margin = "8px 0 0"; p.appendChild(l); foot.appendChild(p);
+    } else if (!document.querySelector("[data-manage-analytics]")) {
+      var seo = document.createElement("p");
+      seo.className = "ri-seo-cookies";
+      var cb = document.createElement("button");
+      cb.type = "button"; cb.className = "ri-cc-link"; cb.textContent = "Cookies";
+      cb.setAttribute("data-manage-analytics", "");
+      cb.addEventListener("click", open);
+      seo.appendChild(cb);
+      document.body.appendChild(seo);
     }
     window.__riConsent = { open: open };
-    // Vidéo (page renfort) : un événement au premier lancement
     Array.prototype.forEach.call(document.querySelectorAll("video"), function (v) {
       v.addEventListener("play", function () {
         window.riTrack("video_start", { video_title: (v.currentSrc || "").split("/").pop(), page_path: location.pathname });
