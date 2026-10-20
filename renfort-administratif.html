@@ -98,9 +98,11 @@
 .trial-offer li strong{color:var(--ink)}
 .adv-hero .button-row{margin-top:8px}
 .adv-tarif-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.adv-tarif-card h3{font-size:1.65rem;margin:6px 0 8px}
-.adv-tarif-meta{margin:0 0 10px;color:var(--muted);font-size:.9rem;font-weight:700}
-.adv-tarif-desc{margin:0;color:var(--muted);font-size:.95rem;line-height:1.55}
+.adv-tarif-card{text-align:center;padding:28px 20px}
+.adv-tarif-card .card-label{margin-bottom:10px}
+.adv-tarif-price{margin:0 0 8px;font-size:clamp(2rem,8vw,2.65rem);font-weight:950;line-height:1;letter-spacing:-.03em}
+.adv-tarif-meta{margin:0;color:var(--muted);font-size:.9rem}
+.adv-tarif-legal{margin-top:18px;text-align:center;font-size:.78rem;color:var(--muted)}
 @media(max-width:850px){.adv-tarif-grid{grid-template-columns:1fr}}
 .adv-hero-lead a,.adv-test a{color:#26756c;font-weight:800}
 .adv-test a{color:#fff;text-decoration:underline;text-underline-offset:3px}
@@ -323,31 +325,26 @@
   <section class="section section-soft" id="tarifs">
     <div class="container">
       <div class="section-heading reveal">
-        <p class="eyebrow">Tarifs</p>
-        <h2>Trois forfaits selon le temps de traitement.</h2>
-        <p>On cadre le périmètre ensemble avant de démarrer. Vous pouvez aussi commencer par un lot gratuit de 20 dossiers (commandes), réservé aux 3 premières entreprises.</p>
+        <h2>Tarifs</h2>
       </div>
       <div class="adv-grid adv-tarif-grid">
         <article class="adv-card adv-tarif-card">
           <p class="card-label">Petit lot</p>
-          <h3>À partir de 250&nbsp;€</h3>
-          <p class="adv-tarif-meta">Jusqu’à 5 h de traitement</p>
-          <p class="adv-tarif-desc">Pour vider un petit tas de dossiers ou une tâche précise, avec contrôle et retour à la fin.</p>
+          <p class="adv-tarif-price">250&nbsp;€</p>
+          <p class="adv-tarif-meta">5 heures</p>
         </article>
         <article class="adv-card adv-tarif-card">
           <p class="card-label">Lot moyen</p>
-          <h3>À partir de 500&nbsp;€</h3>
-          <p class="adv-tarif-meta">Jusqu’à 10 h de traitement</p>
-          <p class="adv-tarif-desc">Quand il y a plus de commandes ou de relances à faire sur le même périmètre.</p>
+          <p class="adv-tarif-price">500&nbsp;€</p>
+          <p class="adv-tarif-meta">10 heures</p>
         </article>
         <article class="adv-card adv-tarif-card">
           <p class="card-label">Gros lot</p>
-          <h3>À partir de 900&nbsp;€</h3>
-          <p class="adv-tarif-meta">Jusqu’à 20 h de traitement</p>
-          <p class="adv-tarif-desc">Pour une grosse pile à traiter ou plusieurs flux administratifs en même temps.</p>
+          <p class="adv-tarif-price">900&nbsp;€</p>
+          <p class="adv-tarif-meta">20 heures</p>
         </article>
       </div>
-      <p class="fine-print" style="margin-top:18px">TVA non applicable, art. 293 B du CGI. Prix exact confirmé après le point de situation gratuit en 48 h. Au-delà de 20 h ou en renfort récurrent : sur devis.</p>
+      <p class="adv-tarif-legal">TVA non applicable, art. 293 B du CGI.</p>
       <div class="button-row" style="margin-top:18px">
         <a class="button button-primary ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a>
       </div>
