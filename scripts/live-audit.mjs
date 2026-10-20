@@ -179,21 +179,68 @@ async function testAnchorHeaderOverlap(page) {
   }
 }
 
-async function testMobileMenu(page) {
-  const iphone = devices["iPhone 13"];
-  await page.setViewportSize(iphone.viewport);
-  await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  const menu = page.locator(".mobileMenu");
-  if (await menu.isVisible()) {
-    await menu.click();
-    if (!(await page.locator(".mobileLinks.open").count())) add("menu", "/", "Menu mobile accueil ne s'ouvre pas");
+async function dismissCookieBanner(page) {
+  const ok = page.locator(".ri-cc .ri-ok");
+  if (await ok.isVisible().catch(() => false)) await ok.tap();
+}
+
+async function tapMenuButton(page, pagePath, label) {
+  const btn = page.locator(".mobileMenu, .advMobileMenu").first();
+  if (!(await btn.isVisible().catch(() => false))) {
+    add("menu", pagePath, `${label}: bouton menu absent en mobile`);
+    return;
+  }
+  const box = await btn.boundingBox();
+  if (box && (box.width < 44 || box.height < 44)) {
+    add("menu", pagePath, `${label}: zone tactile menu < 44px`);
+  }
+  const hit = await page.evaluate(() => {
+    const btn = document.querySelector(".mobileMenu, .advMobileMenu");
+    if (!btn) return { ok: false };
+    const r = btn.getBoundingClientRect();
+    const el = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+    return { ok: el === btn || btn.contains(el) };
+  });
+  if (!hit.ok) add("menu", pagePath, `${label}: bouton menu non cliquable (recouvert)`);
+  await btn.tap({ force: true });
+  await page.waitForTimeout(350);
+  const open =
+    (await page.locator(".mobileLinks.open, .advMobileLinks.open").count()) > 0;
+  if (!open) add("menu", pagePath, `${label}: panneau menu non ouvert après tap`);
+}
+
+async function testMobileMenuOnDevice(browser, device, deviceLabel) {
+  const context = await browser.newContext({
+    ...device,
+    hasTouch: true,
+    isMobile: true,
+  });
+  const page = await context.newPage();
+  for (const p of PAGES) {
+    await page.goto(BASE + (p === "/" ? "/" : p), { waitUntil: "networkidle" });
+    await dismissCookieBanner(page);
+    const hasBtn = await page
+      .locator(".mobileMenu, .advMobileMenu")
+      .first()
+      .isVisible()
+      .catch(() => false);
+    if (!hasBtn) continue;
+    await tapMenuButton(page, p, `${deviceLabel}`);
   }
   await page.goto(BASE + "/renfort-administratif.html", { waitUntil: "networkidle" });
-  const am = page.locator(".advMobileMenu");
-  if (await am.isVisible()) {
-    await am.click();
-    if (!(await page.locator(".advMobileLinks.open").count())) add("menu", "/renfort-administratif.html", "Menu mobile ADV ne s'ouvre pas");
+  await dismissCookieBanner(page);
+  await page.locator(".advMobileLinks").evaluate((el) => el.classList.remove("open"));
+  await page.locator(".site-header .identity").first().tap();
+  await page.waitForTimeout(350);
+  if (!(await page.locator(".advMobileLinks.open").count())) {
+    add("menu", "/renfort-administratif.html", `${deviceLabel}: tap marque gauche n'ouvre pas le menu`);
   }
+  await context.close();
+}
+
+async function testMobileMenu(browser) {
+  await testMobileMenuOnDevice(browser, devices["Pixel 7"], "Pixel 7");
+  await testMobileMenuOnDevice(browser, devices["iPhone 13"], "iPhone 13");
 }
 
 async function main() {
@@ -205,7 +252,7 @@ async function main() {
 
   await testCookies(page);
   await testFormsNoSubmit(page);
-  await testMobileMenu(page);
+  await testMobileMenu(browser);
   await testAnchorHeaderOverlap(page);
 
   const mobileCtx = await browser.newContext({ ...devices["iPhone 13"] });
