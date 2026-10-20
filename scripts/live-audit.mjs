@@ -147,6 +147,38 @@ async function testFormsNoSubmit(page) {
   await page.waitForTimeout(500);
 }
 
+async function testAnchorHeaderOverlap(page) {
+  const iphone = devices["iPhone 13"];
+  await page.setViewportSize(iphone.viewport);
+  await page.goto(BASE + "/renfort-administratif.html", { waitUntil: "networkidle" });
+  await page.locator(".advMobileMenu").click();
+  await page.locator('.advMobileLinks a[href="#tarifs"]').click();
+  await page.waitForTimeout(600);
+  const overlap = await page.evaluate(() => {
+    const hdr = document.querySelector(".site-header");
+    const h2 = document.querySelector("#tarifs h2");
+    if (!hdr || !h2) return true;
+    const hb = hdr.getBoundingClientRect().bottom;
+    const t = h2.getBoundingClientRect().top;
+    return t < hb + 4;
+  });
+  if (overlap) {
+    add("layout", "/renfort-administratif.html#tarifs", "Titre Tarifs masqué sous l'en-tête fixe (ancre mobile)");
+  }
+  await page.goto(BASE + "/#tarifs", { waitUntil: "networkidle" });
+  await page.waitForTimeout(400);
+  const homeOverlap = await page.evaluate(() => {
+    const hdr = document.querySelector("header");
+    const sec = document.getElementById("tarifs");
+    const h = sec && (sec.querySelector("h2") || sec.querySelector("h3"));
+    if (!hdr || !h) return false;
+    return h.getBoundingClientRect().top < hdr.getBoundingClientRect().bottom + 4;
+  });
+  if (homeOverlap) {
+    add("layout", "/#tarifs", "Titre tarifs accueil masqué sous l'en-tête (ancre mobile)");
+  }
+}
+
 async function testMobileMenu(page) {
   const iphone = devices["iPhone 13"];
   await page.setViewportSize(iphone.viewport);
@@ -174,6 +206,7 @@ async function main() {
   await testCookies(page);
   await testFormsNoSubmit(page);
   await testMobileMenu(page);
+  await testAnchorHeaderOverlap(page);
 
   const mobileCtx = await browser.newContext({ ...devices["iPhone 13"] });
   const mp = await mobileCtx.newPage();
