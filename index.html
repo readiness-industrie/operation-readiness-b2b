@@ -66,6 +66,9 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 .lead-form{position:relative}
 .hp{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .formSuccess,.final .formSuccess{margin:18px auto 0;max-width:680px;padding:12px 14px;border:1px solid #28645c;border-radius:10px;background:rgba(87,225,207,.08);color:var(--txt);font-weight:750}
+.formErr{margin:18px auto 0;max-width:680px;padding:12px 14px;border:1px solid #67502d;border-radius:10px;background:rgba(255,200,107,.08);color:var(--txt);font-weight:750;font-size:.9rem;line-height:1.45}
+.formErr a{color:var(--a);font-weight:800}
+.formWait{margin:18px auto 0;max-width:680px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--p);color:var(--mut);font-size:.9rem;line-height:1.45}
 .timeLegend{margin-top:22px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--p)}
 .timeLegend p{margin:0 0 10px}
 .timeLegend ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
@@ -357,12 +360,10 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <p>Décrivez le jalon, les points encore ouverts et les interlocuteurs. Cela suffit pour voir ce qui peut être pris en charge à distance.</p>
 <a class="btn ri-cta-point-48h" href="#contact">Demander mon point de situation gratuit en 48 h</a>
 <p class="formSuccess" id="form-success" hidden role="status">Message envoyé. Hervé vous répond à l'adresse indiquée.</p>
-<form class="lead-form" action="https://formsubmit.co/hmreadinessindustry@gmail.com" method="POST" accept-charset="UTF-8">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="Demande Readiness Industry — points ouverts avant jalon">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://readiness-industrie.github.io/operation-readiness-b2b/?demande=envoyee#contact">
-<p class="hp" aria-hidden="true"><label>Laissez ce champ vide<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+<form class="lead-form" id="contact-form" method="post" novalidate>
+<p class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
+<p class="formWait" id="form-wait" hidden role="status"><strong>Envoi en cours…</strong> Merci de patienter.</p>
+<p class="formErr" id="form-error" hidden role="alert"></p>
 <div class="form-grid">
 <label>Nom<input name="nom" autocomplete="name" required></label>
 <label>Société<input name="societe" autocomplete="organization" required></label>
@@ -387,6 +388,30 @@ document.getElementById("year").textContent=new Date().getFullYear();
 const menu=document.querySelector(".mobileMenu"),links=document.querySelector(".mobileLinks");
 if(menu&&links){menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")))}
 document.querySelectorAll(".reveal").forEach(el=>{if("IntersectionObserver"in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");o.unobserve(e.target)}}),{threshold:.08});o.observe(el)}else el.classList.add("visible")});
-if(new URLSearchParams(location.search).get("demande")==="envoyee"){const note=document.getElementById("form-success");if(note) note.hidden=false}
-</script></body>
+function riInitContactForm(){
+var f=document.getElementById("contact-form");
+if(!f||!window.riWeb3Submit)return;
+var ok=document.getElementById("form-success"),wait=document.getElementById("form-wait"),err=document.getElementById("form-error"),btn=f.querySelector('button[type="submit"]');
+function hide(){if(ok)ok.hidden=true;if(wait)wait.hidden=true;if(err){err.hidden=true;err.innerHTML="";}}
+f.addEventListener("submit",function(e){
+e.preventDefault();hide();
+var nom=f.nom.value.trim(),societe=f.societe.value.trim(),email=f.email.value.trim(),tel=f.telephone.value.trim(),message=f.message.value.trim();
+var bot=(f.botcheck&&f.botcheck.value||"").trim();
+if(!nom||!societe||!email||!message){if(err){err.hidden=false;err.textContent="Merci de remplir le nom, la société, l'e-mail et le message.";}return;}
+var lines=["Nom : "+nom,"Société : "+societe,"E-mail : "+email,"Téléphone : "+(tel||"Non renseigné"),"","Message :",message];
+riWeb3Submit({
+subject:"Site RI - Point de situation 48h",
+name:nom,email:email,message:lines.join("\n"),
+fields:{societe:societe,telephone:tel||""},
+botcheck:bot,button:btn,
+mailtoSubject:"Site RI - Point de situation 48h – "+societe,
+mailtoBody:function(){return lines;},
+onWait:function(){if(wait)wait.hidden=false;},
+onSuccess:function(){f.reset();if(wait)wait.hidden=true;if(ok)ok.hidden=false;if(window.riTrack)riTrack("generate_lead",{method:"contact_home"});},
+onError:function(mailto){if(wait)wait.hidden=true;if(err){err.hidden=false;err.innerHTML="L'envoi n'a pas abouti. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\""+mailto+"\">envoyez un e-mail prérempli</a>.";}}
+});
+}
+</script>
+<script src="web3forms.js"></script>
+<script>riInitContactForm();</script></body>
 </html>

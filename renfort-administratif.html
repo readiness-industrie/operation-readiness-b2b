@@ -81,6 +81,11 @@
 .lead-form label span{font-weight:600;color:var(--muted)}
 .lead-form input,.lead-form select,.lead-form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
 .lead-form textarea{resize:vertical}
+.adv-form-wait,.adv-form-err{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:.9rem;line-height:1.45}
+.adv-form-wait{background:#f1f1ee;color:var(--muted)}
+.adv-form-err{background:#fdf0e6;color:#7a4510}
+.adv-form-err a{color:#26756c;font-weight:800}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
 .cross-offer{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-top:26px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff}
 .cross-offer p{margin:0;color:var(--muted);font-size:.95rem}
@@ -354,7 +359,10 @@
         <a class="button button-outline" href="tel:+33628717459">+33 6 28 71 74 59</a>
       </div>
       <p class="contact-direct"><a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a></p>
-        <form class="lead-form adv-lead-form" id="adv-form">
+        <form class="lead-form adv-lead-form" id="adv-form" novalidate>
+<p class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
+<p class="adv-form-wait" id="adv-form-wait" hidden role="status"><strong>Envoi en cours…</strong> Merci de patienter.</p>
+<p class="adv-form-err" id="adv-form-err" hidden role="alert"></p>
 <div class="form-grid">
 <label>Nom<input name="nom" required></label>
 <label>Entreprise<input name="entreprise" required></label>
@@ -366,7 +374,7 @@
 </div>
 <label>Contexte / besoin<textarea name="contexte" rows="5" required></textarea></label>
 <button class="button button-primary" type="submit">Envoyer ma situation</button>
-<p class="fine-print">Ou décrivez la situation ici : le formulaire ouvre le même e-mail, déjà rempli. Rien n'est envoyé depuis le site. Données traitées pour répondre à votre demande (<a href="mentions-legales.html#donnees-personnelles">confidentialité</a>).</p>
+<p class="fine-print">Données traitées pour répondre à votre demande (<a href="mentions-legales.html#donnees-personnelles">confidentialité</a>).</p>
 </form>
     </div>
   </section>
@@ -420,25 +428,43 @@
 
 const am=document.querySelector(".advMobileMenu"),al=document.querySelector(".advMobileLinks");if(am&&al){am.addEventListener("click",()=>{const o=al.classList.toggle("open");am.setAttribute("aria-expanded",String(o))});al.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>al.classList.remove("open")))}
 </script>
+<script src="web3forms.js"></script>
 <script>
-document.getElementById("adv-form")?.addEventListener("submit",function(e){
-e.preventDefault();
-const f=new FormData(this);
-const demande=f.get("demande");
-const subject=demande==="Un lot représentatif, après échange"?"Premier échange — renfort ADV":"Demande de renfort administratif et ADV";
-const body=[
-"Demande : "+demande,
-"Nom : "+f.get("nom"),
-"Entreprise : "+f.get("entreprise"),
-"E-mail : "+f.get("email"),
-"Téléphone : "+(f.get("telephone")||"Non renseigné"),
-"Situation : "+f.get("situation"),
-"Type de tâches : "+f.get("taches"),
+(function(){
+var form=document.getElementById("adv-form");
+if(!form||!window.riWeb3Submit)return;
+var wait=document.getElementById("adv-form-wait"),err=document.getElementById("adv-form-err"),btn=form.querySelector('button[type="submit"]');
+function lines(f){
+return[
+"Demande : "+f.demande.value,
+"Nom : "+f.nom.value.trim(),
+"Entreprise : "+f.entreprise.value.trim(),
+"E-mail : "+f.email.value.trim(),
+"Téléphone : "+(f.telephone.value.trim()||"Non renseigné"),
+"Situation : "+f.situation.value,
+"Type de tâches : "+f.taches.value,
 "",
 "Contexte / besoin :",
-f.get("contexte")
-].join("\n");
-window.location.href="mailto:hmreadinessindustry@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+f.contexte.value.trim()
+];}
+form.addEventListener("submit",function(e){
+e.preventDefault();
+if(err){err.hidden=true;err.innerHTML="";}
+var nom=form.nom.value.trim(),ent=form.entreprise.value.trim(),email=form.email.value.trim(),ctx=form.contexte.value.trim();
+if(!nom||!ent||!email||!ctx){if(err){err.hidden=false;err.textContent="Merci de remplir le nom, l'entreprise, l'e-mail et le contexte.";}return;}
+var bodyLines=lines(form);
+riWeb3Submit({
+subject:"Site RI - Renfort ADV",
+name:nom,email:email,message:bodyLines.join("\n"),
+fields:{entreprise:ent,telephone:form.telephone.value.trim()||"",demande:form.demande.value,situation:form.situation.value,taches:form.taches.value},
+botcheck:(form.botcheck.value||"").trim(),button:btn,
+mailtoSubject:"Site RI - Renfort ADV – "+ent,
+mailtoBody:function(){return bodyLines;},
+onWait:function(){if(wait)wait.hidden=false;},
+onSuccess:function(){form.reset();if(wait)wait.hidden=true;if(window.riTrack)riTrack("generate_lead",{method:"contact_adv"});},
+onError:function(mailto){if(wait)wait.hidden=true;if(err){err.hidden=false;err.innerHTML="L'envoi n'a pas abouti. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\""+mailto+"\">envoyez un e-mail prérempli</a>.";}}
 });
+});
+})();
 </script></body>
 </html>
