@@ -15,7 +15,7 @@
     var a = document.createElement("a");
     a.href = url;
     a.className = "ri-essai-btn " + (cls || "");
-    a.textContent = "Point de situation gratuit en 48 h";
+    a.textContent = "Point de situation gratuit en 48 h pour les 3 premières demandes";
     return a;
   }
   var header = document.querySelector("header");
