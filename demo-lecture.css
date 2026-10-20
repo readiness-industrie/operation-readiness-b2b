@@ -4042,6 +4042,14 @@ h3 {
   }
 }
 
+@media (max-width: 900px) {
+  .reveal,
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Page autonome de démonstration de lecture */
 body.demo-lecture-page {
   min-height: 100vh;

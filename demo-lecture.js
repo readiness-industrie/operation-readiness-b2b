@@ -148,6 +148,16 @@
       return;
     }
 
+    const kickReveal = () => {
+      qsa(".reveal:not(.visible)").forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) el.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", kickReveal, { passive: true });
+    window.addEventListener("resize", kickReveal);
+    kickReveal();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -157,7 +167,7 @@
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -45px" }
+      { threshold: 0, rootMargin: "0px 0px 8% 0px" }
     );
 
     elements.forEach((element) => observer.observe(element));

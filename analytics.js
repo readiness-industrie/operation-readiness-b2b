@@ -42,7 +42,8 @@
   function build() {
     var css = document.createElement("style");
     css.textContent =
-      ".ri-cc{position:fixed;z-index:2147483000;left:12px;right:12px;bottom:12px;max-width:560px;margin:0 auto;background:#fff;color:#10202b;border:1px solid #d9dee2;border-radius:16px;box-shadow:0 18px 50px rgba(16,32,43,.28);padding:18px 18px 16px;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}" +
+      ".ri-cc{position:fixed;z-index:1200;left:12px;right:12px;bottom:12px;max-width:560px;margin:0 auto;background:#fff;color:#10202b;border:1px solid #d9dee2;border-radius:16px;box-shadow:0 18px 50px rgba(16,32,43,.28);padding:18px 18px 16px;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;touch-action:manipulation}" +
+      "@media(max-width:900px){.ri-cc{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom,0px));max-height:min(45vh,340px);overflow-y:auto;-webkit-overflow-scrolling:touch}}" +
       ".ri-cc[hidden]{display:none}.ri-cc b{display:block;font-size:16px;margin-bottom:4px}.ri-cc p{margin:0 0 14px;color:#4a5a66}.ri-cc a{color:#0f5f57;font-weight:600}" +
       ".ri-cc-a{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ri-cc button{min-height:46px;border-radius:10px;font:600 15px/1 inherit;font-family:inherit;cursor:pointer;border:2px solid #10202b;background:#fff;color:#10202b}.ri-cc button.ri-ok{background:#10202b;color:#fff}" +
       ".ri-cc button:focus-visible{outline:3px solid #2a9d8f;outline-offset:2px}.ri-cc-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}";
