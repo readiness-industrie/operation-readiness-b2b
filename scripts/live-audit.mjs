@@ -207,6 +207,38 @@ async function tapMenuButton(page, pagePath, label) {
   const open =
     (await page.locator(".mobileLinks.open, .advMobileLinks.open").count()) > 0;
   if (!open) add("menu", pagePath, `${label}: panneau menu non ouvert après tap`);
+  else {
+    const visible = await page.evaluate(() => {
+      const panel = document.querySelector(".mobileLinks.open, .advMobileLinks.open");
+      if (!panel) return { ok: false, why: "no panel" };
+      const r = panel.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + Math.min(24, r.height / 2);
+      const el = document.elementFromPoint(cx, cy);
+      const ok = el === panel || panel.contains(el);
+      return {
+        ok,
+        top: r.top,
+        height: r.height,
+        hit: el ? el.tagName + "." + String(el.className || "").slice(0, 30) : null,
+      };
+    });
+    if (!visible.ok) {
+      add(
+        "menu",
+        pagePath,
+        `${label}: panneau menu non visible au tap (clippé ? top=${visible.top}, hit=${visible.hit})`
+      );
+    }
+  }
+}
+
+async function testMenuWhileScrolled(page, deviceLabel) {
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  await dismissCookieBanner(page);
+  await page.evaluate(() => window.scrollTo(0, 1200));
+  await page.waitForTimeout(200);
+  await tapMenuButton(page, "/", `${deviceLabel} scrollé`);
 }
 
 async function testMobileMenuOnDevice(browser, device, deviceLabel) {
@@ -235,6 +267,7 @@ async function testMobileMenuOnDevice(browser, device, deviceLabel) {
   if (!(await page.locator(".advMobileLinks.open").count())) {
     add("menu", "/renfort-administratif.html", `${deviceLabel}: tap marque gauche n'ouvre pas le menu`);
   }
+  await testMenuWhileScrolled(page, deviceLabel);
   await context.close();
 }
 
