@@ -1,4 +1,4 @@
-/* Mesure d'audience GA4 avec consentement (CNIL) – partagé par toutes les pages */
+/* Mesure d'audience GA4 avec consentement (CNIL) - partagé par toutes les pages */
 (function () {
   "use strict";
   var ID = "G-CXBR9QTFXS", KEY = "readiness_analytics_consent_v1";

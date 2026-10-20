@@ -18,6 +18,7 @@
   }
 
   function qsa(selector, root = document) {
+    if (!root || typeof root.querySelectorAll !== "function") return [];
     return Array.from(root.querySelectorAll(selector));
   }
 
@@ -527,10 +528,10 @@
 
   function initWorkflow() {
     const demo = qs(".workflow-demo");
-    const controls = qsa("[data-workflow-step]", demo);
     const playButton = qs("#workflow-play");
     const caption = qs("#workflow-caption");
     if (!demo || !playButton || !caption) return;
+    const controls = qsa("[data-workflow-step]", demo);
 
     const captions = {
       before: "Avant : demandes, appels, documents et relances arrivent directement vers le chef de projet.",
