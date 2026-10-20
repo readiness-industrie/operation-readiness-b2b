@@ -373,6 +373,130 @@ h3[id] {
   width: 42%;
 }
 
+/* Menu mobile partagé */
+.menu-bars {
+  display: grid;
+  gap: 4px;
+  width: 18px;
+}
+
+.menu-bars span {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.menu-bars span:nth-child(2) {
+  width: 72%;
+}
+
+.menu-bars span:nth-child(3) {
+  width: 42%;
+}
+
+.advDesktopNav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.advMobileMenu {
+  display: none;
+}
+
+.advMobileLinks {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .ri-hide-mobile {
+    display: none !important;
+  }
+
+  .advDesktopNav {
+    display: none;
+  }
+
+  .site-header .header-inner {
+    position: relative;
+    gap: 10px;
+  }
+
+  .identity {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .identity[data-ri-nav-toggle] {
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+
+  .advMobileMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+    cursor: pointer;
+    position: relative;
+    z-index: 1402;
+  }
+
+  .advMobileLinks {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    width: min(280px, calc(100vw - 26px));
+    padding: 8px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+    z-index: 1403;
+  }
+
+  .advMobileLinks.open {
+    display: block;
+  }
+
+  .advMobileLinks a {
+    display: block;
+    padding: 11px;
+    color: var(--muted);
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  .site-header.menu-open {
+    z-index: 1400;
+  }
+}
+
+body[data-ri-site-nav] .top,
+body[data-ri-site-nav] > .wrap > .top {
+  display: none;
+}
+
+body[data-ri-site-nav] main.seo-article {
+  padding-top: calc(var(--header-height) + 40px);
+}
+
+body[data-ri-site-nav] .seo-back {
+  margin-top: 0;
+}
+
 .main-nav {
   display: flex;
   align-items: center;
