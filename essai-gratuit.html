@@ -99,7 +99,7 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
       fields: { entreprise: d.company, telephone: d.phone || "", offre: d.offer },
       botcheck: d.botcheck,
       button: btn,
-      mailtoSubject: "Demande d’essai gratuit – " + d.company,
+      mailtoSubject: "Demande d’essai gratuit - " + d.company,
       mailtoBody: function () { return lines(d); },
       onWait: function () { show("wait", "<strong>Envoi en cours…</strong> Merci de patienter."); },
       onSuccess: function () {

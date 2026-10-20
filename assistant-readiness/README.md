@@ -64,7 +64,7 @@ La page d'accueil répond en HTTP 200 avec l'écran verrouillé ou le formulaire
 Cette version construit d'abord le flux réellement utilisable et persistant. La lecture native PDF/Word, Gmail, les relances automatiques et une IA externe restent volontairement hors de cette V0.1.
 
 
-## V0.2 — cockpit opérationnel
+## V0.2 , cockpit opérationnel
 
 Le dossier reste distinct de la vitrine. Le cockpit `public/dashboard.html` lit les dossiers persistés par `server.js` via `/api/dashboard` et permet de piloter réellement les points, responsables, échéances, preuves et états.
 

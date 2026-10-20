@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://readiness-industrie.github.io/operation-readiness-b2b/">
 <meta property="og:image" content="https://readiness-industrie.github.io/operation-readiness-b2b/assets/og-readiness.png">
 <meta name="twitter:card" content="summary_large_image">
-<title>Readiness Industry | PME industrielles — jalons et ADV à distance</title>
+<title>Readiness Industry | PME industrielles, jalons et ADV à distance</title>
 <style>
 :root{--bg:#071018;--p:#0d1922;--p2:#11222d;--line:#263945;--txt:#f4f7f8;--mut:#91a4af;--a:#57e1cf;--w:#ffc86b;--r:#ff806e;--max:1160px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{text-decoration:none;color:inherit}.wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
@@ -125,7 +125,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <div>
 <p class="eyebrow">Readiness Industry · PME industrielles</p>
 <h1>J'aide les PME industrielles à distance&nbsp;: préparation des interventions et des mises en service, et suivi ADV.</h1>
-<p class="heroLead">Sur cette page&nbsp;: <strong>préparation des interventions et mises en service</strong> — prérequis, fournisseurs, livrables, preuves et réserves avant vos jalons. Vous gardez les décisions. <a href="renfort-administratif.html">Renfort ADV et administratif</a>&nbsp;: page dédiée.</p>
+<p class="heroLead">Sur cette page&nbsp;: <strong>préparation des interventions et mises en service</strong>, prérequis, fournisseurs, livrables, preuves et réserves avant vos jalons. Vous gardez les décisions. <a href="renfort-administratif.html">Renfort ADV et administratif</a>&nbsp;: page dédiée.</p>
 <a class="btn ri-cta-point-48h" href="#contact">Demander mon point de situation gratuit en 48 h</a>
 <p class="micro">Point de situation offert aux 3 premières demandes reçues (liste de points ouverts, même en vrac). Hervé MENGUE · <a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a> · <a href="tel:+33628717459">+33 6 28 71 74 59</a></p>
 </div>
@@ -208,7 +208,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <div class="wrap reveal">
 <p class="eyebrow">Exemple type</p>
 <h2>Une liste de points ouverts, avant et après.</h2>
-<p class="micro" style="margin:0 0 6px"><strong>Exemple illustratif — pas un client réel.</strong></p>
+<p class="micro" style="margin:0 0 6px"><strong>Exemple illustratif, pas un client réel.</strong></p>
 <div class="result">
 <div class="resultBox"><h3>Avant · 12 points ouverts, statuts flous</h3><ul style="color:var(--mut);line-height:1.8;padding-left:19px;margin:0"><li>« Câblage armoire : en cours »</li><li>« Doc fournisseur : on attend »</li><li>« Air comprimé : normalement OK »</li><li>« Réserve FAT n°3 : à voir »</li><li>« Accès site : quelqu'un s'en occupe »</li><li>… et 7 autres lignes du même type</li></ul><p class="micro">Pas de responsable, pas d'échéance, pas de preuve.</p></div>
 <div class="resultBox"><h3>Après · chaque point a un statut clair</h3>
@@ -404,11 +404,12 @@ subject:"Site RI - Point de situation 48h",
 name:nom,email:email,message:lines.join("\n"),
 fields:{societe:societe,telephone:tel||""},
 botcheck:bot,button:btn,
-mailtoSubject:"Site RI - Point de situation 48h – "+societe,
+mailtoSubject:"Site RI - Point de situation 48h - "+societe,
 mailtoBody:function(){return lines;},
 onWait:function(){if(wait)wait.hidden=false;},
 onSuccess:function(){f.reset();if(wait)wait.hidden=true;if(ok)ok.hidden=false;if(window.riTrack)riTrack("generate_lead",{method:"contact_home"});},
 onError:function(mailto){if(wait)wait.hidden=true;if(err){err.hidden=false;err.innerHTML="L'envoi n'a pas abouti. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\""+mailto+"\">envoyez un e-mail prérempli</a>.";}}
+});
 });
 }
 </script>

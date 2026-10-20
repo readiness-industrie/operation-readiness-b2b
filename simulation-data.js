@@ -4,7 +4,7 @@
  */
 window.SIMULATION_DATA = {
   title: "Installation simulée d'une ligne de conditionnement",
-  disclaimer: "Scénario fictif — aucune référence client réelle.",
+  disclaimer: "Scénario fictif , aucune référence client réelle.",
   days: [
     { day: -14, label: "Cadrage initial" },
     { day: -13, label: "Premières demandes" },
@@ -54,7 +54,7 @@ window.SIMULATION_DATA = {
         { day: -11, status: "progress", info: "Liste transmise au service accès.", source: "Intégrateur simulé", action: "Transmission au contact accès", nextAction: "Obtenir la confirmation des badges", nextDate: "J-7" },
         { day: -6, status: "followup", info: "Contact principal absent ; message d'absence reçu.", source: "Réponse automatique simulée", action: "Backup identifié et contacté", nextAction: "Obtenir la confirmation du backup", nextDate: "J-5" },
         { day: -4, status: "received", info: "Confirmation nominative reçue du backup.", source: "Responsable sûreté adjoint", action: "Rapprochement avec la liste attendue", nextAction: "Contrôler selon le critère client", nextDate: "J-3" },
-        { day: -2, status: "closed", info: "Tous les noms transmis figurent dans la confirmation reçue.", source: "Confirmation accès simulée", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -2, status: "closed", info: "Tous les noms transmis figurent dans la confirmation reçue.", source: "Confirmation accès simulée", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -75,7 +75,7 @@ window.SIMULATION_DATA = {
         { day: -14, status: "launch", info: "Responsable et preuve attendue définis.", source: "Cadrage client", action: "Point créé", nextAction: "Demander la liste définitive", nextDate: "J-13" },
         { day: -13, status: "progress", info: "Demande envoyée au coordinateur installation.", source: "E-mail de poursuite simulé", action: "Demande initiale envoyée", nextAction: "Contrôler la réponse", nextDate: "J-12" },
         { day: -12, status: "followup", info: "Aucune réponse à la demande initiale.", source: "Journal de suivi simulé", action: "Relance intégrateur", nextAction: "Escalader au backup sans réponse", nextDate: "J-11" },
-        { day: -11, status: "closed", info: "Liste reçue et complète selon le critère défini.", source: "Intégrateur simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -11, status: "closed", info: "Liste reçue et complète selon le critère défini.", source: "Intégrateur simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -117,7 +117,7 @@ window.SIMULATION_DATA = {
       changes: [
         { day: -14, status: "progress", info: "Quatre vues de la zone sont attendues.", source: "Cadrage client", action: "Demande initiale envoyée", nextAction: "Recevoir les quatre photos", nextDate: "J-11" },
         { day: -11, status: "incomplete", info: "Deux photos reçues sur les quatre attendues.", source: "Superviseur de zone simulé", action: "Complément ciblé demandé", nextAction: "Recevoir les deux vues manquantes", nextDate: "J-10" },
-        { day: -10, status: "closed", info: "Les quatre vues prévues par le critère client sont présentes.", source: "Superviseur de zone simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -10, status: "closed", info: "Les quatre vues prévues par le critère client sont présentes.", source: "Superviseur de zone simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -140,7 +140,7 @@ window.SIMULATION_DATA = {
         { day: -8, status: "decision", info: "Le sous-traitant annonce une fin un jour plus tard que prévu.", source: "Appel sous-traitant simulé", action: "Blocage documenté et chef de projet sollicité", nextAction: "Recevoir l'instruction du client", nextDate: "J-7", attention: true },
         { day: -7, status: "progress", info: "Nouvelle instruction et nouvelle échéance confirmées par le client.", source: "Décision chef de projet simulée", action: "Poursuite reprise selon l'instruction", nextAction: "Obtenir preuve de fin des travaux", nextDate: "J-2" },
         { day: -2, status: "received", info: "Photos et confirmation de fin reçues.", source: "Sous-traitant sol simulé", action: "Éléments reçus", nextAction: "Contrôler selon le critère client", nextDate: "J-1" },
-        { day: -1, status: "closed", info: "Le jeu de preuves attendu est complet selon le critère client.", source: "Journal de suivi simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -1, status: "closed", info: "Le jeu de preuves attendu est complet selon le critère client.", source: "Journal de suivi simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -161,7 +161,7 @@ window.SIMULATION_DATA = {
         { day: -14, status: "progress", info: "Dernière information : raccordement prévu pour cette semaine.", source: "Compte rendu initial simulé", action: "Information initiale tracée", nextAction: "Demander une confirmation renouvelée", nextDate: "J-6" },
         { day: -6, status: "followup", info: "La confirmation initiale n'a pas encore été renouvelée.", source: "Journal de suivi simulé", action: "Relance de reconfirmation", nextAction: "Obtenir la confirmation écrite", nextDate: "J-4" },
         { day: -4, status: "received", info: "Confirmation écrite reçue du responsable désigné.", source: "Responsable maintenance simulé", action: "Réception tracée", nextAction: "Comparer au critère client", nextDate: "J-3" },
-        { day: -2, status: "closed", info: "La confirmation reçue satisfait le critère défini.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -2, status: "closed", info: "La confirmation reçue satisfait le critère défini.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -182,7 +182,7 @@ window.SIMULATION_DATA = {
         { day: -14, status: "launch", info: "Liste des utilités et critères fournie par le client.", source: "Cadrage client", action: "Point créé", nextAction: "Envoyer la demande", nextDate: "J-12" },
         { day: -12, status: "progress", info: "Demande envoyée au technicien utilités.", source: "E-mail de poursuite simulé", action: "Demande initiale envoyée", nextAction: "Recevoir la confirmation détaillée", nextDate: "J-6" },
         { day: -6, status: "received", info: "Tableau de disponibilité reçu.", source: "Technicien utilités simulé", action: "Réception tracée", nextAction: "Comparer à la liste attendue", nextDate: "J-5" },
-        { day: -4, status: "closed", info: "Toutes les utilités listées sont confirmées.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -4, status: "closed", info: "Toutes les utilités listées sont confirmées.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -205,7 +205,7 @@ window.SIMULATION_DATA = {
         { day: -5, status: "decision", info: "Le moyen supposé disponible ne l'est finalement plus.", source: "Coordinateur logistique simulé", action: "Exception et impact potentiel signalés", nextAction: "Obtenir la décision du client", nextDate: "J-4", attention: true },
         { day: -4, status: "progress", info: "Le client demande la poursuite d'une solution alternative définie.", source: "Instruction client simulée", action: "Demande de réservation alternative envoyée", nextAction: "Recevoir la confirmation de réservation", nextDate: "J-3" },
         { day: -3, status: "received", info: "Réservation alternative reçue sur le créneau prévu.", source: "Loueur manutention simulé", action: "Référence reçue", nextAction: "Contrôler le créneau", nextDate: "J-2" },
-        { day: -2, status: "closed", info: "La réservation correspond au créneau défini par le client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -2, status: "closed", info: "La réservation correspond au créneau défini par le client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -226,7 +226,7 @@ window.SIMULATION_DATA = {
         { day: -14, status: "progress", info: "Confirmation commune du site et du transporteur attendue.", source: "Cadrage client", action: "Demandes envoyées aux deux parties", nextAction: "Comparer les réponses", nextDate: "J-9" },
         { day: -9, status: "contradictory", info: "Le site et le transporteur indiquent deux horaires différents.", source: "Deux e-mails simulés", action: "Confirmation commune demandée", nextAction: "Obtenir un horaire partagé", nextDate: "J-8" },
         { day: -8, status: "received", info: "Les deux interlocuteurs répondent sur un horaire commun.", source: "Fil d'e-mail commun simulé", action: "Confirmation commune reçue", nextAction: "Contrôler selon le critère", nextDate: "J-7" },
-        { day: -7, status: "closed", info: "L'horaire commun satisfait le critère client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -7, status: "closed", info: "L'horaire commun satisfait le critère client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -246,7 +246,7 @@ window.SIMULATION_DATA = {
       changes: [
         { day: -14, status: "progress", info: "Version finale demandée au bureau d'études.", source: "Cadrage client", action: "Demande initiale envoyée", nextAction: "Recevoir la version finale", nextDate: "J-8" },
         { day: -7, status: "followup", info: "Aucune version finale reçue à la date de contrôle.", source: "Journal de suivi simulé", action: "Backup du bureau d'études contacté", nextAction: "Obtenir la version identifiée", nextDate: "J-6" },
-        { day: -6, status: "closed", info: "Version reçue et identifiée comme finale par le responsable désigné.", source: "Responsable bureau d'études simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -6, status: "closed", info: "Version reçue et identifiée comme finale par le responsable désigné.", source: "Responsable bureau d'études simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -267,7 +267,7 @@ window.SIMULATION_DATA = {
         { day: -14, status: "progress", info: "Présence annoncée lors du cadrage initial.", source: "Compte rendu initial simulé", action: "Information initiale tracée", nextAction: "Reconfirmer la disponibilité", nextDate: "J-8" },
         { day: -8, status: "followup", info: "Le responsable annonce un changement de disponibilité.", source: "Responsable industrialisation simulé", action: "Couverture de remplacement demandée", nextAction: "Obtenir le nom du remplaçant", nextDate: "J-7" },
         { day: -7, status: "received", info: "Un responsable de remplacement et sa plage sont confirmés.", source: "Site client simulé", action: "Confirmation reçue", nextAction: "Contrôler la couverture attendue", nextDate: "J-6" },
-        { day: -6, status: "closed", info: "La plage de couverture satisfait le critère client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -6, status: "closed", info: "La plage de couverture satisfait le critère client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -288,7 +288,7 @@ window.SIMULATION_DATA = {
         { day: -14, status: "launch", info: "Échéance plus tardive ; point planifié dès le cadrage.", source: "Cadrage client", action: "Prochaine action planifiée", nextAction: "Demander l'état des quantités", nextDate: "J-4" },
         { day: -4, status: "progress", info: "État des quantités demandé au planificateur production.", source: "E-mail de poursuite simulé", action: "Demande envoyée", nextAction: "Recevoir la confirmation", nextDate: "J-2" },
         { day: -2, status: "received", info: "Quantités annoncées disponibles ; contrôle en cours.", source: "Planificateur production simulé", action: "Confirmation reçue", nextAction: "Comparer à la liste client", nextDate: "J-1" },
-        { day: -1, status: "closed", info: "Les quantités confirmées correspondent à la liste client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -1, status: "closed", info: "Les quantités confirmées correspondent à la liste client.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     },
     {
@@ -310,7 +310,7 @@ window.SIMULATION_DATA = {
         { day: -6, status: "progress", info: "Nouveau prérequis ajouté par le client en cours d'opération.", source: "Instruction client simulée", action: "Responsable, échéance et preuve enregistrés", nextAction: "Demander la confirmation", nextDate: "J-4" },
         { day: -4, status: "followup", info: "Aucune réponse à la demande initiale.", source: "Journal de suivi simulé", action: "Relance responsable magasin", nextAction: "Obtenir la zone et le responsable", nextDate: "J-3" },
         { day: -3, status: "received", info: "Zone et responsable communiqués.", source: "Responsable magasin simulé", action: "Confirmation reçue", nextAction: "Comparer au critère client", nextDate: "J-2" },
-        { day: -2, status: "closed", info: "Les deux éléments attendus sont confirmés.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune — point fermé", nextDate: "—" }
+        { day: -2, status: "closed", info: "Les deux éléments attendus sont confirmés.", source: "Journal de contrôle simulé", action: "Critère client satisfait", nextAction: "Aucune , point fermé", nextDate: ", " }
       ]
     }
   ],

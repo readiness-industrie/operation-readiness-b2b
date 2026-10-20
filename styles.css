@@ -2741,7 +2741,7 @@ h3 {
   border-color: rgba(121,177,152,0.28);
 }
 
-/* Répartition (#fonctionnement) — fond clair, pas les styles « boundaries-section » sombres */
+/* Répartition (#fonctionnement) , fond clair, pas les styles « boundaries-section » sombres */
 #fonctionnement .boundaries-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;

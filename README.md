@@ -1,4 +1,4 @@
-# Readiness Industry — Landing page terrain
+# Readiness Industry , Landing page terrain
 
 Landing page commerciale statique et démonstrateur simulé pour un service de poursuite active des prérequis avant une installation, un SAT ou une mise en service industrielle.
 
