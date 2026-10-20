@@ -4033,3 +4033,19 @@ h3 {
     min-width: 0;
   }
 }
+
+@media (max-width: 900px) {
+  .reveal,
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .site-header {
+    overflow: visible;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+}
