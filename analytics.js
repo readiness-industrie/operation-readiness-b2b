@@ -2,6 +2,14 @@
 (function () {
   "use strict";
   var ID = "G-CXBR9QTFXS", KEY = "readiness_analytics_consent_v1";
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  window.gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied"
+  });
   if (window.__riConsent) return;
   function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
@@ -11,6 +19,7 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
+    window.gtag("consent", "update", { analytics_storage: "granted" });
     window.gtag("config", ID, { allow_google_signals: false, allow_ad_personalization_signals: false });
     var s = document.createElement("script");
     s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
@@ -60,6 +69,15 @@
       v.addEventListener("play", function () {
         window.riTrack("video_start", { video_title: (v.currentSrc || "").split("/").pop(), page_path: location.pathname });
       }, { once: true });
+    });
+    document.addEventListener("click", function (ev) {
+      var el = ev.target && ev.target.closest && ev.target.closest(".ri-cta-point-48h, [data-ri-track=\"demande_point_48h\"]");
+      if (!el) return;
+      window.riTrack("demande_point_48h", {
+        page_path: location.pathname,
+        link_url: el.getAttribute("href") || "",
+        link_text: (el.textContent || "").trim().slice(0, 120)
+      });
     });
     var c = get();
     if (c === "granted") load(); else if (c !== "denied") open();

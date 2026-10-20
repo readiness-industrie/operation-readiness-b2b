@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="description" content="Renfort ADV et administratif à distance pour PME et entreprises B2B : commandes clients, suivi de dossiers, facturation, relances, pièces manquantes et tableaux de suivi. Périmètre cadré, sans intérim.">
+  <meta name="description" content="Renfort ADV et administratif à distance pour PME industrielles : commandes, dossiers, facturation, relances et tableaux de suivi. Périmètre cadré, sans intérim. Point de situation gratuit sous 48 h.">
   <link rel="canonical" href="https://readiness-industrie.github.io/operation-readiness-b2b/renfort-administratif.html">
   <link rel="sitemap" type="application/xml" href="https://readiness-industrie.github.io/operation-readiness-b2b/sitemap.xml">
   <meta property="og:type" content="website">
@@ -81,6 +81,11 @@
 .lead-form label span{font-weight:600;color:var(--muted)}
 .lead-form input,.lead-form select,.lead-form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
 .lead-form textarea{resize:vertical}
+.adv-form-wait,.adv-form-err{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:.9rem;line-height:1.45}
+.adv-form-wait{background:#f1f1ee;color:var(--muted)}
+.adv-form-err{background:#fdf0e6;color:#7a4510}
+.adv-form-err a{color:#26756c;font-weight:800}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
 .cross-offer{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-top:26px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff}
 .cross-offer p{margin:0;color:var(--muted);font-size:.95rem}
@@ -146,26 +151,22 @@
   </script>
 <script src="analytics.js" defer></script>
 </head>
-<body>
+<body data-no-essai>
 <a class="skip-link" href="#main">Aller au contenu</a>
-<header class="site-header" data-header><div class="container header-inner"><a class="identity" href="renfort-administratif.html" aria-label="Renfort administratif et ADV"><span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span><span><strong>Readiness Industry</strong><small>Renfort administratif &amp; ADV</small></span></a><nav class="advDesktopNav" aria-label="Navigation principale"><a href="index.html">Jalons industriels</a><a href="#demarrage">Démarrage</a><a href="#tarifs">Tarifs</a><a href="#seo-questions">Questions ADV</a><a class="advNavCta" href="#contact-adv">Décrire mon stock</a></nav><button class="advMobileMenu" type="button" aria-expanded="false" aria-label="Ouvrir le menu">☰</button><div class="advMobileLinks"><a href="index.html">Jalons industriels</a><a href="#demarrage">Démarrage</a><a href="#tarifs">Tarifs</a><a href="#seo-questions">Questions ADV</a><a href="#contact-adv">Décrire mon stock</a></div></div></header>
+<header class="site-header" data-header><div class="container header-inner"><a class="identity" href="renfort-administratif.html" aria-label="Renfort administratif et ADV"><span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span><span><strong>Readiness Industry</strong><small>Renfort administratif &amp; ADV</small></span></a><nav class="advDesktopNav" aria-label="Navigation principale"><a href="index.html">Préparation &amp; mises en service</a><a href="#demarrage">Démarrage</a><a href="#tarifs">Tarifs</a><a href="#seo-questions">Questions ADV</a><a class="advNavCta ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a></nav><button class="advMobileMenu" type="button" aria-expanded="false" aria-label="Ouvrir le menu">☰</button><div class="advMobileLinks"><a href="index.html">Préparation &amp; mises en service</a><a href="#demarrage">Démarrage</a><a href="#tarifs">Tarifs</a><a href="#seo-questions">Questions ADV</a><a class="ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a></div></div></header>
 
 <main id="main">
   <section class="adv-hero">
     <div class="container"><div class="adv-hero-grid"><div class="adv-hero-copy">
       <p class="eyebrow">Renfort administratif · ADV · À distance</p>
       <aside class="trial-offer" aria-label="Essai gratuit">
-        <p><strong>Essai gratuit, réservé aux 3 premières entreprises qui répondent.</strong></p>
-        <ul>
-          <li><strong>ADV.</strong> 20 dossiers (commandes) traités gratuitement.</li>
-          <li><strong>Jalons.</strong> Un point de situation sous 48&nbsp;h, à partir de votre liste de points ouverts, même en vrac.</li>
-        </ul>
+        <p><strong>Essai gratuit ADV, réservé aux 3 premières entreprises qui répondent&nbsp;:</strong> 20 dossiers (commandes) traités gratuitement, après cadrage du périmètre.</p>
       </aside>
       <h1>Renfort ADV et administratif à distance quand les dossiers s’accumulent.</h1>
       <p class="adv-hero-lead">Besoin d’un renfort ADV ou administratif sans attendre un recrutement ? Commandes clients, suivi des dossiers, facturation, relances, pièces manquantes et tableaux de suivi peuvent être pris en charge à distance sur un périmètre défini.</p>
       <p class="hero-control">Nous traitons à distance un périmètre que vous cadrez. Pas un poste à pourvoir. Pas de l'intérim.</p>
       <div class="button-row">
-        <a class="button button-primary" href="mailto:hmreadinessindustry@gmail.com?subject=Premier%20%C3%A9change%20%E2%80%94%20renfort%20ADV&amp;body=Bonjour%20Herv%C3%A9%2C%0A%0AJe%20souhaite%20%C3%A9changer%20sur%20un%20renfort%20administratif%20%2F%20ADV.%0A%0AEntreprise%20%3A%20%0AType%20de%20dossiers%20(ADV%2C%20administration%2C%20facturation%2C%20relances%E2%80%A6)%20%3A%20%0ASituation%20(poste%20ouvert%2C%20absence%2C%20stock%20qui%20grossit)%20%3A%20%0AVolume%20approximatif%20en%20attente%20%3A%20%0A%0ACe%20que%20je%20voudrais%20faire%20avancer%20en%20premier%20%3A%20%0A">Décrire mon stock</a>
+        <a class="button button-primary ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a>
         <a class="button button-outline" href="tel:+33628717459">+33 6 28 71 74 59</a>
       </div>
       <p class="adv-hero-lead" style="margin-top:14px;font-size:.95rem"><a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a> · on cadre le périmètre ensemble, avant de traiter.</p>
@@ -198,7 +199,7 @@
             <p>Commandes, facturation, relances, pièces manquantes : vous récupérez les dossiers traités, les anomalies, et les points qui demandent votre validation.</p>
             <p>Pour les 3 premières entreprises qui répondent, ce premier lot est gratuit&nbsp;: 20 dossiers (commandes) traités. Il sert à voir le rythme et la qualité de réponse. S'il faut continuer, on retient un forfait.</p>
             <div class="button-row" style="margin-top:22px">
-              <a class="button button-primary" href="mailto:hmreadinessindustry@gmail.com?subject=Premier%20%C3%A9change%20%E2%80%94%20renfort%20ADV&amp;body=Bonjour%20Herv%C3%A9%2C%0A%0AJe%20souhaite%20%C3%A9changer%20sur%20un%20renfort%20administratif%20%2F%20ADV.%0A%0AEntreprise%20%3A%20%0AType%20de%20dossiers%20(ADV%2C%20administration%2C%20facturation%2C%20relances%E2%80%A6)%20%3A%20%0ASituation%20(poste%20ouvert%2C%20absence%2C%20stock%20qui%20grossit)%20%3A%20%0AVolume%20approximatif%20en%20attente%20%3A%20%0A%0ACe%20que%20je%20voudrais%20faire%20avancer%20en%20premier%20%3A%20%0A">Décrire mon stock</a>
+              <a class="button button-primary ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a>
               <a class="button button-ghost" href="tel:+33628717459">+33 6 28 71 74 59</a>
             </div>
             <p><a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a> · le volume et les règles se décident ensemble, avant de traiter.</p>
@@ -327,7 +328,7 @@
         <article class="adv-card"><p class="card-label">PALIER 03 · RENFORCÉ</p><h3>900 € HT</h3><p><strong>Jusqu'à 20 h</strong> de traitement.</p><ul class="adv-list"><li>Pour une charge significative à résorber</li><li>Périmètre plus large ou plusieurs flux</li><li>Contrôle et restitution inclus</li></ul></article>
         <article class="adv-card"><p class="card-label">AU-DELÀ</p><h3>Sur devis</h3><p><strong>Renfort récurrent</strong> ou volume supérieur.</p><ul class="adv-list"><li>Cadence régulière</li><li>Volume à définir</li><li>Modalités adaptées à votre organisation</li></ul></article>
       </div>
-      <div class="adv-card" style="margin-top:18px"><h3>Comment choisir ?</h3><p>Vous partez du volume que vous devez réellement absorber. <b>5 h = 250 € HT · 10 h = 500 € HT · 20 h = 900 € HT.</b> Si le besoin dépasse 20 h ou devient récurrent, le périmètre est étudié sur devis.</p><p class="fine-print">Ces tarifs constituent une grille de départ. Le temps réellement nécessaire peut varier selon la complexité et les règles propres à vos dossiers.</p></div>
+      <div class="adv-card" style="margin-top:18px"><h3>Comment choisir ?</h3><p>Vous partez du volume que vous devez réellement absorber. <b>5 h = 250 € HT · 10 h = 500 € HT · 20 h = 900 € HT.</b> Si le besoin dépasse 20 h ou devient récurrent, le périmètre est étudié sur devis.</p><p class="fine-print">Prix en euros HT. TVA non applicable, article 293 B du CGI. Ces tarifs constituent une grille de départ. Le temps réellement nécessaire peut varier selon la complexité et les règles propres à vos dossiers.</p></div>
     </div>
   </section>
 
@@ -354,11 +355,14 @@
         <p>Écrivez ou appelez. Le type de dossiers et la situation suffisent pour voir si un premier lot a du sens.</p>
       </div>
       <div class="button-row">
-        <a class="button button-primary" href="mailto:hmreadinessindustry@gmail.com?subject=Premier%20%C3%A9change%20%E2%80%94%20renfort%20ADV&amp;body=Bonjour%20Herv%C3%A9%2C%0A%0AJe%20souhaite%20%C3%A9changer%20sur%20un%20renfort%20administratif%20%2F%20ADV.%0A%0AEntreprise%20%3A%20%0AType%20de%20dossiers%20(ADV%2C%20administration%2C%20facturation%2C%20relances%E2%80%A6)%20%3A%20%0ASituation%20(poste%20ouvert%2C%20absence%2C%20stock%20qui%20grossit)%20%3A%20%0AVolume%20approximatif%20en%20attente%20%3A%20%0A%0ACe%20que%20je%20voudrais%20faire%20avancer%20en%20premier%20%3A%20%0A">Décrire mon stock</a>
+        <a class="button button-primary ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a>
         <a class="button button-outline" href="tel:+33628717459">+33 6 28 71 74 59</a>
       </div>
       <p class="contact-direct"><a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a></p>
-        <form class="lead-form adv-lead-form" id="adv-form">
+        <form class="lead-form adv-lead-form" id="adv-form" novalidate>
+<p class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
+<p class="adv-form-wait" id="adv-form-wait" hidden role="status"><strong>Envoi en cours…</strong> Merci de patienter.</p>
+<p class="adv-form-err" id="adv-form-err" hidden role="alert"></p>
 <div class="form-grid">
 <label>Nom<input name="nom" required></label>
 <label>Entreprise<input name="entreprise" required></label>
@@ -370,7 +374,7 @@
 </div>
 <label>Contexte / besoin<textarea name="contexte" rows="5" required></textarea></label>
 <button class="button button-primary" type="submit">Envoyer ma situation</button>
-<p class="fine-print">Ou décrivez la situation ici : le formulaire ouvre le même e-mail, déjà rempli. Rien n'est envoyé depuis le site.</p>
+<p class="fine-print">Données traitées pour répondre à votre demande (<a href="mentions-legales.html#donnees-personnelles">confidentialité</a>).</p>
 </form>
     </div>
   </section>
@@ -386,11 +390,11 @@
       <p>Renfort administratif &amp; ADV à distance, sur un périmètre cadré. Pas d'intérim.</p>
     </div>
     <nav aria-label="Navigation de pied de page">
-      <a href="index.html">Points ouverts avant jalon</a>
+      <a href="index.html">Préparation &amp; mises en service</a>
       <a href="#demarrage">Démarrage sur un lot</a>
       <a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a>
       <a href="tel:+33628717459">+33 6 28 71 74 59</a>
-      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mentions-legales.html">Mentions légales et confidentialité</a>
     </nav>
   </div>
   <div class="container footer-legal">
@@ -424,25 +428,43 @@
 
 const am=document.querySelector(".advMobileMenu"),al=document.querySelector(".advMobileLinks");if(am&&al){am.addEventListener("click",()=>{const o=al.classList.toggle("open");am.setAttribute("aria-expanded",String(o))});al.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>al.classList.remove("open")))}
 </script>
+<script src="web3forms.js"></script>
 <script>
-document.getElementById("adv-form")?.addEventListener("submit",function(e){
-e.preventDefault();
-const f=new FormData(this);
-const demande=f.get("demande");
-const subject=demande==="Un lot représentatif, après échange"?"Premier échange — renfort ADV":"Demande de renfort administratif et ADV";
-const body=[
-"Demande : "+demande,
-"Nom : "+f.get("nom"),
-"Entreprise : "+f.get("entreprise"),
-"E-mail : "+f.get("email"),
-"Téléphone : "+(f.get("telephone")||"Non renseigné"),
-"Situation : "+f.get("situation"),
-"Type de tâches : "+f.get("taches"),
+(function(){
+var form=document.getElementById("adv-form");
+if(!form||!window.riWeb3Submit)return;
+var wait=document.getElementById("adv-form-wait"),err=document.getElementById("adv-form-err"),btn=form.querySelector('button[type="submit"]');
+function lines(f){
+return[
+"Demande : "+f.demande.value,
+"Nom : "+f.nom.value.trim(),
+"Entreprise : "+f.entreprise.value.trim(),
+"E-mail : "+f.email.value.trim(),
+"Téléphone : "+(f.telephone.value.trim()||"Non renseigné"),
+"Situation : "+f.situation.value,
+"Type de tâches : "+f.taches.value,
 "",
 "Contexte / besoin :",
-f.get("contexte")
-].join("\n");
-window.location.href="mailto:hmreadinessindustry@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+f.contexte.value.trim()
+];}
+form.addEventListener("submit",function(e){
+e.preventDefault();
+if(err){err.hidden=true;err.innerHTML="";}
+var nom=form.nom.value.trim(),ent=form.entreprise.value.trim(),email=form.email.value.trim(),ctx=form.contexte.value.trim();
+if(!nom||!ent||!email||!ctx){if(err){err.hidden=false;err.textContent="Merci de remplir le nom, l'entreprise, l'e-mail et le contexte.";}return;}
+var bodyLines=lines(form);
+riWeb3Submit({
+subject:"Site RI - Renfort ADV",
+name:nom,email:email,message:bodyLines.join("\n"),
+fields:{entreprise:ent,telephone:form.telephone.value.trim()||"",demande:form.demande.value,situation:form.situation.value,taches:form.taches.value},
+botcheck:(form.botcheck.value||"").trim(),button:btn,
+mailtoSubject:"Site RI - Renfort ADV – "+ent,
+mailtoBody:function(){return bodyLines;},
+onWait:function(){if(wait)wait.hidden=false;},
+onSuccess:function(){form.reset();if(wait)wait.hidden=true;if(window.riTrack)riTrack("generate_lead",{method:"contact_adv"});},
+onError:function(mailto){if(wait)wait.hidden=true;if(err){err.hidden=false;err.innerHTML="L'envoi n'a pas abouti. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\""+mailto+"\">envoyez un e-mail prérempli</a>.";}}
 });
-</script><script src="essai.js" defer></script></body>
+});
+})();
+</script></body>
 </html>
