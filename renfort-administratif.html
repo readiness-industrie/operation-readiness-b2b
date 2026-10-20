@@ -97,6 +97,13 @@
 .trial-offer li{color:var(--muted);font-size:.92rem;line-height:1.45}
 .trial-offer li strong{color:var(--ink)}
 .adv-hero .button-row{margin-top:8px}
+.adv-tarif-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.adv-tarif-card{text-align:center;padding:28px 20px}
+.adv-tarif-card .card-label{margin-bottom:10px}
+.adv-tarif-price{margin:0 0 8px;font-size:clamp(2rem,8vw,2.65rem);font-weight:950;line-height:1;letter-spacing:-.03em}
+.adv-tarif-meta{margin:0;color:var(--muted);font-size:.9rem}
+.adv-tarif-legal{margin-top:18px;text-align:center;font-size:.78rem;color:var(--muted)}
+@media(max-width:850px){.adv-tarif-grid{grid-template-columns:1fr}}
 .adv-hero-lead a,.adv-test a{color:#26756c;font-weight:800}
 .adv-test a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .contact-direct{display:flex;flex-wrap:wrap;gap:10px 18px;margin:16px 0 0}
@@ -318,17 +325,29 @@
   <section class="section section-soft" id="tarifs">
     <div class="container">
       <div class="section-heading reveal">
-        <p class="eyebrow">Tarifs</p>
-        <h2>Des paliers simples selon le temps de traitement.</h2>
-        <p>Le forfait suit le temps de traitement, sur un périmètre défini. Les règles et le niveau de contrôle sont cadrés avant le démarrage. On peut commencer par un lot gratuit de 20 dossiers (commandes), réservé aux 3 premières entreprises, après en avoir parlé. Les paliers ci-dessous sont les forfaits de la suite.</p>
+        <h2>Tarifs</h2>
       </div>
-      <div class="adv-grid">
-        <article class="adv-card"><p class="card-label">PALIER 01 · PONCTUEL</p><h3>250 € HT</h3><p><strong>Jusqu'à 5 h</strong> de traitement.</p><ul class="adv-list"><li>Pour absorber un petit stock ou une tâche ciblée</li><li>Périmètre défini avant démarrage</li><li>Contrôle et restitution inclus</li></ul></article>
-        <article class="adv-card"><p class="card-label">PALIER 02 · VOLUME</p><h3>500 € HT</h3><p><strong>Jusqu'à 10 h</strong> de traitement.</p><ul class="adv-list"><li>Pour un stock plus important</li><li>Traitement sur plusieurs tâches du même périmètre</li><li>Contrôle et restitution inclus</li></ul></article>
-        <article class="adv-card"><p class="card-label">PALIER 03 · RENFORCÉ</p><h3>900 € HT</h3><p><strong>Jusqu'à 20 h</strong> de traitement.</p><ul class="adv-list"><li>Pour une charge significative à résorber</li><li>Périmètre plus large ou plusieurs flux</li><li>Contrôle et restitution inclus</li></ul></article>
-        <article class="adv-card"><p class="card-label">AU-DELÀ</p><h3>Sur devis</h3><p><strong>Renfort récurrent</strong> ou volume supérieur.</p><ul class="adv-list"><li>Cadence régulière</li><li>Volume à définir</li><li>Modalités adaptées à votre organisation</li></ul></article>
+      <div class="adv-grid adv-tarif-grid">
+        <article class="adv-card adv-tarif-card">
+          <p class="card-label">Petit lot</p>
+          <p class="adv-tarif-price">250&nbsp;€</p>
+          <p class="adv-tarif-meta">5 heures</p>
+        </article>
+        <article class="adv-card adv-tarif-card">
+          <p class="card-label">Lot moyen</p>
+          <p class="adv-tarif-price">500&nbsp;€</p>
+          <p class="adv-tarif-meta">10 heures</p>
+        </article>
+        <article class="adv-card adv-tarif-card">
+          <p class="card-label">Gros lot</p>
+          <p class="adv-tarif-price">900&nbsp;€</p>
+          <p class="adv-tarif-meta">20 heures</p>
+        </article>
       </div>
-      <div class="adv-card" style="margin-top:18px"><h3>Comment choisir ?</h3><p>Vous partez du volume que vous devez réellement absorber. <b>5 h = 250 € HT · 10 h = 500 € HT · 20 h = 900 € HT.</b> Si le besoin dépasse 20 h ou devient récurrent, le périmètre est étudié sur devis.</p><p class="fine-print">Prix en euros HT. TVA non applicable, article 293 B du CGI. Ces tarifs constituent une grille de départ. Le temps réellement nécessaire peut varier selon la complexité et les règles propres à vos dossiers.</p></div>
+      <p class="adv-tarif-legal">TVA non applicable, art. 293 B du CGI.</p>
+      <div class="button-row" style="margin-top:18px">
+        <a class="button button-primary ri-cta-point-48h" href="#contact-adv">Demander mon point de situation gratuit en 48 h</a>
+      </div>
     </div>
   </section>
 
