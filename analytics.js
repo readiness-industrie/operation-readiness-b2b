@@ -61,6 +61,15 @@
         window.riTrack("video_start", { video_title: (v.currentSrc || "").split("/").pop(), page_path: location.pathname });
       }, { once: true });
     });
+    document.addEventListener("click", function (ev) {
+      var el = ev.target && ev.target.closest && ev.target.closest(".ri-cta-point-48h, [data-ri-track=\"demande_point_48h\"]");
+      if (!el) return;
+      window.riTrack("demande_point_48h", {
+        page_path: location.pathname,
+        link_url: el.getAttribute("href") || "",
+        link_text: (el.textContent || "").trim().slice(0, 120)
+      });
+    });
     var c = get();
     if (c === "granted") load(); else if (c !== "denied") open();
   }
