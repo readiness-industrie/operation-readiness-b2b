@@ -366,10 +366,11 @@ subject:"Site RI - Point de situation 48h",
 name:nom,email:email,message:lines.join("\n"),
 fields:{societe:societe,telephone:tel||""},
 botcheck:bot,button:btn,
+formName:"contact_accueil",leadMethod:"contact_home",
 mailtoSubject:"Site RI - Point de situation 48h - "+societe,
 mailtoBody:function(){return lines;},
 onWait:function(){if(wait)wait.hidden=false;},
-onSuccess:function(){f.reset();if(wait)wait.hidden=true;if(ok)ok.hidden=false;if(window.riTrack)riTrack("generate_lead",{method:"contact_home"});},
+onSuccess:function(){f.reset();if(wait)wait.hidden=true;if(ok)ok.hidden=false;},
 onError:function(mailto){if(wait)wait.hidden=true;if(err){err.hidden=false;err.innerHTML="L'envoi n'a pas abouti. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\""+mailto+"\">envoyez un e-mail prérempli</a>.";}}
 });
 });
