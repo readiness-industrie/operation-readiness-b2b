@@ -491,10 +491,11 @@ subject:"Site RI - Renfort ADV",
 name:nom,email:email,message:bodyLines.join("\n"),
 fields:{entreprise:ent,telephone:form.telephone.value.trim()||"",demande:form.demande.value,situation:form.situation.value,taches:form.taches.value},
 botcheck:(form.botcheck.value||"").trim(),button:btn,
+formName:"contact_adv",leadMethod:"contact_adv",
 mailtoSubject:"Site RI - Renfort ADV - "+ent,
 mailtoBody:function(){return bodyLines;},
 onWait:function(){if(wait)wait.hidden=false;},
-onSuccess:function(){form.reset();if(wait)wait.hidden=true;if(window.riTrack)riTrack("generate_lead",{method:"contact_adv"});},
+onSuccess:function(){form.reset();if(wait)wait.hidden=true;},
 onError:function(mailto){if(wait)wait.hidden=true;if(err){err.hidden=false;err.innerHTML="L'envoi n'a pas abouti. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\""+mailto+"\">envoyez un e-mail prérempli</a>.";}}
 });
 });

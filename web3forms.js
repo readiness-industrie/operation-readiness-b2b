@@ -27,12 +27,34 @@
    * @param {object} [opts.fields] extra Web3Forms fields
    * @param {string} [opts.botcheck] honeypot value (non-empty = bot)
    * @param {HTMLElement} [opts.button]
+   * @param {string} [opts.formName] nom du formulaire pour GA4 (sans donnée saisie)
+   * @param {string} [opts.leadMethod] valeur historique du paramètre method
    * @param {function} [opts.onWait]
    * @param {function} [opts.onSuccess]
    * @param {function} [opts.onError] receives mailtoHref
    * @param {function} opts.mailtoBody lines for fallback
    * @param {string} opts.mailtoSubject
    */
+  var LEAD_BY_FORM = {
+    "contact-form": { form_name: "contact_accueil", method: "contact_home" },
+    "adv-form": { form_name: "contact_adv", method: "contact_adv" },
+    essai: { form_name: "point_48h", method: "point_48h_page" }
+  };
+
+  function trackGenerateLead(opts) {
+    try {
+      var form = opts.button && opts.button.form;
+      var formId = (form && form.id) || "";
+      var known = LEAD_BY_FORM[formId] || {};
+      var params = {
+        form_name: opts.formName || known.form_name || formId || "contact",
+        page: location.pathname || "/",
+        method: opts.leadMethod || known.method || opts.formName || formId || "contact"
+      };
+      if (typeof window.riTrack === "function") window.riTrack("generate_lead", params);
+    } catch (e) {}
+  }
+
   window.riWeb3Submit = function (opts) {
     if (opts.botcheck) {
       if (opts.onError) opts.onError(opts.mailtoHref || riMailtoHref(opts.mailtoSubject, opts.mailtoBody()));
@@ -81,6 +103,7 @@
         if (!x.j || x.j.success !== true) {
           throw new Error((x.j && x.j.message) || "web3forms_failed");
         }
+        trackGenerateLead(opts);
         if (btn) btn.textContent = "Demande envoyée ✓";
         if (opts.onSuccess) opts.onSuccess(x.j);
         return x.j;

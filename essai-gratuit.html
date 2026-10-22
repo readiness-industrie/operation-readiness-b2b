@@ -87,12 +87,13 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
       fields: { entreprise: d.company, telephone: d.phone || "" },
       botcheck: d.botcheck,
       button: btn,
+      formName: "point_48h",
+      leadMethod: "point_48h_page",
       mailtoSubject: "Point de situation 48 h - " + d.company,
       mailtoBody: function () { return lines(d); },
       onWait: function () { show("wait", "<strong>Envoi en cours…</strong> Merci de patienter."); },
       onSuccess: function () {
         f.reset();
-        if (window.riTrack) window.riTrack("generate_lead", { method: "point_48h_page" });
         show("ok", "Merci ! Votre demande est bien reçue. Hervé vous répond à l'adresse indiquée.");
       },
       onError: function (mailto) {
