@@ -545,7 +545,7 @@
 
     const captions = {
       before: "Avant : demandes, appels, documents et relances arrivent directement vers le chef de projet.",
-      transition: "La couche de poursuite reprend les flux définis dans le mandat du client.",
+      transition: "Le suivi reprend les flux définis dans le mandat du client.",
       after: "Avec le service : seules l'information importante et la décision nécessaire remontent au chef de projet."
     };
     let timers = [];
