@@ -84,7 +84,7 @@
       "</button>" +
       '<div class="advMobileLinks">' +
       '<a href="index.html">Accueil</a>' +
-      '<a href="renfort-administratif.html">Renfort ADV</a>' +
+      '<a href="renfort-administratif.html">Renfort ADV (commandes, livraisons, factures)</a>' +
       '<a href="index.html#contact">Recevoir mon point de situation (48 h)</a>' +
       '<a href="mentions-legales.html">Mentions légales</a>' +
       "</div></div>";
