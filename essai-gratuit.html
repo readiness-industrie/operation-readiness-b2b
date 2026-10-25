@@ -55,7 +55,7 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
       "Entreprise : " + d.company,
       "E-mail : " + d.email,
       "Téléphone : " + (d.phone || "-"),
-      "Demande : point de situation gratuit 48 h",
+      "Demande : diagnostic 48 h gratuit",
       "",
       d.message || ""
     ];
@@ -80,7 +80,7 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
     }
     show("wait", "<strong>Envoi en cours…</strong> Merci de patienter.");
     riWeb3Submit({
-      subject: "Site RI - Point de situation 48h",
+      subject: "Site RI - Diagnostic 48 h",
       name: d.name,
       email: d.email,
       message: lines(d).join("\n"),
@@ -89,7 +89,7 @@ button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;b
       button: btn,
       formName: "point_48h",
       leadMethod: "point_48h_page",
-      mailtoSubject: "Point de situation 48 h - " + d.company,
+      mailtoSubject: "Diagnostic 48 h - " + d.company,
       mailtoBody: function () { return lines(d); },
       onWait: function () { show("wait", "<strong>Envoi en cours…</strong> Merci de patienter."); },
       onSuccess: function () {
