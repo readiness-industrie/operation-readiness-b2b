@@ -232,7 +232,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <aside class="coutReporte">
 <h3>Ce que coûte une mise en service reportée</h3>
 <p>Ordre de grandeur&nbsp;: une mise en service reportée parce que le site n'est pas prêt peut coûter environ 2&nbsp;000 à 3&nbsp;600&nbsp;€ HT de refacturation fournisseur (deux techniciens immobilisés deux jours, puis un nouveau déplacement), sans compter le retard de production. Le Suivi de jalon coûte 1&nbsp;800&nbsp;€.</p>
-<p class="coutNote">Estimation basse à partir de tarifs publics de fournisseurs et des barèmes URSSAF 2026.</p>
+<p class="coutNote">Estimation basse, à partir de tarifs journaliers publiés par des fournisseurs et des barèmes URSSAF 2026 des frais de repas et d'hébergement.</p>
 </aside>
 <div class="tarifSimpleGrid">
 <article class="tarifSimpleCard">
@@ -242,7 +242,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <div class="tarifInclus"><strong>Inclus</strong><p>Type&nbsp;: intervention ponctuelle · Durée&nbsp;: jusqu'à 15 jours ouvrés · État de situation&nbsp;: un état complet à J7 · Relances&nbsp;: incluses</p></div>
 </article>
 <article class="tarifSimpleCard isRecommended">
-<span class="tarifBadge">Recommandé</span>
+<span class="tarifBadge">Recommandé pour un jalon complet</span>
 <h3>Suivi de jalon</h3>
 <p class="tarifSimplePrice">1&nbsp;800&nbsp;€</p>
 <p class="tarifSimpleMeta">Suivi jusqu'au jalon<br>4 à 5 intervenants</p>
@@ -252,7 +252,7 @@ section{padding:76px 0;border-top:1px solid rgba(255,255,255,.06)}h2{font-size:c
 <h3>Suivi multi-intervenants</h3>
 <p class="tarifSimplePrice">2&nbsp;500&nbsp;€</p>
 <p class="tarifSimpleMeta">6 à 8 intervenants</p>
-<div class="tarifInclus"><strong>Inclus</strong><p>Type&nbsp;: pilotage de plusieurs intervenants · Durée&nbsp;: sur la durée du jalon, dans la limite de 15 jours ouvrés · État de situation&nbsp;: un état fiable chaque semaine · Relances&nbsp;: incluses</p></div>
+<div class="tarifInclus"><strong>Inclus</strong><p>Type&nbsp;: suivi de plusieurs intervenants · Durée&nbsp;: sur la durée du jalon, dans la limite de 15 jours ouvrés · État de situation&nbsp;: un état fiable chaque semaine · Relances&nbsp;: incluses</p></div>
 </article>
 </div>
 <p class="tarifLegal">Au-delà de 8 intervenants ou de 15 jours ouvrés&nbsp;: sur devis. Prix nets, TVA non applicable, art. 293 B du CGI.</p>
@@ -370,12 +370,12 @@ var bot=(f.botcheck&&f.botcheck.value||"").trim();
 if(!nom||!societe||!email||!message){if(err){err.hidden=false;err.textContent="Merci de remplir le nom, la société, l'e-mail et le message.";}return;}
 var lines=["Nom : "+nom,"Société : "+societe,"E-mail : "+email,"Téléphone : "+(tel||"Non renseigné"),"","Message :",message];
 riWeb3Submit({
-subject:"Site RI - Point de situation 48h",
+subject:"Site RI - Diagnostic 48 h",
 name:nom,email:email,message:lines.join("\n"),
 fields:{societe:societe,telephone:tel||""},
 botcheck:bot,button:btn,
 formName:"contact_accueil",leadMethod:"contact_home",
-mailtoSubject:"Site RI - Point de situation 48h - "+societe,
+mailtoSubject:"Site RI - Diagnostic 48 h - "+societe,
 mailtoBody:function(){return lines;},
 onWait:function(){if(wait)wait.hidden=false;},
 onSuccess:function(){f.reset();if(wait)wait.hidden=true;if(ok)ok.hidden=false;},
