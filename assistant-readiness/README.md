@@ -13,7 +13,7 @@ Socle opérationnel distinct du site vitrine.
 - persistance des dossiers dans data/projects.json ;
 - changements d'état ;
 - blocage de la clôture tant que la validation humaine est requise ;
-- aucun appel à une API IA externe.
+- aucun appel à un outil externe.
 
 ## Architecture
 
@@ -61,7 +61,7 @@ Ne pas écrire ce secret dans le dépôt. Une valeur vide veut dire **fermé**, 
 
 La page d'accueil répond en HTTP 200 avec l'écran verrouillé ou le formulaire seulement. Le contrôle de santé Render sur `/` peut donc réussir, sans renvoyer l'outil. La sonde dédiée est `/health`.
 
-Cette version construit d'abord le flux réellement utilisable et persistant. La lecture native PDF/Word, Gmail, les relances automatiques et une IA externe restent volontairement hors de cette V0.1.
+Cette version construit d'abord le flux réellement utilisable et persistant. La lecture native PDF/Word, Gmail, les relances automatiques et un outil externe restent volontairement hors de cette V0.1.
 
 
 ## V0.2 , cockpit opérationnel
@@ -79,7 +79,7 @@ Vues disponibles :
 
 Le référentiel métier local est dans `knowledge.js`. Il reprend le périmètre de l'offre Readiness Industry : jalons, catégories de prérequis, séquence A→Z et garde-fous.
 
-Aucune API IA externe n'est nécessaire pour cette V0.2. Le moteur reste local et les données de dossier sont persistées côté serveur. L'accès au cockpit exige `DASHBOARD_SECRET` : voir « Accès interne obligatoire ».
+Aucun outil externe n'est nécessaire pour cette V0.2. Le moteur reste local et les données de dossier sont persistées côté serveur. L'accès au cockpit exige `DASHBOARD_SECRET` : voir « Accès interne obligatoire ».
 
 Le cockpit ne remplace pas le planning client et ne prend pas les décisions techniques, HSE, budgétaires ou d'arbitrage à la place d'Hervé.
 

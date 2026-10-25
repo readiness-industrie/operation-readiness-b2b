@@ -15,7 +15,7 @@
     var a = document.createElement("a");
     a.href = url;
     a.className = "ri-essai-btn " + (cls || "");
-    a.textContent = "Recevoir mon point de situation (48 h)";
+    a.textContent = "Recevoir mon diagnostic 48 h";
     return a;
   }
   var header = document.querySelector("header");

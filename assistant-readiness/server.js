@@ -80,7 +80,7 @@ function escHtml(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&"
 function gatePage(title,inner){
   return "<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>"+escHtml(title)+"</title><style>body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f4f6f9;color:#172033}main{max-width:440px;margin:10vh auto;background:#fff;border:1px solid #e0e5ec;border-radius:16px;padding:24px}h1{font-size:22px;margin:0 0 8px}p{color:#687386;line-height:1.45}label{display:block;font-weight:700;margin:14px 0 6px}input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #d4dae3;border-radius:11px;font:inherit}button{margin-top:14px;width:100%;border:0;border-radius:12px;padding:12px;font:700 15px inherit;background:#172033;color:#fff;cursor:pointer}.err{color:#b42318;font-weight:700}</style></head><body><main>"+inner+"</main></body></html>";
 }
-function lockedPage(){ return gatePage("Assistant verrouillé","<h1>Assistant verrouillé</h1><p>Cet outil est interne. Il reste fermé tant que la variable <strong>DASHBOARD_SECRET</strong> n’est pas définie sur le serveur.</p>"); }
+function lockedPage(){ return gatePage("Assistant verrouillé","<h1>Assistant verrouillé</h1><p>Cet outil est interne. Il reste fermé tant que la variable <strong>DASHBOARD_SECRET</strong> n'est pas définie sur le serveur.</p>"); }
 function loginPage(next,failed){
   const err=failed?"<p class=\"err\">Mot de passe incorrect.</p>":"";
   return gatePage("Accès interne","<h1>Accès interne</h1><p>Réservé à Readiness Industry. Saisissez le mot de passe du cockpit.</p>"+err+"<form method=\"post\" action=\"/login\"><input type=\"hidden\" name=\"next\" value=\""+escHtml(next)+"\"><label for=\"password\">Mot de passe</label><input id=\"password\" name=\"password\" type=\"password\" autocomplete=\"current-password\" required><button type=\"submit\">Entrer</button></form>");
@@ -370,7 +370,7 @@ async function handle(req,res){
       if(i<0) return send(res,404,{error:"Dossier introuvable."});
       const p=items[i].points.find(function(x){return x.id===pm[2];});
       if(!p) return send(res,404,{error:"Point introuvable."});
-      if(b.statut==="Clos" && (!b.preuve_recue || b.preuve_controle!=="Contrôlée")) return send(res,409,{error:"Un point ne peut être Clos qu’avec une preuve reçue et contrôlée."});
+      if(b.statut==="Clos" && (!b.preuve_recue || b.preuve_controle!=="Contrôlée")) return send(res,409,{error:"Un point ne peut être Clos qu'avec une preuve reçue et contrôlée."});
       ["statut","priorite","action","preuve_attendue","responsable","echeance","motif","preuve_recue","preuve_date","preuve_controle","preuve_commentaire"].forEach(function(k){if(b[k]!==undefined)p[k]=b[k];});
       items[i].progression=Math.round(items[i].points.filter(function(x){return x.statut==="Clos";}).length/items[i].points.length*100);
       const blocked=items[i].points.filter(function(x){return x.statut==="Bloqué";});
