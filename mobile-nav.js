@@ -77,7 +77,7 @@
       '<nav class="advDesktopNav" aria-label="Navigation principale">' +
       '<a href="index.html">Accueil</a>' +
       '<a href="renfort-administratif.html">Renfort ADV</a>' +
-      '<a href="index.html#contact">Recevoir mon diagnostic 48 h</a>' +
+      '<a href="index.html#contact">Réserver un premier échange</a>' +
       "</nav>" +
       '<button class="advMobileMenu" type="button" aria-expanded="false" aria-label="Ouvrir le menu">' +
       '<span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>' +
@@ -85,7 +85,7 @@
       '<div class="advMobileLinks">' +
       '<a href="index.html">Accueil</a>' +
       '<a href="renfort-administratif.html">Renfort ADV (commandes, livraisons, factures)</a>' +
-      '<a href="index.html#contact">Recevoir mon diagnostic 48 h</a>' +
+      '<a href="index.html#contact">Réserver un premier échange</a>' +
       '<a href="mentions-legales.html">Mentions légales</a>' +
       "</div></div>";
 

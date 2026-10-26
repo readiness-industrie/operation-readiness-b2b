@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premier échange | Readiness Industry</title>
+<meta name="description" content="Premier échange de 30 minutes pour comprendre votre besoin : préparation des mises en service et renfort ADV pour PME industrielles.">
+<link rel="canonical" href="https://readiness-industrie.github.io/operation-readiness-b2b/premier-echange.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=20261020-menu">
+<style>
+:root{--ink:#14212b;--muted:#5b6770;--line:#e3e0d7;--accent:#26756c;--bg:#f6f4ee}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.top a{color:var(--ink);font-weight:800;text-decoration:none}.top small{display:block;color:var(--muted);font-weight:600}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:0 0 10px}.lead{color:var(--muted);font-size:1.05rem;margin:0 0 22px}
+form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 20px 50px rgba(0,0,0,.06)}
+label{display:block;font-weight:700;font-size:.92rem;margin:12px 0 5px}input,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #cfcac0;border-radius:10px;background:#fff}textarea{min-height:96px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.88rem;color:var(--muted)}.consent input{width:auto;margin-top:4px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:15px;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer}button[disabled]{opacity:.7}
+.msg{margin-top:14px;padding:12px;border-radius:10px;display:none}.msg.ok{display:block;background:#e7f4f1;color:#1d5c55}.msg.err{display:block;background:#fdf0e6;color:#7a4510}.msg.wait{display:block;background:#f1f1ee;color:var(--muted)}.msg a{color:inherit;font-weight:800}
+.small{color:var(--muted);font-size:.85rem;margin-top:16px}
+</style>
+  <script src="analytics.js" defer></script>
+  <script src="mobile-nav.js" defer></script>
+</head>
+<body data-no-essai data-ri-site-nav>
+<div class="wrap">
+  <div class="top"><a href="index.html">Readiness Industry<small>Préparation industrielle · Renfort ADV</small></a><a href="renfort-administratif.html" style="font-weight:600;color:var(--muted)">Renfort ADV</a></div>
+  <h1>Premier échange de 30 minutes</h1>
+  <p class="lead">Décrivez votre situation par écrit. Je vous recontacte pour un échange de 30 minutes, en visio ou sur place si vous le souhaitez, pour comprendre votre besoin. Ensuite, si besoin&nbsp;: Diagnostic 48 h à 550&nbsp;€ (TVA non applicable, art. 293 B du CGI, déplacement compris en Hauts-de-France) ou forfait renfort ADV à partir de 250&nbsp;€.</p>
+  <form id="essai" novalidate>
+    <label for="name">Nom *</label><input id="name" name="name" autocomplete="name" required>
+    <label for="company">Entreprise *</label><input id="company" name="company" autocomplete="organization" required>
+    <label for="email">E-mail professionnel *</label><input id="email" name="email" type="email" autocomplete="email" required>
+    <label for="phone">Téléphone (optionnel)</label><input id="phone" name="phone" type="tel" autocomplete="tel">
+    <label for="message">Message court</label><textarea id="message" name="message" maxlength="1500" placeholder="Votre contexte en 2 ou 3 lignes"></textarea>
+    <div class="hp" aria-hidden="true"><label for="botcheck">Ne pas remplir</label><input id="botcheck" name="botcheck" tabindex="-1" autocomplete="off"></div>
+    <label class="consent"><input type="checkbox" id="consent" name="consent" required> J'accepte que Readiness Industry (Hervé MENGUE, EI) traite ces données pour répondre à ma demande, conformément à la <a href="mentions-legales.html#donnees-personnelles">politique de confidentialité</a>.</label>
+    <button type="submit" id="send">Envoyer ma demande</button>
+    <div id="msg" class="msg" role="status" aria-live="polite"></div>
+    <p class="small" style="margin-top:14px">Ces informations servent uniquement à répondre à votre demande. Détail&nbsp;: <a href="mentions-legales.html#donnees-personnelles">politique de confidentialité</a>. Pas de plans ni de données sensibles.</p>
+  </form>
+  <p class="small">Vous préférez le formulaire principal&nbsp;? <a href="index.html#contact">Page d'accueil</a> · <a href="mailto:hmreadinessindustry@gmail.com">hmreadinessindustry@gmail.com</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+</div>
+<script src="web3forms.js"></script>
+<script>
+(function () {
+  var f = document.getElementById("essai"), msg = document.getElementById("msg"), btn = document.getElementById("send");
+  function show(cls, html) { msg.className = "msg " + cls; msg.innerHTML = html; }
+  function lines(d) {
+    return [
+      "Nom : " + d.name,
+      "Entreprise : " + d.company,
+      "E-mail : " + d.email,
+      "Téléphone : " + (d.phone || "-"),
+      "Demande : premier échange",
+      "",
+      d.message || ""
+    ];
+  }
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var d = {
+      name: f.name.value.trim(),
+      company: f.company.value.trim(),
+      email: f.email.value.trim(),
+      phone: f.phone.value.trim(),
+      message: f.message.value.trim(),
+      botcheck: (f.botcheck.value || "").trim()
+    };
+    if (!d.name || !d.company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email) || !f.consent.checked) {
+      show("err", "Merci de remplir le nom, l'entreprise, un e-mail valide, et de cocher le consentement.");
+      return;
+    }
+    if (!window.riWeb3Submit) {
+      show("err", "Envoi indisponible. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a>.");
+      return;
+    }
+    show("wait", "<strong>Envoi en cours…</strong> Merci de patienter.");
+    riWeb3Submit({
+      subject: "Site RI - Premier échange",
+      name: d.name,
+      email: d.email,
+      message: lines(d).join("\n"),
+      fields: { entreprise: d.company, telephone: d.phone || "" },
+      botcheck: d.botcheck,
+      button: btn,
+      formName: "point_48h",
+      leadMethod: "point_48h_page",
+      mailtoSubject: "Premier échange - " + d.company,
+      mailtoBody: function () { return lines(d); },
+      onWait: function () { show("wait", "<strong>Envoi en cours…</strong> Merci de patienter."); },
+      onSuccess: function () {
+        f.reset();
+        show("ok", "Merci ! Votre demande est bien reçue. Hervé vous répond à l'adresse indiquée.");
+      },
+      onError: function (mailto) {
+        show("err", "L'envoi n'a pas abouti. Votre saisie est conservée. Écrivez à <a href=\"mailto:hmreadinessindustry@gmail.com\">hmreadinessindustry@gmail.com</a> ou <a href=\"" + mailto + "\">envoyez un e-mail prérempli</a>.");
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@ const OUT = process.env.OUT_DIR || "/opt/cursor/artifacts/mobile-audit";
 const PAGES = [
   "/",
   "/renfort-administratif.html",
-  "/essai-gratuit.html",
+  "/premier-echange.html",
   "/mentions-legales.html",
   "/prerequis-mise-en-service-industrielle.html",
   "/preparation-sat-industriel.html",
