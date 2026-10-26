@@ -3,7 +3,7 @@
 
 export const READINESS_OFFER = {
   name: "Readiness Industry",
-  promise: "Poursuivre à distance les points ouverts qui conditionnent un jalon industriel, jusqu'à confirmation, preuve, clôture ou arbitrage client.",
+  promise: "Suivre les points ouverts qui conditionnent un jalon industriel, jusqu'à confirmation, preuve, clôture ou arbitrage client.",
   role: "service humain opéré, assisté par un moteur local",
   clientKeeps: ["décisions techniques","arbitrages","HSE","budget","mobilisation des équipes","validation finale"],
   operation: [

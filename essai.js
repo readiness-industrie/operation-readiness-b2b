@@ -15,7 +15,7 @@
     var a = document.createElement("a");
     a.href = url;
     a.className = "ri-essai-btn " + (cls || "");
-    a.textContent = "Recevoir mon diagnostic 48 h";
+    a.textContent = "Réserver un premier échange";
     return a;
   }
   var header = document.querySelector("header");
@@ -24,14 +24,14 @@
     nav.appendChild(btn("ri-essai-head"));
   }
   var h1 = document.querySelector("main h1, h1");
-  if (h1 && !/essai-gratuit/.test(location.pathname)) {
+  if (h1 && !/essai-gratuit|premier-echange/.test(location.pathname)) {
     var wrap = document.createElement("div");
     wrap.className = "ri-essai-hero";
     wrap.appendChild(btn());
     var lead = h1.nextElementSibling && h1.nextElementSibling.tagName === "P" ? h1.nextElementSibling : h1;
     lead.insertAdjacentElement("afterend", wrap);
   }
-  if (!/essai-gratuit/.test(location.pathname)) {
+  if (!/essai-gratuit|premier-echange/.test(location.pathname)) {
     var bar = document.createElement("div");
     bar.className = "ri-essai-bar";
     bar.appendChild(btn());

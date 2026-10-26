@@ -6,7 +6,7 @@ const BASE =
 const PAGES = [
   "/",
   "/renfort-administratif.html",
-  "/essai-gratuit.html",
+  "/premier-echange.html",
   "/mentions-legales.html",
   "/prerequis-mise-en-service-industrielle.html",
   "/preparation-sat-industriel.html",
@@ -138,7 +138,7 @@ async function testFormsNoSubmit(page) {
     await page.waitForTimeout(500);
   }
 
-  await page.goto(BASE + "/essai-gratuit.html", { waitUntil: "networkidle" });
+  await page.goto(BASE + "/premier-echange.html", { waitUntil: "networkidle" });
   await page.locator("#name").fill("Test");
   await page.locator("#company").fill("Test SA");
   await page.locator("#email").fill("test@example.com");
@@ -290,7 +290,7 @@ async function main() {
 
   const mobileCtx = await browser.newContext({ ...devices["iPhone 13"] });
   const mp = await mobileCtx.newPage();
-  for (const p of ["/", "/renfort-administratif.html", "/essai-gratuit.html"]) {
+  for (const p of ["/", "/renfort-administratif.html", "/premier-echange.html"]) {
     await auditPage(mp, p, "mobile");
   }
 
