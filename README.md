@@ -48,7 +48,7 @@ Puis ouvrir `http://127.0.0.1:8765/`.
 L'URL technique attendue pour ce dépôt est :
 
 ```text
-https://readiness-industrie.github.io/operation-readiness-b2b/
+https://www.readiness-industry.fr/
 ```
 
 La documentation GitHub Pages indique l'état de la première publication dans l'onglet **Actions** ou dans **Settings → Pages**.

@@ -3,7 +3,7 @@
 Cette page sert à **tester une lecture d'état** auprès d'un prospect. Elle n'est pas le site commercial, ni le logiciel interne.
 
 **URL publique (après mise en ligne) :**  
-https://readiness-industrie.github.io/operation-readiness-b2b/demo-lecture.html
+https://www.readiness-industry.fr/demo-lecture.html
 
 **URL locale :** dans ce dossier, lancer `python -m http.server 8765` puis ouvrir  
 http://127.0.0.1:8765/demo-lecture.html
