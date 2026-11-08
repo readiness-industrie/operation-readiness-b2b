@@ -1,0 +1,61 @@
+Version corrigée le 8 novembre 2026, à partir du modèle d'archive.
+Prix : à fixer par Hervé. Modèle à faire relire (avocat, BGE ou CCI). Ce n'est pas un conseil juridique. Ne pas envoyer en l'état.
+Paiement et responsabilité alignés sur les conditions publiques du site.
+
+FACTURE n° [À COMPLÉTER : F-2026-001]
+Avertissement : ce document est un modèle à faire vérifier (avocat, CCI, expert-comptable). Il ne constitue pas un conseil juridique ou fiscal. Les champs [À COMPLÉTER] sont à remplir ; aucune information d'identification n'a été inventée.
+
+Statut TVA confirmé : franchise en base de TVA (Hervé MENGUE n'a jamais opté pour la TVA). Mention à écrire : « TVA non applicable, art. 293 B du CGI ». Cette mention reste acceptée jusqu'au 30/06/2028 (rescrit BOI-RES-TVA-000253-20261007). À partir du 1er janvier 2027, la nouvelle référence est « art. L. 233-3 du CIBS ».
+
+Facturation électronique : depuis le 1er septembre 2026, la RÉCEPTION des factures électroniques via une plateforme agréée est obligatoire ; à partir du 1er septembre 2027, tu devras ÉMETTRE tes factures à des entreprises françaises via une plateforme agréée et transmettre tes données de paiement (e-reporting, tous les deux mois). Ce modèle Word sert jusque-là : reporte ces mentions dans ta future solution.
+
+Date d'émission : [À COMPLÉTER]     Date (ou période) de réalisation de la prestation : [À COMPLÉTER]
+Réf. devis : [À COMPLÉTER]     N° de bon de commande du client (si fourni) : [À COMPLÉTER]
+Numérotation : unique, chronologique et continue, sans trou (ex. F-2026-001, F-2026-002…).
+Hervé MENGUE – EI
+Readiness Industry (nom commercial)
+[À COMPLÉTER : adresse professionnelle]
+[À COMPLÉTER : code postal, ville (Oise)]
+SIREN : [À COMPLÉTER]   SIRET : [À COMPLÉTER]
+E-mail : [À COMPLÉTER]  Tél. : [À COMPLÉTER]
+Client
+[À COMPLÉTER : dénomination sociale]
+[À COMPLÉTER : adresse]
+SIREN client : [À COMPLÉTER]
+N° TVA intracom. client (s'il en a un) : [À COMPLÉTER]
+Contact : [À COMPLÉTER]
+
+Nature de l'opération : prestations de services
+Désignation de la prestation
+Qté
+Prix unitaire HT
+Total HT
+[À COMPLÉTER : ex. Renfort ADV – forfait mensuel : saisie des commandes, préparation des relances de paiement (envoyées par le client lui-même), dossiers clients à jour (livrables détaillés ci-dessous)]
+[1]
+[à fixer par Hervé] €
+[à fixer par Hervé] €
+[À COMPLÉTER : ex. Suivi des jalons de projet – forfait : relances fournisseurs, suivi documentaire, tableau des points ouverts]
+[1]
+[à fixer par Hervé] €
+[à fixer par Hervé] €
+
+
+Total HT
+[à fixer par Hervé] €
+
+
+TVA
+0,00 € (voir mention)
+
+
+Net à payer
+[à fixer par Hervé] €
+
+Reste à payer : [à fixer par Hervé] €
+TVA non applicable, art. 293 B du CGI
+Note pour toi (à retirer de la facture) : (mention acceptée jusqu'au 30/06/2028 – rescrit BOI-RES-TVA-000253-20261007 ; nouvelle référence à partir du 1er janvier 2027 : « TVA non applicable, art. L. 233-3 du CIBS »).
+Date d'échéance du paiement : 30 jours après la date d'exécution indiquée ci-dessus.
+Mode de paiement : virement – IBAN [À COMPLÉTER] – BIC [À COMPLÉTER]. Merci d'indiquer le numéro de facture en référence.
+Paiement : 30 jours après la date d'exécution de la prestation, sauf accord écrit différent (délai prévu par l'article L441-10 du code de commerce). En cas de retard, des pénalités sont dues dès le lendemain de l'échéance, au taux de trois fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 € pour frais de recouvrement (art. L441-10 et D441-5). Aucun escompte n'est accordé en cas de paiement anticipé.
+
+Hervé MENGUE – EI – Readiness Industry – [À COMPLÉTER : adresse] – SIREN [À COMPLÉTER] – Micro-entreprise
