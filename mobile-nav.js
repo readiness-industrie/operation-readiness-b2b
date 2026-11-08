@@ -73,9 +73,10 @@
       '<div class="container header-inner">' +
       '<a class="identity" href="index.html" aria-label="Readiness Industry">' +
       '<span class="identity-mark" aria-hidden="true"><span></span><span></span><span></span></span>' +
-      "<span><strong>Readiness Industry</strong><small>PME industrielles</small></span></a>" +
+      "<span><strong>Readiness Industry</strong><small>Prêt au Jour J</small></span></a>" +
       '<nav class="advDesktopNav" aria-label="Navigation principale">' +
       '<a href="index.html">Accueil</a>' +
+      '<a href="pret-au-jour-j.html">Prêt au Jour J</a>' +
       '<a href="renfort-administratif.html">Renfort ADV</a>' +
       '<a href="index.html#contact">Réserver un premier échange</a>' +
       "</nav>" +
@@ -84,6 +85,7 @@
       "</button>" +
       '<div class="advMobileLinks">' +
       '<a href="index.html">Accueil</a>' +
+      '<a href="pret-au-jour-j.html">Prêt au Jour J</a>' +
       '<a href="renfort-administratif.html">Renfort ADV (commandes, livraisons, factures)</a>' +
       '<a href="index.html#contact">Réserver un premier échange</a>' +
       '<a href="mentions-legales.html">Mentions légales</a>' +
