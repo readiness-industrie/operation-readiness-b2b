@@ -1,0 +1,116 @@
+Version corrigée le 8 novembre 2026, à partir du modèle d'archive.
+Prix : à fixer par Hervé. Modèle à faire relire (avocat, BGE ou CCI). Ce n'est pas un conseil juridique. Ne pas envoyer en l'état.
+Paiement et responsabilité alignés sur les conditions publiques du site.
+
+Accord de confidentialité (NDA) et clause de sous-traitance RGPD (art. 28)
+Readiness Industry – modèle
+Avertissement : ce document est un modèle à faire vérifier (avocat, CCI, expert-comptable). Il ne constitue pas un conseil juridique ou fiscal. Les champs [À COMPLÉTER] sont à remplir ; aucune information d'identification n'a été inventée.
+
+Entre Hervé MENGUE – EI, exerçant sous le nom commercial Readiness Industry, micro-entreprise, SIREN/SIRET : [À COMPLÉTER : SIRET], adresse : [À COMPLÉTER : adresse professionnelle, Oise], e-mail : [À COMPLÉTER], téléphone : [À COMPLÉTER], ci-après « le Prestataire »,
+Et [À COMPLÉTER : dénomination, forme, SIREN, siège, représentant], ci-après « le Client ».
+Partie A – Accord de confidentialité
+A1. Objet
+Encadrer les informations échangées dans le cadre de [À COMPLÉTER : l'étude du besoin / la mission décrite au contrat du ...].
+A2. Informations confidentielles
+Toute information, quel qu'en soit le support, communiquée par une partie à l'autre ou à laquelle elle accède : données clients et fournisseurs, commandes, prix, conditions commerciales, encours et impayés, documents techniques et de projet, organisation interne, ainsi que la méthode et les outils du Prestataire.
+Ne sont pas confidentielles les informations : déjà publiques sans faute du destinataire ; déjà connues de lui légitimement ; reçues légitimement d'un tiers sans obligation de confidentialité ; ou dont la divulgation est exigée par la loi ou une autorité (l'autre partie en étant alors informée, si la loi le permet).
+A3. Engagements
+utiliser les informations uniquement pour la mission ;
+ne les divulguer qu'aux personnes qui en ont besoin et sont tenues à une confidentialité équivalente ;
+les protéger avec au moins le même soin que ses propres informations sensibles, et au minimum un soin raisonnable ;
+ne faire aucune copie autre que nécessaire à la mission.
+A4. Durée
+Le présent accord s'applique dès sa signature, pendant toute la relation et pendant [À COMPLÉTER : 3] ans après sa fin.
+A5. Restitution
+À la fin de la relation ou sur demande écrite, chaque partie restitue ou détruit les informations confidentielles de l'autre, sous réserve des obligations légales de conservation (par exemple, factures).
+A6. Absence de licence
+Aucun droit de propriété ou licence n'est concédé par cet accord, sauf stipulation écrite contraire.
+Partie B – Clause de sous-traitance de données personnelles (article 28 du RGPD)
+Le Client agit en qualité de responsable de traitement et le Prestataire en qualité de sous-traitant.
+B1. Description du traitement
+Élément
+Description
+Objet et nature
+[À COMPLÉTER : ex. saisie des commandes, préparation des relances de paiement envoyées par le Client, tenue des dossiers clients, relances fournisseurs]
+Opérations sur les données
+[À COMPLÉTER : ex. consultation, saisie, modification, classement, stockage, suppression]
+Finalité
+[À COMPLÉTER : ex. gestion des commandes et de la relation commerciale du Client ; préparation des relances que le Client envoie lui-même]
+Catégories de données
+[À COMPLÉTER : ex. nom, fonction, e-mail et téléphone professionnels des contacts ; données de commandes et de facturation]
+Données sensibles (art. 9 RGPD)
+[À COMPLÉTER : aucune prévue ? à confirmer]
+Personnes concernées
+[À COMPLÉTER : ex. contacts chez les clients et fournisseurs du Client]
+Durée
+Durée de la mission : du [À COMPLÉTER] au [À COMPLÉTER], puis restitution et suppression selon B8
+
+B2. Traitement uniquement sur instruction documentée
+Le Prestataire traite les données uniquement sur instruction documentée du Client (contrat, devis, e-mails de consigne), y compris pour tout transfert hors de l'Union européenne, sauf si le droit de l'Union ou le droit français l'oblige à traiter ces données ; dans ce cas, il en informe le Client avant le traitement, sauf si la loi l'interdit. Il informe immédiatement le Client s'il estime qu'une instruction enfreint la réglementation. Il ne traite pas les données pour ses propres finalités.
+B3. Confidentialité
+Le Prestataire veille à ce que toute personne autorisée à traiter les données s'engage à la confidentialité ou soit soumise à une obligation légale de confidentialité.
+B4. Sécurité
+Le Prestataire met en œuvre des mesures techniques et organisationnelles appropriées (art. 32 RGPD), notamment : [À COMPLÉTER / ajuster : authentification forte sur les comptes, mots de passe uniques via gestionnaire, chiffrement des postes et des sauvegardes, mises à jour régulières, accès limités au strict nécessaire, pas de stockage sur supports personnels non protégés, journalisation des accès lorsque l'outil le permet].
+Les données peuvent être traitées au moyen d'outils logiciels sélectionnés par le Prestataire dans le cadre de sa méthode et de ses outils, sous réserve du respect de la présente clause, notamment B5.
+B5. Sous-traitants ultérieurs
+Le Client donne une autorisation écrite générale au recours aux sous-traitants ultérieurs listés dans le tableau ci-dessous (outils de messagerie, de stockage, de bureautique, etc.). Le Prestataire informe le Client par écrit de tout ajout ou remplacement envisagé ; le Client peut s'y opposer dans un délai de [À COMPLÉTER : 10] jours. Le Prestataire impose à chaque sous-traitant ultérieur, par contrat, les mêmes obligations de protection des données, notamment des garanties suffisantes de sécurité, et reste pleinement responsable envers le Client de leur exécution (art. 28.4 RGPD).
+Tout transfert hors de l'UE n'est réalisé que vers un pays bénéficiant d'une décision d'adéquation ou avec des garanties appropriées (art. 44 à 46 RGPD, par ex. clauses contractuelles types de la Commission européenne).
+Liste des sous-traitants ultérieurs (à remplir avant signature) :
+Sous-traitant ultérieur (nom, pays du siège)
+Service / usage
+Données concernées
+Localisation des données
+Transfert hors UE et garanties
+[À COMPLÉTER]
+[À COMPLÉTER : ex. messagerie]
+[À COMPLÉTER]
+[À COMPLÉTER : UE ?]
+[À COMPLÉTER : non / oui + garantie]
+[À COMPLÉTER]
+[À COMPLÉTER : ex. stockage de fichiers]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[À COMPLÉTER : ex. bureautique / tableur]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[à compléter par Hervé après accord écrit, ou supprimer la ligne]
+[À COMPLÉTER]
+[À COMPLÉTER]
+[À COMPLÉTER]
+
+B6. Assistance au Client
+Le Prestataire aide le Client, dans la mesure du possible, à répondre aux demandes d'exercice des droits des personnes (accès, rectification, effacement, opposition, etc.), à garantir la sécurité, et, le cas échéant, à réaliser une analyse d'impact. Il transmet sans délai au Client toute demande reçue directement d'une personne concernée.
+Il aide aussi le Client à respecter ses obligations des articles 32 à 36 du RGPD : sécurité, notification d'une violation à la CNIL et information des personnes concernées, analyse d'impact et consultation préalable de la CNIL, en tenant compte de la nature du traitement et des informations dont il dispose.
+B7. Violation de données
+Le Prestataire notifie au Client toute violation de données personnelles dans les meilleurs délais et au plus tard [À COMPLÉTER : 48] heures après en avoir pris connaissance, avec les informations utiles pour permettre au Client, s'il y a lieu, de notifier la CNIL (art. 33 RGPD).
+B8. Fin de la mission : sort des données et confirmation écrite
+Au terme de la mission, au choix du Client exprimé par écrit, le Prestataire restitue les données au Client puis supprime toutes les copies existantes (y compris dans les outils et sous-traitants ultérieurs), dans un délai de [À COMPLÉTER : 30] jours, sauf obligation légale de conservation. Le Prestataire adresse au Client une confirmation écrite de la suppression.
+B9. Documentation et audit
+Le Prestataire tient un registre des traitements effectués pour le compte du Client (art. 30.2 RGPD), met à la disposition du Client les informations nécessaires pour démontrer le respect de la présente clause et permet des audits, y compris des inspections, menés par le Client ou par un auditeur qu'il mandate, et y contribue, sur préavis de [À COMPLÉTER : 15] jours, aux frais du Client (art. 28.3 h RGPD).
+B10. Obligations du Client
+Le Client fournit les données et des instructions écrites de manière licite, garantit disposer d'une base légale pour le traitement, informe les personnes concernées et veille au respect du RGPD par le Prestataire pendant toute la durée du traitement. Il reste responsable de ses décisions et de la qualité des données qu'il transmet.
+Droit applicable
+Droit français. Litiges : réclamation écrite puis médiation, selon l'article 17 des CGV du Prestataire ; à défaut d'accord, tribunal compétent selon les règles de droit commun.
+Fait à [À COMPLÉTER], le [À COMPLÉTER].
+Le Prestataire
+Nom : [À COMPLÉTER]
+Qualité : [À COMPLÉTER]
+Date : [À COMPLÉTER]
+Signature (précédée de « Lu et approuvé ») :
+
+
+Le Client
+Nom : [À COMPLÉTER]
+Qualité : [À COMPLÉTER]
+Date : [À COMPLÉTER]
+Signature (précédée de « Lu et approuvé ») :
+
+
+Sources
+RGPD, art. 28, 30, 32, 33 – cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4
+CNIL, Sous-traitance : exemple de clauses – cnil.fr/fr/sous-traitance-exemple-de-clauses
+CNIL, Clauses contractuelles types responsable de traitement / sous-traitant – cnil.fr/fr/clauses-contractuelles-types-entre-responsable-de-traitement-et-sous-traitant

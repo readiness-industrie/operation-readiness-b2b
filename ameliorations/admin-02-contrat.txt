@@ -1,0 +1,77 @@
+Version corrigée le 8 novembre 2026, à partir du modèle d'archive.
+Prix : à fixer par Hervé. Modèle à faire relire (avocat, BGE ou CCI). Ce n'est pas un conseil juridique. Ne pas envoyer en l'état.
+Paiement et responsabilité alignés sur les conditions publiques du site.
+
+Contrat de prestation de services
+Modèle court – Readiness Industry
+Avertissement : ce document est un modèle à faire vérifier (avocat, CCI, expert-comptable). Il ne constitue pas un conseil juridique ou fiscal. Les champs [À COMPLÉTER] sont à remplir ; aucune information d'identification n'a été inventée.
+
+Statut TVA confirmé : franchise en base de TVA (Hervé MENGUE n'a jamais opté pour la TVA). Mention à écrire : « TVA non applicable, art. 293 B du CGI ». Cette mention reste acceptée jusqu'au 30/06/2028 (rescrit BOI-RES-TVA-000253-20261007). À partir du 1er janvier 2027, la nouvelle référence est « art. L. 233-3 du CIBS ».
+
+Entre Hervé MENGUE – EI, exerçant sous le nom commercial Readiness Industry, micro-entreprise, SIREN/SIRET : [À COMPLÉTER : SIRET], adresse : [À COMPLÉTER : adresse professionnelle, Oise], e-mail : [À COMPLÉTER], téléphone : [À COMPLÉTER], ci-après « le Prestataire »,
+Et [À COMPLÉTER : dénomination sociale du client], [À COMPLÉTER : forme juridique], SIREN [À COMPLÉTER], siège : [À COMPLÉTER], représentée par [À COMPLÉTER : nom, fonction], ci-après « le Client ».
+Les Conditions générales de vente du Prestataire (version [À COMPLÉTER : date]) font partie intégrante du présent contrat. En cas de contradiction, le présent contrat prévaut.
+1. Objet et périmètre de la mission
+Type de mission (cocher) : ☐ Renfort ADV   ☐ Suivi des jalons de projet   ☐ Autre : [À COMPLÉTER]
+Contexte et objectif : [À COMPLÉTER : ex. résorber le retard de saisie des commandes et préparer les relances des factures échues].
+Périmètre inclus : [À COMPLÉTER : ex. saisie des commandes reçues par e-mail dans l'ERP ; préparation des relances des factures échues (le Client les envoie lui-même) ; mise à jour des fiches clients].
+Hors périmètre : envoi de relances au nom du Client, tout contact avec les débiteurs du Client, encaissement de fonds pour son compte ; [À COMPLÉTER : ex. gestion des litiges et contentieux, décisions de blocage de comptes, négociation avec les clients, comptabilité].
+Le Prestataire exécute la mission à distance, avec sa propre méthode et ses propres outils, et organise librement son travail.
+Relances de factures impayées : le Prestataire ne fait pas de recouvrement pour le compte du Client. Il prépare les relances (liste des factures échues, projets de courriers et d'e-mails) ; le Client les relit, les envoie lui-même, sous son nom et depuis ses propres outils. Le Prestataire ne contacte pas les débiteurs du Client et ne reçoit aucun paiement pour son compte. Raison : relancer des débiteurs pour le compte d'autrui peut être du recouvrement amiable de créances pour autrui, encadré par le Code des procédures civiles d'exécution (art. R. 124-1 à R. 124-7 : déclaration au procureur de la République, assurance de responsabilité civile spéciale, compte dédié aux fonds reçus). Ce service ne sera pas élargi tant qu'un juriste ne l'a pas validé.
+
+2. Livrables
+Le Prestataire remet les états convenus. Il est tenu à une obligation de moyens, pas à un résultat.
+Livrable
+Contenu
+Échéance / fréquence
+[À COMPLÉTER : ex. commandes saisies]
+[À COMPLÉTER : ex. saisie sous 24 h ouvrées après réception]
+[À COMPLÉTER : en continu]
+[À COMPLÉTER : ex. projets de relances préparés et remis au Client]
+[À COMPLÉTER : 100 % des factures échues listées, avec un projet de relance prêt à envoyer par le Client]
+[À COMPLÉTER : hebdomadaire]
+[À COMPLÉTER : ex. tableau de suivi / points ouverts]
+[À COMPLÉTER : à jour et transmis]
+[À COMPLÉTER : chaque vendredi]
+
+Readiness Industry est tenu à une obligation de moyens. Il s'engage à assurer le suivi et les relances convenus et à remettre les états de situation aux échéances fixées avec le client. La clôture des points dépend des intervenants et des décisions du client : aucun résultat n'est garanti. Le chef de projet reste décisionnaire. Les décisions techniques, HSE, budgétaires et contractuelles restent du ressort du client. Il ne garantit pas les effets qui dépendent de tiers ou du Client (paiement effectif par les clients du Client, réponses des fournisseurs, décisions du Client).
+Éléments à fournir par le Client : [À COMPLÉTER : accès ERP/messagerie, listes clients et fournisseurs, modèles de courriers, interlocuteur désigné].
+3. Durée
+☐ Mission ponctuelle : du [À COMPLÉTER] au [À COMPLÉTER].
+☐ Mission récurrente : à compter du [À COMPLÉTER], pour une durée de [À COMPLÉTER : 3] mois, renouvelable par accord écrit [ou : tacitement par périodes de [À COMPLÉTER] mois]. Résiliation avec préavis de [À COMPLÉTER : 30] jours (art. 14 des CGV).
+4. Prix et paiement
+Élément
+Montant HT
+Forfait mission / forfait mensuel : [À COMPLÉTER]
+[à fixer par Hervé] €
+Options éventuelles : [À COMPLÉTER]
+[à fixer par Hervé] €
+Total
+[à fixer par Hervé] €
+
+TVA non applicable, art. 293 B du CGI (mention acceptée jusqu'au 30/06/2028 – rescrit BOI-RES-TVA-000253-20261007 ; nouvelle référence à partir du 1er janvier 2027 : « TVA non applicable, art. L. 233-3 du CIBS »).
+Facturation : mission ponctuelle – une facture à la livraison ; mission récurrente – une facture par période, à terme échu (art. 8 des CGV).
+Paiement : 30 jours après la date d'exécution de la prestation, sauf accord écrit différent (délai prévu par l'article L441-10 du code de commerce). En cas de retard, des pénalités sont dues dès le lendemain de l'échéance, au taux de trois fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 € pour frais de recouvrement (art. L441-10 et D441-5). Aucun escompte n'est accordé en cas de paiement anticipé.
+5. Responsabilité, confidentialité, données
+Readiness Industry est tenu à une obligation de moyens. Il s'engage à assurer le suivi et les relances convenus et à remettre les états de situation aux échéances fixées avec le client. La clôture des points dépend des intervenants et des décisions du client : aucun résultat n'est garanti. Le chef de projet reste décisionnaire. Les décisions techniques, HSE, budgétaires et contractuelles restent du ressort du client.
+Pour cette mission, le Prestataire traite des données personnelles pour le compte du Client (contacts des clients et fournisseurs). Les parties signent et respectent l'accord de confidentialité et la clause de sous-traitance RGPD (art. 28) en annexe 2, y compris sa liste des sous-traitants ultérieurs.
+6. Litiges
+Droit français. Réclamation écrite, puis médiation avant toute action en justice, selon l'article 17 des CGV. À défaut d'accord, le tribunal compétent est déterminé selon les règles de droit commun.
+7. Annexes
+Annexe 1 : Devis n° [À COMPLÉTER]
+Annexe 2 : Accord de confidentialité et clause de sous-traitance RGPD
+Annexe 3 : Conditions générales de vente
+Fait en deux exemplaires, à [À COMPLÉTER], le [À COMPLÉTER]  (ou signature électronique).
+Le Prestataire
+Nom : [À COMPLÉTER]
+Qualité : [À COMPLÉTER]
+Date : [À COMPLÉTER]
+Signature (précédée de « Lu et approuvé ») :
+
+
+Le Client
+Nom : [À COMPLÉTER]
+Qualité : [À COMPLÉTER]
+Date : [À COMPLÉTER]
+Signature (précédée de « Lu et approuvé ») :
+

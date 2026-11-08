@@ -1,0 +1,114 @@
+Version corrigée le 8 novembre 2026, à partir du modèle d'archive.
+Prix : à fixer par Hervé. Modèle à faire relire (avocat, BGE ou CCI). Ce n'est pas un conseil juridique. Ne pas envoyer en l'état.
+Paiement et responsabilité alignés sur les conditions publiques du site.
+
+ACCORD DE SOUS-TRAITANCE DE DONNÉES PERSONNELLES
+Article 28 du RGPD — rédigé sur la base des clauses contractuelles types proposées par la CNIL
+⚠ Modèle — relecture conseillée (ex. BGE Beauvais, CCI Oise ou juriste). Document type, ne constitue pas un conseil juridique.
+Les éléments entre [crochets] sont à compléter ou à confirmer avant usage.
+Entre le Client [raison sociale, SIREN, adresse, représentant], responsable de traitement (le « Responsable de traitement »), et le Prestataire Hervé MENGUE EI, entrepreneur individuel (micro-entreprise), exerçant sous la marque « Readiness Industry », SIREN 104 588 215, établissement : [adresse], Beauvais (Oise) ; e-mail : [email pro] (à défaut hmreadinessindustry@gmail.com) ; téléphone : [téléphone], sous-traitant (le « Sous-traitant »).
+Rattaché à : lettre de mission n° LM-[____] du [__/__/____] (la « Mission »).
+1. Objet
+Les présentes clauses définissent les conditions dans lesquelles le Sous-traitant traite, pour le compte du Responsable de traitement, les données à caractère personnel nécessaires à la Mission, conformément au Règlement (UE) 2016/679 du 27 avril 2016 (« RGPD ») et à la loi n° 78-17 du 6 janvier 1978 modifiée.
+2. Description du traitement
+Élément
+« Prêt au Jour J »
+« Renfort ADV »
+Nature des opérations
+Collecte, consultation, classement, vérification, conservation temporaire, transmission au Client
+Consultation, saisie, modification, extraction, envoi de messages validés, conservation temporaire
+Finalité
+Préparer l'intervention des entreprises extérieures
+Assurer l'administration des ventes du Client
+Personnes concernées
+Salariés et représentants des entreprises extérieures ; salariés du Client
+Contacts des clients et fournisseurs du Client ; salariés du Client
+Catégories de données
+Identité, fonction, employeur, coordonnées professionnelles, titres d'habilitation et autorisations (dates, intitulés), [immatriculation de véhicule pour l'accès]
+Identité, fonction, coordonnées professionnelles, données de commande, de facturation et de paiement (hors données bancaires complètes sauf nécessité)
+Données exclues
+Pas de données de santé (aptitude médicale : seul le statut « apte / non communiqué » si le Client l'exige), pas de numéro de sécurité sociale, pas de copie de pièce d'identité sauf demande écrite du Client
+Pas de données sensibles
+Durée
+Durée de la Mission + [1] mois pour la restitution, puis suppression
+Idem
+
+3. Obligations du Sous-traitant
+Le Sous-traitant s'engage à :
+traiter les données uniquement pour la ou les finalités décrites ci-dessus et sur instruction documentée du Responsable de traitement (la Mission, la lettre de mission et les validations écrites valent instructions). S'il considère qu'une instruction enfreint le RGPD ou le droit applicable, il en informe immédiatement le Responsable de traitement ;
+garantir la confidentialité des données ; le Sous-traitant étant une entreprise individuelle, seul Hervé MENGUE accède aux données ; toute autre personne autorisée serait soumise à une obligation de confidentialité et formée ;
+prendre en compte la protection des données dès la conception et par défaut dans ses outils et méthodes : minimisation, accès au strict nécessaire, pseudonymisation lorsque possible ;
+ne pas utiliser les données à d'autres fins que la Mission ;
+tenir un registre des catégories d'activités de traitement effectuées pour le compte du Responsable de traitement (article 30.2 du RGPD).
+4. Sous-traitance ultérieure
+Le Responsable de traitement donne une autorisation écrite générale pour le recours aux sous-traitants ultérieurs listés en Annexe 1.
+Le Sous-traitant informe le Responsable de traitement par écrit de tout ajout ou remplacement envisagé, au moins 15 jours avant sa mise en œuvre, en précisant les activités sous-traitées, l'identité et les coordonnées du sous-traitant et, le cas échéant, le lieu de traitement et les garanties de transfert. Le Responsable de traitement peut s'y opposer par écrit dans ce délai ; à défaut d'accord, chaque partie peut résilier la Mission concernée sans pénalité.
+Le Sous-traitant impose aux sous-traitants ultérieurs, par contrat (le cas échéant par acceptation de leurs conditions de traitement des données), des obligations de protection équivalentes. Il demeure pleinement responsable devant le Responsable de traitement de l'exécution de leurs obligations.
+Hervé MENGUE valide chaque envoi et chaque opération de paiement.
+5. Transferts hors de l'Union européenne
+Toute donnée est en priorité traitée dans l'Union européenne. Si un sous-traitant ultérieur de l'Annexe 1 traite des données hors de l'Espace économique européen, le transfert n'a lieu que sur la base d'une garantie prévue au chapitre V du RGPD (décision d'adéquation, dont le cadre UE–États-Unis de protection des données pour les entreprises certifiées, ou clauses contractuelles types de la Commission européenne), indiquée en Annexe 1.
+6. Droit d'information et exercice des droits des personnes
+L'information des personnes concernées incombe au Responsable de traitement. Le Sous-traitant aide le Responsable de traitement à répondre aux demandes d'exercice des droits (accès, rectification, effacement, opposition, limitation, portabilité). Il transmet toute demande reçue directement, par e-mail, dans un délai de 5 jours ouvrés, sans y répondre lui-même sauf instruction.
+7. Notification des violations de données
+Le Sous-traitant notifie au Responsable de traitement toute violation de données à caractère personnel dans un délai maximal de 48 heures après en avoir pris connaissance, par e-mail à [adresse du Client] et par téléphone. La notification comprend, dans la mesure du possible : la nature de la violation, les catégories et le nombre approximatif de personnes et d'enregistrements concernés, les conséquences probables, les mesures prises ou proposées, et un contact. La notification à la CNIL et aux personnes concernées reste à la charge du Responsable de traitement.
+8. Aide au Responsable de traitement
+Le Sous-traitant aide le Responsable de traitement, dans la mesure de ses moyens, pour la réalisation d'analyses d'impact et la consultation préalable de la CNIL le cas échéant, et met à sa disposition les informations nécessaires pour démontrer le respect de ses obligations.
+9. Mesures de sécurité
+Le Sous-traitant met en œuvre les mesures décrites en Annexe 2, adaptées à la taille de son activité et aux risques.
+10. Sort des données en fin de Mission
+Au terme de la Mission, le Sous-traitant, au choix du Responsable de traitement indiqué ici — ☐ restitue les données (et livrables) puis les détruit, ☐ détruit les données — dans un délai d'un mois, y compris les copies présentes dans ses outils et chez ses sous-traitants ultérieurs dans la mesure où ceux-ci le permettent, et le confirme par écrit. Les factures et documents comptables du Sous-traitant sont conservés selon les durées légales. Le Responsable de traitement révoque les accès du Sous-traitant à ses systèmes.
+11. Délégué à la protection des données
+Le Sous-traitant n'est pas tenu de désigner un délégué à la protection des données. Contact données personnelles : Hervé MENGUE, [email pro]. Contact du Responsable de traitement : [nom / DPO éventuel, e-mail].
+12. Documentation et audit
+Le Sous-traitant met à disposition du Responsable de traitement la documentation nécessaire pour démontrer le respect de ses obligations et permet la réalisation d'audits, y compris des inspections, par le Responsable de traitement ou un auditeur mandaté, sur préavis écrit de 15 jours, à distance de préférence, à raison d'une fois par an au plus sauf violation de données, aux frais du Responsable de traitement.
+13. Obligations du Responsable de traitement
+fournir au Sous-traitant les données strictement nécessaires et documenter par écrit ses instructions ;
+veiller, au préalable et pendant toute la durée du traitement, au respect des obligations prévues par le RGPD (base légale, information des personnes, durées de conservation) ;
+superviser le traitement, y compris par des audits ;
+attribuer et révoquer les accès nominatifs du Sous-traitant à ses outils.
+14. Durée
+Le présent accord s'applique pendant toute la durée de la Mission et jusqu'à la restitution ou destruction complète des données.
+Le Sous-traitant
+Le Responsable de traitement
+Hervé MENGUE EI — Readiness IndustryDate : [__/__/____]Lieu : [_____]Signature :
+[Raison sociale]Nom, qualité du signataire : [_____]Date : [__/__/____]Lieu : [_____]Signature (précédée de « Bon pour accord ») :
+
+
+Annexe 1 — Sous-traitants ultérieurs autorisés
+[À compléter par Hervé MENGUE seulement après accord écrit du Client. La liste reste vide tant que cet accord n'est pas écrit.]
+Sous-traitant ultérieur
+Service / activité
+Données concernées
+Localisation
+Garantie de transfert
+[à compléter par Hervé après accord écrit]
+[_____]
+[_____]
+[_____]
+[_____]
+[hébergement / stockage de fichiers — éditeur]
+Stockage des documents de la Mission
+Documents des intervenants, tableaux de bord
+[_____]
+[_____]
+[messagerie — ex. Google Workspace / Gmail]
+Échanges par e-mail
+Coordonnées, contenu des échanges
+[_____]
+[_____]
+[outil de signature électronique]
+Signature des documents
+Identité des signataires
+[_____]
+[_____]
+
+Les outils du Client utilisés par le Sous-traitant (ERP, messagerie du Client, etc.) restent sous la responsabilité du Client et ne sont pas des sous-traitants ultérieurs du Sous-traitant.
+Annexe 2 — Mesures techniques et organisationnelles de sécurité
+Accès : comptes nominatifs ; mots de passe robustes et uniques gérés par un gestionnaire de mots de passe ; authentification à deux facteurs activée sur tous les comptes qui la proposent ; aucun partage d'identifiants ; accès aux systèmes du Client limités aux droits fournis par celui-ci.
+Poste de travail : système et logiciels à jour ; disque chiffré ; verrouillage automatique de session ; antivirus/protection activée ; usage professionnel séparé autant que possible.
+Stockage : documents de la Mission rangés dans un espace dédié par Client, accès restreint ; pas de stockage sur support amovible non chiffré ; sauvegardes [préciser].
+Hervé MENGUE valide chaque envoi et chaque paiement, et relit ce qui est remis au Client.
+Échanges : transmission des documents par liens d'accès restreints plutôt que par pièces jointes lorsque possible ; vérification des destinataires avant envoi.
+Traçabilité : historique des validations écrites du Client conservé pendant la Mission ; journal des actions réalisées dans les comptes rendus.
+Fin de mission : restitution/suppression sous un mois, confirmation écrite, demande de révocation des accès.
+Incident : procédure de notification sous 48 h (article 7).

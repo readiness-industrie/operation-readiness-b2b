@@ -1,0 +1,171 @@
+Version corrigée le 8 novembre 2026, à partir du modèle d'archive.
+Prix : à fixer par Hervé. Modèle à faire relire (avocat, BGE ou CCI). Ce n'est pas un conseil juridique. Ne pas envoyer en l'état.
+Paiement et responsabilité alignés sur les conditions publiques du site.
+
+LETTRE DE MISSION
+Modèle commun + Annexe A « Prêt au Jour J » + Annexe B « Renfort ADV industrie – Oise »
+⚠ Modèle — relecture conseillée (ex. BGE Beauvais, CCI Oise ou juriste). Document type, ne constitue pas un conseil juridique.
+Les éléments entre [crochets] sont à compléter ou à confirmer avant usage.
+Référence : LM-[AAAA]-[NN]   —   Devis associé n° : [_____]   —   Date : [__/__/____]
+1. Parties
+Le Prestataire : Hervé MENGUE EI, entrepreneur individuel (micro-entreprise), exerçant sous la marque « Readiness Industry », SIREN 104 588 215, établissement : [adresse], Beauvais (Oise) ; e-mail : [email pro] (à défaut hmreadinessindustry@gmail.com) ; téléphone : [téléphone].
+Le Client : [raison sociale], [forme juridique], SIREN/SIRET [_____], siège : [adresse], représenté par [nom, fonction], dûment habilité.
+Interlocuteur désigné du Client (pouvoir de validation) : [nom, fonction, e-mail, téléphone]. Suppléant : [_____].
+2. Contexte
+[Décrire en 3 à 5 lignes : ex. « Le Client prévoit l'installation d'une [machine] sur son site de [ville] le [date], avec [n] entreprises extérieures » ou « Le poste d'assistant(e) ADV est vacant depuis le [date] ; un recrutement est en cours, prise de poste prévue vers le [date]. »]
+3. Offre retenue
+☐ Annexe A — « Prêt au Jour J »        ☐ Annexe B — « Renfort ADV industrie – Oise »
+Le périmètre exact, les exclusions et les livrables sont détaillés dans l'annexe cochée, qui fait partie intégrante de la présente lettre.
+4. Principes communs (toutes offres)
+Mode mixte : premiers échanges possibles à distance ; mission réalisée en présence sur le site du Client, avec un suivi à distance. Zone de déplacement : Oise, Somme (Amiens) et Île-de-France ; hors zone : sur devis. Nombre de présences sur site prévues : [à définir]. Frais de déplacement : [à fixer par Hervé].
+Rôle : le Prestataire prépare et suit ; le Client valide et signe (plan de prévention, permis, admission des intervenants). Aucun logiciel installé chez le Client. Les documents restent dans l'espace du Client, avec un accès nominatif et révocable.
+Aucun travail technique ; aucune décision prise à la place du Client. Le Client conserve l'entière responsabilité de ses obligations légales, de la sécurité, et de toutes ses décisions.
+Indépendance : le Prestataire est tenu à une obligation de moyens. Il organise librement son travail et ses méthodes. Il n'est pas intégré à la hiérarchie du Client et n'est pas soumis à ses horaires ni à son pouvoir disciplinaire. La mission n'est pas une mise à disposition de personnel.
+Hervé MENGUE valide personnellement chaque envoi et chaque opération de paiement. Liste des sous-traitants : annexe de l'accord de sous-traitance, vide tant qu'un accord écrit ne l'a pas complétée.
+Rien sans accord écrit : aucune action engageant le Client sans son accord écrit préalable, selon l'article 7 ci-dessous.
+5. Durée
+Date de début : [__/__/____]. Date de fin prévue : [__/__/____] ou [événement de fin, ex. envoi du compte rendu final / fin du tuilage]. Aucun engagement au-delà de cette période. Résiliation et prolongation : selon l'annexe retenue et l'article 15 des CGV.
+6. Prix et paiement
+Élément
+Montant HT
+Facturation
+[Forfait / formule]
+[à fixer par Hervé] €
+30 jours après la date d'exécution. Pas de versement à la commande.
+[Option éventuelle]
+[à fixer par Hervé] €
+[_____]
+Total
+[à fixer par Hervé] €
+
+
+TVA non applicable, art. 293 B du CGI [à confirmer : supprimer si Hervé MENGUE EI devient redevable de la TVA ; les prix seraient alors majorés de la TVA au taux en vigueur. À partir du 1er janvier 2027, la référence légale de cette mention change avec la recodification de la TVA : faire confirmer la nouvelle formulation exacte].
+Paiement : 30 jours après la date d'exécution de la prestation, sauf accord écrit différent (délai prévu par l'article L441-10 du code de commerce). En cas de retard, des pénalités sont dues dès le lendemain de l'échéance, au taux de trois fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 € pour frais de recouvrement (art. L441-10 et D441-5). Aucun escompte n'est accordé en cas de paiement anticipé.
+7. Accès et règles de validation
+Accès fournis par le Client : [liste des outils / dossiers partagés / boîte e-mail dédiée], nominatifs au nom de Hervé MENGUE, avec les droits minimaux nécessaires. Les identifiants ne sont jamais partagés.
+Le Client révoque tous les accès à la date de fin ; le Prestataire le rappelle par écrit et confirme la suppression des données conservées.
+Règles de validation (cocher / compléter) :
+Type d'action
+Règle
+Envoi d'un message à un tiers au nom du Client
+☐ Validation écrite préalable au cas par cas   ☐ Modèles validés une fois, puis envoi libre
+Saisie / modification de commande
+☐ Validation préalable   ☐ Autorisé dans la limite de [à fixer par Hervé] € HT par commande
+Émission de facture / avoir
+☐ Validation préalable systématique (recommandé)
+Relance de paiement client
+☐ Validation du modèle et de la liste avant envoi
+Opération de paiement / bancaire
+Jamais réalisée par le Prestataire sauf autorisation écrite spécifique ; toujours validée par Hervé MENGUE et par le Client
+Décision commerciale (prix, avoir, crédit, litige)
+Toujours prise par le Client
+
+Forme de l'accord écrit : e-mail de l'interlocuteur désigné (ou de son suppléant), ou validation tracée dans l'outil [_____].
+8. Comptes rendus et passation
+Point d'avancement : [hebdomadaire / à chaque jalon], par écrit. À la fin de la mission, le Prestataire remet les livrables listés en annexe et, pour l'offre ADV, le dossier de passation. Le Client dispose de [5] jours ouvrés pour formuler ses remarques ; sans remarque dans ce délai, les livrables sont réputés acceptés.
+9. Documents contractuels
+Par ordre de priorité : la présente lettre de mission et son annexe ; le devis n° [____] ; l'accord de sous-traitance de données personnelles (RGPD) ; l'accord de confidentialité le cas échéant ; les CGV v1.0, dont le Client reconnaît avoir reçu un exemplaire.
+10. Signatures
+Fait en deux exemplaires (ou signé électroniquement).
+Pour le Prestataire
+Pour le Client
+Hervé MENGUE EI — Readiness IndustryDate : [__/__/____]Lieu : [_____]Signature :
+[Raison sociale]Nom, qualité du signataire : [_____]Date : [__/__/____]Lieu : [_____]Signature (précédée de « Bon pour accord ») :
+
+
+ANNEXE A : « Prêt au Jour J »
+Préparation et suivi, sur site et à distance, des documents et prérequis des intervenants extérieurs avant une installation ou mise en service de machine.
+A.1 Données du projet
+Élément
+À compléter
+Équipement / opération
+[_____]
+Site (adresse)
+[_____]
+Date(s) d'intervention prévue(s)
+[__/__/____]
+Chef de projet Client
+[nom, contact]
+Entreprises extérieures concernées
+[liste ou nombre]
+Date de lancement de la préparation
+[__/__/____]
+
+A.2 Périmètre inclus
+Collecte auprès des entreprises extérieures et vérification documentaire (présence, dates de validité apparentes, cohérence) des pièces demandées par le Client : [ex. attestations d'assurance, Kbis/URSSAF, listes d'intervenants, titres d'habilitation, CACES, autorisations de conduite, modes opératoires].
+Suivi administratif du plan de prévention : relances pour les informations à fournir, suivi des versions et des signatures, rappel des échéances (dont l'inspection commune préalable organisée par le Client).
+Préparation des demandes de permis de feu à soumettre au Client (le Client délivre et signe).
+Collecte et diffusion des informations pratiques : accès, horaires, stationnement, zones de déchargement, contacts sur site.
+Liste de prérequis tenue avec le chef de projet du Client (énergies, fondations, accès, moyens de levage, etc. — selon ce que le Client et le fournisseur définissent).
+Tableau de bord avec signalement en rouge des actions à la charge du Client ou des tiers.
+Comptes rendus : [hebdomadaires] + compte rendu final J-[2] et compte rendu de clôture après l'intervention.
+A.3 Exclus
+Tout travail technique, toute mise en service. La présence sur site du Prestataire se limite au suivi documentaire et aux réunions prévues (A.6).
+Rédaction et signature du plan de prévention en tant qu'entreprise utilisatrice ou extérieure, inspection commune préalable, analyse des risques, délivrance des permis de feu et autorisations.
+Mission de coordination SPS, de contrôle réglementaire, d'expertise ou de chargé de sécurité.
+Vérification de l'authenticité des documents ou des compétences réelles des personnes ; décision d'admettre ou non un intervenant (décision du Client).
+Commandes, négociations ou paiements auprès des fournisseurs.
+A.4 Livrables
+Livrable
+Échéance
+Liste de prérequis initiale
+[J+3 après lancement]
+Tableau de bord partagé (mis à jour)
+[en continu / 2 fois par semaine]
+Dossier documentaire des intervenants (classé)
+[J-5]
+Compte rendu des points ouverts
+[J-2]
+Compte rendu de clôture
+[J+3 après intervention]
+
+A.5 Prix
+Forfait : [à fixer par Hervé] € HT. Paiement : 30 jours après la date d'exécution de la prestation, sauf accord écrit différent (délai prévu par l'article L441-10 du code de commerce). En cas de retard, des pénalités sont dues dès le lendemain de l'échéance, au taux de trois fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 € pour frais de recouvrement (art. L441-10 et D441-5). Aucun escompte n'est accordé en cas de paiement anticipé. Report de la date d'intervention : avenant écrit, prix à fixer par Hervé. Annulation : article 15 des CGV.
+A.6 Présence sur site et mandat de relance
+Présences sur site prévues : [à définir] (ex. réunion de lancement, inspection commune organisée par le Client, point final avant le jour J). Zone de déplacement et frais : article 4 de la présente lettre.
+Mandat de relance : le Client autorise le Prestataire à relancer en son nom les entreprises extérieures listées en A.1, uniquement pour obtenir les documents et informations listés en A.2, depuis l'adresse [à définir], selon les modèles validés par le Client (article 7). Le Client informe lui-même ses intervenants de ce mandat avant la première relance. Le Prestataire ne prend aucun engagement, ne négocie pas et ne donne aucune instruction de sécurité au nom du Client. Le Client peut retirer ce mandat à tout moment par écrit.
+Aucune admission ou refus d'un intervenant n'est décidé par le Prestataire : il signale, le Client décide.
+
+ANNEXE B : « Renfort ADV industrie – Oise »
+Administration des ventes réalisée dans les outils existants du Client (sur site ou à distance selon la lettre de mission) pendant une période de recrutement ou d'absence.
+B.1 Formule retenue
+☐
+Formule
+Contenu
+Prix HT
+☐
+Relais 30 jours
+Prise en charge du périmètre B.2 pendant 30 jours calendaires ; durée déterminée, sans reconduction tacite.
+[à fixer par Hervé] €
+☐
+Pack 5 h / 10 h / 20 h
+Volume de travail défini sur les tâches B.2, utilisable [6] mois ; décompte communiqué au Client à chaque compte rendu.
+[____] / [____] / [à fixer par Hervé] €
+☐
+Forfait
+Livrable défini : [ex. rattrapage du carnet de commandes, mise à jour des relances échues].
+[à fixer par Hervé] €
+☐
+Mensuel
+Périmètre B.2 avec volume indicatif de [____] h/mois ; résiliable avec préavis de 15 jours.
+[à fixer par Hervé] €/mois
+
+B.2 Périmètre inclus (cocher)
+☐ Saisie et suivi des commandes clients dans [outil], à partir des commandes reçues et selon les règles de validation (article 7).
+☐ Accusés de réception de commande et suivi des délais de livraison communiqués par le Client.
+☐ Préparation des factures à partir des éléments validés ; émission après validation du Client.
+☐ Relances des paiements échus selon le modèle et la liste validés par le Client.
+☐ Tableaux de suivi (commandes, retards, encours) et compte rendu [hebdomadaire].
+☐ Autre : [_____].
+B.3 Exclus
+Toute décision commerciale ou financière (prix, avoirs, crédit client, litiges, contentieux) : elle reste au Client. Le chef de projet reste décisionnaire.
+Opérations bancaires et paiements, sauf autorisation écrite spécifique.
+Comptabilité, déclarations fiscales et sociales, paie.
+Encadrement de salariés du Client ; respect d'horaires imposés (une plage de joignabilité indicative peut être convenue : [_____]).
+Le Prestataire ne remplace pas un salarié dans un lien de subordination : il exécute un périmètre défini avec ses propres méthodes, contre un prix forfaitaire.
+B.4 Passation et tuilage
+Dossier de passation remis au plus tard à la fin de la mission : état des commandes et relances en cours, procédures pratiques rédigées, points de vigilance, contacts utiles.
+Tuilage avec la personne recrutée par le Client : [____] séance(s) à distance de [__] h, incluse(s) dans le prix [option : prix à fixer par Hervé].
+Révocation des accès par le Client à la date de fin et confirmation écrite de suppression des données par le Prestataire.
+B.5 Livrables
+Comptes rendus [hebdomadaires] (activité réalisée, décompte du temps pour les packs, points en attente de décision du Client) ; tableaux de suivi ; dossier de passation ; [autre].

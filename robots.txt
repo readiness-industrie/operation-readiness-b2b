@@ -5,163 +5,136 @@
 User-agent: *
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: GPTBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Perplexity-User
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Claude-User
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: anthropic-ai
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Googlebot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: GoogleOther
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Bingbot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Copilot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Applebot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Amazonbot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: CCBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Meta-ExternalAgent
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: FacebookBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: Bytespider
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: cohere-ai
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: YouBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: DuckAssistBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: GrokBot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 User-agent: xAI-Bot
 Allow: /
 Disallow: /assistant-readiness/
-Disallow: /essai-gratuit.html
 Disallow: /demo-lecture.html
 
 Sitemap: https://www.readiness-industry.fr/sitemap.xml
