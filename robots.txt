@@ -1,4 +1,4 @@
-# Exploration autorisée pour les moteurs et pour les robots des IA.
+# Exploration autorisée pour les moteurs de recherche et les robots listés ci-dessous.
 # https://www.readiness-industry.fr/llms.txt
 # https://www.readiness-industry.fr/llms-full.txt
 

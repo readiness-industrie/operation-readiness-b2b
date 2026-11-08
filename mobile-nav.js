@@ -78,7 +78,6 @@
       '<a href="index.html">Accueil</a>' +
       '<a href="pret-au-jour-j.html">Prêt au Jour J</a>' +
       '<a href="renfort-administratif.html">Renfort ADV</a>' +
-      '<a href="index.html#contact">Réserver un premier échange</a>' +
       "</nav>" +
       '<button class="advMobileMenu" type="button" aria-expanded="false" aria-label="Ouvrir le menu">' +
       '<span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>' +
@@ -87,7 +86,6 @@
       '<a href="index.html">Accueil</a>' +
       '<a href="pret-au-jour-j.html">Prêt au Jour J</a>' +
       '<a href="renfort-administratif.html">Renfort ADV (commandes, livraisons, factures)</a>' +
-      '<a href="index.html#contact">Réserver un premier échange</a>' +
       '<a href="mentions-legales.html">Mentions légales</a>' +
       "</div></div>";
 
