@@ -58,7 +58,7 @@ async function auditPage(page, path, label) {
 
   for (const { href } of links) {
     if (!href || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) continue;
-    if (href.startsWith("http") && !href.includes("readiness-industrie.github.io") && !href.includes("calendly.com")) continue;
+    if (href.startsWith("http") && !href.includes("readiness-industrie.github.io")) continue;
     let target = href;
     if (href.startsWith("#")) {
       const id = href.slice(1);
