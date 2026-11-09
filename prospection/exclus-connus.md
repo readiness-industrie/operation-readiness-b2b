@@ -46,6 +46,12 @@ menissez
 syrinx
 handynamic
 leviathan
+delpharm
+grandpuits
+eurolysine
+evoluderm
+sgd pharma
+tiamat
 ```
 
 ## Déjà traitées dans les fichiers du 9 novembre
@@ -55,3 +61,7 @@ Shneider's, GMA / AIT Ingredients, Hexa-Pac, Metarom, AkzoNobel, Safran, Aresia,
 ## Préparée le 9 novembre, après-midi
 
 Votat, Pont-Sainte-Maxence. Mail rédigé, non envoyé. Voir `vague-2026-11-09-14h.md`.
+
+## Préparée le 10 novembre, sans mail
+
+Delpharm Brétigny (adresse nominative non trouvée), Grandpuits (même motif, fraîcheur du chantier à revoir si un article de novembre paraît), SGD Pharma (offre travaux neufs hors ligne), Eurolysine (pas de démarrage daté), Evoluderm (cible faible, jour J 2029, boîte générale), Tiamat (déjà contactée et usine ajournée). Voir `vague-2026-11-10/`.
