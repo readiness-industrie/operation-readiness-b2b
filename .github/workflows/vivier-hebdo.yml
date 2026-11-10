@@ -1,0 +1,54 @@
+name: Vivier de prospection
+
+on:
+  schedule:
+    # 06:00 UTC le lundi : 07:00 à Paris en hiver, 08:00 en été.
+    # GitHub peut décaler un cron. Aucun secret, aucun envoi.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collecter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Lire les pages publiques et compléter le vivier
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          if git rev-parse --verify origin/vivier-hebdo >/dev/null 2>&1; then
+            git checkout -B vivier-hebdo origin/vivier-hebdo
+          else
+            git checkout -B vivier-hebdo origin/main
+          fi
+          python3 scripts/vivier_hebdo.py
+          if git diff --quiet -- prospection/vivier.md; then
+            echo "Aucun libellé nouveau."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prospection/vivier.md
+          git commit -m "Ajouter les libellés publics de la semaine"
+          git push origin vivier-hebdo
+          if ! gh pr list --head vivier-hebdo --state open --json number --jq "length" | grep -qx "0"; then
+            echo "La demande de fusion du vivier est déjà ouverte."
+            exit 0
+          fi
+          gh pr create \
+            --base main \
+            --head vivier-hebdo \
+            --title "Vivier : libellés publics de la semaine" \
+            --body "Ajout automatique de libellés lus sur les pages d'arrêtés de l'Oise et de la Somme (Amiens). Ce n'est pas une cible qualifiée. Aucun mail, aucune adresse inventée."
+        env:
+          GH_TOKEN: ${{ github.token }}
