@@ -1,0 +1,51 @@
+Contrôle anti-doublon par code — vague du 13/11/2026
+Exécuté le 11/11/2026. Sorties réelles, non réécrites.
+Index demandé : contacted-domains.json joint (updated_at 2026-11-11, note : lecture Gmail jusqu'au 11/11, 20 h 46).
+
+Aucune entreprise n'a été retenue. La commande `npm run doublon` n'a pas pu être lancée : le dépôt qui contient le programme est introuvable. L'instruction dit d'arrêter et de signaler en cas d'erreur (code 2). Aucun code 0 ni code 1 n'a été produit.
+
+## 1. Clone
+
+Commande :
+git clone --depth 1 https://github.com/readiness-industrie/Agents-readiness.git /tmp/ar-wave2
+
+Sortie :
+Cloning into '/tmp/ar-wave2'...
+remote: Repository not found.
+fatal: repository 'https://github.com/readiness-industrie/Agents-readiness.git/' not found
+
+Code de sortie git : 128
+
+Le même clone avec le jeton du dépôt operation-readiness-b2b a renvoyé la même erreur (« Repository not found »). L'API GitHub sur ce dépôt renvoie 404. Le paquet npm @readiness/agents-readiness n'est pas dans le registre public (404).
+
+## 2. npm run doublon
+
+Le dossier cloné n'existe pas. `npm ci` n'a pas été lancé. Tentative de la commande demandée depuis /tmp, pour montrer qu'elle ne s'exécute pas :
+
+Commande :
+npm run doublon -- --index <chemin de contacted-domains.json joint> --company "Photospace" --email contact@photospace.fr
+
+Sortie :
+npm error code ENOENT
+npm error syscall open
+npm error path /tmp/package.json
+npm error errno -2
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/tmp/package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+
+Code de sortie npm : 254
+
+Photospace n'est pas qualifiée. La ligne ci-dessus n'est pas un résultat du programme de doublon. C'est la preuve que le programme n'a pas tourné.
+
+## 3. Lecture du fichier d'index (ce n'est pas le contrôle par code)
+
+Cette lecture ne remplace pas `npm run doublon`. Elle est notée pour que la prochaine exécution sache quoi lui passer.
+
+- domains : 1521 entrées. photospace.fr absent. delpharm.com, svr.com, hermes.com, stooly.fr absents de la recherche par sous-chaîne faite à part.
+- emails : 1574 entrées. contact@photospace.fr absent.
+- companies : une seule entrée, « Lin 2000 » (ajout du 11/11/2026, mail du 20/10/2026).
+- bounces : une entrée, contact@balas.fr / balas.fr / Balas, 2026-11-10, domaine introuvable.
+- Les neuf adresses de relance du 06/11/2026 sont absentes de emails et leurs domaines sont absents de domains. Détail dans relances.md.
+
+ANALYSE-SUPERIEURE-2026-11-10.md : même dépôt, page GitHub 404. Fichier non lu.
